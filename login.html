@@ -5,38 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
     <title>Aagneya</title>
-
     <style>
         [x-cloak] {
             display: none
         }
+
+        html, body {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+        }
+
+        .container {
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
     </style>
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         tailwind.config = {
             darkMode: 'class',
         }
     </script>
-
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body x-data="{ open: true, darkMode: false }" :class="darkMode ? 'dark:bg-gray-900' : 'bg-white'">
     <div class="relative min-h-screen">
         <section>
-            <div class="container px-6 py-24 mx-auto lg:py-32">
-                <div class="lg:flex">
-                    <div class="lg:w-1/2">
-                        <img class="w-auto h-7 sm:h-8" src="logo" alt="">
-
-                        <h1 class="mt-4 text-gray-600 dark:text-gray-300 md:text-lg">Welcome back</h1>
-
-                        <h1 class="mt-4 text-2xl font-medium text-gray-800 capitalize lg:text-3xl dark:text-white">
+            <div class="container px-12 py-54 mx-auto lg:py-72">
+                <div class="lg:flex" >
+                    <div class="lg:w-1/2 flex flex-col items-start" style="padding-bottom: 700px;">
+                        <img class="w-auto h-40 sm:h-48 mb-2 mt-[-70px]" src="img/logo.jpg" alt="Logo">
+                        <h1 class="text-gray-600 dark:text-gray-300 md:text-lg">Welcome back</h1>
+                        <h1 class="mt-1  mb-20 text-2xl font-medium text-gray-800 capitalize lg:text-3xl dark:text-white" >
                             login to your account
                         </h1>
                     </div>
@@ -81,6 +84,5 @@
         </section>
     </div>
 </body>
-
 
 </html>
