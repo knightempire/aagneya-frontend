@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: rgb(150, 19, 0);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(150, 19, 0);
+      color: white;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar nav ul li {
+      margin-left: 20px;
+    }
+
+    .navbar nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 80px 20px;
+      margin-top: 60px;
+    }
+
+    .card-container, .announcement-container, .blog-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card, .announcement, .blog {
+      background-color: white;
+      border: 1px solid rgb(150, 19, 0);
+      border-radius: 5px;
+      overflow: hidden;
+      width: calc(50% - 10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img, .announcement img, .blog img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content, .announcement-content, .blog-content {
+      padding: 15px;
+    }
+
+    .card-content h2, .announcement-content h2, .blog-content h2 {
+      margin: 0 0 10px;
+      color: rgb(150, 19, 0);
+    }
+
+    .card-content p, .announcement-content p, .blog-content p {
+      margin: 0;
+      color: rgb(150, 19, 0);
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo1.png" alt="Logo 1">
+      <img src="logo2.png" alt="Logo 2">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="about" class="section">
+      <h1>About Us</h1>
+      <p>This is the about section.</p>
+    </section>
+    <section id="events" class="section">
+      <h1>Events</h1>
+      <div class="card-container">
+        <!-- Event cards -->
+        <div class="card">
+          <img src="event1.jpg" alt="Event 1">
+          <div class="card-content">
+            <h2>Event 1</h2>
+            <p>Details about Event 1</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="event2.jpg" alt="Event 2">
+          <div class="card-content">
+            <h2>Event 2</h2>
+            <p>Details about Event 2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="announcements" class="section">
+      <h1>Announcements</h1>
+      <div class="announcement-container">
+        <!-- Announcement with picture -->
+        <div class="announcement">
+          <img src="announcement1.jpg" alt="Announcement 1">
+          <div class="announcement-content">
+            <h2>Announcement 1</h2>
+            <p>Details about Announcement 1</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="blogs" class="section">
+      <h1>Blogs</h1>
+      <div class="blog-container">
+        <!-- Blog with picture -->
+        <div class="blog">
+          <img src="blog1.jpg" alt="Blog 1">
+          <div class="blog-content">
+            <h2>Blog 1</h2>
+            <p>Details about Blog 1</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="login" class="section">
+      <h1>Login</h1>
+      <p>Login form will be here.</p>
+    </section>
+  </main>
+</body>
+</html>
