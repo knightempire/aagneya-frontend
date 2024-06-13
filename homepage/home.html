@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="flex flex-col min-h-dvh">
+      <header
+        class="px-6 lg:px-8 h-16 flex items-center bg-gray-900 text-white"
+      >
+        <div class="flex items-center gap-4">
+          <a class="flex items-center justify-center" href="#">
+            <img
+              src="../img/Intranet-Logo_1.jpg"
+              alt="Image 1"
+              class="h-6 w-100"
+            />
+            <span class="sr-only">Sports Website</span>
+          </a>
+          <a class="flex items-center justify-center p-6" href="#">
+            <img src="../img/logo.jpg" alt="Image 2" class="h-10 w-15" />
+            <span class="sr-only">Sports Website</span>
+          </a>
+        </div>
+        <nav class="ml-auto flex gap-4 sm:gap-6">
+          <a
+            href="#"
+            class="text-m font-medium hover:underline underline-offset-4"
+          >
+            About
+          </a>
+          <a
+            class="text-m font-medium hover:underline underline-offset-4"
+            href="#"
+          >
+            Events
+          </a>
+          <a
+            class="text-m font-medium hover:underline underline-offset-4"
+            href="#"
+          >
+            Login
+          </a>
+        </nav>
+      </header>
+
+      <main class="flex-1 justify-center">
+        <section class="w-full py-12 md:py-24 lg:py-32">
+          <div class="container px-4 md:px-6">
+            <div class="mx-auto max-w-5xl">
+              <div
+                aria-roledescription="carousel"
+                class="relative aspect-[3/1] rounded-xl overflow-hidden"
+                role="region"
+              >
+                <div class="overflow-hidden">
+                  <div
+                    class="flex -ml-4"
+                    id="carousel"
+                    style="transform: translate3d(0px, 0px, 0px)"
+                  >
+                    <!-- Slides will be inserted here -->
+                  </div>
+                </div>
+              </div>
+              <div
+                id="achievement-description"
+                class="text-center mt-4 text-lg font-medium text-gray-700"
+              ></div>
+              <div class="flex justify-center mt-4">
+                <a
+                  href="#"
+                  class="inline-flex h-10 items-center justify-center rounded-md bg-black px-8 text-sm font-medium text-white shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
+                >
+                  View Achievements
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+        >
+          <div class="container px-4 md:px-6">
+            <div class="mx-auto max-w-5xl">
+              <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                Upcoming Events
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6"
+                id="events"
+              >
+                <!-- Events will be inserted here -->
+              </div>
+              <div class="flex justify-center mt-6">
+                <a
+                  href="#"
+                  class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+                >
+                  View All Events
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="w-full py-12 md:py-24 lg:py-32">
+          <div class="container px-4 md:px-6">
+            <div class="mx-auto max-w-5xl">
+              <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                From the Blog
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6"
+                id="blogs"
+              >
+                <!-- Blogs will be inserted here -->
+              </div>
+              <div class="flex justify-center mt-6">
+                <a
+                  href="#"
+                  class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                >
+                  View All Blog Posts
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer
+        class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-gray-900 text-white"
+      >
+        <p class="text-xs text-white-500 dark:text-white-400">
+          © 2024 Sports Website. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      const data = {
+        achievements: [
+          {
+            src: "../img/achievement.jpg",
+            alt: "Achievement 1",
+            title: "First Achievement",
+            description:
+              "This is the first achievement description. lorem ipsum first achievement description. lorem ipfirst achievement description. lorem ipfirst achievement description. lorem ipsum dolor sit amet, conssum dolor sit amet, conssum dolor sit amet, consdolor sit amet, consectetur adipiscing elit.",
+            link: "#",
+          },
+          {
+            src: "../img/achievement.jpg",
+            alt: "Achievement 2",
+            title: "Second Achievement",
+            description:
+              "This is the second achievement description. lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            link: "#",
+          },
+          {
+            src: "../img/achievement.jpg",
+            alt: "Achievement 3",
+            title: "Third Achievement",
+            description: "This is the third achievement description.",
+            link: "#",
+          },
+        ],
+        events: [
+          {
+            title: "Soccer Tournament",
+            date: "June 15, 2023",
+            location: "Acme Sports Complex",
+            link: "#",
+          },
+          {
+            title: "Basketball Clinic",
+            date: "July 1, 2023",
+            location: "Sportsplex Arena",
+            link: "#",
+          },
+          {
+            title: "Track and Field Meet",
+            date: "August 10, 2023",
+            location: "Acme Sports Stadium",
+            link: "#",
+          },
+        ],
+        blogs: [
+          {
+            src: "../img/blog.jpg",
+            alt: "Blog Post 1",
+            title: "The Rise of Esports in Sports",
+            date: "June 1, 2023",
+            description:
+              "Exploring the growing popularity of esports and its impact on traditional sports.",
+            link: "#",
+          },
+          {
+            src: "../img/blog.jpg",
+            alt: "Blog Post 2",
+            title: "The Science Behind Sports Nutrition",
+            date: "May 15, 2023",
+            description:
+              "Discover the key nutrients athletes need to perform at their best.",
+            link: "#",
+          },
+          {
+            src: "../img/blog.jpg",
+            alt: "Blog Post 3",
+            title: "The Mental Game: Strategies for Peak Performance",
+            date: "April 30, 2023",
+            description:
+              "Explore the psychological aspects of sports and how to train your mind for success.",
+            link: "#",
+          },
+        ],
+      };
+
+      // Populate achievements carousel
+      const carousel = document.getElementById("carousel");
+      const description = document.getElementById("achievement-description");
+      data.achievements.forEach((achievement, index) => {
+        const slide = document.createElement("a");
+        slide.setAttribute("aria-roledescription", "slide");
+        slide.classList.add(
+          "min-w-0",
+          "shrink-0",
+          "grow-0",
+          "basis-full",
+          "pl-4"
+        );
+        slide.href = achievement.link;
+        slide.style.display = index === 0 ? "block" : "none";
+        slide.innerHTML = `
+        <img
+          src="${achievement.src}"
+          width="1200"
+          height="400"
+          alt="${achievement.alt}"
+          class="aspect-[3/1] object-cover   "
+        />
+      `;
+        carousel.appendChild(slide);
+
+        if (index === 0) {
+          description.textContent = achievement.description;
+        }
+      });
+
+      // Carousel functionality
+      let currentIndex = 0;
+      const slides = document.querySelectorAll("#carousel > a");
+      const totalSlides = slides.length;
+
+      setInterval(() => {
+        slides[currentIndex].style.display = "none";
+        currentIndex = (currentIndex + 1) % totalSlides;
+        slides[currentIndex].style.display = "block";
+        description.textContent = data.achievements[currentIndex].description;
+      }, 5000);
+
+      // Populate events
+      const eventsContainer = document.getElementById("events");
+      data.events.forEach((event) => {
+        const eventCard = document.createElement("a");
+        eventCard.classList.add(
+          "rounded-lg",
+          "border",
+          "bg-white",
+          "text-card-foreground",
+          "shadow-sm"
+        );
+        eventCard.href = event.link;
+        eventCard.innerHTML = `
+        <div class="p-4">
+          <div class="flex flex-col gap-2">
+            <div class="text-lg font-bold">${event.title}</div>
+            <div class="text-gray-500 dark:text-gray-400">${event.date}</div>
+            <div class="text-gray-500 dark:text-gray-400">${event.location}</div>
+          </div>
+        </div>
+      `;
+        eventsContainer.appendChild(eventCard);
+      });
+
+      // Populate blogs
+      const blogsContainer = document.getElementById("blogs");
+      data.blogs.forEach((blog) => {
+        const blogCard = document.createElement("a");
+        blogCard.classList.add(
+          "rounded-lg",
+          "border",
+          "bg-card",
+          "text-card-foreground",
+          "shadow-sm"
+        );
+        blogCard.href = blog.link;
+        blogCard.innerHTML = `
+        <div class="p-0">
+          <img
+            src="${blog.src}"
+            width="400"
+            height="225"
+            alt="${blog.alt}"
+            class="aspect-video object-cover"
+          />
+        </div>
+        <div class="flex items-center p-4">
+          <div class="flex flex-col gap-2">
+            <div class="text-lg font-bold">${blog.title}</div>
+            <div class="text-gray-500 dark:text-gray-400">${blog.date}</div>
+            <div class="text-gray-500 dark:text-gray-400">${blog.description}</div>
+          </div>
+        </div>
+      `;
+        blogsContainer.appendChild(blogCard);
+      });
+    </script>
+  </body>
+</html>
