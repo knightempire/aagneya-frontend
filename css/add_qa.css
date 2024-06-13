@@ -1,0 +1,154 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .steps-container {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step span {
+      color: #999;
+      font-size: 14px;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .step.active span {
+      color: #a659be;
+    }
+
+    .line {
+      height: 5px;
+      background-color: #ddd;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .active-line {
+      height: 100%;
+      background-color: #5c0a75;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .slider-ctr {
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    .slider-form {
+      flex: 1 0 100%;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .slider-form.active {
+      display: flex;
+    }
+
+    .slider-form h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .slider-form input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      background: #fafafa;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+
+    .slider-form input[type="text"]:focus {
+      border-color: #b166b5;
+      background-color: #fff;
+    }
+
+    .slider-form button {
+      background-color: #9e49cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .slider-form button:hover {
+      background-color: #9f65ad;
+    }
+
+    .validation-message {
+      display: none;
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      border: 1px solid #f5c6cb;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .slider-form {
+        padding: 15px;
+      }
+
+      .slider-form h2 {
+        font-size: 1.2rem;
+      }
+
+      .slider-form input[type="text"] {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .slider-form button {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+    }
