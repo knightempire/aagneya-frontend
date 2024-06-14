@@ -1,334 +1,277 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
+    <title>Sports Event Website</title>
 
     <style>
-      [x-cloak] {
-        display: none;
-      }
+        [x-cloak] {
+            display: none;
+        }
     </style>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
+        tailwind.config = {
+            darkMode: "class",
+        };
     </script>
-  </head>
+</head>
 
-  <body>
+<body>
+
     <div class="flex flex-col min-h-dvh">
-      <header
-        class="px-6 lg:px-8 h-16 flex items-center bg-gray-900 text-white"
-      >
-        <div class="flex items-center gap-4">
-          <a class="flex items-center justify-center" href="#">
-            <img
-              src="../img/Intranet-Logo_1.jpg"
-              alt="Image 1"
-              class="h-6 w-100"
-            />
-            <span class="sr-only">Sports Website</span>
-          </a>
-          <a class="flex items-center justify-center p-6" href="#">
-            <img src="../img/logo.jpg" alt="Image 2" class="h-10 w-15" />
-            <span class="sr-only">Sports Website</span>
-          </a>
-        </div>
-        <nav class="ml-auto flex gap-4 sm:gap-6">
-          <a
-            href="#"
-            class="text-m font-medium hover:underline underline-offset-4"
-          >
-            About
-          </a>
-          <a
-            class="text-m font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Events
-          </a>
-          <a
-            class="text-m font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Login
-          </a>
-        </nav>
-      </header>
+        <header class="px-6 lg:px-8 h-16 flex items-center bg-gray-900 text-white">
+            <div class="flex items-center gap-4">
+                <a class="flex items-center justify-center" href="#">
+                    <img src="../img/Intranet-Logo_1.jpg" alt="Image 1" class="h-6 w-100" />
+                    <span class="sr-only">Sports Website</span>
+                </a>
+                <a class="flex items-center justify-center p-6" href="#">
+                    <img src="../img/logo.jpg" alt="Image 2" class="h-10 w-15" />
+                    <span class="sr-only">Sports Website</span>
+                </a>
+            </div>
+            <nav class="ml-auto flex gap-4 sm:gap-6">
+                <a href="#" class="text-m font-medium hover:underline underline-offset-4">About</a>
+                <a class="text-m font-medium hover:underline underline-offset-4" href="#">Events</a>
+                <a class="text-m font-medium hover:underline underline-offset-4" href="#">Login</a>
+            </nav>
+        </header>
 
-      <main class="flex-1 justify-center">
-        <section class="w-full py-12 md:py-24 lg:py-32">
-          <div class="container px-4 md:px-6">
-            <div class="mx-auto max-w-5xl">
-              <div
-                aria-roledescription="carousel"
-                class="relative aspect-[3/1] rounded-xl overflow-hidden"
-                role="region"
-              >
-                <div class="overflow-hidden">
-                  <div
-                    class="flex -ml-4"
-                    id="carousel"
-                    style="transform: translate3d(0px, 0px, 0px)"
-                  >
-                    <!-- Slides will be inserted here -->
-                  </div>
+
+        <main class="w-full max-w-7xl mx-auto py-2 px-2 md:px-2">
+          <h2 class="text-3xl font-bold tracking-tighter text-center mt-8">Aagneya</h2>
+            <section class="w-full py-12 md:py-24 lg:py-32">
+                <div class="container px-4 md:px-6">
+                    <div class="mx-auto max-w-5xl">
+                        <div aria-roledescription="carousel" class="relative aspect-[3/1] rounded-xl overflow-hidden"
+                            role="region">
+                            <div class="overflow-hidden">
+                                <div class="flex -ml-4" id="carousel"
+                                    style="transform: translate3d(0px, 0px, 0px)">
+                                    <!-- Slides will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                        <div id="achievement-description"
+                            class="text-center mt-4 text-lg font-medium text-gray-700"></div>
+                        <div class="flex justify-center mt-4">
+                            <a href="#"
+                                class="inline-flex h-10 items-center justify-center rounded-md bg-black px-8 text-sm font-medium text-white shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50">
+                                View Achievements
+                            </a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div
-                id="achievement-description"
-                class="text-center mt-4 text-lg font-medium text-gray-700"
-              ></div>
-              <div class="flex justify-center mt-4">
-                <a
-                  href="#"
-                  class="inline-flex h-10 items-center justify-center rounded-md bg-black px-8 text-sm font-medium text-white shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-                >
-                  View Achievements
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section
-          class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
-        >
-          <div class="container px-4 md:px-6">
-            <div class="mx-auto max-w-5xl">
-              <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                Upcoming Events
-              </h2>
-              <div
-                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6"
-                id="events"
-              >
-                <!-- Events will be inserted here -->
-              </div>
-              <div class="flex justify-center mt-6">
-                <a
-                  href="#"
-                  class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                >
-                  View All Events
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="w-full py-12 md:py-24 lg:py-32">
-          <div class="container px-4 md:px-6">
-            <div class="mx-auto max-w-5xl">
-              <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                From the Blog
-              </h2>
-              <div
-                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6"
-                id="blogs"
-              >
-                <!-- Blogs will be inserted here -->
-              </div>
-              <div class="flex justify-center mt-6">
-                <a
-                  href="#"
-                  class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                >
-                  View All Blog Posts
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer
-        class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-gray-900 text-white"
-      >
-        <p class="text-xs text-white-500 dark:text-white-400">
-          © 2024 Sports Website. All rights reserved.
-        </p>
-      </footer>
+            </section>
+            <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+                <div class="container px-4 md:px-6">
+                    <div class="mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">Upcoming Events</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6" id="events">
+                            <!-- Events will be inserted here -->
+                        </div>
+                        <div class="flex justify-center mt-6">
+                            <a href="#"
+                                class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300">
+                                View All Events
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="w-full py-12 md:py-24 lg:py-32">
+                <div class="container px-4 md:px-6">
+                    <div class="mx-auto max-w-5xl">
+                        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">From the Blog</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6" id="blogs">
+                            <!-- Blogs will be inserted here -->
+                        </div>
+                        <div class="flex justify-center mt-6">
+                            <a href="#"
+                                class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300">
+                                View All Blog Posts
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer
+            class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-gray-900 text-white">
+            <p class="text-xs text-white-500 dark:text-white-400">© 2024 Sports Website. All rights reserved.</p>
+        </footer>
     </div>
 
+    <template id="achievement-template">
+        <a aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" href="#">
+            <img src="" width="1200" height="400" alt="" class="aspect-[3/1] object-cover" />
+        </a>
+    </template>
+
+    <template id="event-template">
+        <a class="rounded-lg border bg-white text-card-foreground shadow-sm" href="#">
+            <div class="p-4">
+                <div class="flex flex-col gap-2">
+                    <div class="text-lg font-bold">Event Title</div>
+                    <div class="text-gray-500 dark:text-gray-400">Event Date</div>
+                    <div class="text-gray-500 dark:text-gray-400">Event Location</div>
+                </div>
+            </div>
+        </a>
+    </template>
+
+    <template id="blog-template">
+        <a class="rounded-lg border bg-card text-card-foreground shadow-sm" href="#">
+            <div class="p-0">
+                <img src="" width="400" height="225" alt="" class="aspect-video object-cover" />
+            </div>
+            <div class="flex items-center p-4">
+                <div class="flex flex-col gap-2">
+                    <div class="text-lg font-bold">Blog Title</div>
+                    <div class="text-gray-500 dark:text-gray-400">Blog Date</div>
+                    <div class="text-gray-500 dark:text-gray-400">Blog Description</div>
+                </div>
+            </div>
+        </a>
+    </template>
+
     <script>
-      const data = {
-        achievements: [
-          {
+ const data = {
+    achievements: [
+        {
             src: "../img/achievement.jpg",
             alt: "Achievement 1",
-            title: "First Achievement",
+            title: "Outstanding Team Performance",
             description:
-              "This is the first achievement description. lorem ipsum first achievement description. lorem ipfirst achievement description. lorem ipfirst achievement description. lorem ipsum dolor sit amet, conssum dolor sit amet, conssum dolor sit amet, consdolor sit amet, consectetur adipiscing elit.",
+                "Our team displayed exceptional skill and teamwork, earning the top spot in the regional championship. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.",
             link: "#",
-          },
-          {
+        },
+        {
             src: "../img/achievement.jpg",
             alt: "Achievement 2",
-            title: "Second Achievement",
+            title: "Excellence in Sportsmanship",
             description:
-              "This is the second achievement description. lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "Awarded for demonstrating the highest level of sportsmanship and integrity throughout the season. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
             link: "#",
-          },
-          {
+        },
+        {
             src: "../img/achievement.jpg",
             alt: "Achievement 3",
-            title: "Third Achievement",
-            description: "This is the third achievement description.",
+            title: "Record-Breaking Performance",
+            description:
+                "Breaking the school record in the 100m sprint with an incredible time of 10.5 seconds. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec tellus sed augue semper porta. Mauris massa.",
             link: "#",
-          },
-        ],
-        events: [
-          {
-            title: "Soccer Tournament",
+        },
+    ],
+    events: [
+        {
+            title: "Inter-University Soccer Tournament",
             date: "June 15, 2023",
             location: "Acme Sports Complex",
             link: "#",
-          },
-          {
-            title: "Basketball Clinic",
+        },
+        {
+            title: "Advanced Basketball Clinic",
             date: "July 1, 2023",
             location: "Sportsplex Arena",
             link: "#",
-          },
-          {
-            title: "Track and Field Meet",
+        },
+        {
+            title: "Annual Track and Field Meet",
             date: "August 10, 2023",
             location: "Acme Sports Stadium",
             link: "#",
-          },
-        ],
-        blogs: [
-          {
+        },
+    ],
+    blogs: [
+        {
             src: "../img/blog.jpg",
-            alt: "Blog Post 1",
+            alt: "Esports Blog",
             title: "The Rise of Esports in Sports",
             date: "June 1, 2023",
             description:
-              "Exploring the growing popularity of esports and its impact on traditional sports.",
+                "Exploring the growing popularity of esports and its impact on traditional sports. Esports has become a major force in the sports industry, attracting millions of viewers worldwide. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             link: "#",
-          },
-          {
+        },
+        {
             src: "../img/blog.jpg",
-            alt: "Blog Post 2",
+            alt: "Nutrition Blog",
             title: "The Science Behind Sports Nutrition",
             date: "May 15, 2023",
             description:
-              "Discover the key nutrients athletes need to perform at their best.",
+                "Discover the key nutrients athletes need to perform at their best. Proper nutrition is crucial for athletes to maintain peak performance and recover quickly. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             link: "#",
-          },
-          {
+        },
+        {
             src: "../img/blog.jpg",
-            alt: "Blog Post 3",
+            alt: "Mental Game Blog",
             title: "The Mental Game: Strategies for Peak Performance",
             date: "April 30, 2023",
             description:
-              "Explore the psychological aspects of sports and how to train your mind for success.",
+                "Explore the psychological aspects of sports and how to train your mind for success. Mental strength is as important as physical strength in achieving sports excellence. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             link: "#",
-          },
-        ],
-      };
+        },
+    ],
+};
 
-      // Populate achievements carousel
-      const carousel = document.getElementById("carousel");
-      const description = document.getElementById("achievement-description");
-      data.achievements.forEach((achievement, index) => {
-        const slide = document.createElement("a");
-        slide.setAttribute("aria-roledescription", "slide");
-        slide.classList.add(
-          "min-w-0",
-          "shrink-0",
-          "grow-0",
-          "basis-full",
-          "pl-4"
-        );
-        slide.href = achievement.link;
-        slide.style.display = index === 0 ? "block" : "none";
-        slide.innerHTML = `
-        <img
-          src="${achievement.src}"
-          width="1200"
-          height="400"
-          alt="${achievement.alt}"
-          class="aspect-[3/1] object-cover   "
-        />
-      `;
-        carousel.appendChild(slide);
+        // Populate achievements carousel
+        const carousel = document.getElementById("carousel");
+        const description = document.getElementById("achievement-description");
+        const achievementTemplate = document.getElementById("achievement-template").content;
+        data.achievements.forEach((achievement, index) => {
+            const slide = document.importNode(achievementTemplate, true);
+            slide.querySelector("a").href = achievement.link;
+            slide.querySelector("img").src = achievement.src;
+            slide.querySelector("img").alt = achievement.alt;
+            carousel.appendChild(slide);
 
-        if (index === 0) {
-          description.textContent = achievement.description;
-        }
-      });
+            if (index === 0) {
+                description.textContent = achievement.description;
+            }
+        });
 
-      // Carousel functionality
-      let currentIndex = 0;
-      const slides = document.querySelectorAll("#carousel > a");
-      const totalSlides = slides.length;
+        // Carousel functionality
+        let currentIndex = 0;
+        const slides = document.querySelectorAll("#carousel > a");
+        const totalSlides = slides.length;
 
-      setInterval(() => {
-        slides[currentIndex].style.display = "none";
-        currentIndex = (currentIndex + 1) % totalSlides;
-        slides[currentIndex].style.display = "block";
-        description.textContent = data.achievements[currentIndex].description;
-      }, 5000);
+        setInterval(() => {
+            slides[currentIndex].style.display = "none";
+            currentIndex = (currentIndex + 1) % totalSlides;
+            slides[currentIndex].style.display = "block";
+            description.textContent = data.achievements[currentIndex].description;
+        }, 5000);
 
-      // Populate events
-      const eventsContainer = document.getElementById("events");
-      data.events.forEach((event) => {
-        const eventCard = document.createElement("a");
-        eventCard.classList.add(
-          "rounded-lg",
-          "border",
-          "bg-white",
-          "text-card-foreground",
-          "shadow-sm"
-        );
-        eventCard.href = event.link;
-        eventCard.innerHTML = `
-        <div class="p-4">
-          <div class="flex flex-col gap-2">
-            <div class="text-lg font-bold">${event.title}</div>
-            <div class="text-gray-500 dark:text-gray-400">${event.date}</div>
-            <div class="text-gray-500 dark:text-gray-400">${event.location}</div>
-          </div>
-        </div>
-      `;
-        eventsContainer.appendChild(eventCard);
-      });
+        // Populate events
+        const eventsContainer = document.getElementById("events");
+        const eventTemplate = document.getElementById("event-template").content;
+        data.events.forEach((event) => {
+            const eventCard = document.importNode(eventTemplate, true);
+            eventCard.querySelector("a").href = event.link;
+            eventCard.querySelector(".text-lg.font-bold").textContent = event.title;
+            eventCard.querySelector(".text-gray-500.dark\\:text-gray-400").textContent = event.date;
+            eventCard.querySelector(".text-gray-500.dark\\:text-gray-400").nextElementSibling.textContent = event.location;
+            eventsContainer.appendChild(eventCard);
+        });
 
-      // Populate blogs
-      const blogsContainer = document.getElementById("blogs");
-      data.blogs.forEach((blog) => {
-        const blogCard = document.createElement("a");
-        blogCard.classList.add(
-          "rounded-lg",
-          "border",
-          "bg-card",
-          "text-card-foreground",
-          "shadow-sm"
-        );
-        blogCard.href = blog.link;
-        blogCard.innerHTML = `
-        <div class="p-0">
-          <img
-            src="${blog.src}"
-            width="400"
-            height="225"
-            alt="${blog.alt}"
-            class="aspect-video object-cover"
-          />
-        </div>
-        <div class="flex items-center p-4">
-          <div class="flex flex-col gap-2">
-            <div class="text-lg font-bold">${blog.title}</div>
-            <div class="text-gray-500 dark:text-gray-400">${blog.date}</div>
-            <div class="text-gray-500 dark:text-gray-400">${blog.description}</div>
-          </div>
-        </div>
-      `;
-        blogsContainer.appendChild(blogCard);
-      });
+        // Populate blogs
+        const blogsContainer = document.getElementById("blogs");
+        const blogTemplate = document.getElementById("blog-template").content;
+        data.blogs.forEach((blog) => {
+            const blogCard = document.importNode(blogTemplate, true);
+            blogCard.querySelector("a").href = blog.link;
+            blogCard.querySelector("img").src = blog.src;
+            blogCard.querySelector("img").alt = blog.alt;
+            blogCard.querySelector(".text-lg.font-bold").textContent = blog.title;
+            blogCard.querySelector(".text-gray-500.dark\\:text-gray-400").textContent = blog.date;
+            blogCard.querySelector(".text-gray-500.dark\\:text-gray-400").nextElementSibling.textContent = blog.description;
+            blogsContainer.appendChild(blogCard);
+        });
     </script>
-  </body>
+</body>
+
 </html>
