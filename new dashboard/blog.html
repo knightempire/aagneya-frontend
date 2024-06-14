@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+        };
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <header class="bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
+            <a class="flex items-center gap-2" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+              </svg>
+              <span class="text-xl font-bold">Sports Dashboard</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6">
+              <a class="hover:underline" href="./dashboard.html">
+                Dashboard
+              </a>
+              <a class="hover:underline" href="./events.html">
+                Events
+              </a>
+              <a class="hover:underline" href="./achievements.html">
+                Achievements
+              </a>
+              <a class="hover:underline" href="./blog.html">
+                Blogs
+              </a>
+              <a class="hover:underline" href="./users.html">
+                Users
+              </a>
+              <a class="hover:underline" href="#">
+                Voting
+              </a>
+              <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 ml-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" x2="9" y1="12" y2="12"></line>
+                </svg>
+                <span class="sr-only">Logout</span>
+              </button>
+            </nav>
+            <button id="menu-toggle"
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 md:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+              <span class="sr-only">Toggle menu</span>
+            </button>
+          </header>
+          <nav id="mobile-menu" class="hidden md:hidden bg-gray-900 text-white">
+            <a class="block py-2 px-4 text-sm text-white hover:bg-gray-700" href="./dashboard.html">
+              Dashboard
+            </a>
+            <a class="block py-2 px-4 text-sm text-white hover:bg-gray-700" href="./events.html">
+              Events
+            </a>
+            <a class="block py-2 px-4 text-sm text-white hover:bg-gray-700" href="./achievements.html">
+              Achievements
+            </a>
+            <a class="block py-2 px-4 text-sm text-white hover:bg-gray-700" href="./blog.html">
+              Blogs
+            </a>
+            <a class="block py-2 px-4 text-sm text-white hover:bg-gray-700" href="./users.html">
+              Users
+            </a>
+            <a class="block py-2 px-4 text-sm text-white hover:bg-gray-700" href="#">
+              Voting
+            </a>
+            <a class="block py-2 px-4 text-sm text-white hover:bg-gray-700" href="#"><button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 ml-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" x2="9" y1="12" y2="12"></line>
+                </svg>
+                <span class="sr-only">Logout</span>
+              </button></a>
+          </nav>
+        </header>
+  
+  <div class="w-full max-w-7xl mx-auto py-8 px-4 md:px-6">
+      <section>
+          <div class="flex items-center justify-between mb-6">
+              <h2 class="text-2xl font-bold">Add New Blog</h2>
+              <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black text-white hover:bg-gray-700 h-11 rounded-md px-8">
+                  Add New Blog
+              </button>
+          </div>
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-v0-t="card">
+              <div class="grid gap-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="grid gap-2">
+                          <label for="blog-title" class="text-sm font-medium">
+                              Blog Title
+                          </label>
+                          <input
+                              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              id="blog-title"
+                              placeholder="Enter blog title"
+                          />
+                      </div>
+                      <div class="grid gap-2">
+                          <label for="blog-author" class="text-sm font-medium">
+                              Author
+                          </label>
+                          <input
+                              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              id="blog-author"
+                              placeholder="Enter author name"
+                          />
+                      </div>
+                      <div class="grid gap-2">
+                          <label for="blog-date" class="text-sm font-medium">
+                              Date
+                          </label>
+                          <input
+                              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              id="blog-date"
+                              type="date"
+                          />
+                      </div>
+                      <div class="grid gap-2">
+                          <label for="blog-image" class="text-sm font-medium">
+                              Image URL
+                          </label>
+                          <input
+                              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              id="blog-image"
+                              placeholder="Enter image URL"
+                          />
+                      </div>
+                  </div>
+                  <div class="grid gap-2">
+                      <label for="blog-description" class="text-sm font-medium">
+                          Blog Description
+                      </label>
+                      <textarea
+                          class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          id="blog-description"
+                          placeholder="Enter blog description"
+                          rows="4"
+                      ></textarea>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <div class="flex justify-between items-center mb-8">
+          <h1 class="text-4xl font-bold">Blogs</h1>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8">
+          <div>
+              <h2 class="text-2xl font-bold mb-4">Pending Blogs</h2>
+              <div class="space-y-4" id="pending-blogs"></div>
+          </div>
+          <div>
+              <h2 class="text-2xl font-bold mb-4">Approved Blogs</h2>
+              <div class="space-y-4" id="approved-blogs"></div>
+          </div>
+      </div>
+  </div>
+
+  <template id="blog-template">
+      <div class="bg-gray-100 rounded-lg p-4">
+          <div class="flex gap-4">
+              <img src="" alt="Blog Image" width="200" height="150" class="rounded-lg object-cover" style="aspect-ratio:200/150;object-fit:cover" />
+              <div class="flex-1">
+                  <h3 class="text-lg font-bold">Blog Title</h3>
+                  <p class="text-gray-600">By Author | Date</p>
+                  <p class="mt-2">Blog Description</p>
+                  <div class="mt-4 flex justify-end space-x-2">
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-700 h-9 rounded-md px-3">Edit</button>
+                      <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-green-500 text-white hover:bg-green-700 h-9 rounded-md px-3">Approve</button>
+                      <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-500 text-white hover:bg-red-700 h-9 rounded-md px-3">Reject</button>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </template>
+
+  <template id="approved-blog-template">
+      <div class="bg-gray-100 rounded-lg p-4">
+          <div class="flex gap-4">
+              <img src="" alt="Blog Image" width="200" height="150" class="rounded-lg object-cover" style="aspect-ratio:200/150;object-fit:cover" />
+              <div class="flex-1">
+                  <h3 class="text-lg font-bold">Blog Title</h3>
+                  <p class="text-gray-600">By Author | Date</p>
+                  <p class="mt-2">Blog Description</p>
+                  <div class="mt-4 flex justify-end space-x-2">
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-blue-500 text-white hover:bg-blue-700 h-9 rounded-md px-3">Edit</button>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-500 text-white hover:bg-red-700 h-9 rounded-md px-3">Delete</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </template>
+
+  <script>
+      const pendingBlogs = [
+          {
+              title: "Annual Sports Gala",
+              date: "2023-07-01",
+              description: "Join us for the annual sports gala, celebrating the achievements of our local athletes and teams.",
+              author: "Unknown",
+              imageUrl: "/placeholder.svg"
+          },
+          {
+              title: "Youth Soccer Tournament",
+              date: "2023-08-15",
+              description: "Witness the next generation of soccer stars as they compete in our annual youth tournament.",
+              author: "Unknown",
+              imageUrl: "/placeholder.svg"
+          },
+          {
+              title: "Charity Run for a Cause",
+              date: "2023-09-10",
+              description: "Lace up your running shoes and join us for a charity run to support a local community initiative.",
+              author: "Unknown",
+              imageUrl: "/placeholder.svg"
+          }
+      ];
+
+      const approvedBlogs = [
+          {
+              title: "The Rise of Esports",
+              date: "2023-06-01",
+              description: "Explore the rapid growth and increasing popularity of esports, a new frontier in the world of competitive gaming.",
+              author: "John Doe",
+              imageUrl: "/placeholder.svg"
+          },
+          {
+              title: "The Future of Sports Technology",
+              date: "2023-05-15",
+              description: "Dive into the latest advancements in sports technology and how they are transforming the way we experience and participate in sports.",
+              author: "Jane Smith",
+              imageUrl: "/placeholder.svg"
+          },
+          {
+              title: "The Art of Sports Photography",
+              date: "2023-04-20",
+              description: "Discover the captivating world of sports photography and the techniques used to capture the thrill and emotion of athletic events.",
+              author: "Michael Johnson",
+              imageUrl: "/placeholder.svg"
+          }
+      ];
+
+      function renderBlogs(containerId, blogs, templateId) {
+          const container = document.getElementById(containerId);
+          const template = document.getElementById(templateId).content;
+          blogs.forEach(blog => {
+              const clone = document.importNode(template, true);
+              clone.querySelector("img").src = blog.imageUrl;
+              clone.querySelector("img").alt = blog.title;
+              clone.querySelector("h3").textContent = blog.title;
+              clone.querySelector("p.text-gray-600").textContent = `By ${blog.author} | ${blog.date}`;
+              clone.querySelector("p.mt-2").textContent = blog.description;
+              container.appendChild(clone);
+          });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+          renderBlogs("pending-blogs", pendingBlogs, "blog-template");
+          renderBlogs("approved-blogs", approvedBlogs, "approved-blog-template");
+      });
+  </script>
+   <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>
