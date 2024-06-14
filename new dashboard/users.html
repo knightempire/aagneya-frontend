@@ -98,69 +98,69 @@
             <div class="max-w-7xl mx-auto">
                 <div class="flex items-center justify-between mb-8">
                     <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100">User Management</h1>
-
                 </div>
                 <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
                     <div class="flex flex-col space-y-1.5 p-6">
-                        <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Add New User
-                        </h3>
+                        <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Add New User</h3>
                     </div>
                     <div class="p-6 grid gap-4">
-                        <div class="grid grid-cols-2 gap-4">
+                        <form id="add-user-form">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="grid gap-2">
+                                    <label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="name">Name</label>
+                                    <input
+                                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                        id="name" value="" />
+                                </div>
+                                <div class="grid gap-2">
+                                    <label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="rollNumber">Roll Number</label>
+                                    <input
+                                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                        id="rollNumber" value="" />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="grid gap-2">
+                                    <label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="email">Email</label>
+                                    <input
+                                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                        id="email" type="email" value="" />
+                                </div>
+                                <div class="grid gap-2">
+                                    <label
+                                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        for="gender">Gender</label>
+                                    <select
+                                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                        id="gender">
+                                        <option value="" disabled selected>Select gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="grid gap-2">
                                 <label
                                     class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    for="name">Name</label>
+                                    for="avatar">Avatar</label>
                                 <input
                                     class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                    id="name" value="" />
+                                    id="avatar" type="text" value="" />
                             </div>
-                            <div class="grid gap-2">
-                                <label
-                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    for="rollNumber">Roll Number</label>
-                                <input
-                                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                    id="rollNumber" value="" />
+                            <div class="flex items-center p-6">
+                                <button
+                                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-green-500 text-white hover:bg-green-700 h-10 px-4 py-2">
+                                    Add User
+                                </button>
                             </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="grid gap-2">
-                                <label
-                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    for="email">Email</label>
-                                <input
-                                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                    id="email" type="email" value="" />
-                            </div>
-                            <div class="grid gap-2">
-                                <label
-                                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    for="gender">Gender</label>
-                                <select
-                                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                    id="gender">
-                                    <option value="" disabled selected>Select gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="grid gap-2">
-                            <label
-                                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                for="avatar">Avatar</label>
-                            <input
-                                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                id="avatar" type="text" value="" />
-                        </div>
-                    </div>
-                    <div class="flex items-center p-6">
-                        <button
-                            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-green-500 text-white hover:bg-green-700 h-10 px-4 py-2">
-                            Add User
-                        </button>
+                        </form>
                     </div>
                 </div>
 
@@ -195,41 +195,85 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="[&_tr:last-child]:border-0">
-                                <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                                    <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
-                                        <img src="/placeholder.svg" width="64" height="64" alt="John Doe"
-                                            class="aspect-square rounded-full object-cover" />
-                                    </td>
-                                    <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">John Doe</td>
-                                    <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">A001</td>
-                                    <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">john.doe@example.com</td>
-                                    <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">Male</td>
-                                    <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
-                                        <div class="flex items-center gap-2">
-                                            <button
-                                                class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
-                                                View
-                                            </button>
-                                            <button
-                                                class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-500 text-white hover:bg-red-700 h-9 rounded-md px-3">
-                                                Remove
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Repeat the above tr block for each user -->
+                            <tbody id="user-table-body" class="[&_tr:last-child]:border-0">
+                                <!-- Users will be dynamically inserted here -->
                             </tbody>
                         </table>
                     </div>
                 </div>
 
+                <template id="user-template">
+                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                        <td class="p-4 align-middle">
+                            <img src="/placeholder.svg" width="64" height="64" alt="User Avatar"
+                                class="aspect-square rounded-full object-cover" />
+                        </td>
+                        <td class="p-4 align-middle font-medium">User Name</td>
+                        <td class="p-4 align-middle">Roll Number</td>
+                        <td class="p-4 align-middle">User Email</td>
+                        <td class="p-4 align-middle">User Gender</td>
+                        <td class="p-4 align-middle">
+                            <div class="flex items-center gap-2">
+                                <button
+                                    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
+                                    View
+                                </button>
+                                <button
+                                    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-500 text-white hover:bg-red-700 h-9 rounded-md px-3">
+                                    Remove
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
 
             </div>
         </main>
     </div>
 
     <script>
+        const users = [
+            { name: "John Doe", roll: "123", email: "john.doe@example.com", gender: "Male" },
+            { name: "Jane Smith", roll: "456", email: "jane.smith@example.com", gender: "Female" },
+            { name: "Michael Johnson", roll: "789", email: "michael.johnson@example.com", gender: "Male" },
+            { name: "Emily Davis", roll: "321", email: "emily.davis@example.com", gender: "Female" }
+        ];
+
+        function renderUsers() {
+            const container = document.getElementById("user-table-body");
+            const template = document.getElementById("user-template").content;
+            container.innerHTML = ''; // Clear existing users
+
+            users.forEach(user => {
+                const clone = document.importNode(template, true);
+                clone.querySelector("img").alt = user.name;
+                clone.querySelector("td:nth-child(2)").textContent = user.name;
+                clone.querySelector("td:nth-child(3)").textContent = user.roll;
+                clone.querySelector("td:nth-child(4)").textContent = user.email;
+                clone.querySelector("td:nth-child(5)").textContent = user.gender;
+                container.appendChild(clone);
+            });
+        }
+
+        function addUser(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const roll = document.getElementById("rollNumber").value;
+            const email = document.getElementById("email").value;
+            const gender = document.getElementById("gender").value;
+
+            if (name && roll && email && gender) {
+                users.push({ name, roll, email, gender });
+                renderUsers();
+                document.getElementById("add-user-form").reset();
+            } else {
+                alert("Please fill all fields");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", renderUsers);
+        document.getElementById("add-user-form").addEventListener("submit", addUser);
+
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
