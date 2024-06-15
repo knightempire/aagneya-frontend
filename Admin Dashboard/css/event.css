@@ -1,0 +1,81 @@
+    [x-cloak] {
+        display: none;
+    }
+    .icon {
+        width: 23px;
+        height: 23px;
+        margin-right: 8px;
+    }
+    .td-content {
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    }
+    .td-content:hover {
+        transform: scale(1.05);
+        color: #568ce9; /* Tailwind gray-700 */
+    }
+    .readmore {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+    .readmore.open {
+        max-height: 1000px; /* Arbitrary high value to accommodate the content */
+        padding: 16px 0;
+    }
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 5px #4b3dea;
+        }
+        50% {
+            box-shadow: 0 0 10px #5e51f0;
+        }
+        100% {
+            box-shadow: 0 0 5px #c084fc;
+        }
+    }
+    .container-glow:hover {
+        animation: glow 1.5s infinite;
+    }
+    .date-time-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .date-time-container h3 {
+        margin: 0;
+        font-size: 1rem; /* Tailwind text-lg */
+        font-weight: bold;
+        color: #787578;
+    }
+    .date-time-container h4 {
+        margin: 0;
+        font-size: 0.89rem; /* Tailwind text-base */
+        color: #ea08ff; /* Tailwind gray-500 */
+    }
+    
+    .chess-link {
+        font-size: 1.5rem; /* Larger font size */
+        position: relative;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .chess-link:hover {
+        color: #4f46e5; /* Tailwind indigo-600 */
+    }
+
+    .chess-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background-color: #4f46e5; /* Tailwind indigo-600 */
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .chess-link:hover::after {
+        transform: scaleX(1);
+    }
