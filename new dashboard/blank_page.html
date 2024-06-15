@@ -88,7 +88,7 @@
             </nav>
         </header>
 
-        <main class="flex-1 py-8 px-4 md:px-6">
+        <main class="flex-1 py-8 px-4 md:px-6" id="main">
 
         </main>
     </div>
@@ -96,6 +96,68 @@
         <p class="text-xs text-white-500 dark:text-white-400">© 2024 Sports Website. All rights reserved.</p>
     </footer>
     <script>
+        const users = [{
+            name: "John Doe",
+            roll: "123",
+            email: "john.doe@example.com",
+            gender: "Male"
+        }, {
+            name: "Jane Smith",
+            roll: "456",
+            email: "jane.smith@example.com",
+            gender: "Female"
+        }, {
+            name: "Michael Johnson",
+            roll: "789",
+            email: "michael.johnson@example.com",
+            gender: "Male"
+        }, {
+            name: "Emily Davis",
+            roll: "321",
+            email: "emily.davis@example.com",
+            gender: "Female"
+        }];
+
+        function renderUsers() {
+            const container = document.getElementById("user-table-body");
+            const template = document.getElementById("user-template").content;
+            container.innerHTML = ''; // Clear existing users
+
+            users.forEach(user => {
+                const clone = document.importNode(template, true);
+                clone.querySelector("img").alt = user.name;
+                clone.querySelector("td:nth-child(2)").textContent = user.name;
+                clone.querySelector("td:nth-child(3)").textContent = user.roll;
+                clone.querySelector("td:nth-child(4)").textContent = user.email;
+                clone.querySelector("td:nth-child(5)").textContent = user.gender;
+                container.appendChild(clone);
+            });
+        }
+
+        function addUser(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const roll = document.getElementById("rollNumber").value;
+            const email = document.getElementById("email").value;
+            const gender = document.getElementById("gender").value;
+
+            if (name && roll && email && gender) {
+                users.push({
+                    name,
+                    roll,
+                    email,
+                    gender
+                });
+                renderUsers();
+                document.getElementById("add-user-form").reset();
+            } else {
+                alert("Please fill all fields");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", renderUsers);
+        document.getElementById("main").addEventListener("submit", addUser);
+
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 

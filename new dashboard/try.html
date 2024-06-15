@@ -1,763 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Aagneya</title>
 </head>
+
 <body>
 
-
-<div class="flex flex-col min-h-screen">
-    <header class="bg-gray-900 text-white py-4 px-6 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <a class="flex items-center gap-2" href="#">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-6 h-6"
-          >
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-            <path d="M4 22h16"></path>
-            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-          </svg>
-          <span class="text-xl font-bold">Sports Dashboard</span>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name"><span>Aag</span>neya</div>
         </a>
-        <nav class="hidden md:flex gap-4">
-          <a class="hover:underline" href="#">
-            Dashboard
-          </a>
-          <a class="hover:underline" href="#">
-            Events
-          </a>
-          <a class="hover:underline" href="#">
-            Achievements
-          </a>
-          <a class="hover:underline" href="#">
-            Blog
-          </a>
+        <ul class="side-menu">
+            <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="#"><i class='bx bx-calendar-event'></i>Events</a></li>
+            <li class="active"><a href="#"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
+            <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <!-- <input type="search" placeholder="Search..."> -->
+                    <button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <!-- <a href="#" class="profile">
+                <img src="images/logo.png">
+            </a> -->
         </nav>
-      </div>
-      <div class="flex items-center gap-2">
-        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-6 h-6"
-          >
-            <path d="M5 12h14"></path>
-            <path d="M12 5v14"></path>
-          </svg>
-          <span class="sr-only">Add</span>
-        </button>
-        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-6 h-6"
-          >
-            <path d="M12 2v10"></path>
-            <path d="M18.4 6.6a9 9 0 1 1-12.77.04"></path>
-          </svg>
-          <span class="sr-only">Logout</span>
-        </button>
-      </div>
-    </header>
-    <main class="flex-1 bg-gray-100 dark:bg-gray-900 dark:text-white">
-      <div class="container mx-auto py-8 px-4 md:px-6 lg:px-8">
-        <section class="mb-8">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-2xl font-bold">Dashboard</h2>
-            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-6 h-6"
-              >
-                <path d="M5 12h14"></path>
-                <path d="M12 5v14"></path>
-              </svg>
-              <span class="sr-only">Add</span>
-            </button>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-              <div class="flex-col space-y-1.5 p-6 flex items-center justify-between">
-                <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Total Events</h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-6 h-6 text-gray-500 dark:text-gray-400"
-                >
-                  <path d="M8 2v4"></path>
-                  <path d="M16 2v4"></path>
-                  <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-                  <path d="M3 10h18"></path>
-                </svg>
-              </div>
-              <div class="p-6">
-                <div class="text-4xl font-bold">125</div>
-              </div>
-              <div class="flex items-center p-6">
-                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-4 h-4"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5v14"></path>
-                  </svg>
-                  <span class="sr-only">Add</span>
-                </button>
-              </div>
-            </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-              <div class="flex-col space-y-1.5 p-6 flex items-center justify-between">
-                <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Upcoming Events</h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-6 h-6 text-gray-500 dark:text-gray-400"
-                >
-                  <path d="M8 2v4"></path>
-                  <path d="M16 2v4"></path>
-                  <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-                  <path d="M3 10h18"></path>
-                </svg>
-              </div>
-              <div class="p-6">
-                <div class="text-4xl font-bold">32</div>
-              </div>
-              <div class="flex items-center p-6">
-                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-4 h-4"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5v14"></path>
-                  </svg>
-                  <span class="sr-only">Add</span>
-                </button>
-              </div>
-            </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-              <div class="flex-col space-y-1.5 p-6 flex items-center justify-between">
-                <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">
-                  Total Achievements
-                </h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-6 h-6 text-gray-500 dark:text-gray-400"
-                >
-                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                  <path d="M4 22h16"></path>
-                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                </svg>
-              </div>
-              <div class="p-6">
-                <div class="text-4xl font-bold">78</div>
-              </div>
-              <div class="flex items-center p-6">
-                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-4 h-4"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5v14"></path>
-                  </svg>
-                  <span class="sr-only">Add</span>
-                </button>
-              </div>
-            </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-              <div class="flex-col space-y-1.5 p-6 flex items-center justify-between">
-                <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Blog Posts</h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-6 h-6 text-gray-500 dark:text-gray-400"
-                >
-                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
-                  <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
-                  <path d="M10 9H8"></path>
-                  <path d="M16 13H8"></path>
-                  <path d="M16 17H8"></path>
-                </svg>
-              </div>
-              <div class="p-6">
-                <div class="text-4xl font-bold">42</div>
-              </div>
-              <div class="flex items-center p-6">
-                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-4 h-4"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5v14"></path>
-                  </svg>
-                  <span class="sr-only">Add</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-2xl font-bold">Upcoming Events</h2>
-            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-6 h-6"
-              >
-                <path d="M5 12h14"></path>
-                <path d="M12 5v14"></path>
-              </svg>
-              <span class="sr-only">Add</span>
-            </button>
-          </div>
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-            <div class="relative w-full overflow-auto">
-              <table class="w-full caption-bottom text-sm">
-                <thead class="[&amp;_tr]:border-b">
-                  <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                      Event
-                    </th>
-                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                      Date
-                    </th>
-                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                      Location
-                    </th>
-                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                      Status
-                    </th>
-                    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
-                      Actions
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="[&amp;_tr:last-child]:border-0">
-                  <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div class="flex items-center gap-2">
-                        <img
-                          src="/placeholder.svg"
-                          width="40"
-                          height="40"
-                          alt="Event"
-                          class="rounded-md"
-                          style="aspect-ratio:40/40;object-fit:cover"
-                        />
-                        <span>National Championship</span>
-                      </div>
-                    </td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">June 15, 2024</td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">New York, NY</td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div
-                        class="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                        data-v0-t="badge"
-                      >
-                        Approved
-                      </div>
-                    </td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div class="flex items-center gap-2">
-                        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="w-4 h-4"
-                          >
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5v14"></path>
-                          </svg>
-                          <span class="sr-only">Add</span>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div class="flex items-center gap-2">
-                        <img
-                          src="/placeholder.svg"
-                          width="40"
-                          height="40"
-                          alt="Event"
-                          class="rounded-md"
-                          style="aspect-ratio:40/40;object-fit:cover"
-                        />
-                        <span>Regional Tournament</span>
-                      </div>
-                    </td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">July 1, 2024</td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Chicago, IL</td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div
-                        class="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                        data-v0-t="badge"
-                      >
-                        Pending
-                      </div>
-                    </td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div class="flex items-center gap-2">
-                        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="w-4 h-4"
-                          >
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5v14"></path>
-                          </svg>
-                          <span class="sr-only">Add</span>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div class="flex items-center gap-2">
-                        <img
-                          src="/placeholder.svg"
-                          width="40"
-                          height="40"
-                          alt="Event"
-                          class="rounded-md"
-                          style="aspect-ratio:40/40;object-fit:cover"
-                        />
-                        <span>Youth Clinic</span>
-                      </div>
-                    </td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">August 10, 2024</td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Los Angeles, CA</td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div
-                        class="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                        data-v0-t="badge"
-                      >
-                        Approved
-                      </div>
-                    </td>
-                    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
-                      <div class="flex items-center gap-2">
-                        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="w-4 h-4"
-                          >
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5v14"></path>
-                          </svg>
-                          <span class="sr-only">Add</span>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-2xl font-bold">Achievements</h2>
-            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-6 h-6"
-              >
-                <path d="M5 12h14"></path>
-                <path d="M12 5v14"></path>
-              </svg>
-              <span class="sr-only">Add</span>
-            </button>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-              <div class="flex flex-col items-center justify-center p-6">
-                <img
-                  src="/placeholder.svg"
-                  width="200"
-                  height="200"
-                  alt="Achievement"
-                  class="rounded-md mb-4"
-                  style="aspect-ratio:200/200;object-fit:cover"
-                />
-                <h3 class="text-xl font-bold mb-2">National Champion</h3>
-                <p class="text-gray-500 dark:text-gray-400 mb-4">
-                  Awarded to the team for winning the national championship.
-                </p>
-                <div class="flex gap-2">
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                    <span class="sr-only">Approve</span>
-                  </button>
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M18 6 6 18"></path>
-                      <path d="m6 6 12 12"></path>
-                    </svg>
-                    <span class="sr-only">Remove</span>
-                  </button>
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5v14"></path>
-                    </svg>
-                    <span class="sr-only">Add</span>
-                  </button>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>Dashboard</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                Analytics
+                            </a></li>
+                        /
+                        <li><a href="#" class="active">Shop</a></li>
+                    </ul>
                 </div>
-              </div>
+                <!-- <a href="#" class="report">
+                    <i class='bx bx-cloud-download'></i>
+                    <span>Download CSV</span>
+                </a> -->
             </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-              <div class="flex flex-col items-center justify-center p-6">
-                <img
-                  src="/placeholder.svg"
-                  width="200"
-                  height="200"
-                  alt="Achievement"
-                  class="rounded-md mb-4"
-                  style="aspect-ratio:200/200;object-fit:cover"
-                />
-                <h3 class="text-xl font-bold mb-2">MVP Award</h3>
-                <p class="text-gray-500 dark:text-gray-400 mb-4">Awarded to the best player of the season.</p>
-                <div class="flex gap-2">
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                    <span class="sr-only">Approve</span>
-                  </button>
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M18 6 6 18"></path>
-                      <path d="m6 6 12 12"></path>
-                    </svg>
-                    <span class="sr-only">Remove</span>
-                  </button>
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5v14"></path>
-                    </svg>
-                    <span class="sr-only">Add</span>
-                  </button>
-                </div>
-              </div>
+
+            <!-- code from here -->
+            <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900">
+                <section class="container px-4 mx-auto">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                        <div>
+                            <div class="flex items-center gap-x-3">
+                                <h2 class="text-lg font-medium text-gray-800 dark:text-white">Customers</h2>
+
+                                <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">240 vendors</span>
+                            </div>
+
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">These companies have purchased in the last 12 months.</p>
+                        </div>
+
+                        <div class="flex items-center mt-4 gap-x-3">
+
+
+                            <button class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+        
+                        <span>Add vendor</span>
+                    </button>
+                        </div>
+                    </div>
+
+                    <!-- Buttons for toggling sections -->
+                    <div class="mt-6 md:flex md:items-center md:justify-between">
+                        <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+                            <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 active">
+                                View all
+                            </button>
+                            <button id="monitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                Monitored
+                            </button>
+                            <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                Unmonitored
+                            </button>
+                        </div>
+
+                        <!-- Search input section -->
+                        <div class="relative flex items-center mt-4 md:mt-0">
+                            <span class="absolute">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mx-3 text-gray-400 dark:text-gray-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                            </span>
+                            <input id="searchInput" type="text" placeholder="Search" class="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40">
+                        </div>
+                    </div>
+
+                    <!-- Sections to toggle visibility -->
+                    <div id="viewAllSection" class="flex flex-col mt-6">
+                        <div class="flex flex-col mt-6">
+                            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                            <thead class="bg-gray-50 dark:bg-gray-800">
+                                                <tr>
+                                                    <th scope="col" class="px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Users</th>
+                                                    <th scope="col" class="px-2 sm:px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                        <!-- Reduced px value for smaller devices -->
+                                                        <button class="flex items-center gap-x-2 focus:outline-none">
+                                                        <span>Name</span>
+                                                    </button>
+                                                    </th>
+                                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                        <!-- Increased px value to balance -->
+                                                        Status
+                                                    </th>
+                                                    <th scope="col" class="px-2 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                        <!-- Reduced px value for smaller devices -->
+                                                        About
+                                                    </th>
+                                                    <th scope="col" class="px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Year</th>
+                                                    <th scope="col" class="px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Phone Number</th>
+                                                    <th scope="col" class="relative py-3.5 px-3">
+                                                        <span class="sr-only">Actions</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                                <tr>
+                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
+                                                        <div class="flex items-center">
+                                                            <img class="object-cover w-10 h-10 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
+                                                                alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-2 sm:px-3 py-4 text-sm font-medium whitespace-nowrap">
+                                                        <div>
+                                                            <h2 class="font-medium text-gray-800 dark:text-white">Abinesh T</h2>
+                                                            <p class="text-sm font-normal text-gray-600 dark:text-gray-400">CB.EN.U4CSE21302</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                                                        <div class="inline px-2 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-1 bg-emerald-100/60 dark:bg-gray-800">
+                                                            Chess
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-2 py-4 text-sm whitespace-nowrap">
+                                                        <div>
+                                                            <h4 class="text-gray-700 dark:text-gray-200">Captain</h4>
+                                                            <p class="text-gray-500 dark:text-gray-400">Boys</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
+                                                        <div>
+                                                            2024
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
+                                                        <div>
+                                                            +1 123 456 7890
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
+                                                        <div class="relative">
+                                                            <button id="dropdown-button" class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100 focus:outline-none">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                                                            </svg>
+                                                        </button>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <!-- Add more rows here if needed -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="monitoredSection" class="flex flex-col mt-6 hidden">
+                        <p>Monitored section content goes here.</p>
+                    </div>
+                    <div id="unmonitoredSection" class="flex flex-col mt-6 hidden">
+                        <p>Unmonitored section content goes here.</p>
+                    </div>
+
+                    <!-- Pagination section -->
+                    <div class="mt-6 sm:flex sm:items-center sm:justify-between">
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                            Page <span class="font-medium text-gray-700 dark:text-gray-100">1 of 10</span>
+                        </div>
+                        <div class="flex items-center mt-4 gap-x-4 sm:mt-0">
+                            <a href="#" class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                                </svg>
+                                <span>Previous</span>
+                            </a>
+                            <a href="#" class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+                                <span>Next</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Get references to the buttons and sections
+                        const viewAllBtn = document.getElementById('viewAllSectionBtn');
+                        const monitoredBtn = document.getElementById('monitoredSectionBtn');
+                        const unmonitoredBtn = document.getElementById('unmonitoredSectionBtn');
+
+                        const viewAllSection = document.getElementById('viewAllSection');
+                        const monitoredSection = document.getElementById('monitoredSection');
+                        const unmonitoredSection = document.getElementById('unmonitoredSection');
+
+                        // Function to hide all sections
+                        function hideAllSections() {
+                            viewAllSection.style.display = 'none';
+                            monitoredSection.style.display = 'none';
+                            unmonitoredSection.style.display = 'none';
+                        }
+
+                        // Function to deactivate all buttons
+                        function deactivateAllButtons() {
+                            viewAllBtn.classList.remove('active');
+                            monitoredBtn.classList.remove('active');
+                            unmonitoredBtn.classList.remove('active');
+                        }
+
+                        // Show the default section (View all) and mark its button as active on page load
+                        viewAllSection.style.display = 'flex';
+                        viewAllBtn.classList.add('active');
+
+                        // Add click event listeners to buttons
+                        viewAllBtn.addEventListener('click', function() {
+                            hideAllSections();
+                            viewAllSection.style.display = 'flex';
+                            deactivateAllButtons();
+                            viewAllBtn.classList.add('active');
+                        });
+
+                        monitoredBtn.addEventListener('click', function() {
+                            hideAllSections();
+                            monitoredSection.style.display = 'flex';
+                            deactivateAllButtons();
+                            monitoredBtn.classList.add('active');
+                        });
+
+                        unmonitoredBtn.addEventListener('click', function() {
+                            hideAllSections();
+                            unmonitoredSection.style.display = 'flex';
+                            deactivateAllButtons();
+                            unmonitoredBtn.classList.add('active');
+                        });
+                    });
+                </script>
+
+                <style>
+                    /* Styles for active button */
+                    
+                    .toggle-btn.active {
+                        background-color: #4a90e2;
+                        /* Change this to your desired active button color */
+                        color: white;
+                    }
+                </style>
             </div>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-              <div class="flex flex-col items-center justify-center p-6">
-                <img
-                  src="/placeholder.svg"
-                  width="200"
-                  height="200"
-                  alt="Achievement"
-                  class="rounded-md mb-4"
-                  style="aspect-ratio:200/200;object-fit:cover"
-                />
-                <h3 class="text-xl font-bold mb-2">Sportsmanship Award</h3>
-                <p class="text-gray-500 dark:text-gray-400 mb-4">
-                  Awarded to the team that displayed the best sportsmanship.
-                </p>
-                <div class="flex gap-2">
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                    <span class="sr-only">Approve</span>
-                  </button>
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M18 6 6 18"></path>
-                      <path d="m6 6 12 12"></path>
-                    </svg>
-                    <span class="sr-only">Remove</span>
-                  </button>
-                  <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5v14"></path>
-                    </svg>
-                    <span class="sr-only">Add</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-2xl font-bold">Blog</h2>
-            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-6 h-6"
-              >
-                <path d="M5 12h14"></path>
-                <path d="M12 5v14"></path>
-              </svg>
-              <span class="sr-only">Add</span>
-            </button>
-          </div>
-          <div class="grid grid-cols"></div>
-        </section>
-      </div>
-    </main>
-  </div>
-  <footer
-  class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-gray-900 text-white">
-  <p class="text-xs text-white-500 dark:text-white-400">© 2024 Sports Website. All rights reserved.</p>
-</footer>
+
+
+
+        </main>
+
+    </div>
+
+    <script src="index.js"></script>
 </body>
+
 </html>
+
+<style>
+    [x-cloak] {
+        display: none
+    }
+</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+
+<script src="//unpkg.com/alpinejs" defer></script>
