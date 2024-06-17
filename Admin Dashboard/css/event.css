@@ -24,7 +24,7 @@
     max-height: 1000px; /* Arbitrary high value to accommodate the content */
     padding: 16px 0;
 }
-@keyframes glow {
+/* @keyframes glow {
     0% {
         box-shadow: 0 0 5px #c084fc;
     }
@@ -34,9 +34,9 @@
     100% {
         box-shadow: 0 0 5px #c084fc;
     }
-}
+} */
 .container-glow:hover{
-    animation: glow 1.5s infinite;
+    box-shadow: 0 0 5px #c084fc;
 }
 .date-time-container {
     display: flex;
