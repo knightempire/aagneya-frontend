@@ -20,9 +20,9 @@
         <ul class="side-menu">
             <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li><a href="#"><i class='bx bx-calendar-event'></i>Events</a></li>
-            <li class="active"><a href="#"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="#"><i class='bx bx-medal'></i>Achievement</a></li>
             <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
-            <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
+            <li class="active"><a href="#"><i class='bx bx-group'></i>Users</a></li>
             <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
         </ul>
         <ul class="side-menu">
@@ -143,94 +143,214 @@
                     <div id="viewAllSection" class="flex flex-col mt-6">
 
 
-                        <div class="flex flex-col mt-6">
-                            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                                    <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                            <thead class="bg-gray-50 dark:bg-gray-800">
-                                                <tr>
-                                                    <th scope="col" class="px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Users</th>
-                                                    <th scope="col" class="px-2 sm:px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                        <!-- Reduced px value for smaller devices -->
-                                                        <button class="flex items-center gap-x-2 focus:outline-none">
-                                                        <span>Name</span>
-                                                    </button>
-                                                    </th>
-                                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                        <!-- Increased px value to balance -->
-                                                        Status
-                                                    </th>
-                                                    <th scope="col" class="px-2 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                        <!-- Reduced px value for smaller devices -->
-                                                        About
-                                                    </th>
-                                                    <th scope="col" class="px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Year</th>
-                                                    <th scope="col" class="px-3 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Phone Number</th>
-                                                    <th scope="col" class="relative py-3.5 px-3">
-                                                        <span class="sr-only">Actions</span>
-                                                    </th>
-                                                </tr>
-                                            </thead>
+                        <div class="displayevents" id="displayevents">
+                            <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Name
+                                        </th>
+                                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Title
+                                    </th> -->
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Sports
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Role
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Year
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Phone
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
 
-                                            <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                                                <tr>
-                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
-                                                        <div class="flex items-center">
-                                                            <img class="object-cover w-10 h-10 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
-                                                                alt="">
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-2 sm:px-3 py-4 text-sm font-medium whitespace-nowrap">
-                                                        <div>
-                                                            <h2 class="font-medium text-gray-800 dark:text-white">Abinesh T</h2>
-                                                            <p class="text-sm font-normal text-gray-600 dark:text-gray-400">CB.EN.U4CSE21302</p>
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                                                        <div class="inline px-2 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-1 bg-emerald-100/60 dark:bg-gray-800">
-                                                            Chess
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-2 py-4 text-sm whitespace-nowrap">
-                                                        <div>
-                                                            <h4 class="text-gray-700 dark:text-gray-200">Captain</h4>
-                                                            <p class="text-gray-500 dark:text-gray-400">Boys</p>
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
-                                                        <div>
-                                                            2024
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
-                                                        <div>
-                                                            +1 123 456 7890
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-3 py-4 text-sm whitespace-nowrap">
-                                                        <div class="relative">
-                                                            <button id="dropdown-button" class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100 focus:outline-none">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                                            </svg>
-                                                        </button>
 
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <!-- Add more rows here if needed -->
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Abinesh
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        cb.en.u4cse21302
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
 
-                                </div>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Chess
+                                        </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    CAPTAIN
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    President
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            2024
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            9499964935
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
+                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900">Delete</a>
+                                        </td>
+                                    </tr>
 
-                            </div>
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Abinesh
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        cb.en.u4cse21302
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Chess
+                                        </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    CAPTAIN
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    President
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            2024
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            9499964935
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
+                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900">Delete</a>
+                                        </td>
+                                    </tr>
+
+
+                                    <!-- More rows... -->
+
+                                </tbody>
+                            </table>
+
                         </div>
 
 
 
+                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;">
+                            <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()">
+                                <span class="mr-1">Close</span>
+                                <i class='bx bxs-x-circle'></i>
+                            </button>
+                            <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit Event Details</div>
+                            <div class="p-4 md:p-8">
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Name *" />
+
+                                    <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Sports" />
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Category</option>
+                                        <option value="Category 1">Category 1</option>
+                                        <option value="Category 2">Category 2</option>
+                                        <option value="Category 3">Category 3</option>
+                                    </select>
+
+                                    <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="Boys">Boys</option>
+                                        <option value="Girls">Girls</option>
+                                        <option value="Boys and Girls">Boys and Girls</option>
+                                    </select>
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Date" />
+
+                                    <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Time" />
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Event Type</option>
+                                        <option value="Individual">Individual</option>
+                                        <option value="Team">Team</option>
+                                    </select>
+
+                                    <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Location" />
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Entry Fee" />
+
+                                    <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Number of Prizes" />
+                                </div>
+
+                                <div class="mb-4 md:mb-10">
+                                    <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Form Link" />
+                                    <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Description"></textarea>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
+
+                                    <button type="button" class="cursor-pointer rounded-lg bg-red-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white" onclick="deleteEvent()">Delete</button>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                        <br><br>
                     </div>
 
 
@@ -264,8 +384,35 @@
 
     </div>
 
+    <script>
+        function showEditForm() {
+            // Hide the element with id="displayevents"
+            var displayEvents = document.getElementById('displayevents');
+            if (displayEvents) {
+                displayEvents.style.display = 'none';
+            }
 
+            // Show the form with id="editvent"
+            var editForm = document.getElementById('editvent');
+            if (editForm) {
+                editForm.style.display = 'block';
+            }
+        }
 
+        function closeForm() {
+            // Show the element with id="displayevents"
+            var displayEvents = document.getElementById('displayevents');
+            if (displayEvents) {
+                displayEvents.style.display = 'block';
+            }
+
+            // Hide the form with id="editvent"
+            var editForm = document.getElementById('editvent');
+            if (editForm) {
+                editForm.style.display = 'none';
+            }
+        }
+    </script>
 
     <script src="./js/index.js"></script>
 </body>
