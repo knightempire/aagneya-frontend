@@ -71,11 +71,22 @@
                         <li><a href="#" class="active">Shop</a></li>
                     </ul>
                 </div>
-                <a href="#" class="report">
-                    <i class='bx bxs-add-to-queue'></i>
-                    <span id="changes">Add</span>
-                    <i class='bx bxs-x-circle' style="display: none;"></i>
-                </a>
+                <div class="flex items-center space-x-4">
+
+                    <a href="#" class="report">
+                        <i class='bx bxs-add-to-queue'></i>
+                        <span id="changes">Add</span>
+                        <i class='bx bxs-x-circle' style="display: none;"></i>
+                    </a>
+
+                    <div class="flex items-center justify-center" id="reset password">
+                        <button class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 px-5 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                        Reset password
+                      </button>
+
+                    </div>
+                </div>
+
             </div>
             <br>
             <!-- code from here -->
@@ -230,10 +241,9 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
-                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900">Delete</a>
+                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
                                         </td>
                                     </tr>
-
 
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
@@ -275,9 +285,10 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
-                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900">Delete</a>
+                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
                                         </td>
                                     </tr>
+
 
 
                                     <!-- More rows... -->
@@ -287,6 +298,37 @@
 
                         </div>
 
+                        <div id="deactivateModal" class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
+                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
+                                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                    <div class="sm:flex sm:items-start">
+                                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                            <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
+                                      <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                        </div>
+                                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                            <h3 id="modal-title" class="text-base font-semibold leading-6 text-gray-900">
+                                                Deactivate account
+                                            </h3>
+                                            <div class="mt-2">
+                                                <p class="text-sm text-gray-500">
+                                                    Are you sure you want to deactivate the account?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                    <button id="deactivateBtn" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" type="button">
+                                  Deactivate
+                                </button>
+                                    <button id="deactivateCancel" onclick="closedeactivate()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" type="button">
+                                  Cancel
+                                </button>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;">
@@ -555,6 +597,24 @@
         </main>
 
     </div>
+
+
+    <script>
+        // JavaScript functions
+        function deactivate() {
+            // Show the modal
+            var modal = document.getElementById('deactivateModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closedeactivate() {
+            // Close the modal
+            var modal = document.getElementById('deactivateModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
 
     <script>
         function showEditForm() {

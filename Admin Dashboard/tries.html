@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
     <title>Aagneya</title>
 </head>
 
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar">  
+    <div class="sidebar">
         <a href="#" class="logo">
             <i class='bx bx-code-alt'></i>
             <div class="logo-name"><span>Aag</span>neya</div>
@@ -23,9 +20,9 @@
         <ul class="side-menu">
             <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li><a href="#"><i class='bx bx-calendar-event'></i>Events</a></li>
-            <li class="active"><a href="#"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="#"><i class='bx bx-medal'></i>Achievement</a></li>
             <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
-            <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
+            <li class="active"><a href="#"><i class='bx bx-group'></i>Users</a></li>
             <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
         </ul>
         <ul class="side-menu">
@@ -67,53 +64,87 @@
                 <div class="left">
                     <h1>Dashboard</h1>
                     <ul class="breadcrumb">
-                        <li><a href="#">
-                                Analytics
-                            </a></li>
+                        <li>
+                            <a href="#">
+                                Aagneya
+                            </a>
+                        </li>
                         /
-                        <li><a href="#" class="active">Shop</a></li>
+                        <li>
+                            <a href="#" class="active">Users</a>
+                        </li>
                     </ul>
                 </div>
-                <a href="#" class="report">
-                    <i class='bx bxs-add-to-queue'></i>
-                    <span id="changes">Add</span>
-                    <i class='bx bxs-x-circle' style="display: none;"></i>
-                </a>
+                <div class="flex items-center space-x-4">
+
+                    <a href="#" class="report">
+                        <i class='bx bxs-add-to-queue'></i>
+                        <span id="changes">Add</span>
+                        <i class='bx bxs-x-circle' style="display: none;"></i>
+                    </a>
+
+
+                </div>
+
             </div>
             <br>
             <!-- code from here -->
+            <div class="success" style="display: none;">
+                <div role="alert" class="bg-green-100 dark:bg-green-900 border-l-4 border-green-500 dark:border-green-700 text-green-900 dark:text-green-100 p-2 rounded-lg flex items-center transition duration-300 ease-in-out hover:bg-green-200 dark:hover:bg-green-800 transform hover:scale-105">
+                    <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-5 w-5 flex-shrink-0 mr-2 text-green-600" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 16h-1v-4h1m0-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                    </svg>
+                    <p class="text-xs font-semibold">Success - Everything went smoothly!</p>
+                </div>
+            </div>
 
-            <div class="mx-4 md:mx-14 mt-10 border-2 border-blue-400 rounded-lg" id="formcontent">
-                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Contact</div>
-                <div class="mt-3 text-center text-2xl md:text-4xl font-bold">Make an Appointment</div>
+            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
+                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
                 <div class="p-4 md:p-8">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" name="name" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Full Name *" />
-                        <input type="email" name="email" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Email *" />
+                        <input type="text" name="roll_no" id="roll__edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Roll_no *" />
+
+                        <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <option value="" disabled selected>Select Role</option>
+                            <option value="Category 1">Category 1</option>
+                            <option value="Category 2">Category 2</option>
+                            <option value="Category 3">Category 3</option>
+                        </select>
                     </div>
+
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <select name="category" id="category" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm font-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                <option disabled selected>Please Select</option>
-                <option value="category1">Category 1</option>
-                <option value="category2">Category 2</option>
-                <!-- Add more options as needed -->
-            </select>
-                        <select name="time" id="time" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm font-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                <option disabled selected>4:00 Available</option>
-                <option value="time1">Time Slot 1</option>
-                <option value="time2">Time Slot 2</option>
-                <!-- Add more options as needed -->
-            </select>
+                        <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <option value="" disabled selected>Select Role</option>
+                            <option value="Category 1">Category 1</option>
+                            <option value="Category 2">Category 2</option>
+                            <option value="Category 3">Category 3</option>
+                        </select>
+
+                        <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Boys">Boys</option>
+                            <option value="Girls">Girls</option>
+                    
+                        </select>
                     </div>
-                    <div class="mb-4 md:mb-10">
-                        <textarea name="message" id="message" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm font-semibold text-gray-500" placeholder="Message"></textarea>
+
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                        <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Date" />
+
+
                     </div>
+
+
                     <div class="text-center">
-                        <button type="submit" class="cursor-pointer rounded-lg bg-blue-700 px-8 py-3 sm:py-5 text-sm md:text-base font-semibold text-white">Book Appointment</button>
+                        <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="showSuccessMessage()">Update Event</button>
                     </div>
+
                 </div>
+
+
+
             </div>
 
 
@@ -125,20 +156,25 @@
                     <div class="sm:flex sm:items-center sm:justify-between">
                     </div>
 
+
+
                     <!-- Buttons for toggling sections -->
                     <div class="mt-6 md:flex md:items-center md:justify-between">
+
                         <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
                             <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 ">
-                                View all
+                            Current members
                             </button>
                             <button id="monitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                Monitored
+                                All members
                             </button>
-                            <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                Unmonitored
+                            <button id="unmonitoredSectionBtn">
+                    
                             </button>
-                        </div>
 
+
+
+                        </div>
 
                     </div>
 
@@ -146,64 +182,415 @@
                     <div id="viewAllSection" class="flex flex-col mt-6">
 
 
-                        <div class="mx-auto bg-gray-50 flex items-center justify-center mt-6">
-                            <div class="flex flex-col space-y-4 items-center">
-                                <div class="bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5" style="margin: 20px;" >
-                                    <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)"></div>
-                                    <div class="flex flex-col md:flex-row">
-                                        <div class="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
-                                            <div class="md:text-3xl">Jan</div>
-                                            <div class="md:text-6xl">13</div>
-                                            <div class="md:text-xl">7 pm</div>
-                                        </div>
-                                        <div class="p-4 font-normal text-gray-800 md:w-3/4">
-                                            <h1 class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
-                                            <p class="text-sm leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
-                                            <div class="flex flex-row items-center mt-4 text-gray-700 event-details">
-                                                <div class="w-1/2 flex items-center loc">
-                                                    <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
+                        <div class="displayevents" id="displayevents">
+                            <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Name
+                                        </th>
+                                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Title
+                                    </th> -->
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Sports
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Role
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Year
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Phone
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
                                                 </div>
-                                                <div class="w-1/2 flex justify-end items-center spor">
-                                                    <i class="fa fa-football-ball mr-2"></i> Football
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Abinesh
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        cb.en.u4cse21302
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5" style="margin: 20px;">
-                                    <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)"></div>
-                                    <div class="flex flex-col md:flex-row">
-                                        <div class="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
-                                            <div class="md:text-3xl">Jan</div>
-                                            <div class="md:text-6xl">13</div>
-                                            <div class="md:text-xl">7 pm</div>
-                                        </div>
-                                        <div class="p-4 font-normal text-gray-800 md:w-3/4">
-                                            <h1 class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
-                                            <p class="text-sm leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
-                                            <div class="flex flex-row items-center mt-4 text-gray-700 event-details">
-                                                <div class="w-1/2 flex items-center loc">
-                                                    <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Chess
+                                        </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    CAPTAIN
                                                 </div>
-                                                <div class="w-1/2 flex justify-end items-center spor">
-                                                    <i class="fa fa-football-ball mr-2"></i> Football
+                                                <div class="text-sm text-gray-500">
+                                                    President
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            2024
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            9499964935
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
+                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Abinesh
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        cb.en.u4cse21302
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Chess
+                                        </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    CAPTAIN
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    President
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            2024
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            9499964935
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
+                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
+                                        </td>
+                                    </tr>
+
+
+
+                                    <!-- More rows... -->
+
+                                </tbody>
+                            </table>
+
                         </div>
 
 
 
 
+                        <div id="deactivateModal" class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
+                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
+                                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                    <div class="sm:flex sm:items-start">
+                                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                            <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
+                                      <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                        </div>
+                                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                            <h3 id="modal-title" class="text-base font-semibold leading-6 text-gray-900">
+                                                Deactivate account
+                                            </h3>
+                                            <div class="mt-2">
+                                                <p class="text-sm text-gray-500">
+                                                    Are you sure you want to deactivate the account?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                    <button id="deactivateBtn" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" type="button">
+                                  Deactivate
+                                </button>
+                                    <button id="deactivateCancel" onclick="closedeactivate()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" type="button">
+                                  Cancel
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;">
+                            <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()">
+                                <span class="mr-1">Close</span>
+                                <i class='bx bxs-x-circle'></i>
+                            </button>
+                            <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit user Details</div>
+                            <div class="p-4 md:p-8">
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="roll_no" id="roll__edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Roll_no *" />
+
+                                    <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Role</option>
+                                        <option value="Category 1">Category 1</option>
+                                        <option value="Category 2">Category 2</option>
+                                        <option value="Category 3">Category 3</option>
+                                    </select>
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Role</option>
+                                        <option value="Category 1">Category 1</option>
+                                        <option value="Category 2">Category 2</option>
+                                        <option value="Category 3">Category 3</option>
+                                    </select>
+
+                                    <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="Boys">Boys</option>
+                                        <option value="Girls">Girls</option>
+                                
+                                    </select>
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Date" />
+
+
+                                </div>
+
+
+                                <div class="text-center centered-btn">
+                                    <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="showSuccessMessage()">Update Event</button>
+                                </div>
+
+                                <div class="flex items-center justify-center right-corner-btn" id="reset-password">
+                                    <button class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 px-5 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                                      Reset Password
+                                    </button>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                        <br><br>
                     </div>
 
 
                     <div id="monitoredSection" class="flex flex-col mt-6 hidden">
-                        <p>Monitored section content goes here.</p>
 
+
+                        <div class="displayallmembers" id="displayallmembers">
+                            <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Name
+                                        </th>
+                                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Title
+                                    </th> -->
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Sports
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Role
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Year
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Phone
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+
+
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Abinesh
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        cb.en.u4cse21302
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Chess
+                                        </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    CAPTAIN
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    President
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            2024
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            9499964935
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+
+                                            <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="showSuccessMessage()">Activate</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Abinesh
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        cb.en.u4cse21302
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Chess
+                                        </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    CAPTAIN
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    President
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            2024
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            9499964935
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+
+                                            <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="showSuccessMessage()">Activate</a>
+                                        </td>
+                                    </tr>
+
+
+                                    <!-- More rows... -->
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="allmember" style="display: none;">
+                            <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeFormallmember()">
+                                <span class="mr-1">Close</span>
+                                <i class='bx bxs-x-circle'></i>
+                            </button>
+                            <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit Event Details</div>
+                            <div class="p-4 md:p-8">
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="roll_no" id="roll__edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Roll_no *" />
+
+                                    <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Role</option>
+                                        <option value="Category 1">Category 1</option>
+                                        <option value="Category 2">Category 2</option>
+                                        <option value="Category 3">Category 3</option>
+                                    </select>
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Role</option>
+                                        <option value="Category 1">Category 1</option>
+                                        <option value="Category 2">Category 2</option>
+                                        <option value="Category 3">Category 3</option>
+                                    </select>
+
+                                    <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="Boys">Boys</option>
+                                        <option value="Girls">Girls</option>
+                                
+                                    </select>
+                                </div>
+
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Date" />
+
+
+                                </div>
+
+
+                                <div class="text-center">
+                                    <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="showSuccessMessage()">Update Event</button>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
 
 
                     </div>
@@ -215,7 +602,7 @@
 
 
 
-                        <p>Unmonitored section content goes here.</p>
+
                     </div>
 
 
@@ -231,7 +618,102 @@
 
     </div>
 
+    <script>
+        // Function to display the success message after delay
+        function showSuccessMessage() {
+            var successDiv = document.querySelector('.success');
 
+            // Display the success message
+            successDiv.style.display = 'block';
+
+            // Hide the success message after 2 seconds
+            setTimeout(function() {
+                successDiv.style.display = 'none';
+            }, 2000); // 2000 milliseconds = 2 seconds
+        }
+
+        // Call the function to display the success message after page load (if needed)
+        // showSuccessMessage(); // Uncomment this line if you want to display the message immediately on page load
+    </script>
+
+    <script>
+        // JavaScript functions
+        function deactivate() {
+            // Show the modal
+            var modal = document.getElementById('deactivateModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closedeactivate() {
+            // Close the modal
+            var modal = document.getElementById('deactivateModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+
+    <script>
+        function showEditForm() {
+            // Hide the element with id="displayevents"
+            var displayEvents = document.getElementById('displayevents');
+            if (displayEvents) {
+                displayEvents.style.display = 'none';
+            }
+
+            // Show the form with id="editvent"
+            var editForm = document.getElementById('editvent');
+            if (editForm) {
+                editForm.style.display = 'block';
+            }
+        }
+
+        function closeForm() {
+            // Show the element with id="displayevents"
+            var displayEvents = document.getElementById('displayevents');
+            if (displayEvents) {
+                displayEvents.style.display = 'block';
+            }
+
+            // Hide the form with id="editvent"
+            var editForm = document.getElementById('editvent');
+            if (editForm) {
+                editForm.style.display = 'none';
+            }
+        }
+    </script>
+
+
+
+    <script>
+        function showEditFormallmember() {
+            // Hide the element with id="displayevents"
+            var displayEvents = document.getElementById('displayallmembers');
+            if (displayEvents) {
+                displayEvents.style.display = 'none';
+            }
+
+            // Show the form with id="editvent"
+            var editForm = document.getElementById('allmember');
+            if (editForm) {
+                editForm.style.display = 'block';
+            }
+        }
+
+        function closeFormallmember() {
+            // Show the element with id="displayevents"
+            var displayEvents = document.getElementById('displayallmembers');
+            if (displayEvents) {
+                displayEvents.style.display = 'block';
+            }
+
+            // Hide the form with id="editvent"
+            var editForm = document.getElementById('allmember');
+            if (editForm) {
+                editForm.style.display = 'none';
+            }
+        }
+    </script>
 
 
     <script src="./js/index.js"></script>
@@ -254,3 +736,21 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+<style>
+    /* Styles for centering button */
+    
+    .centered-btn {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        /* Adjust margin as needed */
+    }
+    /* Styles for right-corner button */
+    
+    .right-corner-btn {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        /* Adjust margin as needed */
+    }
+</style>
