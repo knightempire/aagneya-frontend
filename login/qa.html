@@ -1,9 +1,4 @@
-<!-- Select in 3 options which question u wnat to answer.. -->
- <!-- Want like a card horizontally
- which card i am selecting should get highlighted -->
-
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -50,66 +45,74 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body x-data="{ open: true, darkMode: false }" :class="darkMode ? 'dark' : ''">
+<body x-data="{ selectedCard: null, darkMode: false }" :class="darkMode ? 'dark' : ''">
     <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900">
         <div class="flex flex-wrap justify-center pt-8 sm:pt-16 px-4">
+            <div class="w-full text-center mb-6">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Select One Question</h2>
+            </div>
             <!-- Form 1 -->
-            <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
-                <div class="bg-white rounded-lg shadow-xl dark:bg-gray-900 p-6">
+            <div @click="selectedCard = 1" :class="selectedCard === 1 ? 'border-blue-500' : ''" class="w-full sm:w-1/3 lg:w-1/4 px-4 mb-8 cursor-pointer border-2 rounded-lg h-64">
+                <div class="rounded-lg shadow-xl p-6 h-full">
                     <div class="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                         </svg>
                     </div>
                     <div class="mt-4 text-center">
-                        <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize dark:text-white">Form 1</h3>
-                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorum aliquam ea, ratione deleniti porro officia? Explicabo maiores suscipit.</p>
-                    </div>
-                    <div class="mt-6 flex justify-between">
-                        <a href="#" class="text-sm text-blue-500 hover:underline">Learn more</a>
-                        <button class="px-4 py-2 mt-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md sm:w-auto sm:mt-0 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">Submit</button>
+                        <h3 class="text-2xl font-medium leading-6 text-gray-800 capitalize dark:text-white">Question 1</h3>
+                        <div class="mt-8 text-center">
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-400">What is the name of the city where you were born?</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Form 2 -->
-            <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
-                <div class="bg-white rounded-lg shadow-xl dark:bg-gray-900 p-6">
+            <div @click="selectedCard = 2" :class="selectedCard === 2 ? 'border-blue-500' : ''" class="w-full sm:w-1/3 lg:w-1/4 px-4 mb-8 cursor-pointer border-2 rounded-lg h-64 mt-8 sm:mt-0 sm:ml-4">
+                <div class="rounded-lg shadow-xl p-6 h-full">
                     <div class="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                         </svg>
                     </div>
                     <div class="mt-4 text-center">
-                        <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize dark:text-white">Form 2</h3>
-                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorum aliquam ea, ratione deleniti porro officia? Explicabo maiores suscipit.</p>
-                    </div>
-                    <div class="mt-6 flex justify-between">
-                        <a href="#" class="text-sm text-blue-500 hover:underline">Learn more</a>
-                        <button class="px-4 py-2 mt-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md sm:w-auto sm:mt-0 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">Submit</button>
+                        <h3 class="text-2xl font-medium leading-6 text-gray-800 capitalize dark:text-white">Question 2</h3>
+                        <div class="mt-8 text-center">
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-400">What was the name of your elementary school?</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Form 3 -->
-            <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
-                <div class="bg-white rounded-lg shadow-xl dark:bg-gray-900 p-6">
+            <div @click="selectedCard = 3" :class="selectedCard === 3 ? 'border-blue-500' : ''" class="w-full sm:w-1/3 lg:w-1/4 px-4 mb-8 cursor-pointer border-2 rounded-lg h-64 mt-8 sm:mt-0 sm:ml-4">
+                <div class="rounded-lg shadow-xl p-6 h-full">
                     <div class="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                         </svg>
                     </div>
                     <div class="mt-4 text-center">
-                        <h3 class="text-lg font-medium leading-6 text-gray-800 capitalize dark:text-white">Form 3</h3>
-                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolorum aliquam ea, ratione deleniti porro officia? Explicabo maiores suscipit.</p>
-                    </div>
-                    <div class="mt-6 flex justify-between">
-                        <a href="#" class="text-sm text-blue-500 hover:underline">Learn more</a>
-                        <button class="px-4 py-2 mt-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md sm:w-auto sm:mt-0 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">Submit</button>
+                        <h3 class="text-2xl font-medium leading-6 text-gray-800 capitalize dark:text-white">Question 3</h3>
+                        <div class="mt-8 text-center">
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-400">What is the name of your favorite childhood friend?</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <template x-if="selectedCard !== null">
+            <div class="flex justify-center mt-6">
+                <div class="w-full sm:w-1/2 lg:w-1/3 px-4">
+                    <div class="flex flex-col items-center">
+                        <input type="text" class="w-full p-2 mb-4 border border-gray-300 rounded-md" placeholder="Write your answer here...">
+                        <button class="w-auto px-4 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </template>
     </div>
 </body>
 
