@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Question</title>
+    <!-- Include the Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for eye icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Select a Question</h2>
+
+        <!-- Card Container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="p-4 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100 text-center" onclick="selectCard(this)">
+                What is the name of the city where you were born?
+            </div>
+            <div class="p-4 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100 text-center" onclick="selectCard(this)">
+                What was the name of your elementary school?
+            </div>
+            <div class="p-4 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100 text-center" onclick="selectCard(this)">
+                What is the name of your favorite childhood friend?
+            </div>
+        </div>
+
+        <!-- Answer Container -->
+        <div id="answerContainer" class="hidden">
+            <form onsubmit="return handleSubmit()" class="flex flex-col items-center">
+                <input type="text" id="answerBox" class="w-full px-4 py-2 border border-gray-300 rounded-md mb-4" placeholder="Write your answer here...">
+                <p id="error-message" class="error mt-2"></p>
+                <button type="submit" id="submitButton" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function selectCard(card) {
+            // Remove 'bg-blue-200' class from all cards
+            document.querySelectorAll('.border').forEach(item => {
+                item.classList.remove('bg-blue-200');
+            });
+
+            // Add 'bg-blue-200' class to the clicked card
+            card.classList.add('bg-blue-200');
+
+            // Show the answer container
+            document.getElementById('answerContainer').classList.remove('hidden');
+
+            // Clear the answer box
+            document.getElementById('answerBox').value = '';
+
+            // Clear error message
+            document.getElementById('error-message').textContent = '';
+        }
+
+        function handleSubmit() {
+            // Process form submission here (validate if needed)
+            const answer = document.getElementById('answerBox').value.trim();
+            
+            // Example validation
+            if (answer === '') {
+                document.getElementById('error-message').textContent = 'Please provide an answer.';
+                return false; // Prevent form submission
+            }
+
+            // For demo purposes, just log the answer
+            console.log('Submitted answer:', answer);
+
+            // Optionally, you can redirect or refresh the page here
+            // window.location.reload(); // Uncomment to refresh the page
+
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+
+</html>
