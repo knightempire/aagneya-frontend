@@ -282,6 +282,10 @@
   border-radius: 5px;
   background-color: #fff;
 }
+.day.today.active.event{
+  background-color: #b38add;
+  color: #f5f5f5;
+}
 /* set after behind the main element */
 .calendar::before,
 .calendar::after {
@@ -395,8 +399,12 @@
 }
 .calendar .days .today {
   font-size: 2rem;
+  color: #b38add;
+
+
 }
 .calendar .days .event {
+  background-color: #efefef;
   position: relative;
 }
 .calendar .days .event::after {
