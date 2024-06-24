@@ -120,37 +120,34 @@
                     <!-- calender here -->
 
                     <div class="container">
-                        <div class="left">
-                          <div class="calendar">
+                      <div class="left">
+                        <div class="calendar">
                             <div class="month">
-                              <i class="fas fa-angle-left prev"></i>
-                              <div class="date">
                                 <button class="prev">&nbsp;&#9664;&nbsp;</button>
-                                <span id="current-month">June 2024</span>
+                                <div class="date">
+                                    <span id="current-month">June 2024</span>
+                                </div>
                                 <button class="next">&nbsp;&#9654;&nbsp;</button>
-                              </div>
-                              
-                                                            <i class="fas fa-angle-right next"></i>
                             </div>
                             <div class="weekdays">
-                              <div>Sun</div>
-                              <div>Mon</div>
-                              <div>Tue</div>
-                              <div>Wed</div>
-                              <div>Thu</div>
-                              <div>Fri</div>
-                              <div>Sat</div>
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
                             </div>
                             <div class="days"></div>
                             <div class="goto-today">
-                              <div class="goto">
-                                <input type="text" placeholder="mm/yyyy" class="date-input" />
-                                <button class="goto-btn">Go</button>
-                              </div>
-                              <button class="today-btn">Today</button>
+                                <div class="goto">
+                                    <input type="text" placeholder="mm/yyyy" class="date-input" />
+                                    <button class="goto-btn">Go</button>
+                                </div>
+                                <button class="today-btn">Today</button>
                             </div>
-                          </div>
                         </div>
+                    </div>
                         <div class="right">
                           <div class="today-date">
                             <div class="event-day">wed</div>
@@ -192,7 +189,7 @@
                           </div>
                         </div>
                         <button class="add-event">
-                          <i class="fas fa-plus"></i>
+                          <i class="fas fa-plus" ></i>
                         </button>
                       </div>
 
@@ -835,7 +832,9 @@
   font-style: italic;
 }
 
-
+.day.today.active{
+  color: white;
+}
 </style>
 
 <script>
@@ -1328,4 +1327,5 @@ function convertTime(time) {
   time = timeHour + ":" + timeMin + " " + timeFormat;
   return time;
 }
+
 </script>
