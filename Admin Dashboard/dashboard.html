@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Aagneya</title>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name"><span>Aag</span>neya</div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="#"><i class='bx bx-calendar-event'></i>Events</a></li>
+            <li><a href="#"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
+            <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <!-- <input type="search" placeholder="Search..."> -->
+                    <button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <!-- <a href="#" class="profile">
+                <img src="images/logo.png">
+            </a> -->
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>Dashboard</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                Analytics
+                            </a></li>
+                        /
+                        <li><a href="#" class="active">Shop</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="report">
+                    <i class='bx bx-cloud-download'></i>
+                    <span>Download CSV</span>
+                </a>
+            </div>
+
+            <!-- Insights -->
+            <ul class="insights">
+                <li>
+                    <i class='bx bx-calendar-check'></i>
+                    <span class="info">
+                        <h3>
+                            1,074
+                        </h3>
+                        <p>Events</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-user-check'></i>
+                    <span class="info">
+                        <h3>
+                            3,944
+                        </h3>
+                        <p>Active Users</p>
+                    </span>
+                </li>
+                <li><i class='bx bxs-user-account'></i>
+                    <span class="info">
+                        <h3>
+                            14,721
+                        </h3>
+                        <p>Total users</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-medal'></i>
+                    <span class="info">
+                        <h3>
+                            $6,742
+                        </h3>
+                        <p>Achievements</p>
+                    </span>
+                </li>
+            </ul>
+            <!-- End of Insights -->
+
+            <div class="bottom-data">
+                <div class="orders">
+                    <!-- calender here -->
+
+                    <div class="container">
+                        <div class="left">
+                            <div class="calendar">
+                                <div class="month">
+                                    <button class="prev">&nbsp;&#9664;&nbsp;</button>
+                                    <div class="date">
+                                        <span id="current-month">June 2024</span>
+                                    </div>
+                                    <button class="next">&nbsp;&#9654;&nbsp;</button>
+                                </div>
+                                <div class="weekdays">
+                                    <div>Sun</div>
+                                    <div>Mon</div>
+                                    <div>Tue</div>
+                                    <div>Wed</div>
+                                    <div>Thu</div>
+                                    <div>Fri</div>
+                                    <div>Sat</div>
+                                </div>
+                                <div class="days"></div>
+                                <div class="goto-today">
+                                    <div class="goto">
+                                        <input type="text" placeholder="mm/yyyy" class="date-input" />
+                                        <button class="goto-btn">Go</button>
+                                    </div>
+                                    <button class="today-btn">Today</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="today-date">
+                                <div class="event-day">wed</div>
+                                <div class="event-date">12th december 2022</div>
+                            </div>
+                            <div class="events"></div>
+                            <div class="add-event-wrapper">
+                                <div class="add-event-header">
+                                    <div class="title">Add Event</div>
+                                    <i class="fas fa-times close"></i>
+                                </div>
+                                <div class="add-event-body">
+                                    <div class="add-event-input">
+                                        <input type="text" placeholder="Event Name" class="event-name" />
+                                    </div>
+                                    <div class="add-event-input">
+                                        <input type="text" placeholder="Event Time From (HH/MIN)(24 Hr)" class="event-time-from" pattern=" /^([01]\d|2[0-3]):([0-5]\d)$/" />
+                                    </div>
+                                    <div class="add-event-input">
+                                        <input type="text" placeholder="Event Time To (HH/MIN)(24 Hr)" class="event-time-to" pattern=" /^([01]\d|2[0-3]):([0-5]\d)$/" />
+
+                                    </div>
+                                    <div class="add-event-input">
+                                        <input type="text" placeholder="Event category" class="event-category" />
+                                    </div>
+
+                                </div>
+                                <div class="add-event-footer">
+                                    <button class="add-event-btn">Add Event</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="add-event">
+                          <i class="fas fa-plus" ></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+
+
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
+
+<style>
+    [x-cloak] {
+        display: none
+    }
+</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+
+<script src="//unpkg.com/alpinejs" defer></script>
