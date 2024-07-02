@@ -43,7 +43,7 @@
         <section>
             <div class="lg:flex">
                 <div class="lg:w-1/2">
-                    <img class="w-auto h-32 sm:h-40" src="./img/logo.jpg" alt="" style="margin-top: -8%;">
+                    <img class="w-auto h-32 sm:h-40" src="../img/logo.jpg" alt="" style="margin-top: -8%;">
                     <h1 class="mt-4 text-gray-600 dark:text-gray-300 md:text-lg">Welcome back</h1>
                     <h1 class="mt-4 text-2xl font-medium text-gray-800 capitalize lg:text-3xl dark:text-white">
                         login to your account
@@ -60,7 +60,7 @@
                                 </svg>
                             </span>
                             <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                id= "roll_no" placeholder="Roll number">
+                                id="roll_no" placeholder="Roll number">
                         </div>
                         <div class="relative flex items-center mt-4">
                             <span class="absolute">
@@ -107,45 +107,47 @@
         }
     </script>
     <script>
-        async function login(event){
+        async function login(event) {
             event.preventDefault();
 
-            const roll_no=document.getElementById('roll_no').value;
-            const password=document.getElementById('password').value;
+            const roll_no = document.getElementById('roll_no').value;
+            const password = document.getElementById('password').value;
 
-            
 
-            const response=await fetch('http://localhost:3000/api/login',{
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
+
+            const response = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                body:JSON.stringify({roll_no,password})
+                body: JSON.stringify({
+                    roll_no,
+                    password
+                })
 
             });
 
             console.log("api requested")
-            const data=await response.json();
+            const data = await response.json();
 
             //saving this token to local storage
-            if(response.ok){
-                const token=data.token;
-                localStorage.setItem('token',token);
+            if (response.ok) {
+                const token = data.token;
+                localStorage.setItem('token', token);
                 console.log(data);
-                
-                if(data.role_id == 0){
-                    if(data.profile==1){
-                        window.location.href='../Admin Dashboard/dashboard.html';
-                    }
-                    else{
-                        window.location.href='./addprofile.html';
+
+                if (data.role_id == 0) {
+                    console.log("have profile")
+                    if (data.profile == 0) {
+                        window.location.href = '../Admin Dashboard/dashboard.html';
+                    } else {
+                        window.location.href = './addprofile.html';
                     }
 
+                } else if (data.role_id > 0) {
+                    window.location.href = '#';
                 }
-                else if (data.role_id>0){
-                    window.location.href='#';
-                }
-                
+
 
 
 
@@ -157,9 +159,8 @@
 
 
             }
-            
-        }
 
+        }
     </script>
 </body>
 
