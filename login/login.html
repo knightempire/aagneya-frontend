@@ -127,7 +127,37 @@
             console.log("api requested")
             const data=await response.json();
 
-            console.log(data);
+            //saving this token to local storage
+            if(response.ok){
+                const token=data.token;
+                localStorage.setItem('token',token);
+                console.log(data);
+                
+                if(data.role_id == 0){
+                    if(data.profile==1){
+                        window.location.href='../Admin Dashboard/dashboard.html';
+                    }
+                    else{
+                        window.location.href='./addprofile.html';
+                    }
+
+                }
+                else if (data.role_id>0){
+                    window.location.href='#';
+                }
+                
+
+
+
+
+
+
+
+
+
+
+            }
+            
         }
 
     </script>
