@@ -161,6 +161,63 @@
             }
 
         }
+
+
+        // Function to decode token and fetch user data
+        async function decodeToken() {
+            try {
+                const token = localStorage.getItem('token');
+                console.log('Token from localStorage:', token);
+
+                if (!token) {
+                    console.error('Token not found in local storage');
+                    return;
+                }
+
+                const response = await fetch('http://localhost:3000/api/decodeToken', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        token: token
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Decoded token data:', data);
+                    // Use 'data' to display user information or perform other actions
+                    if (data.is_active == 1) {
+
+                        if (data.role_id == 0) {
+                            console.log("have profile")
+                            if (data.profile == 0) {
+                                window.location.href = '../Admin Dashboard/dashboard.html';
+                            } else {
+                                window.location.href = './addprofile.html';
+                            }
+
+                        } else if (data.role_id > 0) {
+                            window.location.href = '#';
+                        }
+
+                    }
+
+                } else {
+                    console.error('Failed to decode token:', response.statusText);
+                    // Handle the case where the request fails (e.g., server error or token invalid)
+                }
+            } catch (error) {
+                console.error('Error in decodeToken:', error.message);
+                // Handle any unexpected errors
+            }
+        }
+
+
+        window.onload = function() {
+            decodeToken();
+        };
     </script>
 </body>
 
