@@ -143,3 +143,42 @@ document.addEventListener('DOMContentLoaded', function() {
         unmonitoredBtn.classList.add('active');
     });
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleSubmenu = document.querySelectorAll('.toggle-submenu');
+
+    toggleSubmenu.forEach(item => {
+        item.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const submenu = document.getElementById(`${targetId}-submenu`);
+
+            // Check if the clicked menu item is 'Community' and has 'active' class
+            if (targetId === 'community' && this.parentNode.classList.contains('active')) {
+                // Toggle submenu display
+                if (submenu.style.display === 'none' || submenu.style.display === '') {
+                    submenu.style.display = 'block';
+                } else {
+                    submenu.style.display = 'none';
+                }
+            } else {
+                // Hide all other submenus when clicking on other menu items
+                const allSubmenus = document.querySelectorAll('.submenu');
+                allSubmenus.forEach(sub => {
+                    if (sub !== submenu) {
+                        sub.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        // Check on page load if 'Community' menu item has 'active' class
+        const targetId = item.getAttribute('data-target');
+        const submenu = document.getElementById(`${targetId}-submenu`);
+        if (targetId === 'community' && item.parentNode.classList.contains('active')) {
+            submenu.style.display = 'block';
+        }
+    });
+});

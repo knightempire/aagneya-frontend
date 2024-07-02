@@ -615,3 +615,12 @@ body {
     /* Change this to your desired active button color */
     color: white;
 }
+
+.submenu {
+    display: none;
+}
+
+#community-submenu li {
+    display: block;
+    padding: 8px 24px;
+}
