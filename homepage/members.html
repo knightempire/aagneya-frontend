@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
-
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -15,9 +14,8 @@
         <!-- Filter Buttons Section -->
         <div class="row mt-5" id="filter-buttons">
             <div class="col-12 text-center d-flex justify-content-center flex-wrap gap-3">
-
-                 <!-- Sports Filter -->
-                 <div class="btn-group" role="group" aria-label="Sports">
+                <!-- Sports Filter -->
+                <div class="btn-group" role="group" aria-label="Sports">
                     <select class="selectpicker" multiple aria-label="Default select example" data-live-search="true">
                         <option value="football">Football</option>
                         <option value="cricket">Cricket</option>
@@ -26,37 +24,27 @@
                         <option value="chess">Chess</option>
                     </select>
                 </div>
-
                 <!-- Position Filter -->
                 <div class="btn-group" role="group" aria-label="Position" data-filter="position">
                     <button class="btn btn-outline-primary" data-filter="position" data-value="captain">Captain</button>
                     <button class="btn btn-outline-primary" data-filter="position" data-value="vice-captain">Vice Captain</button>
                 </div>
-
                 <!-- Gender Filter -->
                 <div class="btn-group" role="group" aria-label="Gender" data-filter="gender">
                     <button class="btn btn-outline-primary" data-filter="gender" data-value="male">Male</button>
                     <button class="btn btn-outline-primary" data-filter="gender" data-value="female">Female</button>
                 </div>
-    
-
                 <!-- Team Filter -->
                 <div class="btn-group" role="group" aria-label="Team" data-filter="team">
                     <button class="btn btn-outline-primary" data-filter="team" data-value="group">Group</button>
                     <button class="btn btn-outline-primary" data-filter="team" data-value="individual">Individual</button>
                 </div>
-    
-
-                
-    
-               
             </div>
         </div>
-        
         <!-- Filterable Images / Cards Section -->
         <div class="row mt-4 gap-3 justify-content-center" id="filterable-cards">
             <div class="card p-0" data-team="group" data-gender="male" data-sport="football" data-position="captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Mountains">
+                <img src="images/nature-1.jpg" class="card-img-top" alt="Mountains">
                 <div class="card-body">
                     <h6 class="card-title text-center">Mountains</h6>
                     <p class="card-text text-center">cb.en.u4cse21331</p>
@@ -68,7 +56,7 @@
             </div>
             <!-- Add other cards similarly -->
             <div class="card p-0" data-team="group" data-gender="female" data-sport="cricket" data-position="captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Beach">
+                <img src="images/nature-2.jpg" class="card-img-top" alt="Beach">
                 <div class="card-body">
                     <h6 class="card-title text-center">Beach</h6>
                     <p class="card-text text-center">cb.en.u4cse21332</p>
@@ -79,7 +67,7 @@
                 </div>
             </div>
             <div class="card p-0" data-team="individual" data-gender="male" data-sport="volleyball" data-position="vice-captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Forest">
+                <img src="images/nature-2.jpg" class="card-img-top" alt="Forest">
                 <div class="card-body">
                     <h6 class="card-title text-center">Forest</h6>
                     <p class="card-text text-center">cb.en.u4cse21333</p>
@@ -90,7 +78,7 @@
                 </div>
             </div>
             <div class="card p-0" data-team="individual" data-gender="female" data-sport="hockey" data-position="captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Desert">
+                <img src="images/nature-3.jpg" class="card-img-top" alt="Desert">
                 <div class="card-body">
                     <h6 class="card-title text-center">Desert</h6>
                     <p class="card-text text-center">cb.en.u4cse21334</p>
@@ -101,7 +89,7 @@
                 </div>
             </div>
             <div class="card p-0" data-team="group" data-gender="male" data-sport="chess" data-position="vice-captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Waterfall">
+                <img src="images/nature-2.jpg" class="card-img-top" alt="Waterfall">
                 <div class="card-body">
                     <h6 class="card-title text-center">Waterfall</h6>
                     <p class="card-text text-center">cb.en.u4cse21335</p>
@@ -112,7 +100,7 @@
                 </div>
             </div>
             <div class="card p-0" data-team="group" data-gender="female" data-sport="football" data-position="captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="River">
+                <img src="images/nature-3.jpg" class="card-img-top" alt="River">
                 <div class="card-body">
                     <h6 class="card-title text-center">River</h6>
                     <p class="card-text text-center">cb.en.u4cse21336</p>
@@ -123,7 +111,7 @@
                 </div>
             </div>
             <div class="card p-0" data-team="individual" data-gender="male" data-sport="cricket" data-position="vice-captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Sunset">
+                <img src="images/nature-2.jpg" class="card-img-top" alt="Sunset">
                 <div class="card-body">
                     <h6 class="card-title text-center">Sunset</h6>
                     <p class="card-text text-center">cb.en.u4cse21337</p>
@@ -134,7 +122,7 @@
                 </div>
             </div>
             <div class="card p-0" data-team="group" data-gender="female" data-sport="volleyball" data-position="captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Snow">
+                <img src="images/nature-3.jpg" class="card-img-top" alt="Snow">
                 <div class="card-body">
                     <h6 class="card-title text-center">Snow</h6>
                     <p class="card-text text-center">cb.en.u4cse21338</p>
@@ -145,7 +133,7 @@
                 </div>
             </div>
             <div class="card p-0" data-team="individual" data-gender="male" data-sport="hockey" data-position="vice-captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="City">
+                <img src="images/nature-2.jpg" class="card-img-top" alt="City">
                 <div class="card-body">
                     <h6 class="card-title text-center">City</h6>
                     <p class="card-text text-center">cb.en.u4cse21339</p>
@@ -156,9 +144,9 @@
                 </div>
             </div>
             <div class="card p-0" data-team="group" data-gender="female" data-sport="chess" data-position="captain">
-                <img src="https://damheadprimaryschool.co.uk/wp-content/uploads/2021/09/multi-sports-blog-1530684776.jpg" class="card-img-top" alt="Forest Path">
+                <img src="images/nature-3.jpg" class="card-img-top" alt="Forest">
                 <div class="card-body">
-                    <h6 class="card-title text-center">Forest Path</h6>
+                    <h6 class="card-title text-center">Forest</h6>
                     <p class="card-text text-center">cb.en.u4cse21340</p>
                     <div class="d-flex justify-content-around">
                         <p class="badge bg-secondary">Chess</p>
@@ -168,180 +156,17 @@
             </div>
         </div>
     </div>
-    
-    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js'></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 </body>
 </html>
 
-<script>
-$(document).ready(function() {
-    $('.selectpicker').selectpicker({
-        style: 'btn-primary',
-        size: 4,
-        liveSearch: true,
-        liveSearchPlaceholder: 'Search sports...',
-        actionsBox: true
-    });
-
-    // Initialize and handle filter changes
-    $('.selectpicker').on('changed.bs.select', function () {
-        filterState.sports = $(this).val();
-        filterCards();
-    });
-});
-
-</script>
-
-<style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-.bootstrap-select .dropdown-toggle {
-    border-color: #007bff; /* Blue border color */
-    color: #007bff; /* Blue text color */
-}
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
-    color: var(--bs-btn-active-color);
-    background-color: whitesmoke;
-    border-color: var(--bs-btn-active-border-color);
-}
-
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active :hover {
-    color: var(--bs-btn-active-color);
-    background-color: whitesmoke;
-    border-color: var(--bs-btn-active-border-color);
-}
-.bootstrap-select .dropdown-menu {
-    border-color: #007bff; /* Blue border color */
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Example shadow */
-}
-
-.bootstrap-select .dropdown-menu.inner {
-    max-height: 300px !important; /* Adjust height if needed */
-}
-
-
-
-.bootstrap-select .dropdown-item.active,
-.bootstrap-select .dropdown-item:focus {
-    background-color: #007bff; /* Blue background color for active/focused item */
-}
-
-
-    * {
-        font-family: "Poppins", sans-serif;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
     
-    body {
-        background: #f1f1f1 !important;
-        transition: background-color 0.3s ease;
-    }
-    
-    .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 20px;
-    }
-    
-    #filter-buttons .btn-group {
-        margin: 5px;
-    }
-    
-    .filter-button {
-        transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
-        border-radius: 25px;
-        font-weight: 500;
-    }
-    .btn:hover{
-        color: white;
-    }
-    .btn{
-        color: #007bff;
-
-    }
-    .btn.btn.active{
-        color: #007bff;
-    }
-    .filter-button.active {
-        background-color: #007bff;
-        color: #fff;
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    }
-    
-    .filter-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    .bootstrap-select .dropdown-menu {
-        max-height: 300px !important;
-        overflow-y: auto !important;
-        z-index: 1050 !important;
-    }
-    
-    .bootstrap-select .dropdown-menu.inner {
-        max-height: 300px !important;
-    }
-    
-    #filterable-cards .card {
-        width: 18rem;
-        border: 2px solid transparent;
-        transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-        margin-bottom: 20px;
-        opacity: 0;
-    }
-    
-    #filterable-cards .card.show {
-        opacity: 1;
-        animation: fadeIn 0.5s forwards;
-    }
-    
-    #filterable-cards .card.hide {
-        display: none;
-    }
-    
-    #filterable-cards .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    #filterable-cards .card img {
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.3s;
-    }
-    
-    #filterable-cards .card .card-body {
-        padding: 15px;
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    @media (max-width: 600px) {
-        #filterable-cards {
-            justify-content: center;
-        }
-    
-        #filterable-cards .card {
-            width: calc(100% / 2 - 10px);
-            margin-bottom: 10px;
-        }
-    }
-    
-    .badge {
-        padding: 5px 10px;
-        font-size: 0.8rem;
-        border-radius: 12px;
-        margin: 5px;
-    }
-    </style>
-
-<script>document.addEventListener("DOMContentLoaded", () => {
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
     const filterButtons = document.querySelectorAll("#filter-buttons .btn-group button");
     const filterSelect = document.querySelector(".selectpicker");
     const filterableCards = document.querySelectorAll("#filterable-cards .card");
@@ -375,12 +200,17 @@ $(document).ready(function() {
             const filterType = button.dataset.filter;
             const filterValue = button.dataset.value;
 
-            // Toggle active class
-            document.querySelectorAll(`.btn-group[data-filter="${filterType}"] button`).forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
-
-            // Update filter state
-            filterState[filterType] = filterValue;
+            if (button.classList.contains("active")) {
+                // If the button is already active, deactivate it
+                button.classList.remove("active");
+                filterState[filterType] = null;
+            } else {
+                // If the button is not active, activate it and deactivate others in the same group
+                document.querySelectorAll(`.btn-group[data-filter="${filterType}"] button`).forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+                filterState[filterType] = filterValue;
+            }
+            
             filterCards();
         });
     });
@@ -392,4 +222,168 @@ $(document).ready(function() {
 
     filterCards(); // Initial filtering when the page loads
 });
-</script>
+
+    </script>
+
+
+<style>
+/* Add this CSS to the existing style section or your external stylesheet */
+
+.btn-group[data-filter] .btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Ensure inactive buttons have the correct color */
+.btn-group[data-filter] .btn {
+    background-color: whitesmoke;
+    color: #007bff;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+    .bootstrap-select .dropdown-toggle {
+        border-color: #007bff; /* Blue border color */
+        color: #007bff; /* Blue text color */
+    }
+    .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+        color: var(--bs-btn-active-color);
+        background-color: whitesmoke;
+        border-color: var(--bs-btn-active-border-color);
+    }
+    
+    .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active :hover {
+        color: var(--bs-btn-active-color);
+        background-color: whitesmoke;
+        border-color: var(--bs-btn-active-border-color);
+    }
+    .bootstrap-select .dropdown-menu {
+        border-color: #007bff; /* Blue border color */
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Example shadow */
+    }
+    
+    .bootstrap-select .dropdown-menu.inner {
+        max-height: 300px !important; /* Adjust height if needed */
+    }
+    
+    
+    
+    .bootstrap-select .dropdown-item.active,
+    .bootstrap-select .dropdown-item:focus {
+        background-color: #007bff; /* Blue background color for active/focused item */
+    }
+    
+    .btn:active{
+        background-color: #007bff;
+    }
+        * {
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: #f1f1f1 !important;
+            transition: background-color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1700px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        #filter-buttons .btn-group {
+            margin: 5px;
+        }
+        
+        .filter-button {
+            transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+        .btn:hover{
+            color: white;
+        }
+        .btn{
+            color: #007bff;
+    
+        }
+        .btn.btn.active{
+            color: #007bff;
+        }
+        .filter-button.active {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+        
+        .filter-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .bootstrap-select .dropdown-menu {
+            max-height: 300px !important;
+            overflow-y: auto !important;
+            z-index: 1050 !important;
+        }
+        
+        .bootstrap-select .dropdown-menu.inner {
+            max-height: 300px !important;
+        }
+        
+        #filterable-cards .card {
+            width: 18rem;
+            border: 2px solid transparent;
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+            margin-bottom: 20px;
+            opacity: 0;
+        }
+        
+        #filterable-cards .card.show {
+            opacity: 1;
+            animation: fadeIn 0.5s forwards;
+        }
+        
+        #filterable-cards .card.hide {
+            display: none;
+        }
+        
+        #filterable-cards .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        #filterable-cards .card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        #filterable-cards .card .card-body {
+            padding: 15px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @media (max-width: 600px) {
+            #filterable-cards {
+                justify-content: center;
+            }
+        
+            #filterable-cards .card {
+                width: calc(100% / 2 - 10px);
+                margin-bottom: 10px;
+            }
+        }
+        
+        .badge {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 12px;
+            margin: 5px;
+        }
+        </style>
