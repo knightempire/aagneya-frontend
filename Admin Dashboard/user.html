@@ -607,6 +607,110 @@
 <script src="//unpkg.com/alpinejs" defer></script>
 
 
+<script>
+    async function updateEvent() {
+        // Get values from the form
+        const roll_no = document.getElementById('roll_no1').value;
+        const sport = document.getElementById('sports1').value;
+        const role = document.getElementById('roles1').value;
+        const gender = document.getElementById('gender_edit').value;
+        const event_date = document.getElementById('event_date_edit').value;
+
+        // Prepare data to send to the API
+        const data = {
+            roll_no: roll_no,
+            sport_id: sport,
+            role_id: role,
+            gender: gender,
+            year: event_date // Assuming event_date corresponds to the year in your API
+        };
+        console.log(data)
+        try {
+            const response = await fetch('http://localhost:3000/api/updateuser', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const responseData = await response.json();
+            console.log('Success:', responseData);
+            const successMsg = document.getElementById('msgok');
+            const message = responseData.message; // Extract message from response
+            console.log(message)
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+
+
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+            closeForm()
+
+
+        } catch (error) {
+            console.error('Error updating user details:', error);
+
+        }
+    }
+
+    async function resetpass() {
+        // Get roll number value
+        const roll_no = document.getElementById('roll_no1').value;
+        // Log roll number to console
+        const data = {
+            roll_no: roll_no,
+        };
+
+        console.log("Resetting password for Roll No:", roll_no);
+
+        try {
+            const response = await fetch('http://localhost:3000/api/hardresetpassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const responseData = await response.json();
+            console.log('Success:', responseData);
+            const successMsg = document.getElementById('msgok');
+            const message = responseData.message; // Extract message from response
+            console.log(message)
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+
+
+
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+            closeForm()
+
+        } catch (error) {
+            console.error('Error updating user details:', error);
+
+        }
+
+
+    }
+</script>
 
 
 <script>
@@ -1286,4 +1390,5 @@
         displaycurrentmem();
         displaycurrentmembers()
     };
+</script>
 </script>
