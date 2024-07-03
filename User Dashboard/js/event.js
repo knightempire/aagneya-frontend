@@ -14,10 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function showEditForm() {
-    // Hide the element with id="displayevents"
-    var displayEvents = document.getElementById('displayevents');
-    if (displayEvents) {
-        displayEvents.style.display = 'none';
+    // Hide the element with id="displayallmembers"
+    var displayallmembers = document.getElementById('displayallmembers');
+    if (displayallmembers) {
+        displayallmembers.style.display = 'none';
+    }
+
+    // Hide the element with id="allmember"
+    var allmember = document.getElementById('allmember');
+    if (allmember) {
+        allmember.style.display = 'none';
     }
 
     // Show the form with id="editvent"
@@ -27,11 +33,12 @@ function showEditForm() {
     }
 }
 
+
 function closeForm() {
-    // Show the element with id="displayevents"
-    var displayEvents = document.getElementById('displayevents');
-    if (displayEvents) {
-        displayEvents.style.display = 'block';
+    // Show the element with id="displayallmembers"
+    var displayallmembers = document.getElementById('displayallmembers');
+    if (displayallmembers) {
+        displayallmembers.style.display = 'block';
     }
 
     // Hide the form with id="editvent"

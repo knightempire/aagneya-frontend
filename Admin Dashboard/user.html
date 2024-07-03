@@ -80,35 +80,24 @@
                         <li><a href="#" class="active">Shop</a></li>
                     </ul>
                 </div>
-                <div class="flex items-center space-x-4">
-
-                    <a href="#" class="report">
-                        <i class='bx bxs-add-to-queue'></i>
-                        <span id="changes">Add</span>
-                        <i class='bx bxs-x-circle' style="display: none;"></i>
-                    </a>
-
-                    <div class="flex items-center justify-center" id="reset password">
-                        <button class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 px-5 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
-                        Reset password
-                      </button>
-
-                    </div>
-                </div>
-
+                <a href="#" class="report">
+                    <i class='bx bxs-add-to-queue'></i>
+                    <span id="changes">Add</span>
+                    <i class='bx bxs-x-circle' style="display: none;"></i>
+                </a>
             </div>
             <br>
             <!-- code from here -->
 
 
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
-                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
+                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add User Details</div>
                 <div class="p-4 md:p-8">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" name="roll_no" id="roll__edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                        <input type="text" name="roll_no" id="roll_no" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                             placeholder="Roll_no *" />
 
-                        <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                        <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
                             <option value="" disabled selected>Select Role</option>
                             <option value="Category 1">Category 1</option>
                             <option value="Category 2">Category 2</option>
@@ -385,6 +374,11 @@
 
                                 <div class="text-center">
                                     <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
+                                </div>
+                                <div class="text-right">
+                                    <button id="reset" class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 px-5 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out" onclick="resetpass()">
+                                        Reset password
+                                    </button>
                                 </div>
 
                             </div>
