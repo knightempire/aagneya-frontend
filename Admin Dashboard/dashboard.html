@@ -38,7 +38,7 @@
 
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout">
+                <a href="#" class="logout" onclick="logout()">
                     <i class='bx bx-log-out-circle'></i> Logout
                 </a>
             </li>
@@ -228,12 +228,19 @@
 
 <script src="//unpkg.com/alpinejs" defer></script>
 
+<script>
+    function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+</script>
 
 <script>
     let roll_no;
     let name;
-
-
 
     async function decodeToken() {
         try {
@@ -249,7 +256,8 @@
             const response = await fetch('http://localhost:3000/api/decodeToken', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Include Authorization header with Bearer token
                 },
                 body: JSON.stringify({
                     token: token
@@ -260,18 +268,17 @@
                 const data = await response.json();
                 console.log('Decoded token data:', data);
 
-                roll_no = data.roll_no;
-                name = data.name;
-
+                // Example of handling the decoded data
+                const roll_no = data.roll_no;
+                const name = data.name;
 
                 if (data.is_active === 1) {
                     if (data.role_id === 0) {
-                        console.log("Hy admin");
+                        console.log("Hello admin");
 
+                        // Example of updating UI with user's name
                         const nameElement = document.getElementById('name');
                         nameElement.textContent = name;
-
-
                     } else {
                         window.location.href = '../User Dashboard/dashboard.html';
                     }

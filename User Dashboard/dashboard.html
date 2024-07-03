@@ -213,10 +213,18 @@
 </html>
 
 <script>
+    function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+</script>
+
+<script>
     let roll_no;
     let name;
-
-
 
     async function decodeToken() {
         try {
@@ -225,13 +233,15 @@
 
             if (!token) {
                 console.error('Token not found in local storage');
+                window.location.href = '../login/login.html';
                 return;
             }
 
             const response = await fetch('http://localhost:3000/api/decodeToken', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Include Authorization header with Bearer token
                 },
                 body: JSON.stringify({
                     token: token
@@ -242,18 +252,17 @@
                 const data = await response.json();
                 console.log('Decoded token data:', data);
 
-                roll_no = data.roll_no;
-                name = data.name;
-
+                // Example of handling the decoded data
+                const roll_no = data.roll_no;
+                const name = data.name;
 
                 if (data.is_active === 1) {
                     if (data.role_id != 0) {
-                        console.log("Hy admin");
+                        console.log("Hello admin");
 
+                        // Example of updating UI with user's name
                         const nameElement = document.getElementById('name');
                         nameElement.textContent = name;
-
-
                     } else {
                         window.location.href = '../Admin Dashboard/dashboard.html';
                     }
@@ -267,6 +276,7 @@
             }
         } catch (error) {
             console.error('Error in decodeToken:', error.message);
+            window.location.href = '../login/login.html';
             // Handle any unexpected errors
         }
     }
@@ -274,19 +284,7 @@
     window.onload = function() {
         decodeToken();
     };
-
-
-
-
-
-
-
-
-    window.onload = function() {
-        decodeToken();
-    };
 </script>
-
 <style>
     [x-cloak] {
         display: none

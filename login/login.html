@@ -136,7 +136,7 @@
 
                     const token = data.token;
                     localStorage.setItem('token', token);
-
+                    console.log(data.profile)
 
                     if (data.role_id == 0) {
                         if (data.profile == 0) {
@@ -145,6 +145,7 @@
                             window.location.href = './addprofile.html';
                         }
                     } else if (data.role_id > 0) {
+
                         if (data.profile == 0) {
                             window.location.href = '../User Dashboard/dashboard.html';
                         } else {
@@ -175,7 +176,8 @@
                 const response = await fetch('http://localhost:3000/api/decodeToken', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Include Authorization header with Bearer token
                     },
                     body: JSON.stringify({
                         token: token
@@ -187,7 +189,7 @@
                     console.log('Decoded token data:', data);
                     // Use 'data' to display user information or perform other actions
                     if (data.is_active == 1) {
-                        console.log(data.is_active)
+                        console.log(data.profile)
                         if (data.role_id == 0) {
                             if (data.profile == 0) {
                                 window.location.href = '../Admin Dashboard/dashboard.html';
@@ -198,7 +200,7 @@
                             if (data.profile == 0) {
                                 window.location.href = '../User Dashboard/dashboard.html';
                             } else {
-                                window.location.href = './addprofile.html';
+                                // window.location.href = './addprofile.html';
                             }
                         }
 
