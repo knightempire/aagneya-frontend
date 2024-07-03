@@ -90,53 +90,104 @@
             <!-- code from here -->
 
 
+
+
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
-                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add User Details</div>
-                <div class="p-4 md:p-8">
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" name="roll_no" id="roll_no" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Roll_no *" />
 
-                        <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                                <option value="" disabled selected>Select Role</option>
-                                <!-- Options will be dynamically added here -->
-                            </select>
+                <br>
 
-
+                <div class="flex justify-center items-center " id="useraddeddone" style="display: none;">
+                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                        <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                            <div class="flex gap-2">
+                                <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                            </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white">done successfully :)</p>
+                                    <p class="text-gray-500">User added</p>
+                                </div>
+                            </div>
+                            <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                          </svg>
+                        </button>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <select name="category" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                            <option value="" disabled selected>Select Sport</option>
-                            <!-- Options will be dynamically added here -->
-                        </select>
-
-
-                        <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                            <option value="" disabled selected>Select Gender</option>
-                            <option value="Boys">Boys</option>
-                            <option value="Girls">Girls</option>
-                    
-                        </select>
+                <div class="flex justify-center items-center " id="userfail" style="display: none;">
+                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                        <div class="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                            <div class="flex gap-2">
+                                <div class="text-[#d65563] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"></path>
+                            </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white">Please try again</p>
+                                    <p class="text-gray-500" id="errormsg">This is the description part</p>
+                                </div>
+                            </div>
+                            <button class="text-gray-600 hover:bg-white/10 p-1 rounded-md transition-colors ease-linear">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                          </svg>
+                        </button>
+                        </div>
                     </div>
-
-                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Event Date" />
-
-
-                    </div>
-
-
-                    <div class="text-center">
-                        <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
-                    </div>
-
                 </div>
 
 
+                <form onsubmit="addUser(); return false;">
+                    <!-- Prevents default form submission -->
+                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add User Details</div>
+                    <div class="p-4 md:p-8">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <input type="text" name="roll_no" id="roll_no" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Roll_no *" required>
 
+                            <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>Select Role</option>
+                                <!-- Options will be dynamically added here -->
+                            </select>
+                        </div>
+
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                            <select name="category" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>Select Sport</option>
+                                <!-- Options will be dynamically added here -->
+                            </select>
+
+                            <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Boys">Boys</option>
+                                <option value="Girls">Girls</option>
+                            </select>
+                        </div>
+
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                            <select id="event_year_dropdown" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <!-- Options will be added dynamically using JavaScript -->
+                            </select>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add User</button>
+                        </div>
+                    </div>
+                </form>
             </div>
+
+
 
 
             <br>
@@ -202,13 +253,13 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
                                                 </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
+                                                    <div class="text-sm font-medium text-gray-900" id="name">
                                                         Abinesh
                                                     </div>
-                                                    <div class="text-sm text-gray-500">
+                                                    <div class="text-sm text-gray-500" id="roll_no">
                                                         cb.en.u4cse21302
                                                     </div>
                                                 </div>
@@ -216,24 +267,24 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
                                             Chess
                                         </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
+                                                <div class="text-sm font-medium text-gray-900" id="role_name">
                                                     CAPTAIN
                                                 </div>
-                                                <div class="text-sm text-gray-500">
+                                                <div class="text-sm text-gray-500" id="spl_role_name">
                                                     President
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
                                             2024
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
                                             9499964935
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
@@ -242,53 +293,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
-                                                </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        Abinesh
-                                                    </div>
-                                                    <div class="text-sm text-gray-500">
-                                                        cb.en.u4cse21302
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Chess
-                                        </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    CAPTAIN
-                                                </div>
-                                                <div class="text-sm text-gray-500">
-                                                    President
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            2024
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            9499964935
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
-                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
-                                        </td>
-                                    </tr>
-
-
-
-                                    <!-- More rows... -->
 
                                 </tbody>
                             </table>
@@ -421,21 +425,19 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
-
-
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayallusers">
 
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
+                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
                                                 </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
+                                                    <div class="text-sm font-medium text-gray-900" id="name">
                                                         Abinesh
                                                     </div>
-                                                    <div class="text-sm text-gray-500">
+                                                    <div class="text-sm text-gray-500" id="roll_no">
                                                         cb.en.u4cse21302
                                                     </div>
                                                 </div>
@@ -443,68 +445,24 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
                                             Chess
                                         </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
+                                                <div class="text-sm font-medium text-gray-900" id="role_name">
                                                     CAPTAIN
                                                 </div>
-                                                <div class="text-sm text-gray-500">
+                                                <div class="text-sm text-gray-500" id="spl_role_name">
                                                     President
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
                                             2024
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            9499964935
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">Edit</a>
-                                            <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="">
-                                                </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        Abinesh
-                                                    </div>
-                                                    <div class="text-sm text-gray-500">
-                                                        cb.en.u4cse21302
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Chess
-                                        </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    CAPTAIN
-                                                </div>
-                                                <div class="text-sm text-gray-500">
-                                                    President
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            2024
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
                                             9499964935
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
@@ -851,10 +809,204 @@
     }
 
 
+    async function addUser() {
+        try {
+            // Retrieve values from form fields
+            const rollNo = document.getElementById('roll_no').value;
+            const role = document.getElementById('roles').value;
+            const sport = document.getElementById('sports').value;
+            const gender = document.getElementById('gender_edit').value;
+            const year = document.getElementById('event_year_dropdown').value;
+
+            // Get current date in ISO format
+            const currentDate = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+
+            // Prepare the data to send
+            const data = {
+                roll_no: rollNo,
+                date: currentDate,
+                role_id: role,
+                sport_id: sport,
+                year: year
+            };
+
+            // Send the data to the backend API
+            const response = await fetch('http://localhost:3000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+            });
+
+            // Check if response is ok
+            if (!response.ok) {
+                // Get error response data if available
+                let errorResponseData = null;
+                try {
+                    errorResponseData = await response.json();
+                    // Print error message to the userfail div
+                    document.getElementById('errormsg').textContent = errorResponseData.error;
+                } catch (error) {
+                    console.error('Error parsing error response:', error);
+                }
+
+                // Log the error response
+                console.error('Network response was not ok', errorResponseData);
+
+                // Display the error message
+                const errorContainer = document.getElementById('userfail');
+                errorContainer.style.display = 'flex'; // Show the error message
+
+                // Hide the error message after 5 seconds (adjust as needed)
+                setTimeout(() => {
+                    errorContainer.style.display = 'none';
+                }, 5000); // 5000 milliseconds = 5 seconds
+
+                throw new Error('Network response was not ok');
+            }
+
+            // Parse the JSON response
+            const responseData = await response.json();
+
+            // Clear form fields
+            document.getElementById('roll_no').value = '';
+            document.getElementById('roles').value = '';
+            document.getElementById('sports').value = '';
+            document.getElementById('gender_edit').value = '';
+            document.getElementById('event_year_dropdown').value = '';
+
+            console.log('Success:', responseData);
+
+            // Show success message for 3 seconds
+            const successMessage = document.getElementById('useraddeddone');
+            successMessage.style.display = 'flex'; // Show the success message
+
+            // Hide the success message after 3 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+
+            displaycurrentmem();
+
+        } catch (error) {
+            console.error('Error:', error);
+
+            // Display the error message
+            const errorContainer = document.getElementById('userfail');
+            errorContainer.style.display = 'flex'; // Show the error message
+
+            // Hide the error message after 5 seconds (adjust as needed)
+            setTimeout(() => {
+                errorContainer.style.display = 'none';
+            }, 5000); // 5000 milliseconds = 5 seconds
+        }
+    }
+
+    async function displayUsers() {
+        try {
+            const response = await fetch('http://localhost:3000/api/displaymem', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch members');
+            }
+
+            const data = await response.json();
+            console.log('Users data:', data);
+
+            const activeUsers = data.filter(user => user.role_id !== 0 && user.is_active === 1);
+            const inactiveUsers = data.filter(user => user.role_id !== 0 && user.is_active === 0);
+
+            displayUsersTable(activeUsers, 'displayusers');
+            displayUsersTable(inactiveUsers, 'displayallusers');
+
+        } catch (error) {
+            console.error('Error fetching members:', error);
+            throw error;
+        }
+    }
+
+    function displayUsersTable(users, targetId) {
+        const displayUsers = document.getElementById(targetId);
+        displayUsers.innerHTML = ''; // Clear existing rows if any
+
+        users.forEach(user => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+        <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
+                </div>
+                <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900" id="name">
+                        ${user.name}
+                    </div>
+                    <div class="text-sm text-gray-500" id="roll_no">
+                        ${user.roll_no}
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
+                ${user.sport_name}
+            </span>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <div class="ml-4">
+                <div class="text-sm font-medium text-gray-900" id="role_name">
+                    ${user.role_name}
+                </div>
+                <div class="text-sm text-gray-500" id="spl_role_name">
+                    ${user.spl_role_name}
+                </div>
+            </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
+            ${user.year}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
+            ${user.phone || ''}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
+            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
+        </td>
+        `;
+
+            displayUsers.appendChild(row);
+        });
+    }
+
 
     window.onload = function() {
         decodeToken();
         displaysports();
         getrole();
+        displayUsers();
     };
+</script>
+
+
+<script>
+    // JavaScript for dynamically populating the year dropdown
+    const currentYear = new Date().getFullYear();
+    const selectElement = document.getElementById('event_year_dropdown');
+    for (let year = currentYear + 1; year >= currentYear - 1; year--) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        if (year === currentYear) {
+            option.selected = true;
+        }
+        selectElement.appendChild(option);
+    }
 </script>
