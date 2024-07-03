@@ -83,126 +83,262 @@
                     </ul>
                 </div>
                 <!-- <a href="#" class="report">
-                    <i class='bx bx-cloud-download'></i>
-                    <span>Download CSV</span>
+                    <i class='bx bxs-add-to-queue'></i>
+                    <span id="changes">Add Sports</span>
+                    <i class='bx bxs-x-circle' style="display: none;"></i>
                 </a> -->
             </div>
 
+            <!-- <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
+                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add User Details</div>
+                <div class="p-4 md:p-8">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input type="text" name="roll_no" id="roll_no" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Roll_no *" />
+
+                        <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                <option value="" disabled selected>Select Role</option>
+              
+                            </select>
+
+
+                    </div>
+
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                        <select name="category" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <option value="" disabled selected>Select Sport</option>
+              
+                        </select>
+
+
+                        <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Boys">Boys</option>
+                            <option value="Girls">Girls</option>
+                    
+                        </select>
+                    </div>
+
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                        <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Date" />
+
+
+                    </div>
+
+
+                    <div class="text-center">
+                        <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
+                    </div>
+
+                </div>
+
+
+
+            </div> -->
+
+
+            <br>
             <!-- Insights -->
-            <ul class="insights">
-                <li>
-                    <i class='bx bx-calendar-check'></i>
-                    <span class="info">
+            <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
+                <ul class="insights">
+                    <li>
+                        <i class='bx bx-calendar-check'></i>
+                        <span class="info">
                         <h3>
                             1,074
                         </h3>
                         <p>Events</p>
                     </span>
-                </li>
-                <li><i class='bx bx-user-check'></i>
-                    <span class="info">
+                    </li>
+                    <li><i class='bx bx-user-check'></i>
+                        <span class="info">
                         <h3>
                             3,944
                         </h3>
                         <p>Active Users</p>
                     </span>
-                </li>
-                <li><i class='bx bxs-user-account'></i>
-                    <span class="info">
+                    </li>
+                    <li><i class='bx bxs-user-account'></i>
+                        <span class="info">
                         <h3>
                             14,721
                         </h3>
                         <p>Total users</p>
                     </span>
-                </li>
-                <li><i class='bx bx-medal'></i>
-                    <span class="info">
+                    </li>
+                    <li><i class='bx bx-medal'></i>
+                        <span class="info">
                         <h3>
                             $6,742
                         </h3>
                         <p>Achievements</p>
                     </span>
-                </li>
-            </ul>
-            <!-- End of Insights -->
+                    </li>
+                </ul>
+                <!-- End of Insights -->
 
-            <div class="bottom-data">
-                <div class="orders">
-                    <!-- calender here -->
+                <div class="bottom-data">
+                    <div class="orders">
+                        <!-- calender here -->
 
-                    <div class="container">
-                        <div class="left">
-                            <div class="calendar">
-                                <div class="month">
-                                    <button class="prev">&nbsp;&#9664;&nbsp;</button>
-                                    <div class="date">
-                                        <span id="current-month">June 2024</span>
+                        <div class="container">
+                            <div class="left">
+                                <div class="calendar">
+                                    <div class="month">
+                                        <button class="prev">&nbsp;&#9664;&nbsp;</button>
+                                        <div class="date">
+                                            <span id="current-month">June 2024</span>
+                                        </div>
+                                        <button class="next">&nbsp;&#9654;&nbsp;</button>
                                     </div>
-                                    <button class="next">&nbsp;&#9654;&nbsp;</button>
-                                </div>
-                                <div class="weekdays">
-                                    <div>Sun</div>
-                                    <div>Mon</div>
-                                    <div>Tue</div>
-                                    <div>Wed</div>
-                                    <div>Thu</div>
-                                    <div>Fri</div>
-                                    <div>Sat</div>
-                                </div>
-                                <div class="days"></div>
-                                <div class="goto-today">
-                                    <div class="goto">
-                                        <input type="text" placeholder="mm/yyyy" class="date-input" />
-                                        <button class="goto-btn">Go</button>
+                                    <div class="weekdays">
+                                        <div>Sun</div>
+                                        <div>Mon</div>
+                                        <div>Tue</div>
+                                        <div>Wed</div>
+                                        <div>Thu</div>
+                                        <div>Fri</div>
+                                        <div>Sat</div>
                                     </div>
-                                    <button class="today-btn">Today</button>
+                                    <div class="days"></div>
+                                    <div class="goto-today">
+                                        <div class="goto">
+                                            <input type="text" placeholder="mm/yyyy" class="date-input" />
+                                            <button class="goto-btn">Go</button>
+                                        </div>
+                                        <button class="today-btn">Today</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="right">
-                            <div class="today-date">
-                                <div class="event-day">wed</div>
-                                <div class="event-date">12th december 2022</div>
-                            </div>
-                            <div class="events"></div>
-                            <div class="add-event-wrapper">
-                                <div class="add-event-header">
-                                    <div class="title">Add Event</div>
-                                    <i class="fas fa-times close"></i>
+                            <div class="right">
+                                <div class="today-date">
+                                    <div class="event-day">wed</div>
+                                    <div class="event-date">12th december 2022</div>
                                 </div>
-                                <div class="add-event-body">
-                                    <div class="add-event-input">
-                                        <input type="text" placeholder="Event Name" class="event-name" />
+                                <div class="events"></div>
+                                <div class="add-event-wrapper">
+                                    <div class="add-event-header">
+                                        <div class="title">Add Event</div>
+                                        <i class="fas fa-times close"></i>
                                     </div>
-                                    <div class="add-event-input">
-                                        <input type="text" placeholder="Event Time From (HH/MIN)(24 Hr)" class="event-time-from" pattern=" /^([01]\d|2[0-3]):([0-5]\d)$/" />
-                                    </div>
-                                    <div class="add-event-input">
-                                        <input type="text" placeholder="Event Time To (HH/MIN)(24 Hr)" class="event-time-to" pattern=" /^([01]\d|2[0-3]):([0-5]\d)$/" />
+                                    <div class="add-event-body">
+                                        <div class="add-event-input">
+                                            <input type="text" placeholder="Event Name" class="event-name" />
+                                        </div>
+                                        <div class="add-event-input">
+                                            <input type="text" placeholder="Event Time From (HH/MIN)(24 Hr)" class="event-time-from" pattern=" /^([01]\d|2[0-3]):([0-5]\d)$/" />
+                                        </div>
+                                        <div class="add-event-input">
+                                            <input type="text" placeholder="Event Time To (HH/MIN)(24 Hr)" class="event-time-to" pattern=" /^([01]\d|2[0-3]):([0-5]\d)$/" />
+
+                                        </div>
+                                        <div class="add-event-input">
+                                            <input type="text" placeholder="Event category" class="event-category" />
+                                        </div>
 
                                     </div>
-                                    <div class="add-event-input">
-                                        <input type="text" placeholder="Event category" class="event-category" />
+                                    <div class="add-event-footer">
+                                        <button class="add-event-btn">Add Event</button>
                                     </div>
-
-                                </div>
-                                <div class="add-event-footer">
-                                    <button class="add-event-btn">Add Event</button>
                                 </div>
                             </div>
-                        </div>
-                        <button class="add-event">
+                            <button class="add-event">
                           <i class="fas fa-plus" ></i>
                         </button>
+                        </div>
+
                     </div>
 
                 </div>
+
+
+                <div class="bottom-data">
+                    <div class="orders">
+                        <div class="header">
+                            <i class='bx bx-receipt'></i>
+                            <h3>Recent Orders</h3>
+                            <i class='bx bx-filter'></i>
+                            <i class='bx bx-search'></i>
+                        </div>
+                        <!-- <table>
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Order Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="images/profile-1.jpg">
+                                        <p>John Doe</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/profile-1.jpg">
+                                        <p>John Doe</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="images/profile-1.jpg">
+                                        <p>John Doe</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status process">Processing</span></td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                    </div>
+
+
+                    <!-- Reminders -->
+                    <div class="reminders">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <i class='bx bx-trophy text-gray-600'></i>
+                                <h3 class="ml-2 text-xl font-bold text-gray-800">Sports</h3>
+                            </div>
+                            <button id="toggleAddSport" class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-500 text-white hover:bg-blue-600 focus:outline-none">
+                                <i class='bx bx-plus'></i>
+                            </button>
+                        </div>
+                        <div id="addingSports" class="hidden">
+                            <!-- Hidden initially; shown when toggleAddSportBtn is clicked -->
+                            <form id="sportForm">
+                                <input id="sportInput" type="text" placeholder="Enter sport name" class="border border-gray-300 rounded-md py-2 px-3 mr-2 focus:outline-none focus:border-blue-500">
+                                <button type="submit" onsubmit="addSport()" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 focus:outline-none hover:bg-purple-800">
+                                    Submit
+                                </button>
+                            </form>
+
+
+                        </div>
+
+                        <br>
+                        <ul class="task-list" id="Sports">
+                            <!-- Sports will be dynamically added here -->
+                        </ul>
+                    </div>
+
+
+
+                    <!-- End of Reminders-->
+
+                </div>
+
 
             </div>
         </main>
 
     </div>
-
 
 
 
@@ -227,6 +363,31 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleAddSportBtn = document.getElementById('toggleAddSport');
+        const addingSports = document.getElementById('addingSports');
+        const sportInput = document.getElementById('sportInput');
+        const submitSportBtn = document.getElementById('submitSport');
+        const sportsList = document.getElementById('Sports');
+
+        toggleAddSportBtn.addEventListener('click', function() {
+            if (addingSports.classList.contains('hidden')) {
+                // Show input field and submit button
+                addingSports.classList.remove('hidden');
+                toggleAddSportBtn.innerHTML = '<i class="bx bx-x"></i>';
+            } else {
+                // Hide input field and submit button
+                addingSports.classList.add('hidden');
+                toggleAddSportBtn.innerHTML = '<i class="bx bx-plus"></i>';
+            }
+        });
+
+
+    });
+</script>
 
 <script>
     function logout() {
@@ -258,7 +419,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Include Authorization header with Bearer token
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     token: token
@@ -276,19 +437,20 @@
                     if (data.role_id === 0) {
                         console.log("Hello admin");
 
+                        // Assuming you have an element with id 'name' to display user name
                         const nameElement = document.getElementById('name');
-                        nameElement.textContent = name;
+                        if (nameElement) {
+                            nameElement.textContent = name;
+                        }
                     } else {
                         window.location.href = '../User Dashboard/dashboard.html';
                     }
                 } else {
                     console.error('User is not active');
                     window.location.href = '../login/login.html';
-
                 }
             } else {
                 console.error('Failed to decode token:', response.statusText);
-
             }
         } catch (error) {
             console.error('Error in decodeToken:', error.message);
@@ -296,7 +458,106 @@
         }
     }
 
+    async function displaySports() {
+        try {
+            const response = await fetch('http://localhost:3000/api/displaysports', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch sports');
+            }
+
+            const data = await response.json();
+            console.log('Sports data:', data);
+
+            // Select the ul element to append sports
+            const sportsList = document.getElementById('Sports');
+
+            // Clear existing list items if any
+            sportsList.innerHTML = '';
+
+            // Iterate through the sports array and create li elements
+            data.sports.forEach(sport => {
+                // Check if the sport_name is not "Admin"
+                if (sport.sport_name !== 'Admin') {
+                    const li = document.createElement('li');
+                    li.classList.add('completed'); // Assuming you want all to be marked as completed
+
+                    const div = document.createElement('div');
+                    div.classList.add('task-title');
+
+                    const p = document.createElement('p');
+                    p.textContent = sport.sport_name;
+
+                    div.appendChild(p);
+                    li.appendChild(div);
+                    sportsList.appendChild(li);
+                }
+            });
+
+        } catch (error) {
+            console.error('Error fetching sports:', error);
+            throw error;
+        }
+    }
+
+
+    async function addSport(event) {
+        event.preventDefault(); // Prevent form submission from refreshing the page
+
+        const sportInput = document.getElementById('sportInput');
+        const sportName = sportInput.value.trim(); // Trim whitespace
+        console.log('Sport Name:', sportName);
+
+        try {
+            if (!sportName) {
+                console.error('Sport name cannot be empty');
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/api/addsports', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    sport_name: sportName
+                })
+            });
+
+            if (response.ok) {
+                // Clear the form
+                sportInput.value = '';
+
+                // Refresh the sports list
+                displaySports();
+            } else {
+                console.error('Failed to add sport:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error adding sport:', error);
+        }
+    }
+
+
+
+    const sportForm = document.getElementById('sportForm');
+    sportForm.addEventListener('submit', addSport);
+
+
+
+
+
+
+    // Execute these functions when the window is fully loaded
     window.onload = function() {
         decodeToken();
+        displaySports();
     };
 </script>
