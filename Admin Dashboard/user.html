@@ -52,7 +52,7 @@
             <form action="#">
                 <div class="form-input">
                     <!-- <input type="search" placeholder="Search..."> -->
-                    <button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button>
+                    <button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> Name</span></button>
                 </div>
             </form>
             <input type="checkbox" id="theme-toggle" hidden>
@@ -98,20 +98,19 @@
                             placeholder="Roll_no *" />
 
                         <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                            <option value="" disabled selected>Select Role</option>
-                            <option value="Category 1">Category 1</option>
-                            <option value="Category 2">Category 2</option>
-                            <option value="Category 3">Category 3</option>
-                        </select>
+                                <option value="" disabled selected>Select Role</option>
+                                <!-- Options will be dynamically added here -->
+                            </select>
+
+
                     </div>
 
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                            <option value="" disabled selected>Select Role</option>
-                            <option value="Category 1">Category 1</option>
-                            <option value="Category 2">Category 2</option>
-                            <option value="Category 3">Category 3</option>
+                        <select name="category" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <option value="" disabled selected>Select Sport</option>
+                            <!-- Options will be dynamically added here -->
                         </select>
+
 
                         <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
                             <option value="" disabled selected>Select Gender</option>
@@ -702,3 +701,160 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+
+
+
+<script>
+    function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+</script>
+
+<script>
+    let roll_no;
+    let name;
+    let token;
+
+    async function decodeToken() {
+        try {
+            token = localStorage.getItem('token');
+            console.log('Token from localStorage:', token);
+
+            if (!token) {
+                console.error('Token not found in local storage');
+                window.location.href = '../login/login.html';
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/api/decodeToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Decoded token data:', data);
+
+                // Example of handling the decoded data
+                roll_no = data.roll_no;
+                name = data.name;
+
+                if (data.is_active === 1) {
+                    if (data.role_id === 0) {
+                        console.log("Hello admin");
+
+                        // Example of updating UI with user's name
+                        const nameElement = document.getElementById('name');
+                        nameElement.textContent = name;
+
+                    } else {
+                        window.location.href = '../User Dashboard/dashboard.html';
+                    }
+                } else {
+                    console.error('User is not active');
+                    window.location.href = '../login/login.html';
+
+                }
+
+            } else {
+                console.error('Failed to decode token:', response.statusText);
+                window.location.href = '../login/login.html';
+            }
+        } catch (error) {
+            console.error('Error in decodeToken:', error.message);
+            window.location.href = '../login/login.html';
+
+        }
+    }
+
+    async function getrole() {
+        try {
+            const response = await fetch('http://localhost:3000/api/displayroles', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch roles');
+            }
+
+            const data = await response.json();
+            console.log('Roles data:', data.roles);
+
+            const rolesSelect = document.getElementById('roles');
+
+            // Clear existing options
+            rolesSelect.innerHTML = '<option value="" disabled selected>Select Role</option>';
+
+            // Add options based on fetched data
+            data.roles.forEach(role => {
+                const option = document.createElement('option');
+                option.value = role.role_id; // Assign the role_id as the option value
+                option.textContent = role.role_name; // Assign the role_name as the option text
+                rolesSelect.appendChild(option);
+            });
+
+        } catch (error) {
+            console.error('Error fetching roles:', error);
+            throw error;
+        }
+    }
+
+
+    async function displaysports() {
+        try {
+            const response = await fetch('http://localhost:3000/api/displaysports', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch sports');
+            }
+
+            const data = await response.json();
+            console.log('Sports data:', data);
+
+            const selectElement = document.getElementById('sports');
+
+            // Clear existing options (except the default option)
+            selectElement.innerHTML = '<option value="" disabled selected>Select Sport</option>';
+
+            // Populate options from fetched data
+            data.sports.forEach(sport => {
+                const option = document.createElement('option');
+                option.value = sport.sport_id;
+                option.textContent = sport.sport_name;
+                selectElement.appendChild(option);
+            });
+
+        } catch (error) {
+            console.error('Error fetching sports:', error);
+            throw error;
+        }
+    }
+
+
+
+    window.onload = function() {
+        decodeToken();
+        displaysports();
+        getrole();
+    };
+</script>

@@ -241,10 +241,11 @@
 <script>
     let roll_no;
     let name;
+    let token;
 
     async function decodeToken() {
         try {
-            const token = localStorage.getItem('token');
+            token = localStorage.getItem('token');
             console.log('Token from localStorage:', token);
 
             if (!token) {
@@ -268,15 +269,13 @@
                 const data = await response.json();
                 console.log('Decoded token data:', data);
 
-                // Example of handling the decoded data
-                const roll_no = data.roll_no;
-                const name = data.name;
+                roll_no = data.roll_no;
+                name = data.name;
 
                 if (data.is_active === 1) {
                     if (data.role_id === 0) {
                         console.log("Hello admin");
 
-                        // Example of updating UI with user's name
                         const nameElement = document.getElementById('name');
                         nameElement.textContent = name;
                     } else {
@@ -284,16 +283,16 @@
                     }
                 } else {
                     console.error('User is not active');
-                    // Handle inactive user scenario
+                    window.location.href = '../login/login.html';
+
                 }
             } else {
                 console.error('Failed to decode token:', response.statusText);
-                // Handle server-side errors or invalid token scenarios
+
             }
         } catch (error) {
             console.error('Error in decodeToken:', error.message);
             window.location.href = '../login/login.html';
-            // Handle any unexpected errors
         }
     }
 
