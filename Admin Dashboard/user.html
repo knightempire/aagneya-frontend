@@ -197,7 +197,7 @@
                         </div>
 
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select id="event_year_dropdown1" name="event_year_dropdown1" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <select id="event_year_dropdown" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 required>
                             <!-- Options will be added dynamically using JavaScript -->
                         </select>
@@ -369,23 +369,19 @@
                             <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit user Details</div>
                             <div class="p-4 md:p-8">
                                 <div class="flex flex-col md:flex-row gap-4">
-                                    <input type="text" name="roll_no" id="roll__edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                    <input type="text" name="roll_no" id="roll_no1" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Roll_no *" />
 
-                                    <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                                        <option value="" disabled selected>Select Role</option>
-                                        <option value="Category 1">Category 1</option>
-                                        <option value="Category 2">Category 2</option>
-                                        <option value="Category 3">Category 3</option>
-                                    </select>
+                                    <select id="roles1" name="category" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                            <option value=""  selected id="selectrole">Select Role</option>
+                                            <!-- Options will be dynamically populated by JavaScript -->
+                                        </select>
                                 </div>
 
                                 <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                    <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                                        <option value="" disabled selected>Select Role</option>
-                                        <option value="Category 1">Category 1</option>
-                                        <option value="Category 2">Category 2</option>
-                                        <option value="Category 3">Category 3</option>
+                                    <select id="sports1" name="category" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                        <option value=""  selected id="select"> Select Sport</option>
+                                        <!-- Options will be dynamically populated by JavaScript -->
                                     </select>
 
                                     <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
@@ -395,11 +391,12 @@
                                 
                                     </select>
                                 </div>
+
                                 <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                    <select id="event_year_dropdown2" name="event_year_dropdown2" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        required>
-                                    <!-- Options will be added dynamically using JavaScript -->
-                                </select>
+                                    <input type="number" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="YYYY" min="2000" max="2099" required />
+
+
                                 </div>
 
 
@@ -494,7 +491,7 @@
                                             9499964935
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">Edit</a>
+                                            <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">Edit</a> -->
                                             <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
                                         </td>
                                     </tr>
@@ -507,7 +504,7 @@
 
                         </div>
 
-                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="allmember" style="display: none;">
+                        <!-- <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="allmember" style="display: none;">
                             <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeFormallmember()">
                                 <span class="mr-1">Close</span>
                                 <i class='bx bxs-x-circle'></i>
@@ -543,11 +540,12 @@
                                 </div>
 
                                 <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                    <select id="event_year_dropdown3" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        required>
-                                    <!-- Options will be added dynamically using JavaScript -->
-                                </select>
+                                    <input type="number" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="YYYY" min="2000" max="2099" required />
+
+
                                 </div>
+
 
                                 <div class="text-center">
                                     <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
@@ -557,7 +555,7 @@
 
 
 
-                        </div>
+                        </div> -->
 
 
                     </div>
@@ -655,19 +653,77 @@
     </script>
 
     <script>
-        function showEditForm(roll_no) {
+        async function showEditForm(roll_no) {
+            try {
+                console.log("showform :", roll_no);
 
-            console.log(roll_no)
                 // Hide the element with id="displayevents"
-            var displayEvents = document.getElementById('displayevents');
-            if (displayEvents) {
-                displayEvents.style.display = 'none';
-            }
+                var displayEvents = document.getElementById('displayevents');
+                if (displayEvents) {
+                    displayEvents.style.display = 'none';
+                }
 
-            // Show the form with id="editvent"
-            var editForm = document.getElementById('editvent');
-            if (editForm) {
-                editForm.style.display = 'block';
+                // Show the form with id="editvent"
+                var editForm = document.getElementById('editvent');
+                if (editForm) {
+                    editForm.style.display = 'block';
+                }
+
+                // Call the API to fetch data
+                const response = await fetch('http://localhost:3000/api/displaymem', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        roll_no: roll_no
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('Data received from API:', data);
+
+                // Populate form fields with the received data
+                document.getElementById('roll_no1').value = data[0].roll_no;
+
+                // Populate the 'roles1' <select> element
+                var rolesSelect = document.getElementById('roles1');
+                for (let option of rolesSelect.options) {
+                    if (option.text === data[0].role_name) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+
+                // Populate the 'sports1' <select> element
+                var sportsSelect = document.getElementById('sports1');
+                for (let option of sportsSelect.options) {
+                    if (option.text === data[0].sport_name) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+
+                // Populate 'gender' field if it exists in data
+                if (data[0].gender !== null && data[0].gender !== undefined) {
+                    document.getElementById('gender_edit').value = data[0].gender;
+                    document.getElementById('gender_edit').style.display = 'block'; // Show the gender field
+                } else {
+                    // If gender is null or undefined, hide the field
+                    document.getElementById('gender_edit').style.display = 'none';
+                }
+
+                // Populate 'event_date_edit' assuming 'year' corresponds to event_date_edit
+                document.getElementById('event_date_edit').value = data[0].year;
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                // Handle errors as needed
             }
         }
 
@@ -876,25 +932,33 @@
             const data = await response.json();
             console.log('Roles data:', data.roles);
 
+            // Function to populate roles in a select element
+            const populateRoles = (selectElement) => {
+                // Clear existing options
+                selectElement.innerHTML = '<option value="" disabled selected>Select Role</option>';
+
+                // Add options based on fetched data
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.role_id; // Assign the role_id as the option value
+                    option.textContent = role.role_name; // Assign the role_name as the option text
+                    selectElement.appendChild(option);
+                });
+            };
+
+            // Select elements to populate
             const rolesSelect = document.getElementById('roles');
+            const rolesSelect1 = document.getElementById('roles1');
 
-            // Clear existing options
-            rolesSelect.innerHTML = '<option value="" disabled selected>Select Role</option>';
-
-            // Add options based on fetched data
-            data.roles.forEach(role => {
-                const option = document.createElement('option');
-                option.value = role.role_id; // Assign the role_id as the option value
-                option.textContent = role.role_name; // Assign the role_name as the option text
-                rolesSelect.appendChild(option);
-            });
+            // Populate roles in both select elements
+            populateRoles(rolesSelect);
+            populateRoles(rolesSelect1);
 
         } catch (error) {
             console.error('Error fetching roles:', error);
             throw error;
         }
     }
-
 
     async function displaysports() {
         try {
@@ -913,25 +977,33 @@
             const data = await response.json();
             console.log('Sports data:', data);
 
-            const selectElement = document.getElementById('sports');
+            // Function to populate sports in a select element
+            const populateSports = (selectElement) => {
+                // Clear existing options (except the default option)
+                selectElement.innerHTML = '<option value="" disabled selected>Select Sport</option>';
 
-            // Clear existing options (except the default option)
-            selectElement.innerHTML = '<option value="" disabled selected>Select Sport</option>';
+                // Populate options from fetched data
+                data.sports.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.sport_id;
+                    option.textContent = sport.sport_name;
+                    selectElement.appendChild(option);
+                });
+            };
 
-            // Populate options from fetched data
-            data.sports.forEach(sport => {
-                const option = document.createElement('option');
-                option.value = sport.sport_id;
-                option.textContent = sport.sport_name;
-                selectElement.appendChild(option);
-            });
+            // Select elements to populate
+            const sportsSelect = document.getElementById('sports');
+            const sportsSelect1 = document.getElementById('sports1');
+
+            // Populate sports in both select elements
+            populateSports(sportsSelect);
+            populateSports(sportsSelect1);
 
         } catch (error) {
             console.error('Error fetching sports:', error);
             throw error;
         }
     }
-
 
     async function addUser() {
         try {
@@ -1180,7 +1252,6 @@
                     ${user.phone || ''}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                 <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember('${user.roll_no}')">Edit</a>
     <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="activate('${user.roll_no}')">Activate</a>
                 </td>
             `;
@@ -1206,26 +1277,16 @@
 
 
 <script>
-    function populateYearDropdown(selectId) {
-        const currentYear = new Date().getFullYear();
-        const selectElement = document.getElementById(selectId);
-        selectElement.innerHTML = ''; // Clear existing options if any
-
-        for (let year = currentYear + 1; year >= currentYear - 1; year--) {
-            const option = document.createElement('option');
-            option.value = year;
-            option.textContent = year;
-            if (year === currentYear) {
-                option.selected = true;
-            }
-            selectElement.appendChild(option);
+    // JavaScript for dynamically populating the year dropdown
+    const currentYear = new Date().getFullYear();
+    const selectElement = document.getElementById('event_year_dropdown');
+    for (let year = currentYear + 1; year >= currentYear - 1; year--) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        if (year === currentYear) {
+            option.selected = true;
         }
+        selectElement.appendChild(option);
     }
-
-    // Call the function to populate the dropdown on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        populateYearDropdown('event_year_dropdown1');
-        populateYearDropdown('event_year_dropdown2');
-        populateYearDropdown('event_year_dropdown3');
-    });
 </script>
