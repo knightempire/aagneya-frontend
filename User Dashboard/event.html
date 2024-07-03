@@ -74,22 +74,30 @@
                 <a href="#" class="report"> <i class='bx bxs-add-to-queue'></i> <span id="changes">Add</span> <i class='bx bxs-x-circle' style="display: none;"></i> </a>
             </div> <br>
             <!-- code from here -->
-          
-                <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
+
+            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
+                <form onsubmit="createvent(event)">
                     <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
                     <div class="p-4 md:p-8">
                         <div class="flex flex-col md:flex-row gap-4">
-                            <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Name *" />
-                            <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Sports" />
+                            <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Event Name *" required />
+                            <input type="text" name="sport_name" id="sport_name_input" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Sport Name *" required readonly>
+
+
+                            </select>
                         </div>
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <select name="category" id="category" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
                                 <option value="" disabled selected>Select Category</option>
-                                <option value="Category 1">Category 1</option>
-                                <option value="Category 2">Category 2</option>
-                                <option value="Category 3">Category 3</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                                <option value="UG & PG">UG AND PG</option>
                             </select>
-                            <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
                                 <option value="" disabled selected>Select Gender</option>
                                 <option value="Boys">Boys</option>
                                 <option value="Girls">Girls</option>
@@ -97,59 +105,66 @@
                             </select>
                         </div>
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <input type="text" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Date and Time" />
-                            <!-- <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"placeholder="Time" />  -->
-
-                        </div>
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <input type="text" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Event Date and Time" required />
+                            <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
                                 <option value="" disabled selected>Select Event Type</option>
-                                <option value="Individual">Individual</option>
-                                <option value="Team">Team</option>
+                                <option value="0">Individual</option>
+                                <option value="1">Team</option>
                             </select>
-                            <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Location" />
                         </div>
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Entry Fee" />
-                            <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Number of Prizes" />
+                            <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Location" required />
+                            <input type="number" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Entry Fee" required />
+                        </div>
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                            <input type="number" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Number of Prizes" required />
+                            <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Form Link" required />
                         </div>
                         <div class="mb-4 md:mb-10">
-                            <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Form Link" />
-                            <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Description"></textarea>
+                            <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Event Description" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="addEvent()">Add Event</button>
+                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add Event</button>
                         </div>
                     </div>
-                </div>
-            
-                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        flatpickr("#event_date_edit", {
-                            enableTime: true,
-                            dateFormat: "i:Y-m-d H:i",
-                            altInput: true,
-                            altFormat: "i k:F j, Y h:i K",
-                            monthSelectorType: "static" // This will show full month names instead of dropdown
-                        });
+                </form>
+            </div>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    flatpickr("#event_date_edit", {
+                        enableTime: true,
+                        dateFormat: "i:Y-m-d H:i",
+                        altInput: true,
+                        altFormat: "i k:F j, Y h:i K",
+                        monthSelectorType: "static" // This will show full month names instead of dropdown
                     });
-            
-                    function addEvent() {
-                        // Add your logic here to handle the form submission or event addition
-                        console.log("Event added!");
-                    }
-                </script>
-          
-            
-        
+                });
+
+                function addEvent() {
+                    // Add your logic here to handle the form submission or event addition
+                    console.log("Event added!");
+                }
+            </script>
 
 
 
 
 
 
-             <br>
+
+
+
+            <br>
             <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
                 <section class="container px-4 mx-auto">
                     <div class="sm:flex sm:items-center sm:justify-between"> </div>
@@ -589,6 +604,56 @@
     }
 </script>
 
+<script>
+    function createvent(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        // Fetch form input values
+        const event_name = document.getElementById('event_name_edit').value;
+        const sport_name = document.getElementById('sport_name_input').value;
+        const category = document.getElementById('category').value;
+        const gender = document.getElementById('gender_edit').value;
+        const event_date = document.getElementById('event_date_edit').value;
+        const is_team = document.getElementById('event_type_edit').value;
+        const location = document.getElementById('location_edit').value;
+        const entry_fee = document.getElementById('entry_fee_edit').value;
+        const no_of_prizes = document.getElementById('no_of_prizes_edit').value;
+        const form_link = document.getElementById('form_link_edit').value;
+        const event_description = document.getElementById('event_description_edit').value;
+
+        const parts = event_date.split(' '); // Split by space
+
+
+        // Extract date and time separately
+        const datePart = parts[0].substr(3); // Remove the leading "00:"
+        const timePart = parts[1];
+        // Create an object with the form data
+        const formData = {
+            event_name,
+            sport_name,
+            category,
+            gender,
+            datePart,
+            timePart,
+            timePart,
+            is_team,
+            location,
+            entry_fee,
+            no_of_prizes,
+            form_link,
+            event_description,
+        };
+
+        // Log the form data object to the console
+        console.log('Form Data:', formData);
+
+        // You can further process the form data here, such as sending it to a backend API
+
+        // Reset the form after submission if needed
+        // event.target.reset();
+    }
+</script>
+
 
 <script>
     function showdecineForm() {
@@ -618,4 +683,117 @@
             editForm.style.display = 'none';
         }
     }
+</script>
+
+
+
+<script>
+    function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+</script>
+
+<script>
+    let roll_no;
+    let name;
+    let token;
+
+
+    async function decodeToken() {
+        try {
+            token = localStorage.getItem('token');
+            console.log('Token from localStorage:', token);
+
+            if (!token) {
+                console.error('Token not found in local storage');
+                window.location.href = '../login/login.html';
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/api/decodeToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Decoded token data:', data);
+
+                roll_no = data.roll_no;
+                name = data.name;
+                role_id = data.role_id
+
+                if (data.is_active === 1) {
+                    if (data.role_id != 0) {
+                        console.log("Hello admin");
+
+                        // Assuming you have an element with id 'name' to display user name
+                        const nameElement = document.getElementById('name');
+                        if (nameElement) {
+                            nameElement.textContent = name
+                        }
+
+                        displayuser(roll_no);
+
+                    } else {
+                        window.location.href = '../Admin Dashboard/dashboard.html';
+                    }
+                } else {
+                    console.error('User is not active');
+                    window.location.href = '../login/login.html';
+                }
+            } else {
+                console.error('Failed to decode token:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error in decodeToken:', error.message);
+            window.location.href = '../login/login.html';
+        }
+    }
+
+
+    async function displayuser(roll_no) {
+        try {
+            const response = await fetch('http://localhost:3000/api/displaymem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    roll_no: roll_no
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch user data');
+            }
+
+            const responseData = await response.json();
+            console.log('User data:', responseData);
+
+            const sportName = responseData[0].sport_name; // Assuming you want the sport_name from the first object
+            document.getElementById('sport_name_input').value = sportName;
+
+
+        } catch (error) {
+            console.error('Error fetching and displaying user data:', error);
+            throw error; // Re-throw the error to propagate it further if needed
+        }
+    }
+
+    window.onload = function() {
+        decodeToken();
+
+    };
 </script>

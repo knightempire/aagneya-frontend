@@ -44,7 +44,7 @@
 
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout"> <i class='bx bx-log-out-circle'></i> Logout </a>
+                <a href="#" class="logout" onclick="logout()"> <i class='bx bx-log-out-circle'></i> Logout </a>
             </li>
         </ul>
     </div>
@@ -77,8 +77,10 @@
                 <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
                 <div class="p-4 md:p-8">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Name *" />
-                        <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Sports" />
+                        <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Name *" />
+                        <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Sports" />
                     </div>
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                         <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
@@ -95,7 +97,8 @@
                         </select>
                     </div>
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <input type="text" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Date and Time" />
+                        <input type="text" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Date and Time" />
                         <!-- <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"placeholder="Time" />  -->
 
                     </div>
@@ -105,25 +108,30 @@
                             <option value="Individual">Individual</option>
                             <option value="Team">Team</option>
                         </select>
-                        <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Location" />
+                        <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Location" />
                     </div>
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Entry Fee" />
-                        <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Number of Prizes" />
+                        <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Entry Fee" />
+                        <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Number of Prizes" />
                     </div>
                     <div class="mb-4 md:mb-10">
-                        <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Form Link" />
-                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Description"></textarea>
+                        <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Form Link" />
+                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Description"></textarea>
                     </div>
                     <div class="text-center">
                         <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="addEvent()">Add Event</button>
                     </div>
                 </div>
             </div>
-        
+
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
             <script>
-                document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('DOMContentLoaded', function() {
                     flatpickr("#event_date_edit", {
                         enableTime: true,
                         dateFormat: "i:Y-m-d H:i",
@@ -132,23 +140,23 @@
                         monthSelectorType: "static" // This will show full month names instead of dropdown
                     });
                 });
-        
+
                 function addEvent() {
                     // Add your logic here to handle the form submission or event addition
                     console.log("Event added!");
                 }
-            </script> 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            </script>
+
+
+
+
+
+
+
+
+
+
+
             <br>
             <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
                 <section class="container px-4 mx-auto">
@@ -255,10 +263,10 @@
                                 <div class="text-center"> <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button> <button type="button" class="cursor-pointer rounded-lg bg-red-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white"
                                         onclick="deleteEvent()">Delete</button> </div>
                             </div>
-                        </div> 
-                        
-                        
-                        
+                        </div>
+
+
+
                         <br><br>
 
 
