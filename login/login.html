@@ -110,57 +110,55 @@
         async function login(event) {
             event.preventDefault();
 
+
             const roll_no = document.getElementById('roll_no').value;
             const password = document.getElementById('password').value;
 
+            try {
+
+                const response = await fetch('http://localhost:3000/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        roll_no,
+                        password
+                    })
+                });
 
 
-            const response = await fetch('http://localhost:3000/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    roll_no,
-                    password
-                })
+                if (response.ok) {
 
-            });
+                    const data = await response.json();
+                    console.log('Login successful:', data);
 
-            console.log("api requested")
-            const data = await response.json();
 
-            //saving this token to local storage
-            if (response.ok) {
-                const token = data.token;
-                localStorage.setItem('token', token);
-                console.log(data);
+                    const token = data.token;
+                    localStorage.setItem('token', token);
 
-                if (data.role_id == 0) {
-                    console.log("have profile")
-                    if (data.profile == 0) {
-                        window.location.href = '../Admin Dashboard/dashboard.html';
-                    } else {
-                        window.location.href = './addprofile.html';
+
+                    if (data.role_id == 0) {
+                        if (data.profile == 0) {
+                            window.location.href = '../Admin Dashboard/dashboard.html';
+                        } else {
+                            window.location.href = './addprofile.html';
+                        }
+                    } else if (data.role_id > 0) {
+                        if (data.profile == 0) {
+                            window.location.href = '../User Dashboard/dashboard.html';
+                        } else {
+                            window.location.href = './addprofile.html';
+                        }
                     }
-
-                } else if (data.role_id > 0) {
-                    window.location.href = '#';
+                } else {
+                    console.error('Login failed:', response.statusText);
                 }
-
-
-
-
-
-
-
-
-
-
-
+            } catch (error) {
+                console.error('Error in login:', error.message);
             }
-
         }
+
 
 
         // Function to decode token and fetch user data
@@ -189,24 +187,26 @@
                     console.log('Decoded token data:', data);
                     // Use 'data' to display user information or perform other actions
                     if (data.is_active == 1) {
-
+                        console.log(data.is_active)
                         if (data.role_id == 0) {
-                            console.log("have profile")
                             if (data.profile == 0) {
                                 window.location.href = '../Admin Dashboard/dashboard.html';
                             } else {
                                 window.location.href = './addprofile.html';
                             }
-
                         } else if (data.role_id > 0) {
-                            window.location.href = '#';
+                            if (data.profile == 0) {
+                                window.location.href = '../User Dashboard/dashboard.html';
+                            } else {
+                                window.location.href = './addprofile.html';
+                            }
                         }
 
-                    }
 
-                } else {
-                    console.error('Failed to decode token:', response.statusText);
-                    // Handle the case where the request fails (e.g., server error or token invalid)
+                    } else {
+                        console.error('Failed to decode token:', response.statusText);
+                        // Handle the case where the request fails (e.g., server error or token invalid)
+                    }
                 }
             } catch (error) {
                 console.error('Error in decodeToken:', error.message);

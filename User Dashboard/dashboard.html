@@ -54,7 +54,7 @@
             <form action="#">
                 <div class="form-input">
                     <!-- <input type="search" placeholder="Search..."> -->
-                    <button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> user </span></button>
+                    <button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button>
                 </div>
             </form>
             <input type="checkbox" id="theme-toggle" hidden>
@@ -82,10 +82,10 @@
                         <li><a href="#" class="active">Shop</a></li>
                     </ul>
                 </div>
-                <!-- <a href="#" class="report">
+                <a href="#" class="report">
                     <i class='bx bx-cloud-download'></i>
                     <span>Download CSV</span>
-                </a> -->
+                </a>
             </div>
 
             <!-- Insights -->
@@ -212,23 +212,6 @@
 
 </html>
 
-<style>
-    [x-cloak] {
-        display: none
-    }
-</style>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<script>
-    tailwind.config = {
-        darkMode: 'class',
-    }
-</script>
-
-<script src="//unpkg.com/alpinejs" defer></script>
-
-
 <script>
     let roll_no;
     let name;
@@ -242,7 +225,6 @@
 
             if (!token) {
                 console.error('Token not found in local storage');
-                window.location.href = '../login/login.html';
                 return;
             }
 
@@ -265,7 +247,7 @@
 
 
                 if (data.is_active === 1) {
-                    if (data.role_id === 0) {
+                    if (data.role_id != 0) {
                         console.log("Hy admin");
 
                         const nameElement = document.getElementById('name');
@@ -273,7 +255,7 @@
 
 
                     } else {
-                        window.location.href = '../User Dashboard/dashboard.html';
+                        window.location.href = '../Admin Dashboard/dashboard.html';
                     }
                 } else {
                     console.error('User is not active');
@@ -285,7 +267,6 @@
             }
         } catch (error) {
             console.error('Error in decodeToken:', error.message);
-            window.location.href = '../login/login.html';
             // Handle any unexpected errors
         }
     }
@@ -293,4 +274,31 @@
     window.onload = function() {
         decodeToken();
     };
+
+
+
+
+
+
+
+
+    window.onload = function() {
+        decodeToken();
+    };
 </script>
+
+<style>
+    [x-cloak] {
+        display: none
+    }
+</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+
+<script src="//unpkg.com/alpinejs" defer></script>

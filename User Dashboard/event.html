@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/event.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Aagneya</title>
+</head>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo"> <i class='bx bx-code-alt'></i>
+            <div class="logo-name"><span>Aag</span>neya</div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li class="active"><a href="event.html"><i class='bx bx-calendar-event'></i>Events</a></li>
+            <li><a href="achivement.html"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
+            <li><a href="user.html"><i class='bx bx-group'></i>Users</a></li>
+            <li><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i> </a> </li>
+            <ul class="submenu" id="community-submenu">
+                <li><a href="./community/voting.html"><i class='bx bxl-graphql'></i>Stats</a></li>
+                <li><a href="./community/president.html"><i class='bx bx-user'></i>President</a></li>
+                <li><a href="./community/vicepresident.html"><i class='bx bx-user-check'></i>Vice President</a></li>
+                <li><a href="./community/secretary.html"><i class='bx bx-user-minus'></i>Secretary</a></li>
+                <li><a href="./community/pulicrelation.html"><i class='bx bx-user-pin'></i>Public Relation</a></li>
+            </ul>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
+        </ul>
+
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout"> <i class='bx bx-log-out-circle'></i> Logout </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav> <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <!-- <input type="search" placeholder="Search..."> --><button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button> </div>
+            </form> <input type="checkbox" id="theme-toggle" hidden>
+            <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
+            <a href="#" class="notif"> <i class='bx bx-bell'></i> <span class="count">12</span> </a>
+            <!-- <a href="#" class="profile"> <img src="images/logo.png"> </a> --></nav>
+        <!-- End of Navbar -->
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>Dashboard</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#"> Analytics </a></li> /
+                        <li><a href="#" class="active">Shop</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="report"> <i class='bx bxs-add-to-queue'></i> <span id="changes">Add</span> <i class='bx bxs-x-circle' style="display: none;"></i> </a>
+            </div> <br>
+            <!-- code from here -->
+            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
+                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
+                <div class="p-4 md:p-8">
+                    <div class="flex flex-col md:flex-row gap-4"> <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Name *" /> <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Sports" /> </div>
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Category</option> <option value="Category 1">Category 1</option> <option value="Category 2">Category 2</option> <option value="Category 3">Category 3</option> </select>                        <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Gender</option> <option value="Boys">Boys</option> <option value="Girls">Girls</option> <option value="Boys and Girls">Boys and Girls</option> </select>                        </div>
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Date" /> <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Time" /> </div>
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Event Type</option> <option value="Individual">Individual</option> <option value="Team">Team</option> </select>                        <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Location" /> </div>
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Entry Fee" /> <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Number of Prizes" /> </div>
+                    <div class="mb-4 md:mb-10"> <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Form Link" /> <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Description"></textarea> </div>
+                    <div class="text-center"> <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="addEvent()">Add Event</button> </div>
+                </div>
+            </div> <br>
+            <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
+                <section class="container px-4 mx-auto">
+                    <div class="sm:flex sm:items-center sm:justify-between"> </div>
+                    <!-- Buttons for toggling sections -->
+                    <div class="mt-6 md:flex md:items-center md:justify-between">
+                        <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+                            <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100"> Events </button>
+                            <button id="monitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100"> Pendings </button>
+                            <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100"> Declined </button>
+                        </div>
+                    </div>
+                    <!-- Sections to toggle visibility -->
+                    <div id="viewAllSection" class="flex flex-col mt-6">
+
+
+
+                        <div class="displayevents" id="displayevents">
+                            <!-- card start here -->
+
+
+                            <div class="bg-gray-100 dark:bg-gray-900" style="padding-top: 40px;">
+                                <!-- Card Container -->
+                                <div id="card-container" class="max-w-5xl mx-auto">
+                                    <!-- Card 1 -->
+                                    <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                                        <div class="flex items-center justify-between">
+                                            <div class="date-time-container">
+                                                <h3 id="date">Mar 10, 2019</h3>
+                                                <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
+                                            </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a> </div>
+                                        <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                                            <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                                <div class="overflow-x-auto">
+                                                    <table class="min-w-full table-auto">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="px-4 py-2">
+                                                                    <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">
+                                                                    <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                                </td>
+                                                                <td class="px-4 py-3">
+                                                                    <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="px-4 py-2">
+                                                                    <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">
+                                                                    <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">
+                                                                    <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-4"> <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                                            <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                                        </div>
+                                        <div class="readMoreContent mt-4 readmore">
+                                            <p class="desc" id="description">Description for the first card.</p>
+                                            <div class="flex items-center justify-between mt-4"> <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+                                                <div class="flex items-center"> <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-8 rounded-full" id="editbutton" onclick="showEditForm()"> Edit </button> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;"> <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()"> <span class="mr-1">Close</span> <i class='bx bxs-x-circle'></i> </button>
+                            <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit Event Details</div>
+                            <div class="p-4 md:p-8">
+                                <div class="flex flex-col md:flex-row gap-4"> <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Name *" /> <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Sports" /> </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Category</option> <option value="Category 1">Category 1</option> <option value="Category 2">Category 2</option> <option value="Category 3">Category 3</option> </select>                                    <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Gender</option> <option value="Boys">Boys</option> <option value="Girls">Girls</option> <option value="Boys and Girls">Boys and Girls</option> </select>                                    </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Date" /> <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Time" /> </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Event Type</option> <option value="Individual">Individual</option> <option value="Team">Team</option> </select>                                    <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Location" /> </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Entry Fee" /> <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Number of Prizes" /> </div>
+                                <div class="mb-4 md:mb-10"> <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Form Link" /> <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Description"></textarea> </div>
+                                <div class="text-center"> <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button> <button type="button" class="cursor-pointer rounded-lg bg-red-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white"
+                                        onclick="deleteEvent()">Delete</button> </div>
+                            </div>
+                        </div> <br><br>
+
+
+                    </div>
+
+
+
+                    <div id="monitoredSection" class="flex flex-col mt-6 hidden">
+
+                        <div class="displayallmembers" id="displayallmembers">
+
+                            <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Name </th>
+                                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Title </th> -->
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Sports </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Event name</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Date </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Catagorey </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Actions </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
+                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            selection
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
+                                                <div class="text-sm text-gray-500"> boys and girls</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a>                                            </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
+                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            selection
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
+                                                <div class="text-sm text-gray-500"> boys and girls</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a>                                            </td>
+                                    </tr>
+                                    <!-- More rows... -->
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                        <div class="mx-4 md:mx-14 mt-10 bg-white bg-opacity-90 rounded-lg relative" id="allmember" style="display: none;"> <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeFormallmember()"> <span class="mr-1">Close</span> <i class='bx bxs-x-circle'></i> </button>
+                            <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl"></div> <br>
+                            <div id="card-container" class="max-w-5xl mx-auto">
+                                <!-- Card 1 -->
+                                <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                                    <div class="flex items-center justify-between">
+                                        <div class="date-time-container">
+                                            <h3 id="date">Mar 10, 2019</h3>
+                                            <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
+                                        </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a> </div>
+                                    <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                                        <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                            <div class="overflow-x-auto">
+                                                <table class="min-w-full table-auto">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                            </td>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                            </td>
+                                                            <td class="px-4 py-3">
+                                                                <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                            </td>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                            </td>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-4"> <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                                        <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                                    </div>
+                                    <div class="readMoreContent mt-4 readmore">
+                                        <p class="desc" id="description">Description for the first card.</p>
+                                        <div class="flex items-center justify-between mt-4"> <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="unmonitoredSection" class="flex flex-col mt-6 hidden">
+
+
+                        <div class="decliend" id="decliend">
+
+                            <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Name </th>
+                                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Title </th> -->
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Sports </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Event name</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Date </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Catagorey </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Actions </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
+                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            selection
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
+                                                <div class="text-sm text-gray-500"> boys and girls</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
+                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            selection
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
+                                                <div class="text-sm text-gray-500"> boys and girls</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a> </td>
+                                    </tr>
+                                    <!-- More rows... -->
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                        <div class="mx-4 md:mx-14 mt-10 bg-white bg-opacity-90 rounded-lg relative" id="decliendcard" style="display: none;"> <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closedecline()"> <span class="mr-1">Close</span> <i class='bx bxs-x-circle'></i> </button>
+                            <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl"></div> <br>
+                            <div id="card-container" class="max-w-5xl mx-auto">
+                                <!-- Card 1 -->
+                                <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                                    <div class="flex items-center justify-between">
+                                        <div class="date-time-container">
+                                            <h3 id="date">Mar 10, 2019</h3>
+                                            <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
+                                        </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a> </div>
+                                    <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                                        <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                            <div class="overflow-x-auto">
+                                                <table class="min-w-full table-auto">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                            </td>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                            </td>
+                                                            <td class="px-4 py-3">
+                                                                <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                            </td>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                            </td>
+                                                            <td class="px-4 py-2">
+                                                                <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-4"> <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                                        <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                                    </div>
+                                    <div class="readMoreContent mt-4 readmore">
+                                        <p class="desc" id="description">Description for the first card.</p>
+                                        <div class="flex items-center justify-between mt-4"> <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="./js/event.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
+<style>
+    [x-cloak] {
+        display: none
+    }
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+<script src="//unpkg.com/alpinejs" defer></script>
+<script>
+    function showEditFormallmember() {
+        // Hide the element with id="displayevents"
+        var displayEvents = document.getElementById('displayallmembers');
+        if (displayEvents) {
+            displayEvents.style.display = 'none';
+        }
+
+        // Show the form with id="allmember"
+        var editForm = document.getElementById('allmember');
+        if (editForm) {
+            editForm.style.display = 'block';
+        }
+    }
+
+    function closeFormallmember() {
+        // Show the element with id="displayevents"
+        var displayEvents = document.getElementById('displayallmembers');
+        if (displayEvents) {
+            displayEvents.style.display = 'block';
+        }
+
+        // Hide the form with id="allmember"
+        var editForm = document.getElementById('allmember');
+        if (editForm) {
+            editForm.style.display = 'none';
+        }
+    }
+</script>
+
+
+<script>
+    function showdecineForm() {
+        // Hide the element with id="displayevents"
+        var displayEvents = document.getElementById('decliend');
+        if (displayEvents) {
+            displayEvents.style.display = 'none';
+        }
+
+        // Show the form with id="allmember"
+        var editForm = document.getElementById('decliendcard');
+        if (editForm) {
+            editForm.style.display = 'block';
+        }
+    }
+
+    function closedecline() {
+        // Show the element with id="displayevents"
+        var displayEvents = document.getElementById('decliend');
+        if (displayEvents) {
+            displayEvents.style.display = 'block';
+        }
+
+        // Hide the form with id="allmember"
+        var editForm = document.getElementById('decliendcard');
+        if (editForm) {
+            editForm.style.display = 'none';
+        }
+    }
+</script>
