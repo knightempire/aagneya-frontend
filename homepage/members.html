@@ -45,7 +45,7 @@
         <div class="row mt-4 gap-3 justify-content-center" id="filterable-cards">
             
             <div class="card p-0" data-team="group" data-gender="male" data-sport="football" data-position="captain">
-                <img src="images/nature-1.jpg" class="card-img-top" alt="Mountains">
+                <img src="https://th.bing.com/th/id/OIP.lTLLKGvwCBnzpngMolgeWQHaFv?w=800&h=621&rs=1&pid=ImgDetMain" class="card-img-top" alt="Mountains">
                 <div class="card-body">
                     <h6 class="card-title text-center">Mountains</h6>
                     <p class="card-text text-center">cb.en.u4cse21331</p>
@@ -140,36 +140,11 @@
                     </div>
                 </div>
             </div>
-            <div class="card p-0" data-team="individual" data-gender="male" data-sport="hockey" data-position="vice-captain">
-                <img src="images/nature-2.jpg" class="card-img-top" alt="City">
-                <div class="card-body">
-                    <h6 class="card-title text-center">City</h6>
-                    <p class="card-text text-center">cb.en.u4cse21339</p>
-                    <div class="d-flex justify-content-around">
-                        <p class="badge bg-info">vice-captain</p>
-
-                        <p class="badge bg-secondary">Hockey</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card p-0" data-team="group" data-gender="female" data-sport="chess" data-position="captain">
-                <img src="images/nature-3.jpg" class="card-img-top" alt="Forest">
-                <div class="card-body">
-                    <h6 class="card-title text-center">Forest</h6>
-                    <p class="card-text text-center">cb.en.u4cse21340</p>
-                    <div class="d-flex justify-content-around">
-                        <p class="badge bg-info">Captain</p>
-
-                        <p class="badge bg-secondary">Chess</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"></script>
+    <!-- jQuery, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 </body>
 </html>
@@ -237,6 +212,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <style>
+
+@media (max-width: 617px) {
+    #filterable-cards {
+        justify-content: center;
+    }
+
+    #filterable-cards .card {
+        width: 100%; /* Ensure the card takes the full width of the container */
+        margin-bottom: 10px;
+    }
+}
+
+
 /* Add this CSS to the existing style section or your external stylesheet */
 .d-flex {
     flex-wrap: wrap; /* Ensure elements wrap if there's not enough space */
@@ -438,5 +426,3 @@ document.addEventListener("DOMContentLoaded", () => {
             margin: 5px;
         }
         </style>
-
-
