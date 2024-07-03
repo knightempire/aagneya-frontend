@@ -43,6 +43,7 @@
         </div>
         <!-- Filterable Images / Cards Section -->
         <div class="row mt-4 gap-3 justify-content-center" id="filterable-cards">
+            
             <div class="card p-0" data-team="group" data-gender="male" data-sport="football" data-position="captain">
                 <img src="images/nature-1.jpg" class="card-img-top" alt="Mountains">
                 <div class="card-body">
@@ -61,8 +62,9 @@
                     <h6 class="card-title text-center">Beach</h6>
                     <p class="card-text text-center">cb.en.u4cse21332</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Cricket</p>
                         <p class="badge bg-info">Captain</p>
+
+                        <p class="badge bg-secondary">Cricket</p>
                     </div>
                 </div>
             </div>
@@ -72,8 +74,9 @@
                     <h6 class="card-title text-center">Forest</h6>
                     <p class="card-text text-center">cb.en.u4cse21333</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Volleyball</p>
                         <p class="badge bg-info">vice-captain</p>
+
+                        <p class="badge bg-secondary">Volleyball</p>
                     </div>
                 </div>
             </div>
@@ -83,8 +86,9 @@
                     <h6 class="card-title text-center">Desert</h6>
                     <p class="card-text text-center">cb.en.u4cse21334</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Hockey</p>
                         <p class="badge bg-info">Captain</p>
+
+                        <p class="badge bg-secondary">Hockey</p>
                     </div>
                 </div>
             </div>
@@ -94,8 +98,9 @@
                     <h6 class="card-title text-center">Waterfall</h6>
                     <p class="card-text text-center">cb.en.u4cse21335</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Chess</p>
                         <p class="badge bg-info">vice-captain</p>
+
+                        <p class="badge bg-secondary">Chess</p>
                     </div>
                 </div>
             </div>
@@ -105,8 +110,9 @@
                     <h6 class="card-title text-center">River</h6>
                     <p class="card-text text-center">cb.en.u4cse21336</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Football</p>
                         <p class="badge bg-info">Captain</p>
+
+                        <p class="badge bg-secondary">Football</p>
                     </div>
                 </div>
             </div>
@@ -116,8 +122,9 @@
                     <h6 class="card-title text-center">Sunset</h6>
                     <p class="card-text text-center">cb.en.u4cse21337</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Cricket</p>
                         <p class="badge bg-info">vice-captain</p>
+
+                        <p class="badge bg-secondary">Cricket</p>
                     </div>
                 </div>
             </div>
@@ -127,8 +134,9 @@
                     <h6 class="card-title text-center">Snow</h6>
                     <p class="card-text text-center">cb.en.u4cse21338</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Volleyball</p>
                         <p class="badge bg-info">Captain</p>
+
+                        <p class="badge bg-secondary">Volleyball</p>
                     </div>
                 </div>
             </div>
@@ -138,8 +146,9 @@
                     <h6 class="card-title text-center">City</h6>
                     <p class="card-text text-center">cb.en.u4cse21339</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Hockey</p>
                         <p class="badge bg-info">vice-captain</p>
+
+                        <p class="badge bg-secondary">Hockey</p>
                     </div>
                 </div>
             </div>
@@ -149,8 +158,9 @@
                     <h6 class="card-title text-center">Forest</h6>
                     <p class="card-text text-center">cb.en.u4cse21340</p>
                     <div class="d-flex justify-content-around">
-                        <p class="badge bg-secondary">Chess</p>
                         <p class="badge bg-info">Captain</p>
+
+                        <p class="badge bg-secondary">Chess</p>
                     </div>
                 </div>
             </div>
@@ -228,6 +238,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <style>
 /* Add this CSS to the existing style section or your external stylesheet */
+.d-flex {
+    flex-wrap: wrap; /* Ensure elements wrap if there's not enough space */
+}
+
+.badge {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+    margin: 5px;
+}
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-body .card-title,
+.card-body .card-text {
+    text-align: center;
+    width: 100%; /* Ensure text takes full width */
+}
+
+/* For larger screens */
+@media (min-width: 601px) {
+    .d-flex {
+        justify-content: space-around; /* Distribute badges evenly */
+    }
+}
+
+/* Adjust flex direction and alignment for smaller screens */
+@media (max-width: 600px) {
+    .d-flex {
+        flex-direction: column; /* Stack badges vertically */
+        align-items: center; /* Center align badges */
+    }
+
+    .badge {
+        margin: 5px 0; /* Adjust margin for vertical spacing */
+    }
+}
 
 .btn-group[data-filter] .btn.active {
     background-color: #007bff;
