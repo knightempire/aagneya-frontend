@@ -584,240 +584,6 @@
     </div>
 
 
-    <script>
-        async function deactivate(roll_no) {
-            // Show the modal
-            var modal = document.getElementById('deactivateModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-
-            // Log the roll_no to console
-            console.log(`Deactivate button clicked for roll_no: ${roll_no}`);
-
-            // Add an event listener to the Deactivate button inside the modal
-            var deactivateBtn = document.getElementById('deactivateBtn');
-            deactivateBtn.addEventListener('click', async function() {
-                try {
-                    // Send a POST request to deactivate user
-                    const response = await fetch('http://localhost:3000/api/deactivateuser', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}` // Include your authorization token if required
-                        },
-                        body: JSON.stringify({
-                                roll_no: roll_no
-                            }) // Send roll_no in the request body
-                    });
-
-                    if (!response.ok) {
-                        throw new Error('Failed to deactivate user');
-                    }
-
-                    // Display success message dynamically
-                    const data = await response.json(); // Parse JSON response
-                    const successMsg = document.getElementById('msgok');
-                    const message = data.message; // Extract message from response
-                    document.getElementById('Msg').textContent = message; // Update message content dynamically
-
-                    displaycurrentmem();
-                    displaycurrentmembers();
-
-                    successMsg.style.display = 'flex';
-                    setTimeout(function() {
-                        successMsg.style.display = 'none';
-                    }, 3000); // Hide after 3 seconds
-
-                    console.log(data); // Log the response from the API
-
-                    // Perform additional tasks if needed (e.g., update UI, show success message)
-
-                    // Close the modal
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                } catch (error) {
-                    console.error('Error deactivating user:', error);
-                    // Handle error appropriately (e.g., show error message)
-                }
-            });
-        }
-
-
-        function closedeactivate() {
-            // Close the modal
-            var modal = document.getElementById('deactivateModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            console.log(`Edit button clicked for role_no: ${roll_no}`);
-        }
-    </script>
-
-    <script>
-        async function showEditForm(roll_no) {
-            try {
-                console.log("showform :", roll_no);
-
-                // Hide the element with id="displayevents"
-                var displayEvents = document.getElementById('displayevents');
-                if (displayEvents) {
-                    displayEvents.style.display = 'none';
-                }
-
-                // Show the form with id="editvent"
-                var editForm = document.getElementById('editvent');
-                if (editForm) {
-                    editForm.style.display = 'block';
-                }
-
-                // Call the API to fetch data
-                const response = await fetch('http://localhost:3000/api/displaymem', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({
-                        roll_no: roll_no
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                console.log('Data received from API:', data);
-
-                // Populate form fields with the received data
-                document.getElementById('roll_no1').value = data[0].roll_no;
-
-                // Populate the 'roles1' <select> element
-                var rolesSelect = document.getElementById('roles1');
-                for (let option of rolesSelect.options) {
-                    if (option.text === data[0].role_name) {
-                        option.selected = true;
-                        break;
-                    }
-                }
-
-                // Populate the 'sports1' <select> element
-                var sportsSelect = document.getElementById('sports1');
-                for (let option of sportsSelect.options) {
-                    if (option.text === data[0].sport_name) {
-                        option.selected = true;
-                        break;
-                    }
-                }
-
-                // Populate 'gender' field if it exists in data
-                if (data[0].gender !== null && data[0].gender !== undefined) {
-                    document.getElementById('gender_edit').value = data[0].gender;
-                    document.getElementById('gender_edit').style.display = 'block'; // Show the gender field
-                } else {
-                    // If gender is null or undefined, hide the field
-                    document.getElementById('gender_edit').style.display = 'none';
-                }
-
-                // Populate 'event_date_edit' assuming 'year' corresponds to event_date_edit
-                document.getElementById('event_date_edit').value = data[0].year;
-
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                // Handle errors as needed
-            }
-        }
-
-        function closeForm() {
-            // Show the element with id="displayevents"
-            var displayEvents = document.getElementById('displayevents');
-            if (displayEvents) {
-                displayEvents.style.display = 'block';
-            }
-
-            // Hide the form with id="editvent"
-            var editForm = document.getElementById('editvent');
-            if (editForm) {
-                editForm.style.display = 'none';
-            }
-        }
-    </script>
-
-
-
-    <script>
-        async function activate(roll_no) {
-            try {
-                // Send a POST request to activate user
-                const response = await fetch('http://localhost:3000/api/activateuser', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}` // Include your authorization token if required
-                    },
-                    body: JSON.stringify({
-                        roll_no: roll_no
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Failed to activate user');
-                }
-
-                // Display success message dynamically
-                const data = await response.json();
-                const successMsg = document.getElementById('msgok');
-                const message = data.message; // Extract message from response
-                document.getElementById('Msg').textContent = message; // Update message content dynamically
-
-                displaycurrentmem();
-                displaycurrentmembers();
-                // Display success message for 3 seconds
-                successMsg.style.display = 'flex';
-                setTimeout(function() {
-                    successMsg.style.display = 'none';
-                }, 3000); // Hide after 3 seconds
-
-                // Perform additional tasks if needed
-
-            } catch (error) {
-                console.error('Error activating user:', error);
-                // Handle error appropriately (e.g., show error message)
-            }
-        }
-
-
-        function showEditFormallmember(roll_no) {
-            // Hide the element with id="displayevents"
-
-            console.log('Edit clicked for roll_no:', roll_no);
-
-            var displayEvents = document.getElementById('displayallmembers');
-            if (displayEvents) {
-                displayEvents.style.display = 'none';
-            }
-
-            // Show the form with id="editvent"
-            var editForm = document.getElementById('allmember');
-            if (editForm) {
-                editForm.style.display = 'block';
-            }
-        }
-
-        function closeFormallmember() {
-            // Show the element with id="displayevents"
-            var displayEvents = document.getElementById('displayallmembers');
-            if (displayEvents) {
-                displayEvents.style.display = 'block';
-            }
-
-            // Hide the form with id="editvent"
-            var editForm = document.getElementById('allmember');
-            if (editForm) {
-                editForm.style.display = 'none';
-            }
-        }
-    </script>
-
 
     <script src="./js/index.js"></script>
 </body>
@@ -842,15 +608,6 @@
 
 
 
-<script>
-    function logout() {
-        // Remove token from local storage
-        localStorage.removeItem('token');
-
-        // Redirect to index.html
-        window.location.href = '../login/login.html';
-    }
-</script>
 
 <script>
     let roll_no;
@@ -1266,17 +1023,248 @@
     }
 
 
-    window.onload = function() {
-        decodeToken();
-        displaysports();
-        getrole();
-        displaycurrentmem();
-        displaycurrentmembers()
-    };
-</script>
 
 
-<script>
+
+    async function showEditForm(roll_no) {
+        try {
+            console.log("showform :", roll_no);
+
+            // Hide the element with id="displayevents"
+            var displayEvents = document.getElementById('displayevents');
+            if (displayEvents) {
+                displayEvents.style.display = 'none';
+            }
+
+            // Show the form with id="editvent"
+            var editForm = document.getElementById('editvent');
+            if (editForm) {
+                editForm.style.display = 'block';
+            }
+
+            // Call the API to fetch data
+            const response = await fetch('http://localhost:3000/api/displaymem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    roll_no: roll_no
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Data received from API:', data);
+
+            // Populate form fields with the received data
+            document.getElementById('roll_no1').value = data[0].roll_no;
+
+            // Populate the 'roles1' <select> element
+            var rolesSelect = document.getElementById('roles1');
+            for (let option of rolesSelect.options) {
+                if (option.text === data[0].role_name) {
+                    option.selected = true;
+                    break;
+                }
+            }
+
+            // Populate the 'sports1' <select> element
+            var sportsSelect = document.getElementById('sports1');
+            for (let option of sportsSelect.options) {
+                if (option.text === data[0].sport_name) {
+                    option.selected = true;
+                    break;
+                }
+            }
+
+            // Populate 'gender' field if it exists in data
+            if (data[0].gender !== null && data[0].gender !== undefined) {
+                document.getElementById('gender_edit').value = data[0].gender;
+                document.getElementById('gender_edit').style.display = 'block'; // Show the gender field
+            } else {
+                // If gender is null or undefined, hide the field
+                document.getElementById('gender_edit').style.display = 'none';
+            }
+
+            // Populate 'event_date_edit' assuming 'year' corresponds to event_date_edit
+            document.getElementById('event_date_edit').value = data[0].year;
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Handle errors as needed
+        }
+    }
+
+    function closeForm() {
+        // Show the element with id="displayevents"
+        var displayEvents = document.getElementById('displayevents');
+        if (displayEvents) {
+            displayEvents.style.display = 'block';
+        }
+
+        // Hide the form with id="editvent"
+        var editForm = document.getElementById('editvent');
+        if (editForm) {
+            editForm.style.display = 'none';
+        }
+    }
+
+
+    async function deactivate(roll_no) {
+        // Show the modal
+        var modal = document.getElementById('deactivateModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Log the roll_no to console
+        console.log(`Deactivate button clicked for roll_no: ${roll_no}`);
+
+        // Add an event listener to the Deactivate button inside the modal
+        var deactivateBtn = document.getElementById('deactivateBtn');
+        deactivateBtn.addEventListener('click', async function() {
+            try {
+                // Send a POST request to deactivate user
+                const response = await fetch('http://localhost:3000/api/deactivateuser', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Include your authorization token if required
+                    },
+                    body: JSON.stringify({
+                            roll_no: roll_no
+                        }) // Send roll_no in the request body
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to deactivate user');
+                }
+
+                // Display success message dynamically
+                const data = await response.json(); // Parse JSON response
+                const successMsg = document.getElementById('msgok');
+                const message = data.message; // Extract message from response
+                document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+                displaycurrentmem();
+                displaycurrentmembers();
+
+                successMsg.style.display = 'flex';
+                setTimeout(function() {
+                    successMsg.style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+
+                console.log(data); // Log the response from the API
+
+                // Perform additional tasks if needed (e.g., update UI, show success message)
+
+                // Close the modal
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            } catch (error) {
+                console.error('Error deactivating user:', error);
+                // Handle error appropriately (e.g., show error message)
+            }
+        });
+    }
+
+
+    function closedeactivate() {
+        // Close the modal
+        var modal = document.getElementById('deactivateModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        console.log(`Edit button clicked for role_no: ${roll_no}`);
+    }
+
+    async function activate(roll_no) {
+        try {
+            // Send a POST request to activate user
+            const response = await fetch('http://localhost:3000/api/activateuser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Include your authorization token if required
+                },
+                body: JSON.stringify({
+                    roll_no: roll_no
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to activate user');
+            }
+
+            // Display success message dynamically
+            const data = await response.json();
+            const successMsg = document.getElementById('msgok');
+            const message = data.message; // Extract message from response
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+            displaycurrentmem();
+            displaycurrentmembers();
+            // Display success message for 3 seconds
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+            // Perform additional tasks if needed
+
+        } catch (error) {
+            console.error('Error activating user:', error);
+            // Handle error appropriately (e.g., show error message)
+        }
+    }
+
+
+    function showEditFormallmember(roll_no) {
+        // Hide the element with id="displayevents"
+
+        console.log('Edit clicked for roll_no:', roll_no);
+
+        var displayEvents = document.getElementById('displayallmembers');
+        if (displayEvents) {
+            displayEvents.style.display = 'none';
+        }
+
+        // Show the form with id="editvent"
+        var editForm = document.getElementById('allmember');
+        if (editForm) {
+            editForm.style.display = 'block';
+        }
+    }
+
+    function closeFormallmember() {
+        // Show the element with id="displayevents"
+        var displayEvents = document.getElementById('displayallmembers');
+        if (displayEvents) {
+            displayEvents.style.display = 'block';
+        }
+
+        // Hide the form with id="editvent"
+        var editForm = document.getElementById('allmember');
+        if (editForm) {
+            editForm.style.display = 'none';
+        }
+    }
+
+
+
+
+    function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+
+
     // JavaScript for dynamically populating the year dropdown
     const currentYear = new Date().getFullYear();
     const selectElement = document.getElementById('event_year_dropdown');
@@ -1289,4 +1277,13 @@
         }
         selectElement.appendChild(option);
     }
+
+
+    window.onload = function() {
+        decodeToken();
+        displaysports();
+        getrole();
+        displaycurrentmem();
+        displaycurrentmembers()
+    };
 </script>
