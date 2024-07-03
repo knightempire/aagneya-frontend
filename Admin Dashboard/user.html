@@ -197,10 +197,10 @@
                         </div>
 
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select id="event_year_dropdown" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <select id="event_year_dropdown1" name="event_year_dropdown1" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 required>
-                                <!-- Options will be added dynamically using JavaScript -->
-                            </select>
+                            <!-- Options will be added dynamically using JavaScript -->
+                        </select>
                         </div>
 
                         <div class="text-center">
@@ -395,12 +395,11 @@
                                 
                                     </select>
                                 </div>
-
                                 <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                    <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Event Date" />
-
-
+                                    <select id="event_year_dropdown2" name="event_year_dropdown2" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        required>
+                                    <!-- Options will be added dynamically using JavaScript -->
+                                </select>
                                 </div>
 
 
@@ -544,12 +543,11 @@
                                 </div>
 
                                 <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                    <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Event Date" />
-
-
+                                    <select id="event_year_dropdown3" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        required>
+                                    <!-- Options will be added dynamically using JavaScript -->
+                                </select>
                                 </div>
-
 
                                 <div class="text-center">
                                     <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
@@ -658,7 +656,9 @@
 
     <script>
         function showEditForm(roll_no) {
-            // Hide the element with id="displayevents"
+
+            console.log(roll_no)
+                // Hide the element with id="displayevents"
             var displayEvents = document.getElementById('displayevents');
             if (displayEvents) {
                 displayEvents.style.display = 'none';
@@ -1055,6 +1055,10 @@
             // Loop through filtered data
             filteredData.forEach(user => {
                 const row = document.createElement('tr');
+                if (user.spl_role_name == "Admin") {
+                    user.spl_role_name = ""
+                }
+
                 row.innerHTML = `
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
@@ -1135,6 +1139,9 @@
             // Loop through filtered data
             filteredData.forEach(user => {
                 const row = document.createElement('tr');
+                if (user.spl_role_name == "Admin") {
+                    user.spl_role_name = ""
+                }
                 row.innerHTML = `
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
@@ -1199,16 +1206,26 @@
 
 
 <script>
-    // JavaScript for dynamically populating the year dropdown
-    const currentYear = new Date().getFullYear();
-    const selectElement = document.getElementById('event_year_dropdown');
-    for (let year = currentYear + 1; year >= currentYear - 1; year--) {
-        const option = document.createElement('option');
-        option.value = year;
-        option.textContent = year;
-        if (year === currentYear) {
-            option.selected = true;
+    function populateYearDropdown(selectId) {
+        const currentYear = new Date().getFullYear();
+        const selectElement = document.getElementById(selectId);
+        selectElement.innerHTML = ''; // Clear existing options if any
+
+        for (let year = currentYear + 1; year >= currentYear - 1; year--) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            if (year === currentYear) {
+                option.selected = true;
+            }
+            selectElement.appendChild(option);
         }
-        selectElement.appendChild(option);
     }
+
+    // Call the function to populate the dropdown on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        populateYearDropdown('event_year_dropdown1');
+        populateYearDropdown('event_year_dropdown2');
+        populateYearDropdown('event_year_dropdown3');
+    });
 </script>
