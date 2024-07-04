@@ -17,8 +17,7 @@
 </head>
 
 <body>
-    <!-- Sidebar and Navbar remain unchanged -->
-     <!-- Sidebar -->
+    <!-- Sidebar remains unchanged -->
     <div class="sidebar">
         <a href="#" class="logo">
             <i class='bx bx-code-alt'></i>
@@ -30,7 +29,7 @@
             <li><a href="achievement.html"><i class='bx bx-medal'></i>Achievement</a></li>
             <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
             <li><a href="user.html"><i class='bx bx-group'></i>Users</a></li>
-            <li class="active"><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i> </a> </li>
+            <li class="active"><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i></a></li>
             <ul class="submenu" id="community-submenu">
                 <li><a href="./community/voting.html"><i class='bx bxl-graphql'></i>Stats</a></li>
                 <li><a href="./community/president.html"><i class='bx bx-user'></i>President</a></li>
@@ -52,8 +51,6 @@
 
     <!-- Main Content -->
     <div class="content">
-        <!-- Navbar remains unchanged -->
-
         <main>
             <div class="header">
                 <div class="left">
@@ -113,12 +110,24 @@
                                     <input type="text" id="editName" name="editName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
                                 <div>
+                                    <label for="editEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="editEmail" name="editEmail" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div>
                                     <label for="editPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
                                     <input type="tel" id="editPhone" name="editPhone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
                                 <div>
                                     <label for="editDOB" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
                                     <input type="date" id="editDOB" name="editDOB" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div>
+                                    <label for="editDepartment" class="block text-sm font-medium text-gray-700 mb-1">Department</label>
+                                    <input type="text" id="editDepartment" name="editDepartment" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div>
+                                    <label for="editYear" class="block text-sm font-medium text-gray-700 mb-1">Year</label>
+                                    <input type="text" id="editYear" name="editYear" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 </div>
                                 <div>
                                     <label for="editImage" class="block text-sm font-medium text-gray-700 mb-1">Profile Image</label>
@@ -138,7 +147,6 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script>
-        // JavaScript remains unchanged
         document.addEventListener('DOMContentLoaded', function() {
             const editProfileBtn = document.getElementById('editProfileBtn');
             const editProfileModal = document.getElementById('editProfileModal');
@@ -149,8 +157,11 @@
                 editProfileModal.classList.remove('hidden');
                 // Populate form fields with current values
                 document.getElementById('editName').value = document.getElementById('profileName').textContent;
+                document.getElementById('editEmail').value = document.getElementById('profileEmail').textContent;
                 document.getElementById('editPhone').value = document.getElementById('profilePhone').textContent;
                 document.getElementById('editDOB').value = document.getElementById('profileDOB').textContent;
+                document.getElementById('editDepartment').value = document.getElementById('profileDepartment').textContent;
+                document.getElementById('editYear').value = document.getElementById('profileYear').textContent;
             });
 
             cancelEdit.addEventListener('click', function() {
@@ -161,8 +172,11 @@
                 e.preventDefault();
                 // Update profile with new values
                 document.getElementById('profileName').textContent = document.getElementById('editName').value;
+                document.getElementById('profileEmail').textContent = document.getElementById('editEmail').value;
                 document.getElementById('profilePhone').textContent = document.getElementById('editPhone').value;
                 document.getElementById('profileDOB').textContent = document.getElementById('editDOB').value;
+                document.getElementById('profileDepartment').textContent = document.getElementById('editDepartment').value;
+                document.getElementById('profileYear').textContent = document.getElementById('editYear').value;
                 
                 const fileInput = document.getElementById('editImage');
                 if (fileInput.files && fileInput.files[0]) {
@@ -176,7 +190,6 @@
                 editProfileModal.classList.add('hidden');
             });
         });
-
     </script>
 </body>
 
