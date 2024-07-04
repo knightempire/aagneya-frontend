@@ -186,67 +186,72 @@
                         <div class="displayevents" id="displayevents">
                             <!-- card start here -->
 
+                            <div class="showcards">
+                                <div class="bg-gray-100 dark:bg-gray-900" style="padding-top: 40px; " id="showcards">
+                                    <!-- Card Container -->
+                                    <!-- showevent -->
 
-                            <div class="bg-gray-100 dark:bg-gray-900" style="padding-top: 40px;">
-                                <!-- Card Container -->
-                                <div id="carddisplay" class="max-w-5xl mx-auto">
-                                    <!-- Card 1 -->
-                                    <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
-                                        <div class="flex items-center justify-between">
-                                            <div class="date-time-container">
-                                                <h3 id="date">Mar 10, 2019</h3>
-                                                <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
-                                            </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a> </div>
-                                        <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
-                                            <div class="mt-2 text-gray-600 dark:text-gray-300">
-                                                <div class="overflow-x-auto">
-                                                    <table class="min-w-full table-auto">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="px-4 py-2">
-                                                                    <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
-                                                                </td>
-                                                                <td class="px-4 py-2">
-                                                                    <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
-                                                                </td>
-                                                                <td class="px-4 py-3">
-                                                                    <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="px-4 py-2">
-                                                                    <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
-                                                                </td>
-                                                                <td class="px-4 py-2">
-                                                                    <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
-                                                                </td>
-                                                                <td class="px-4 py-2">
-                                                                    <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                    <div id="card-container" class="max-w-5xl mx-auto">
+                                        <!-- Card 1 -->
+                                        <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                                            <div class="flex items-center justify-between">
+                                                <div class="date-time-container">
+                                                    <h3 id="date">Mar 10, 2019</h3>
+                                                    <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
+                                                </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a>                                                </div>
+                                            <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                                                <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                                    <div class="overflow-x-auto">
+                                                        <table class="min-w-full table-auto">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="px-4 py-2">
+                                                                        <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                                    </td>
+                                                                    <td class="px-4 py-2">
+                                                                        <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                                    </td>
+                                                                    <td class="px-4 py-3">
+                                                                        <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="px-4 py-2">
+                                                                        <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                                    </td>
+                                                                    <td class="px-4 py-2">
+                                                                        <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                                    </td>
+                                                                    <td class="px-4 py-2">
+                                                                        <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center justify-between mt-4"> <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                                                <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                                            </div>
+                                            <div class="readMoreContent mt-4 readmore">
+                                                <p class="desc" id="description">Description for the first card.</p>
+                                                <div class="flex items-center justify-between mt-4"> <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+                                                    <div class="flex items-center">
+                                                        <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-8 rounded-full" id="editbutton" onclick="showEditForm()"> Edit </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="flex items-center justify-between mt-4"> <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
-                                            <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
-                                        </div>
-                                        <div class="readMoreContent mt-4 readmore">
-                                            <p class="desc" id="description">Description for the first card.</p>
-                                            <div class="flex items-center justify-between mt-4"> <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
 
-                                            </div>
-                                        </div>
+
+
+
                                     </div>
 
 
 
-
                                 </div>
-
-
-
 
                             </div>
 
@@ -739,7 +744,10 @@
 
             const sportName = responseData[0].sport_name; // Assuming you want the sport_name from the first object
             sport_name = sportName
+
             document.getElementById('sport_name_input').value = sportName;
+
+            showevent(sportName);
             displaycreateeventuser(sportName)
             displaycreateeventist(sportName)
 
@@ -1136,6 +1144,149 @@
         modal.classList.remove('flex');
         console.log(`Edit button clicked for role_no: ${roll_no}`);
     }
+
+
+    async function showevent(sportName) {
+        try {
+            const response = await fetch('http://localhost:3000/api/displayeventsport', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    sport_name: sportName
+                })
+            });
+            if (!response.ok) {
+                throw new Error('Failed to fetch events. Status: ' + response.status);
+            }
+
+            const responseData = await response.json();
+            console.log('Event display:', responseData);
+
+            const showcards = document.getElementById('showcards'); // Get the showcards container
+
+            // Clear existing cards if needed
+            showcards.innerHTML = '';
+
+            // Check if responseData.event is an array
+            if (!Array.isArray(responseData.event)) {
+                throw new Error('Event data is not an array');
+            }
+
+            const currentDate = new Date();
+            // Loop through events and create card elements dynamically
+            responseData.event.forEach(event => {
+                const eventDate = new Date(event.event_date);
+                const formattedEventDate = eventDate.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+
+                // Determine if event is upcoming or completed
+                const eventStatus = currentDate < eventDate ? 'Upcoming' : 'Completed';
+                const eventClass = currentDate < eventDate ? 'bg-purple-600' : 'bg-red-600';
+
+                // Create card container div
+                const cardContainer = document.createElement('div');
+                cardContainer.classList.add('max-w-5xl', 'mx-auto');
+
+                cardContainer.innerHTML = `
+                <div id="card-container" class="max-w-5xl mx-auto">
+                    <!-- Card 1 -->
+                    <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                        <div class="flex items-center justify-between">
+                            <div class="date-time-container">
+                                <h3 id="date">${formattedEventDate}</h3>
+                                <h4><i class="bi bi-clock icon"></i> <span id="time">${event.event_time}</span></h4>
+                            </div>
+                            <a tabindex="0" role="button" id="occurs" class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform rounded cursor-pointer hover:bg-violet-500 ${eventClass}">${eventStatus}</a>
+                        </div>
+                        <div class="mt-2">
+                            <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">${event.event_name}</a>
+                            <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full table-auto">
+                                        <tbody>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">${event.category}</span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">${event.gender}</span> </div>
+                                                </td>
+                                                <td class="px-4 py-3">
+                                                    <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee">${event.entry_fee}</span> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team">${event.is_team ? 'Group' : 'Individual'}</span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-geo-alt icon"></i> ${event.place} </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-award icon"></i> <span id="prize">${event.no_of_prize}</span> </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                            <div class="flex items-center">
+                                <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> ${event.sport_name} </span>
+                            </div>
+                        </div>
+                        <div class="readMoreContent mt-4 readmore">
+                            <p class="desc">${event.event_description}</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="${event.form_link}" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+                                <div class="flex items-center">
+                                    <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-8 rounded-full" id="editbutton" onclick="showEditForm()"> Edit </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+                showcards.appendChild(cardContainer); // Append the card to the showcards container
+            });
+
+            // Now that cards are added, set up event listeners for "Read more"
+            setupReadMoreListeners();
+
+        } catch (error) {
+            console.error('Error fetching events:', error.message);
+        }
+    }
+
+
+    async function setupReadMoreListeners() {
+        const toggleReadMoreLinks = document.querySelectorAll('.toggleReadMore');
+
+        toggleReadMoreLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const readMoreContent = this.closest('.card').querySelector('.readMoreContent');
+                readMoreContent.classList.toggle('open');
+                this.textContent = readMoreContent.classList.contains('open') ? 'Read less' : 'Read more';
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showevent(); // Call showevent to fetch and display events
+
+
+        });
+    }
+
+
+
+
+
 
 
     window.onload = function() {

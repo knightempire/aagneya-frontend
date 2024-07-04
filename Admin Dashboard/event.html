@@ -1209,7 +1209,7 @@ async function showevent() {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to fetch events');
+            throw new Error('Failed to fetch events. Status: ' + response.status);
         }
 
         const responseData = await response.json();
@@ -1225,10 +1225,15 @@ async function showevent() {
             throw new Error('Event data is not an array');
         }
 
+        const currentDate = new Date();
         // Loop through events and create card elements dynamically
         responseData.event.forEach(event => {
             const eventDate = new Date(event.event_date);
             const formattedEventDate = eventDate.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+
+            // Determine if event is upcoming or completed
+            const eventStatus = currentDate < eventDate ? 'Upcoming' : 'Completed';
+            const eventClass = currentDate < eventDate ? 'bg-purple-600' : 'bg-red-600';
 
             // Create card container div
             const cardContainer = document.createElement('div');
@@ -1243,7 +1248,7 @@ async function showevent() {
                                 <h3 id="date">${formattedEventDate}</h3>
                                 <h4><i class="bi bi-clock icon"></i> <span id="time">${event.event_time}</span></h4>
                             </div>
-                            <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a>
+                            <a tabindex="0" role="button" id="occurs" class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform rounded cursor-pointer hover:bg-violet-500 ${eventClass}">${eventStatus}</a>
                         </div>
                         <div class="mt-2">
                             <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">${event.event_name}</a>
@@ -1300,10 +1305,34 @@ async function showevent() {
             showcards.appendChild(cardContainer); // Append the card to the showcards container
         });
 
+        // Now that cards are added, set up event listeners for "Read more"
+        setupReadMoreListeners();
+
     } catch (error) {
         console.error('Error fetching events:', error.message);
     }
 }
+
+
+async function setupReadMoreListeners() {
+    const toggleReadMoreLinks = document.querySelectorAll('.toggleReadMore');
+
+    toggleReadMoreLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const readMoreContent = this.closest('.card').querySelector('.readMoreContent');
+            readMoreContent.classList.toggle('open');
+            this.textContent = readMoreContent.classList.contains('open') ? 'Read less' : 'Read more';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    showevent(); // Call showevent to fetch and display events
+
+
+});
+}
+
 
 
 
@@ -1314,6 +1343,9 @@ async function showevent() {
         modal.classList.remove('flex');
 
     }
+
+
+
 
 
     window.onload = function() {
