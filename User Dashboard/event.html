@@ -75,6 +75,30 @@
             </div> <br>
             <!-- code from here -->
 
+
+            <div class="flex justify-center items-center" id="msgok" style="display: none;">
+                <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                    <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                        <div class="flex gap-2">
+                            <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white">Activated successfully :)</p>
+                                <p class="text-gray-500" id="Msg">User activated</p>
+                            </div>
+                        </div>
+                        <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
                 <form onsubmit="createvent(event)">
                     <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
@@ -115,14 +139,17 @@
                             </select>
                         </div>
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                placeholder="Location" required />
+
+                            <input type="text" name="last_date" id="last_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Last date for register" required />
                             <input type="number" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Entry Fee" required />
-                        </div>
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                             <input type="number" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Number of Prizes" required />
+                        </div>
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                            <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Location" required />
                             <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Form Link" required />
                         </div>
@@ -136,31 +163,6 @@
                     </div>
                 </form>
             </div>
-
-
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    flatpickr("#event_date_edit", {
-                        enableTime: true,
-                        dateFormat: "i:Y-m-d H:i",
-                        altInput: true,
-                        altFormat: "i k:F j, Y h:i K",
-                        monthSelectorType: "static" // This will show full month names instead of dropdown
-                    });
-                });
-
-                function addEvent() {
-                    // Add your logic here to handle the form submission or event addition
-                    console.log("Event added!");
-                }
-            </script>
-
-
-
-
-
-
 
 
 
@@ -297,34 +299,10 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a> </td>
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Publish</a> </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
-                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            selection
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
-                                                <div class="text-sm text-gray-500"> boys and girls</div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a> </td>
-                                    </tr>
+
                                     <!-- More rows... -->
                                 </tbody>
                             </table>
@@ -458,7 +436,7 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a>
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
                                     </tr>
 
                                     <tr>
@@ -484,7 +462,7 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a>
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
                                     </tr>
                                     <!-- More rows... -->
                                 </tbody>
@@ -549,6 +527,45 @@
                         </div>
 
 
+                        <div id="deactivateModal" class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
+                            <!-- Modal content -->
+                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
+                                <!-- Modal header -->
+                                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                    <!-- Header content -->
+                                    <div class="sm:flex sm:items-start">
+                                        <!-- Icon -->
+                                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                            <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
+                                                <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linejoin="round" stroke-linecap="round"></path>
+                                            </svg>
+                                        </div>
+                                        <!-- Modal title and description -->
+                                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                            <h3 id="modal-title" class="text-base font-semibold leading-6 text-gray-900">
+                                                Deactivate account
+                                            </h3>
+                                            <div class="mt-2">
+                                                <p class="text-sm text-gray-500">
+                                                    Are you sure you want to deactivate the account?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer with buttons -->
+                                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                    <button id="deactivateBtn" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" type="button">
+                                        Deactivate
+                                    </button>
+                                    <button id="deactivateCancel" onclick="closedeactivate()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" type="button">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
 
@@ -604,55 +621,6 @@
     }
 </script>
 
-<script>
-    function createvent(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-
-        // Fetch form input values
-        const event_name = document.getElementById('event_name_edit').value;
-        const sport_name = document.getElementById('sport_name_input').value;
-        const category = document.getElementById('category').value;
-        const gender = document.getElementById('gender_edit').value;
-        const event_date = document.getElementById('event_date_edit').value;
-        const is_team = document.getElementById('event_type_edit').value;
-        const location = document.getElementById('location_edit').value;
-        const entry_fee = document.getElementById('entry_fee_edit').value;
-        const no_of_prizes = document.getElementById('no_of_prizes_edit').value;
-        const form_link = document.getElementById('form_link_edit').value;
-        const event_description = document.getElementById('event_description_edit').value;
-
-        const parts = event_date.split(' '); // Split by space
-
-
-        // Extract date and time separately
-        const datePart = parts[0].substr(3); // Remove the leading "00:"
-        const timePart = parts[1];
-        // Create an object with the form data
-        const formData = {
-            event_name,
-            sport_name,
-            category,
-            gender,
-            datePart,
-            timePart,
-            timePart,
-            is_team,
-            location,
-            entry_fee,
-            no_of_prizes,
-            form_link,
-            event_description,
-        };
-
-        // Log the form data object to the console
-        console.log('Form Data:', formData);
-
-        // You can further process the form data here, such as sending it to a backend API
-
-        // Reset the form after submission if needed
-        // event.target.reset();
-    }
-</script>
 
 
 <script>
@@ -792,8 +760,211 @@
         }
     }
 
+
+    async function createvent(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const event_name = document.getElementById('event_name_edit').value;
+        const sport_name = document.getElementById('sport_name_input').value;
+        const category = document.getElementById('category').value;
+        const gender = document.getElementById('gender_edit').value;
+        const event_date = document.getElementById('event_date_edit').value;
+        const last_date = document.getElementById('last_date_edit').value;
+        const is_team = document.getElementById('event_type_edit').value;
+        const location = document.getElementById('location_edit').value;
+        const entry_fee = document.getElementById('entry_fee_edit').value;
+        const no_of_prizes = document.getElementById('no_of_prizes_edit').value;
+        const form_link = document.getElementById('form_link_edit').value;
+        const event_description = document.getElementById('event_description_edit').value;
+
+        // Split event_date assuming format is "dd:mm:yyyy hh:mm"
+        const eventDateParts = event_date.split(' ');
+        const datePart = eventDateParts[0].substr(3);
+        const timePart = eventDateParts[1];
+
+        // Split last_date assuming format is "dd:mm:yyyy hh:mm"
+        const lastDateParts = last_date.split(' ');
+        const last_date_part = lastDateParts[0].substr(3);
+
+        // Get current date
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        let currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-based index
+        let currentDay = currentDate.getDate();
+
+        // Pad month and day with leading zeros if necessary
+        if (currentMonth < 10) {
+            currentMonth = '0' + currentMonth;
+        }
+        if (currentDay < 10) {
+            currentDay = '0' + currentDay;
+        }
+
+        // Format the current date as yyyy-mm-dd
+        const formattedCurrentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+
+
+        console.log(roll_no)
+
+        // Create an object with the form data including current date
+        const formData = {
+            event_name,
+            sport_name,
+            category,
+            gender,
+            date: datePart,
+            time: timePart,
+            created_date: formattedCurrentDate,
+            is_team,
+            location,
+            entry_fee,
+            no_of_prizes,
+            form_link,
+            event_description,
+            last_date: last_date_part,
+            roll_no
+        };
+
+        console.log(formData)
+
+        try {
+            // Send a POST request to add event
+            const response = await fetch(' http://localhost:3000/api/addevent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(formData) // Send form data in the request body
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to add event');
+            }
+
+            // Log success message from API response
+            const data = await response.json(); // Parse JSON response
+            console.log('Event added successfully:', data.message);
+            const successMsg = document.getElementById('msgok');
+            const message = data.message; // Extract message from response
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+
+
+
+            // Close the modal
+
+
+            // Optionally, reset the form after successful submission
+            event.target.reset();
+        } catch (error) {
+            console.error('Error adding event:', error);
+            // Handle error appropriately (e.g., show error message to user)
+        }
+    }
+
+    async function deactivate() {
+        // Show the modal
+        var modal = document.getElementById('deactivateModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Log the roll_no to console
+        // console.log(`Deactivate button clicked for roll_no: ${roll_no}`);
+
+        // // Add an event listener to the Deactivate button inside the modal
+        // var deactivateBtn = document.getElementById('deactivateBtn');
+
+
+        // deactivateBtn.addEventListener('click', async function() {
+        //     try {
+        //         // Send a POST request to deactivate user
+        //         const response = await fetch('http://localhost:3000/api/deactivateuser', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'Authorization': `Bearer ${token}` // Include your authorization token if required
+        //             },
+        //             body: JSON.stringify({
+        //                     roll_no: roll_no
+        //                 }) // Send roll_no in the request body
+        //         });
+
+        //         if (!response.ok) {
+        //             throw new Error('Failed to deactivate user');
+        //         }
+
+        //         // Display success message dynamically
+        //         const data = await response.json(); // Parse JSON response
+        // const successMsg = document.getElementById('msgok');
+        // const message = data.message; // Extract message from response
+        // document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+        //         displaycurrentmem();
+        //         displaycurrentmembers();
+
+        //         successMsg.style.display = 'flex';
+        //         setTimeout(function() {
+        //             successMsg.style.display = 'none';
+        //         }, 3000); // Hide after 3 seconds
+
+        //         console.log(data); // Log the response from the API
+
+        //         // Perform additional tasks if needed (e.g., update UI, show success message)
+
+        //         // Close the modal
+        //         modal.classList.add('hidden');
+        //         modal.classList.remove('flex');
+        //     } catch (error) {
+        //         console.error('Error deactivating user:', error);
+        //         // Handle error appropriately (e.g., show error message)
+        //     }
+        // });
+    }
+
+
+    function closedeactivate() {
+        // Close the modal
+        var modal = document.getElementById('deactivateModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        console.log(`Edit button clicked for role_no: ${roll_no}`);
+    }
+
+
     window.onload = function() {
         decodeToken();
 
     };
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#event_date_edit", {
+            enableTime: true,
+            dateFormat: "i:Y-m-d H:i",
+            altInput: true,
+            altFormat: "i k:F j, Y h:i K",
+            monthSelectorType: "static" // This will show full month names instead of dropdown
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#last_date_edit", {
+            enableTime: true,
+            dateFormat: "i:Y-m-d H:i",
+            altInput: true,
+            altFormat: "i k:F j, Y h:i K",
+            monthSelectorType: "static" // This will show full month names instead of dropdown
+        });
+    });
 </script>
