@@ -415,6 +415,7 @@
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Event name</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Date </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Catagorey </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Status </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Actions </th>
                                     </tr>
                                 </thead>
@@ -780,7 +781,8 @@
                         }
 
                         displaysports()
-                        displaycreateeventuser();
+                        displaycreateevent();
+                        displaycreateeventhist()
 
                     } else {
                         window.location.href = '../User Dashboard/dashboard.html';
@@ -844,7 +846,7 @@
         }
     }
 
-    async function displaycreateeventuser() {
+    async function displaycreateevent() {
         try {
             // Assuming `token` is defined somewhere earlier in your code
             const response = await fetch('http://localhost:3000/api/showingevents', {
@@ -878,6 +880,10 @@
 
             // Loop through events and create table rows dynamically
             events.forEach(event => {
+                const eventDate = new Date(event.event_date);
+                const formattedEventDate = eventDate.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+
+
                 const row = document.createElement('tr');
 
                 row.innerHTML = `
@@ -899,7 +905,7 @@
         </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <div class="ml-4">
-                        <div class="text-sm font-medium text-gray-900" id="event_date_show">${event.event_date}</div>
+                        <div class="text-sm font-medium text-gray-900" id="event_date_show">${formattedEventDate}</div>
                         <div class="text-sm text-gray-500" id="event_time_show">${event.event_time}</div>
                     </div>
                 </td>
@@ -909,7 +915,7 @@
                         <div class="text-sm text-gray-500" id="gender_show">${event.gender}</div>
                     </div>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">${event.status}</span> </td>
+                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Pending</span> </td>
                 <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
                     <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a>
                     <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
@@ -926,6 +932,89 @@
         }
     }
 
+
+    async function displaycreateeventhist() {
+        try {
+            // Assuming `token` is defined somewhere earlier in your code
+            const response = await fetch('http://localhost:3000/api/showingevents', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch event data');
+            }
+
+            const responseData = await response.json();
+            console.log('response data :', responseData); // Logging the response data for debugging
+
+            const {
+                success,
+                events
+            } = responseData;
+
+            if (!success) {
+                throw new Error('API request not successful');
+            }
+
+            // Assuming your table body element has id 'displayeventhist'
+            const displayUsersTable = document.getElementById('displayeventhist');
+            displayUsersTable.innerHTML = '';
+
+            events.forEach(event => {
+                // Parse event_date and created_date
+                const eventDate = new Date(event.event_date);
+                const formattedEventDate = eventDate.toISOString().split('T')[0]; // Format to YYYY-MM-DD
+
+
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900" id="name_show">${event.name}</div>
+                            <div class="text-sm text-gray-500" id="roll_no_show">${event.roll_no}</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport_name_show">${event.sport_name}</span> </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900" id="event_name_show">${event.event_name}</div>
+                        <div class="text-sm text-gray-500" id="event_category_show">${event.is_team ? 'Team' : 'Individual'}</div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900" id="event_date_show">${formattedEventDate}</div>
+                        <div class="text-sm text-gray-500" id="event_time_show">${event.event_time}</div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900" id="category_show">${event.category}</div>
+                        <div class="text-sm text-gray-500" id="gender_show">${event.gender}</div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Pending</span> </td>
+                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a>
+                         <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
+                </td>
+            `;
+                displayUsersTable.appendChild(row);
+            });
+
+        } catch (error) {
+            console.error('Error fetching and displaying event data:', error);
+            throw error; // Re-throw the error to propagate it further if needed
+        }
+    }
 
 
     window.onload = function() {
