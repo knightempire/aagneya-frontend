@@ -44,7 +44,7 @@
 
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout"> <i class='bx bx-log-out-circle'></i> Logout </a>
+                <a href="#" class="logout" onclick="logout()"><i class='bx bx-log-out-circle'></i> Logout </a>
             </li>
         </ul>
     </div>
@@ -276,30 +276,38 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+                                    <!-- displaycreateeventuser -->
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
-                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
+                                                    <div class="text-sm font-medium text-gray-900" id="name_show"> Abinesh </div>
+                                                    <div class="text-sm text-gray-500" id="roll_no_show"> cb.en.u4cse21302 </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport_name_show">  Chess </span> </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="event_name_show">
                                             selection
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
-                                                <div class="text-sm text-gray-500"> boys and girls</div>
+                                                <div class="text-sm font-medium text-gray-900" id="event_date_show"> YYYY-MM-DD </div>
+                                                <div class="text-sm text-gray-500" id="event_time_show"> HH:MM </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900" id="catagory_show"> UG and PG</div>
+                                                <div class="text-sm text-gray-500" id="gender_show"> boys and girls</div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Publish</a> </td>
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a><a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
+
+                                        </td>
                                     </tr>
 
 
@@ -324,7 +332,7 @@
                                         <div class="mt-2 text-gray-600 dark:text-gray-300">
                                             <div class="overflow-x-auto">
                                                 <table class="min-w-full table-auto">
-                                                    <tbody>
+                                                    <tbody id="displaycreatedevent">
                                                         <tr>
                                                             <td class="px-4 py-2">
                                                                 <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
@@ -336,17 +344,7 @@
                                                                 <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
-                                                            </td>
-                                                            <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
-                                                            </td>
-                                                            <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
-                                                            </td>
-                                                        </tr>
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -388,7 +386,43 @@
                             </div>
                         </div> <br><br>
 
-
+                        <div id="deactivateModal" class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
+                            <!-- Modal content -->
+                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
+                                <!-- Modal header -->
+                                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                    <!-- Header content -->
+                                    <div class="sm:flex sm:items-start">
+                                        <!-- Icon -->
+                                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                            <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
+                                                <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linejoin="round" stroke-linecap="round"></path>
+                                            </svg>
+                                        </div>
+                                        <!-- Modal title and description -->
+                                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                            <h3 id="modal-title" class="text-base font-semibold leading-6 text-gray-900">
+                                                Delete Event
+                                            </h3>
+                                            <div class="mt-2">
+                                                <p class="text-sm text-gray-500">
+                                                    Are you sure you want to delete the event before it get approve ?
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer with buttons -->
+                                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                    <button id="deactivateBtn" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" type="button">
+                                        Deactivate
+                                    </button>
+                                    <button id="deactivateCancel" onclick="closedeactivate()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" type="button">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -412,7 +446,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayallevents">
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
@@ -436,35 +470,34 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
-                                    </tr>
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a>
 
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
-                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            selection
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
-                                                <div class="text-sm text-gray-500"> boys and girls</div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
-                                    </tr>
-                                    <!-- More rows... -->
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                                                        <div class="ml-4">
+                                                            <div class="text-sm font-medium text-gray-900"> Abinesh </div>
+                                                            <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    selection
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900"> UG and PG</div>
+                                                        <div class="text-sm text-gray-500"> boys and girls</div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
+                                                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showdecineForm()">view</a>
+                                            </tr>
+                                            <!-- More rows... -->
                                 </tbody>
                             </table>
                         </div>
@@ -527,43 +560,7 @@
                         </div>
 
 
-                        <div id="deactivateModal" class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
-                            <!-- Modal content -->
-                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
-                                <!-- Modal header -->
-                                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                                    <!-- Header content -->
-                                    <div class="sm:flex sm:items-start">
-                                        <!-- Icon -->
-                                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                                            <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
-                                                <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linejoin="round" stroke-linecap="round"></path>
-                                            </svg>
-                                        </div>
-                                        <!-- Modal title and description -->
-                                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                            <h3 id="modal-title" class="text-base font-semibold leading-6 text-gray-900">
-                                                Deactivate account
-                                            </h3>
-                                            <div class="mt-2">
-                                                <p class="text-sm text-gray-500">
-                                                    Are you sure you want to deactivate the account?
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Modal footer with buttons -->
-                                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                    <button id="deactivateBtn" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" type="button">
-                                        Deactivate
-                                    </button>
-                                    <button id="deactivateCancel" onclick="closedeactivate()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" type="button">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
 
 
                     </div>
@@ -669,6 +666,7 @@
     let roll_no;
     let name;
     let token;
+    let sport_name;
 
 
     async function decodeToken() {
@@ -713,6 +711,7 @@
 
                         displayuser(roll_no);
 
+
                     } else {
                         window.location.href = '../Admin Dashboard/dashboard.html';
                     }
@@ -751,7 +750,9 @@
             console.log('User data:', responseData);
 
             const sportName = responseData[0].sport_name; // Assuming you want the sport_name from the first object
+            sport_name = sportName
             document.getElementById('sport_name_input').value = sportName;
+            displaycreateeventuser(sportName)
 
 
         } catch (error) {
@@ -759,6 +760,7 @@
             throw error; // Re-throw the error to propagate it further if needed
         }
     }
+
 
 
     async function createvent(event) {
@@ -861,11 +863,109 @@
             // Close the modal
 
 
-            // Optionally, reset the form after successful submission
+            displaycreateeventuser(sport_name)
+                // Optionally, reset the form after successful submission
             event.target.reset();
         } catch (error) {
             console.error('Error adding event:', error);
             // Handle error appropriately (e.g., show error message to user)
+        }
+    }
+
+    async function displaycreateeventuser(sportName) {
+        try {
+            console.log(sportName); // Logging the sportName for debugging
+
+            // Assuming `token` is defined somewhere earlier in your code
+            const response = await fetch('http://localhost:3000/api/createdevent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    sport_name: sportName // Sending sportName in the request body
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch user data');
+            }
+
+            const responseData = await response.json();
+            console.log('responseData:', responseData); // Logging the response data for debugging
+
+            const {
+                success,
+                sport_name,
+                events
+            } = responseData;
+
+            if (!success) {
+                throw new Error('API request not successful');
+            }
+
+            // Assuming your table body element has id 'displayusers'
+            const displayUsersTable = document.getElementById('displayusers');
+            displayUsersTable.innerHTML = '';
+
+            events.forEach(event => {
+                // Parse event_date and created_date
+                const eventDate = new Date(event.event_date);
+                const createdDate = new Date(event.created_date);
+
+                // Format event_date to YYYY-MM-DD
+                const formattedEventDate = eventDate.toISOString().split('T')[0]; // Extract YYYY-MM-DD
+
+                // Format created_date to dd-mm-yyyy
+                const day = createdDate.getUTCDate().toString().padStart(2, '0');
+                const month = (createdDate.getUTCMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed
+                const year = createdDate.getUTCFullYear().toString();
+
+                const formattedCreatedDate = `${day}-${month}-${year}`;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+        <td class="px-6 py-4 whitespace-nowrap">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900" id="name_show">${event.name}</div>
+                    <div class="text-sm text-gray-500" id="roll_no_show">${event.roll_no}</div>
+                </div>
+            </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">${sport_name}</span> </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <div class="ml-4">
+                <div class="text-sm font-medium text-gray-900" id="event_name_show">${event.event_name}</div>
+                <div class="text-sm text-gray-500" id="event_category_show">${event.is_team ? 'Team' : 'Individual'}</div>
+            </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <div class="ml-4">
+                <div class="text-sm font-medium text-gray-900" id="event_date_show">${formattedEventDate}</div>
+                <div class="text-sm text-gray-500" id="event_time_show">${event.event_time}</div>
+            </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <div class="ml-4">
+                <div class="text-sm font-medium text-gray-900" id="category_show">${event.category}</div>
+                <div class="text-sm text-gray-500" id="gender_show">${event.gender}</div>
+            </div>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Pending</span> </td>
+        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a>
+            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
+        </td>
+    `;
+                displayUsersTable.appendChild(row);
+            });
+
+        } catch (error) {
+            console.error('Error fetching and displaying user data:', error);
+            throw error; // Re-throw the error to propagate it further if needed
         }
     }
 

@@ -38,7 +38,7 @@
 
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout">
+                <a href="#" class="logout" onclick="logout()">
                     <i class='bx bx-log-out-circle'></i> Logout
                 </a>
             </li>
@@ -91,13 +91,15 @@
             <br>
             <!-- code from here -->
 
-         
+
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
                 <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Achievement Details</div>
                 <div class="p-4 md:p-8">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Name *" />
-                        <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Date " />
+                        <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Name *" />
+                        <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Date " />
                     </div>
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                         <select name="sports" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
@@ -115,24 +117,25 @@
                             <label for="team">Team</label>
                         </div>
                     </div>
-            
+
                     <div id="dynamicFields"></div>
-            
+
                     <div class="mb-4 md:mb-10">
-                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Event Description"></textarea>
+                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Event Description"></textarea>
                     </div>
                     <div class="text-center">
                         <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="addEvent()">Add Event</button>
                     </div>
                 </div>
             </div>
-            
+
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
             <script>
                 function showFields() {
                     const dynamicFields = document.getElementById('dynamicFields');
                     dynamicFields.innerHTML = ''; // Clear previous fields
-            
+
                     if (document.getElementById('team').checked) {
                         // Team selected
                         dynamicFields.innerHTML = `
@@ -160,12 +163,12 @@
                         `;
                     }
                 }
-            
+
                 function generateTeamFields() {
                     const teamSize = document.getElementById('teamSize').value;
                     const teamMembers = document.getElementById('teamMembers');
                     teamMembers.innerHTML = ''; // Clear previous fields
-            
+
                     for (let i = 1; i <= teamSize; i++) {
                         if (i === 1) {
                             teamMembers.innerHTML += `
@@ -197,23 +200,23 @@
                         </div>
                     `;
                 }
-            
+
                 // Initialize Flatpickr on the date input field
-                document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('DOMContentLoaded', function() {
                     flatpickr("#appointmentDate", {
                         dateFormat: "Y-m-d",
                         altInput: true,
                         altFormat: "F j, Y"
                     });
                 });
-            
+
                 function addEvent() {
                     // Add your logic here to handle the form submission or event addition
                     console.log("Event added!");
                 }
             </script>
-            
-            
+
+
 
             <br>
 
