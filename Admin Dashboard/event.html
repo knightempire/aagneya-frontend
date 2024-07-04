@@ -55,7 +55,7 @@
         <nav> <i class='bx bx-menu'></i>
             <form action="#">
                 <div class="form-input">
-                    <!-- <input type="search" placeholder="Search..."> --><button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button> </div>
+                    <!-- <input type="search" placeholder="Search..."> --><button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> Name</span></button> </div>
             </form> <input type="checkbox" id="theme-toggle" hidden>
             <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
             <a href="#" class="notif"> <i class='bx bx-bell'></i> <span class="count">12</span> </a>
@@ -73,88 +73,99 @@
                 <a href="#" class="report"> <i class='bx bxs-add-to-queue'></i> <span id="changes">Add</span> <i class='bx bxs-x-circle' style="display: none;"></i> </a>
             </div> <br>
             <!-- code from here -->
-            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
-                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
-                <div class="p-4 md:p-8">
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Event Name *" />
-                        <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Sports" />
-                    </div>
-                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                            <option value="" disabled selected>Select Category</option>
-                            <option value="Category 1">Category 1</option>
-                            <option value="Category 2">Category 2</option>
-                            <option value="Category 3">Category 3</option>
-                        </select>
-                        <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                            <option value="" disabled selected>Select Gender</option>
-                            <option value="Boys">Boys</option>
-                            <option value="Girls">Girls</option>
-                            <option value="Boys and Girls">Boys and Girls</option>
-                        </select>
-                    </div>
-                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <input type="text" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Event Date and Time" />
-                        <!-- <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"placeholder="Time" />  -->
 
-                    </div>
-                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                            <option value="" disabled selected>Select Event Type</option>
-                            <option value="Individual">Individual</option>
-                            <option value="Team">Team</option>
-                        </select>
-                        <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Location" />
-                    </div>
-                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Entry Fee" />
-                        <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Number of Prizes" />
-                    </div>
-                    <div class="mb-4 md:mb-10">
-                        <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Form Link" />
-                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Event Description"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="addEvent()">Add Event</button>
+            <div class="flex justify-center items-center" id="msgok" style="display: none">
+                <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                    <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                        <div class="flex gap-2">
+                            <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white">Activated successfully :)</p>
+                                <p class="text-gray-500" id="Msg">User activated</p>
+                            </div>
+                        </div>
+                        <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    flatpickr("#event_date_edit", {
-                        enableTime: true,
-                        dateFormat: "i:Y-m-d H:i",
-                        altInput: true,
-                        altFormat: "i k:F j, Y h:i K",
-                        monthSelectorType: "static" // This will show full month names instead of dropdown
-                    });
-                });
 
-                function addEvent() {
-                    // Add your logic here to handle the form submission or event addition
-                    console.log("Event added!");
-                }
-            </script>
+            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
+                <form onsubmit="createvent(event)">
+                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Event Details</div>
+                    <div class="p-4 md:p-8">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Event Name *" required />
+                            <select name="sport" id="sport_name_input" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                    <option value="" disabled selected>Select Sport</option>
+                                    <!-- Options will be dynamically added here -->
+                                </select>
 
 
 
+                            </select>
+                        </div>
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                            <select name="category" id="category" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                                <option value="UG & PG">UG AND PG</option>
+                            </select>
+                            <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Boys">Boys</option>
+                                <option value="Girls">Girls</option>
+                                <option value="Boys and Girls">Boys and Girls</option>
+                            </select>
+                        </div>
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                            <input type="text" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Event Date and Time" required />
+                            <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>Select Event Type</option>
+                                <option value="0">Individual</option>
+                                <option value="1">Team</option>
+                            </select>
+                        </div>
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
 
-
-
-
-
-
+                            <input type="text" name="last_date" id="last_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Last date for register" required />
+                            <input type="number" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Entry Fee" required />
+                            <input type="number" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Number of Prizes" required />
+                        </div>
+                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                            <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Location" required />
+                            <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Form Link" required />
+                        </div>
+                        <div class="mb-4 md:mb-10">
+                            <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Event Description" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add Event</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
 
             <br>
@@ -287,59 +298,45 @@
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Event name</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Date </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Catagorey </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Status </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Actions </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
-                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            selection
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
-                                                <div class="text-sm text-gray-500"> boys and girls</div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a>                                            </td>
-                                    </tr>
 
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
                                                 <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900"> Abinesh </div>
-                                                    <div class="text-sm text-gray-500"> cb.en.u4cse21302 </div>
+                                                    <div class="text-sm font-medium text-gray-900" id="name_show"> Abinesh </div>
+                                                    <div class="text-sm text-gray-500" id="roll_no_show"> cb.en.u4cse21302 </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Chess </span> </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport_name_show">  Chess </span> </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="event_name_show">
                                             selection
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 2024 </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900"> UG and PG</div>
-                                                <div class="text-sm text-gray-500"> boys and girls</div>
+                                                <div class="text-sm font-medium text-gray-900" id="event_date_show"> YYYY-MM-DD </div>
+                                                <div class="text-sm text-gray-500" id="event_time_show"> HH:MM </div>
                                             </div>
                                         </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900" id="catagory_show"> UG and PG</div>
+                                                <div class="text-sm text-gray-500" id="gender_show"> boys and girls</div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"> Pending </span> </td>
                                         <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a>                                            </td>
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a> <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a> <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a>
+
+                                        </td>
                                     </tr>
+
                                     <!-- More rows... -->
                                 </tbody>
                             </table>
@@ -422,7 +419,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+                                <tbody class="bg-white divide-y divide-gray-200" id="displayeventhist">
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
@@ -616,4 +613,348 @@
             editForm.style.display = 'none';
         }
     }
+</script>
+
+
+<script>
+    async function createvent(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        const event_name = document.getElementById('event_name_edit').value;
+        const sport_name = document.getElementById('sport_name_input').value;
+        const category = document.getElementById('category').value;
+        const gender = document.getElementById('gender_edit').value;
+        const event_date = document.getElementById('event_date_edit').value;
+        const last_date = document.getElementById('last_date_edit').value;
+        const is_team = document.getElementById('event_type_edit').value;
+        const location = document.getElementById('location_edit').value;
+        const entry_fee = document.getElementById('entry_fee_edit').value;
+        const no_of_prizes = document.getElementById('no_of_prizes_edit').value;
+        const form_link = document.getElementById('form_link_edit').value;
+        const event_description = document.getElementById('event_description_edit').value;
+
+        // Split event_date assuming format is "dd:mm:yyyy hh:mm"
+        const eventDateParts = event_date.split(' ');
+        const datePart = eventDateParts[0].substr(3);
+        const timePart = eventDateParts[1];
+
+        // Split last_date assuming format is "dd:mm:yyyy hh:mm"
+        const lastDateParts = last_date.split(' ');
+        const last_date_part = lastDateParts[0].substr(3);
+
+        // Get current date
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        let currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-based index
+        let currentDay = currentDate.getDate();
+
+        // Pad month and day with leading zeros if necessary
+        if (currentMonth < 10) {
+            currentMonth = '0' + currentMonth;
+        }
+        if (currentDay < 10) {
+            currentDay = '0' + currentDay;
+        }
+
+        // Format the current date as yyyy-mm-dd
+        const formattedCurrentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+
+        // Create an object with the form data including current date
+        const formData = {
+            event_name,
+            sport_name,
+            category,
+            gender,
+            date: datePart,
+            time: timePart,
+            created_date: formattedCurrentDate,
+            is_team,
+            location,
+            entry_fee,
+            no_of_prizes,
+            form_link,
+            event_description,
+            last_date: last_date_part,
+            roll_no // Assuming roll_no is defined somewhere
+        };
+
+        console.log('Form Data:', formData);
+
+        try {
+            // Send a POST request to add event
+            const response = await fetch('http://localhost:3000/api/adminaddevent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(formData) // Send form data in the request body
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to add event');
+            }
+
+            // Log success message from API response
+            const data = await response.json(); // Parse JSON response
+            console.log('Event added successfully:', data.message);
+
+
+            const successMsg = document.getElementById('msgok');
+            const message = data.message; // Extract message from response
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+
+
+            // Optionally, reset the form after successful submission
+            // event.target.reset();
+        } catch (error) {
+            console.error('Error adding event:', error);
+            // Handle error appropriately (e.g., show error message to user)
+        }
+    }
+</script>
+
+
+<script>
+    function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+</script>
+
+<script>
+    let roll_no;
+    let name;
+    let token;
+    let sport_name;
+
+
+    async function decodeToken() {
+        try {
+            token = localStorage.getItem('token');
+            console.log('Token from localStorage:', token);
+
+            if (!token) {
+                console.error('Token not found in local storage');
+                window.location.href = '../login/login.html';
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/api/decodeToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Decoded token data:', data);
+
+                roll_no = data.roll_no;
+                name = data.name;
+                role_id = data.role_id
+
+                if (data.is_active === 1) {
+                    if (data.role_id == 0) {
+                        console.log("Hello admin");
+
+                        // Assuming you have an element with id 'name' to display user name
+                        const nameElement = document.getElementById('name');
+                        if (nameElement) {
+                            nameElement.textContent = name
+                        }
+
+                        displaysports()
+                        displaycreateeventuser();
+
+                    } else {
+                        window.location.href = '../User Dashboard/dashboard.html';
+                    }
+                } else {
+                    console.error('User is not active');
+                    window.location.href = '../login/login.html';
+                }
+            } else {
+                console.error('Failed to decode token:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error in decodeToken:', error.message);
+            window.location.href = '../login/login.html';
+        }
+    }
+
+    async function displaysports() {
+        const selectElement = document.getElementById('sport_name_input');
+
+        try {
+            const response = await fetch('http://localhost:3000/api/displaysports', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch sports');
+            }
+
+            const responseData = await response.json();
+            console.log('Sports data:', responseData);
+
+            const sports = responseData.sports; // Assuming 'sports' is the array you want to iterate over
+
+            // Clear existing options
+            selectElement.innerHTML = '<option value="" disabled selected>Select Sport</option>';
+
+            // Check if 'sports' is an array
+            if (!Array.isArray(sports)) {
+                throw new Error('Received sports data is not an array');
+            }
+
+            // Add options from fetched 'sports' array
+            sports.forEach(option => {
+
+                if (option.sport_id !== 0) {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.sport_id; // Adjust based on your API response structure
+                    optionElement.textContent = option.sport_name; // Adjust based on your API response structure
+                    selectElement.appendChild(optionElement);
+                }
+            });
+
+        } catch (error) {
+            console.error('Error fetching sports:', error);
+            // Handle error gracefully (e.g., show a message to the user)
+        }
+    }
+
+    async function displaycreateeventuser() {
+        try {
+            // Assuming `token` is defined somewhere earlier in your code
+            const response = await fetch('http://localhost:3000/api/showingevents', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch user data');
+            }
+
+            const responseData = await response.json();
+            console.log('response data :', responseData); // Logging the response data for debugging
+
+            const {
+                success,
+                events
+            } = responseData;
+
+            if (!success) {
+                throw new Error('API request not successful');
+            }
+
+            const tbody = document.getElementById('displayusers'); // Get the tbody element
+
+            // Clear existing rows if needed
+            tbody.innerHTML = '';
+
+            // Loop through events and create table rows dynamically
+            events.forEach(event => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10"> <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt=""> </div>
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900" id="name_show">${event.name}</div>
+                            <div class="text-sm text-gray-500" id="roll_no_show">${event.roll_no}</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport_name_show">${event.sport_name}</span> </td>
+                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <div class="ml-4">
+                <div class="text-sm font-medium text-gray-900" id="event_name_show">${event.event_name}</div>
+                <div class="text-sm text-gray-500" id="event_category_show">${event.is_team ? 'Team' : 'Individual'}</div>
+            </div>
+        </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900" id="event_date_show">${event.event_date}</div>
+                        <div class="text-sm text-gray-500" id="event_time_show">${event.event_time}</div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900" id="catagory_show">${event.category}</div>
+                        <div class="text-sm text-gray-500" id="gender_show">${event.gender}</div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap"> <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">${event.status}</span> </td>
+                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">view</a>
+                    <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
+                    <a href="#" class="ml-2 text-red-600 hover:text-red-900">Deactivate</a>
+                </td>
+            `;
+
+                tbody.appendChild(row); // Append the row to the tbody
+            });
+
+        } catch (error) {
+            console.error('Error fetching and displaying user data:', error);
+            throw error; // Re-throw the error to propagate it further if needed
+        }
+    }
+
+
+
+    window.onload = function() {
+        decodeToken();
+
+
+    };
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#event_date_edit", {
+            enableTime: true,
+            dateFormat: "i:Y-m-d H:i",
+            altInput: true,
+            altFormat: "i k:F j, Y h:i K",
+            monthSelectorType: "static" // This will show full month names instead of dropdown
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#last_date_edit", {
+            enableTime: true,
+            dateFormat: "i:Y-m-d H:i",
+            altInput: true,
+            altFormat: "i k:F j, Y h:i K",
+            monthSelectorType: "static" // This will show full month names instead of dropdown
+        });
+    });
 </script>
