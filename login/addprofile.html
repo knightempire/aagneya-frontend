@@ -8,7 +8,6 @@
     <title>Responsive Registration Form</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="./css/addprofile.css">
-
 </head>
 
 <body>
@@ -68,7 +67,29 @@
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            alert('Form submitted successfully!');
+
+            // Get all form data
+            const formData = new FormData(form);
+
+            // Create an object to store the data
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Store the data in local storage
+            localStorage.setItem('registrationData', JSON.stringify(data));
+
+            console.log('Form data saved to local storage:', data);
+
+            // Log stored data directly in the console
+            const storedData = localStorage.getItem('registrationData');
+            if (storedData) {
+                const data = JSON.parse(storedData);
+                console.log('Stored Data:', data);
+            } else {
+                console.log('No data found in local storage.');
+            }
         });
     </script>
 </body>
