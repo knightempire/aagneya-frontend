@@ -1502,14 +1502,14 @@
 
 
         try {
-            const response = await fetch('http://localhost:3000/api/displayeventfilter', {
+            const response = await fetch('http://localhost:3000/api/displayeventfilternone', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    event_id: event_id
+                    event_id: eventId
                 })
             });
 
