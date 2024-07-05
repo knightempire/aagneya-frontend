@@ -372,23 +372,52 @@
                             </div>
                         </div>
 
-                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;"> <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()"> <span class="mr-1">Close</span> <i class='bx bxs-x-circle'></i> </button>
+                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;">
+                            <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()"> 
+                            <span class="mr-1">Close</span> <i class='bx bxs-x-circle'></i> 
+                        </button>
                             <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit Event Details</div>
                             <div class="p-4 md:p-8">
-                                <div class="flex flex-col md:flex-row gap-4"> <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Event Name *" /> <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Sports" /> </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Category</option> <option value="Category 1">Category 1</option> <option value="Category 2">Category 2</option> <option value="Category 3">Category 3</option> </select>                                    <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Gender</option> <option value="Boys">Boys</option> <option value="Girls">Girls</option> <option value="Boys and Girls">Boys and Girls</option> </select>                                    </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Event Date" /> <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="event_name" id="spec_event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Name *" />
+                                    <input type="text" name="sports" id="spec_sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Sports" readonly> </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="category" id="spec_category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> 
+                                        <option value="" disabled selected>Select Category</option>
+                                        <option value="UG">UG</option>
+                                        <option value="PG">PG</option>
+                                        <option value="UG & PG">UG AND PG</option>
+                                         </select>
+                                    <select name="gender" id="spec_gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> 
+                                        <option value="" disabled selected>Select Gender</option>
+                                         <option value="Boys">Boys</option> <option value="Girls">Girls</option> 
+                                         <option value="Boys and Girls">Boys and Girls</option> 
+                                        </select>
+                                </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="date" name="event_date" id="spec_event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Date" />
+                                    <input type="text" name="time" id="spec_time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Time" /> </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Event Type</option> <option value="Individual">Individual</option> <option value="Team">Team</option> </select>                                    <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="event_type" id="spec_event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                         <option value="" disabled selected>Select Event Type</option>
+                                          <option value="Individual">Individual</option>
+                                           <option value="Team">Team</option>
+                                         </select>
+                                    <input type="text" name="location" id="spec_location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Location" /> </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Entry Fee" /> <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="entry_fee" id="spec_entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Entry Fee" />
+                                    <input type="text" name="no_of_prizes" id="spec_no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Number of Prizes" /> </div>
-                                <div class="mb-4 md:mb-10"> <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Form Link" /> <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="mb-4 md:mb-10">
+                                    <input type="text" name="form_link" id="spec_form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Form Link" />
+                                    <textarea name="event_description" id="spec_event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Event Description"></textarea> </div>
                                 <div class="text-center"> <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button> <button type="button" class="cursor-pointer rounded-lg bg-red-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white"
                                         onclick="deleteEvent()">Delete</button> </div>
@@ -1077,6 +1106,9 @@
     }
 
 
+
+
+
     async function deactivate() {
         // Show the modal
         var modal = document.getElementById('deactivateModal');
@@ -1243,9 +1275,7 @@
                             <p class="desc">${event.event_description}</p>
                             <div class="flex items-center justify-between mt-4">
                                 <a href="${event.form_link}" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
-                                <div class="flex items-center">
-                                    <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-8 rounded-full" id="editbutton" onclick="showEditForm()"> Edit </button>
-                                </div>
+                              
                             </div>
                         </div>
                     </div>

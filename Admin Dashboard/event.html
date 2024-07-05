@@ -185,14 +185,14 @@
 
 
 
-                        <div class="showcards">
+                        <div class="showcards" id="displayevents">
                             <div class="bg-gray-100 dark:bg-gray-900" style="padding-top: 40px; " id="showcards">
                                 <!-- Card Container -->
                                 <!-- showevent -->
 
                                 <div id="card-container" class="max-w-5xl mx-auto">
                                     <!-- Card 1 -->
-                                    <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                                    <!-- <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
                                         <div class="flex items-center justify-between">
                                             <div class="date-time-container">
                                                 <h3 id="date">Mar 10, 2019</h3>
@@ -241,7 +241,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
 
 
@@ -254,23 +254,52 @@
 
                         </div>
 
-                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;"> <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()"> <span class="mr-1">Close</span> <i class='bx bxs-x-circle'></i> </button>
+                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;">
+                            <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()"> 
+                            <span class="mr-1">Close</span> <i class='bx bxs-x-circle'></i> 
+                        </button>
                             <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit Event Details</div>
                             <div class="p-4 md:p-8">
-                                <div class="flex flex-col md:flex-row gap-4"> <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Event Name *" /> <input type="text" name="sports" id="sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Sports" /> </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Category</option> <option value="Category 1">Category 1</option> <option value="Category 2">Category 2</option> <option value="Category 3">Category 3</option> </select>                                    <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Gender</option> <option value="Boys">Boys</option> <option value="Girls">Girls</option> <option value="Boys and Girls">Boys and Girls</option> </select>                                    </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Event Date" /> <input type="text" name="time" id="time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="event_name" id="spec_event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Name *" />
+                                    <input type="text" name="sports" id="spec_sports_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Sports" readonly> </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="category" id="spec_category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> 
+                                        <option value="" disabled selected>Select Category</option>
+                                        <option value="UG">UG</option>
+                                        <option value="PG">PG</option>
+                                        <option value="UG & PG">UG AND PG</option>
+                                         </select>
+                                    <select name="gender" id="spec_gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> 
+                                        <option value="" disabled selected>Select Gender</option>
+                                         <option value="Boys">Boys</option> <option value="Girls">Girls</option> 
+                                         <option value="Boys and Girls">Boys and Girls</option> 
+                                        </select>
+                                </div>
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="date" name="event_date" id="spec_event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Event Date" />
+                                    <input type="text" name="time" id="spec_time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Time" /> </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <select name="event_type" id="event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"> <option value="" disabled selected>Select Event Type</option> <option value="Individual">Individual</option> <option value="Team">Team</option> </select>                                    <input type="text" name="location" id="location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <select name="event_type" id="spec_event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                         <option value="" disabled selected>Select Event Type</option>
+                                          <option value="Individual">Individual</option>
+                                           <option value="Team">Team</option>
+                                         </select>
+                                    <input type="text" name="location" id="spec_location_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Location" /> </div>
-                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4"> <input type="text" name="entry_fee" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Entry Fee" /> <input type="text" name="no_of_prizes" id="no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <input type="text" name="entry_fee" id="spec_entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Entry Fee" />
+                                    <input type="text" name="no_of_prizes" id="spec_no_of_prizes_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Number of Prizes" /> </div>
-                                <div class="mb-4 md:mb-10"> <input type="text" name="form_link" id="form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Form Link" /> <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                <div class="mb-4 md:mb-10">
+                                    <input type="text" name="form_link" id="spec_form_link_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        placeholder="Form Link" />
+                                    <textarea name="event_description" id="spec_event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Event Description"></textarea> </div>
                                 <div class="text-center"> <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button> <button type="button" class="cursor-pointer rounded-lg bg-red-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white"
                                         onclick="deleteEvent()">Delete</button> </div>
@@ -349,37 +378,38 @@
                             <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl"></div> <br>
                             <div id="card-container" class="max-w-5xl mx-auto">
                                 <!-- Card 1 -->
+                                <!-- one card display -->
                                 <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
                                     <div class="flex items-center justify-between">
                                         <div class="date-time-container">
-                                            <h3 id="date">Mar 10, 2019</h3>
-                                            <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
-                                        </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a> </div>
-                                    <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                                            <h3 id="date_display">Mar 10, 2019</h3>
+                                            <h4><i class="bi bi-clock icon"></i> <span id="time_display"> 12:00pm </span></h4>
+                                        </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs_display">Upcoming</a>                                        </div>
+                                    <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name_display">Accessibility tools for designers and developers</a>
                                         <div class="mt-2 text-gray-600 dark:text-gray-300">
                                             <div class="overflow-x-auto">
                                                 <table class="min-w-full table-auto">
                                                     <tbody>
                                                         <tr>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                                <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category_display">BTech / MTech</span> </div>
                                                             </td>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                                <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender_display">Male / Female </span> </div>
                                                             </td>
                                                             <td class="px-4 py-3">
-                                                                <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                                <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee_display"> 10 </span> </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                                <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team_display"> Group / Individual </span> </div>
                                                             </td>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                                <div class="td-content"> <i class="bi bi-geo-alt icon"></i><span id="location_display"> 3</span> </div>
                                                             </td>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                                <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize_display"> 3</span> </div>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -388,11 +418,11 @@
                                         </div>
                                     </div>
                                     <div class="flex items-center justify-between mt-4"> <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
-                                        <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                                        <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link" id="sport_name_display"> Chess </span> </div>
                                     </div>
                                     <div class="readMoreContent mt-4 readmore">
-                                        <p class="desc" id="description">Description for the first card.</p>
-                                        <div class="flex items-center justify-between mt-4"> <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+                                        <p class="desc" id="description_display">Description for the first card.</p>
+                                        <div class="flex items-center justify-between mt-4"> <a href="link_display" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
 
                                         </div>
                                     </div>
@@ -525,34 +555,37 @@
                                 <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
                                     <div class="flex items-center justify-between">
                                         <div class="date-time-container">
-                                            <h3 id="date">Mar 10, 2019</h3>
-                                            <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
-                                        </div> <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs">Upcoming</a> </div>
-                                    <div class="mt-2"> <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                                            <h3 id="date_display_second">Mar 10, 2019</h3>
+                                            <h4><i class="bi bi-clock icon"></i> <span id="time_display_second"> 12:00pm </span></h4>
+                                        </div>
+                                        <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer hover:bg-violet-500" tabindex="0" role="button" id="occurs_display_second">Upcoming</a>
+                                    </div>
+                                    <div class="mt-2">
+                                        <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name_display_second">Accessibility tools for designers and developers</a>
                                         <div class="mt-2 text-gray-600 dark:text-gray-300">
                                             <div class="overflow-x-auto">
                                                 <table class="min-w-full table-auto">
                                                     <tbody>
                                                         <tr>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                                <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category_display_second">BTech / MTech</span> </div>
                                                             </td>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                                <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender_display_second">Male / Female </span> </div>
                                                             </td>
                                                             <td class="px-4 py-3">
-                                                                <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                                <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee_display_second"> 10 </span> </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                                <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team_display_second"> Group / Individual </span> </div>
                                                             </td>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                                <div class="td-content"> <i class="bi bi-geo-alt icon"></i><span id="location_display_second"> 3</span> </div>
                                                             </td>
                                                             <td class="px-4 py-2">
-                                                                <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                                <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize_display_second"> 3</span> </div>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -560,16 +593,22 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex items-center justify-between mt-4"> <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
-                                        <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                                        <div class="flex items-center">
+                                            <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link" id="sport_name_display_second"> Chess </span>
+                                        </div>
                                     </div>
                                     <div class="readMoreContent mt-4 readmore">
-                                        <p class="desc" id="description">Description for the first card.</p>
-                                        <div class="flex items-center justify-between mt-4"> <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
-
+                                        <p class="desc" id="description_display_second">Description for the first card.</p>
+                                        <div class="flex items-center justify-between mt-4">
+                                            <a href="" id="form_second" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
                                         </div>
                                     </div>
                                 </div>
+
+
+
                             </div>
                         </div>
 
@@ -596,72 +635,9 @@
     }
 </script>
 <script src="//unpkg.com/alpinejs" defer></script>
-<script>
-    function showEditFormallmember() {
-        // Hide the element with id="displayevents"
-        var displayEvents = document.getElementById('displayallmembers');
-        if (displayEvents) {
-            displayEvents.style.display = 'none';
-        }
-
-        // Show the form with id="allmember"
-        var editForm = document.getElementById('allmember');
-        if (editForm) {
-            editForm.style.display = 'block';
-        }
-    }
-
-    function closeFormallmember() {
-        // Show the element with id="displayevents"
-        var displayEvents = document.getElementById('displayallmembers');
-        if (displayEvents) {
-            displayEvents.style.display = 'block';
-        }
-
-        // Hide the form with id="allmember"
-        var editForm = document.getElementById('allmember');
-        if (editForm) {
-            editForm.style.display = 'none';
-        }
-    }
-</script>
-
-
-<script>
-    function showdecineForm(eventId) {
-        // Hide the element with id="displayevents"
 
 
 
-        var displayEvents = document.getElementById('decliend');
-        if (displayEvents) {
-            displayEvents.style.display = 'none';
-        }
-
-        // Show the form with id="allmember"
-        var editForm = document.getElementById('decliendcard');
-        if (editForm) {
-            editForm.style.display = 'block';
-        }
-
-
-        console.log(eventId)
-    }
-
-    function closedecline() {
-        // Show the element with id="displayevents"
-        var displayEvents = document.getElementById('decliend');
-        if (displayEvents) {
-            displayEvents.style.display = 'block';
-        }
-
-        // Hide the form with id="allmember"
-        var editForm = document.getElementById('decliendcard');
-        if (editForm) {
-            editForm.style.display = 'none';
-        }
-    }
-</script>
 
 
 <script>
@@ -1294,7 +1270,7 @@ async function showevent() {
                             <div class="flex items-center justify-between mt-4">
                                 <a href="${event.form_link}" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
                                 <div class="flex items-center">
-                                    <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-8 rounded-full" id="editbutton" onclick="showEditForm()"> Edit </button>
+                                   <button class="ml-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-8 rounded-full" id="editbutton" onclick="showEditForm('${event.event_id}')"> Edit </button>
                                 </div>
                             </div>
                         </div>
@@ -1334,7 +1310,70 @@ async function setupReadMoreListeners() {
 }
 
 
+async function showEditForm(event_id) {
+    var displayEvents = document.getElementById('displayevents');
+    if (displayEvents) {
+        displayEvents.style.display = 'none';
+    }
 
+    var editForm = document.getElementById('editvent');
+    if (editForm) {
+        editForm.style.display = 'block';
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/api/displayeventfilter', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ event_id: event_id })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch event details');
+        }
+
+        const { success, event } = await response.json();
+        if (success && event) {
+            // Populate form fields
+            document.getElementById('spec_event_name_edit').value = event.event_name || '';
+            document.getElementById('spec_sports_edit').value = event.sport_name || '';
+            document.getElementById('spec_category_edit').value = event.category || '';
+            document.getElementById('spec_gender_edit').value = event.gender || '';
+            document.getElementById('spec_event_date_edit').value = event.event_date ? new Date(event.event_date).toISOString().split('T')[0] : '';
+            document.getElementById('spec_time_edit').value = event.event_time || '';
+            document.getElementById('spec_event_type_edit').value = event.is_team ? 'Team' : 'Individual'; // Assuming is_team is a boolean
+            document.getElementById('spec_location_edit').value = event.place || '';
+            document.getElementById('spec_entry_fee_edit').value = event.entry_fee || '';
+            document.getElementById('spec_no_of_prizes_edit').value = event.no_of_prize || '';
+            document.getElementById('spec_form_link_edit').value = event.form_link || '';
+            document.getElementById('spec_event_description_edit').value = event.event_description || '';
+        } else {
+            throw new Error('Event data not found');
+        }
+
+    } catch (error) {
+        console.error('Error fetching or populating event data:', error);
+        // Handle error appropriately (e.g., show error message)
+    }
+}
+
+
+function closeForm() {
+    // Show the element with id="displayevents"
+    var displayEvents = document.getElementById('displayevents');
+    if (displayEvents) {
+        displayEvents.style.display = 'block';
+    }
+
+    // Hide the form with id="editvent"
+    var editForm = document.getElementById('editvent');
+    if (editForm) {
+        editForm.style.display = 'none';
+    }
+}
 
     function closedeactivate() {
         // Close the modal
@@ -1342,6 +1381,173 @@ async function setupReadMoreListeners() {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
 
+    }
+
+
+
+    async function showEditFormallmember(event_id) {
+        // Hide the element with id="displayallmembers"
+        var displayAllMembers = document.getElementById('displayallmembers');
+        if (displayAllMembers) {
+            displayAllMembers.style.display = 'none';
+        }
+
+        // Show the form with id="allmember"
+        var editForm = document.getElementById('allmember');
+        if (editForm) {
+            editForm.style.display = 'block';
+        }
+
+     
+    try {
+        const response = await fetch('http://localhost:3000/api/displayeventfilternnotapproved', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ event_id: event_id })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch event details');
+        }
+
+        const { success, event } = await response.json();
+        console.log( "all eve", event)
+        if (success && event) {
+      
+            // Populate form fields// Assuming event_date is a string representing the date in ISO format (e.g., '2024-07-06T12:00:00Z')
+        const eventDate = new Date(event.event_date);
+
+// Get today's date
+    const currentDate = new Date();
+
+// Compare dates
+    if (eventDate > currentDate) {
+        document.getElementById('occurs_display').textContent = 'Upcoming';
+    } else {
+        document.getElementById('occurs_display').textContent = 'Completed';
+    }
+
+          
+        document.getElementById('date_display').textContent = event.event_date ? new Date(event.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+        document.getElementById('time_display').textContent = event.event_time || '';
+        document.getElementById('event_name_display').textContent = event.event_name || '';
+        document.getElementById('sport_name_display').textContent = event.sport_name || '';
+        document.getElementById('category_display').textContent = event.category || '';
+        document.getElementById('gender_display').textContent = event.gender || '';
+        document.getElementById('entry_fee_display').textContent = event.entry_fee || '';
+        document.getElementById('is_team_display').textContent = event.is_team ? 'Team' : 'Individual';
+
+        document.getElementById('location_display').textContent = event.place || '';
+        document.getElementById('prize_display').textContent = event.no_of_prize || '';
+        document.getElementById('description_display').textContent = event.event_description || '';
+        document.getElementById('form').setAttribute('href', event.form_link || ''); // Update href attribute for link
+
+        } else {
+            throw new Error('Event data not found');
+        }
+
+    } catch (error) {
+        console.error('Error fetching or populating event data:', error);
+        // Handle error appropriately (e.g., show error message)
+    }
+    }
+
+    function closeFormallmember() {
+        // Show the element with id="displayevents"
+        var displayEvents = document.getElementById('displayallmembers');
+        if (displayEvents) {
+            displayEvents.style.display = 'block';
+        }
+
+        // Hide the form with id="allmember"
+        var editForm = document.getElementById('allmember');
+        if (editForm) {
+            editForm.style.display = 'none';
+        }
+    }
+
+    async function showdecineForm(event_id) {
+    
+    var displayEvents = document.getElementById('decliend');
+    if (displayEvents) {
+        displayEvents.style.display = 'none';
+    }
+
+    var editForm = document.getElementById('decliendcard');
+    if (editForm) {
+        editForm.style.display = 'block';
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/api/displayeventfilterall', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ event_id: event_id })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch event details');
+        }
+
+        const { success, event } = await response.json();
+        console.log('Fetched event:', event); // Check the event object in console
+
+        if (success && event) {
+            const eventDate = new Date(event.event_date);
+            const currentDate = new Date();
+
+        if ( event.approval_status == 1   ){
+            if (eventDate > currentDate) {
+                document.getElementById('occurs_display_second').textContent = 'Upcoming';
+            } else {
+                document.getElementById('occurs_display_second').textContent = 'Completed';
+            }
+        }else{
+            document.getElementById('occurs_display_second').textContent = 'Declined';
+        }
+
+            document.getElementById('date_display_second').textContent = event.event_date ? new Date(event.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+            document.getElementById('time_display_second').textContent = event.event_time || '';
+            document.getElementById('event_name_display_second').textContent = event.event_name || '';
+            document.getElementById('sport_name_display_second').textContent = event.sport_name || '';
+            document.getElementById('category_display_second').textContent = event.category || '';
+            document.getElementById('gender_display_second').textContent = event.gender || '';
+            document.getElementById('entry_fee_display_second').textContent = event.entry_fee || '';
+            document.getElementById('is_team_display_second').textContent = event.is_team ? 'Team' : 'Individual';
+            document.getElementById('location_display_second').textContent = event.place || '';
+            document.getElementById('prize_display_second').textContent = event.no_of_prize || '';
+            document.getElementById('description_display_second').textContent = event.event_description || ''; // Make sure event_description is correctly assigned
+            document.getElementById('form_second').setAttribute('href', event.form_link || ''); // Update href attribute for link
+
+        } else {
+            throw new Error('Event data not found');
+        }
+
+    } catch (error) {
+        console.error('Error fetching or populating event data:', error);
+        // Handle error appropriately (e.g., show error message)
+    }
+}
+
+
+    function closedecline() {
+        // Show the element with id="displayevents"
+        var displayEvents = document.getElementById('decliend');
+        if (displayEvents) {
+            displayEvents.style.display = 'block';
+        }
+
+        // Hide the form with id="allmember"
+        var editForm = document.getElementById('decliendcard');
+        if (editForm) {
+            editForm.style.display = 'none';
+        }
     }
 
 
