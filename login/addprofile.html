@@ -8,6 +8,8 @@
     <title>Responsive Registration Form</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="./css/addprofile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 </head>
 
 <body>
@@ -40,7 +42,7 @@
                     </div>
                     <div class="input-field">
                         <label>Date of Birth</label>
-                        <input type="date" name="dob" required>
+                        <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Date " required />
                     </div>
                     <div class="input-field">
                         <label>Photo</label>
@@ -57,6 +59,7 @@
             </div>
         </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
         const form = document.getElementById('registrationForm');
@@ -77,6 +80,14 @@
 
             console.log('Form daata', data);
         });
+                     // Initialize Flatpickr on the date input field
+                     document.addEventListener('DOMContentLoaded', function() {
+                  flatpickr("#appointmentDate", {
+                    dateFormat: "Y-m-d",
+                    altInput: true,
+                    altFormat: "F j, Y"
+                  });
+                });
     </script>
 </body>
 
