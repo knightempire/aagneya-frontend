@@ -17,31 +17,33 @@
 </head>
 
 <body>
-    <!-- Sidebar remains unchanged -->
+
+    <!-- Sidebar -->
     <div class="sidebar">
         <a href="#" class="logo">
             <i class='bx bx-code-alt'></i>
             <div class="logo-name"><span>Aag</span>neya</div>
         </a>
         <ul class="side-menu">
-            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li><a href="event.html"><i class='bx bx-calendar-event'></i>Events</a></li>
-            <li><a href="achievement.html"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="./dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="./event.html"><i class='bx bx-calendar-event'></i>Events</a></li>
+            <li class="active"><a href="./achivement.html"><i class='bx bx-medal'></i>Achievement</a></li>
             <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
-            <li><a href="user.html"><i class='bx bx-group'></i>Users</a></li>
-            <li class="active"><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i></a></li>
+            <li><a href="./user.html"><i class='bx bx-group'></i>Users</a></li>
+            <li><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i> </a> </li>
             <ul class="submenu" id="community-submenu">
                 <li><a href="./community/voting.html"><i class='bx bxl-graphql'></i>Stats</a></li>
-                <li><a href="./community/president.html"><i class='bx bx-crown'></i>President</a></li>
-                <li><a href="./community/vicepresident.html"><i class='bx bx-star'></i>Vice President</a></li>
-                <li><a href="./community/secretary.html"><i class='bx bx-notepad'></i>Secretary</a></li>
-                <li><a href="./community/publicrelation.html"><i class='bx bx-broadcast'></i>Public Relation</a></li>
+                <li><a href="./community/president.html"><i class='bx bx-user'></i>President</a></li>
+                <li><a href="./community/vicepresident.html"><i class='bx bx-user-check'></i>Vice President</a></li>
+                <li><a href="./community/secretary.html"><i class='bx bx-user-minus'></i>Secretary</a></li>
+                <li><a href="./community/pulicrelation.html"><i class='bx bx-user-pin'></i>Public Relation</a></li>
             </ul>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
         </ul>
+
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout">
+                <a href="#" class="logout" onclick="logout()">
                     <i class='bx bx-log-out-circle'></i> Logout
                 </a>
             </li>
@@ -51,6 +53,24 @@
 
     <!-- Main Content -->
     <div class="content">
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <!-- <input type="search" placeholder="Search..."> -->
+                    <button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> Name</span></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <!-- <a href="#" class="profile">
+                <img src="images/logo.png">
+            </a> -->
+        </nav>
         <main>
             <div class="header">
                 <div class="left">
