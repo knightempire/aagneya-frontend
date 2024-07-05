@@ -12,7 +12,7 @@
 
 <body>
     <form id="registrationForm">
-        <header>Registration</header>
+        <header>Profile deatils </header>
         <div class="form">
             <div class="details personal">
                 <span class="title">Personal Details</span>
@@ -35,12 +35,8 @@
                     </div>
                     <div class="input-field">
                         <label>Gender</label>
-                        <select name="gender" required>
-                            <option value="" disabled selected>Select gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
+
+                        <input type="text" name="gender" placeholder="Enter your Gender" required>
                     </div>
                     <div class="input-field">
                         <label>Date of Birth</label>
@@ -77,19 +73,9 @@
                 data[key] = value;
             });
 
-            // Store the data in local storage
-            localStorage.setItem('registrationData', JSON.stringify(data));
 
-            console.log('Form data saved to local storage:', data);
 
-            // Log stored data directly in the console
-            const storedData = localStorage.getItem('registrationData');
-            if (storedData) {
-                const data = JSON.parse(storedData);
-                console.log('Stored Data:', data);
-            } else {
-                console.log('No data found in local storage.');
-            }
+            console.log('Form daata', data);
         });
     </script>
 </body>
