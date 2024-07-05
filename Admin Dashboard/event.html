@@ -282,7 +282,7 @@
                                     <input type="date" name="event_date" id="spec_event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Event Date" />
                                     <input type="text" name="time" id="spec_time_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                        placeholder="Time" /> </div>
+                                        placeholder="HH:MM" /> </div>
                                 <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                                     <select name="event_type" id="spec_event_type_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
                                          <option value="" disabled selected>Select Event Type</option>
@@ -301,11 +301,12 @@
                                         placeholder="Form Link" />
                                     <textarea name="event_description" id="spec_event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Event Description"></textarea> </div>
-                                <div class="text-center"> <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button> <button type="button" class="cursor-pointer rounded-lg bg-red-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white"
-                                        onclick="deleteEvent()">Delete</button> </div>
+                                <input type="text" name="" id="spec_event_id" style="display: none;">
+                                <div class="text-center"> <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
+                                    <button type="button" class="cursor-pointer rounded-lg bg-red-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white" onclick="deleteEvent()">Delete</button>
+                                </div>
                             </div>
                         </div>
-
 
 
                         <br><br>
@@ -1338,6 +1339,7 @@ async function showEditForm(event_id) {
         const { success, event } = await response.json();
         if (success && event) {
             // Populate form fields
+            document.getElementById('spec_event_id').value = event.event_id || '';
             document.getElementById('spec_event_name_edit').value = event.event_name || '';
             document.getElementById('spec_sports_edit').value = event.sport_name || '';
             document.getElementById('spec_category_edit').value = event.category || '';
@@ -1551,8 +1553,127 @@ function closeForm() {
     }
 
 
+    async function deleteEvent() {
+        // Get the value from the input field
+        var eventId = document.getElementById('spec_event_id').value;
+        console.log(eventId)
+        const currentDate = new Date();
 
+        // Format the date to YYYY-MM-DD
+        const approval_date = currentDate.toISOString().split('T')[0];
+        try {
+            // Send a POST request to deactivate user
+            const response = await fetch('http://localhost:3000/api/unapproval', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    event_id: eventId,
+                    approval_date: approval_date
 
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to approve');
+            }
+
+            // Display success message dynamically
+            const data = await response.json(); // Parse JSON response
+            console.log(data)
+            const successMsg = document.getElementById('msgok');
+            const message = data.message; // Extract message from response
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+            closeForm()
+            displaycreateevent();
+            displaycreateeventhist();
+            showevent();
+
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+            console.log(data);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        } catch (error) {
+            console.error('Error deactivating user:', error);
+            // Handle error appropriately (e.g., show error message)
+        }
+    }
+
+    async function updateEvent() {
+        var eventId = document.getElementById('spec_event_id').value;
+        var eventName = document.getElementById('spec_event_name_edit').value;
+        var sports = document.getElementById('spec_sports_edit').value; // Assuming this is a readonly field
+        var category = document.getElementById('spec_category_edit').value;
+        var gender = document.getElementById('spec_gender_edit').value;
+        var eventDate = document.getElementById('spec_event_date_edit').value;
+        var time = document.getElementById('spec_time_edit').value;
+        var eventType = document.getElementById('spec_event_type_edit').value;
+        var place = document.getElementById('spec_location_edit').value;
+        var entryFee = document.getElementById('spec_entry_fee_edit').value;
+        var numberOfPrizes = document.getElementById('spec_no_of_prizes_edit').value;
+        var formLink = document.getElementById('spec_form_link_edit').value;
+        var eventDescription = document.getElementById('spec_event_description_edit').value;
+        console.log(sports)
+        try {
+            // Send a POST request to update event
+            const response = await fetch('http://localhost:3000/api/updateevent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    event_id: eventId,
+                    event_name: eventName,
+                    sport_name: sports,
+                    date: eventDate,
+                    time: time,
+                    entry_fee: entryFee,
+                    is_team: eventType === "Team" ? 1 : 0,
+                    event_description: eventDescription,
+                    no_of_prize: numberOfPrizes,
+                    category: category,
+                    gender: gender,
+                    form_link: formLink,
+                    place: place
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update event');
+            }
+
+            const data = await response.json();
+            console.log(data);
+            const successMsg = document.getElementById('msgok');
+            const message = data.message; // Extract message from response
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+            closeForm()
+            displaycreateevent();
+            displaycreateeventhist();
+            showevent();
+
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+            console.log(data);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        } catch (error) {
+            console.error('Error editing event:', error);
+            // Handle error appropriately (e.g., show error message)
+        }
+    }
 
     window.onload = function() {
         decodeToken();
