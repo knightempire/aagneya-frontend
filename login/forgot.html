@@ -43,7 +43,7 @@ Instead of sign in cntnue-->
                     </h1>
                 </div>
                 <div class="mt-8 lg:w-1/2 lg:mt-0">
-                    <form class="w-full lg:max-w-xl">
+                    <form class="w-full lg:max-w-xl" onsubmit="forgot(event)">
                         <div class="relative flex items-center">
                             <span class="absolute">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
@@ -52,7 +52,7 @@ Instead of sign in cntnue-->
                                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </span>
-                            <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                            <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" id="roll_no"
                                 placeholder="Roll number">
                         </div>
                         <div class="relative flex items-center mt-4">
@@ -74,7 +74,43 @@ Instead of sign in cntnue-->
             </div>
         </section>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        async function forgot(event){
+            event.preventDefault();
+            const roll_no=document.getElementById('roll_no').value;
+            const dob=document.getElementById('dob').value;
+
+            try {
+
+                const response = await fetch('http://localhost:3000/api/verifyroleno', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    roll_no,
+                    dob
+                })
+                });
+                   const data = await response.json();
+
+                   console.log(data);
+                   console.log(data.message);
+
+
+            } catch (error) {
+            console.error('Error in login:', error.message);
+           }
+        }    
+    </script>
+
+
+
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#event_date_edit", {
@@ -85,7 +121,7 @@ Instead of sign in cntnue-->
             monthSelectorType: "static" // This will show full month names instead of dropdown
         });
     });
-</script>    
+</script>     -->
 </body>
 
 </html>
