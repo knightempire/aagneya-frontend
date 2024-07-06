@@ -80,27 +80,31 @@ Instead of sign in cntnue-->
             const roll_no=document.getElementById('roll_no').value;
             const dob=document.getElementById('dob').value;
 
-            try {
 
-                const response = await fetch('http://localhost:3000/api/verifyroleno', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    roll_no,
-                    dob
-                })
-                });
-                   const data = await response.json();
+            var encrypt_roll_no=btoa(roll_no);
+            window.location.href = `./qa.html?roll_no=${encrypt_roll_no}`;
 
-                   console.log(data);
-                   console.log(data.message);
+        //     try {
+
+        //         const response = await fetch('http://localhost:3000/api/verifyroleno', {
+        //         method: 'POST',
+        //         headers: {
+        //         'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             roll_no,
+        //             dob
+        //         })
+        //         });
+        //            const data = await response.json();
+
+        //            console.log(data);
+        //            console.log(data.message);
 
 
-            } catch (error) {
-            console.error('Error in login:', error.message);
-           }
+        //     } catch (error) {
+        //     console.error('Error in login:', error.message);
+        //    }
         }    
     </script>
 
