@@ -19,8 +19,6 @@
 
 <body>
     <!-- Sidebar remains unchanged -->
-      <!-- Sidebar and Navbar remain unchanged -->
-     <!-- Sidebar -->
     <div class="sidebar">
         <a href="#" class="logo">
             <i class='bx bx-code-alt'></i>
@@ -54,7 +52,28 @@
 
     <!-- Main Content -->
     <div class="content">
-        <!-- Navbar remains unchanged -->
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <!-- <input type="search" placeholder="Search..."> -->
+                    <button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> Name</span></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <!-- <a href="#" class="profile">
+                <img src="images/logo.png">
+            </a> -->
+        </nav>
+
+        <!-- End of Navbar -->
+
 
         <main>
             <div class="header">
@@ -105,7 +124,7 @@
                                     </div>
                                 </form>
                                 <div class="mt-6">
-                                    <button id="editProfileBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                                    <button id="editProfileBtn" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
                                         Edit Profile
                                     </button>
                                 </div>
@@ -136,7 +155,7 @@
                                 </div>
                                 <div class="col-span-2 flex justify-end space-x-3 mt-6">
                                     <button type="button" id="cancelEdit" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Cancel</button>
-                                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Save</button>
+                                    <button type="submit" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -154,7 +173,7 @@
             const cancelEdit = document.getElementById('cancelEdit');
             const editProfileForm = document.getElementById('editProfileForm');
             const profileForm = document.getElementById('profileForm');
-
+    
             editProfileBtn.addEventListener('click', function() {
                 editProfileModal.classList.remove('hidden');
                 // Populate modal form fields with current values
@@ -162,19 +181,24 @@
                 document.getElementById('modalEditPhone').value = document.getElementById('editPhone').value;
                 document.getElementById('modalEditDOB').value = document.getElementById('editDOB').value;
             });
-
+    
             cancelEdit.addEventListener('click', function() {
                 editProfileModal.classList.add('hidden');
             });
-
+    
             editProfileForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                // Log values to console
+                console.log("Name:", document.getElementById('modalEditName').value);
+                console.log("Phone:", document.getElementById('modalEditPhone').value);
+                console.log("Date of Birth:", document.getElementById('modalEditDOB').value);
+    
                 // Update profile with new values
                 document.getElementById('editName').value = document.getElementById('modalEditName').value;
                 document.getElementById('editPhone').value = document.getElementById('modalEditPhone').value;
                 document.getElementById('editDOB').value = document.getElementById('modalEditDOB').value;
                 document.getElementById('profileName').textContent = document.getElementById('modalEditName').value;
-                
+    
                 const fileInput = document.getElementById('modalEditImage');
                 if (fileInput.files && fileInput.files[0]) {
                     const reader = new FileReader();
@@ -183,11 +207,12 @@
                     };
                     reader.readAsDataURL(fileInput.files[0]);
                 }
-
+    
                 editProfileModal.classList.add('hidden');
             });
         });
     </script>
+    
 </body>
 
 </html>

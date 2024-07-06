@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +14,7 @@
         }
     </script>
 </head>
-
 <body>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <a href="#" class="logo">
@@ -25,25 +22,24 @@
             <div class="logo-name"><span>Aag</span>neya</div>
         </a>
         <ul class="side-menu">
-            <li><a href="./dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li><a href="./event.html"><i class='bx bx-calendar-event'></i>Events</a></li>
-            <li class="active"><a href="./achivement.html"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="event.html"><i class='bx bx-calendar-event'></i>Events</a></li>
+            <li><a href="achievement.html"><i class='bx bx-medal'></i>Achievement</a></li>
             <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
-            <li><a href="./user.html"><i class='bx bx-group'></i>Users</a></li>
-            <li><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i> </a> </li>
+            <li><a href="user.html"><i class='bx bx-group'></i>Users</a></li>
+            <li class="active"><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i> </a> </li>
             <ul class="submenu" id="community-submenu">
                 <li><a href="./community/voting.html"><i class='bx bxl-graphql'></i>Stats</a></li>
                 <li><a href="./community/president.html"><i class='bx bx-user'></i>President</a></li>
                 <li><a href="./community/vicepresident.html"><i class='bx bx-user-check'></i>Vice President</a></li>
                 <li><a href="./community/secretary.html"><i class='bx bx-user-minus'></i>Secretary</a></li>
-                <li><a href="./community/pulicrelation.html"><i class='bx bx-user-pin'></i>Public Relation</a></li>
+                <li><a href="./community/publicrelation.html"><i class='bx bx-user-pin'></i>Public Relation</a></li>
             </ul>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
         </ul>
-
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout" onclick="logout()">
+                <a href="#" class="logout">
                     <i class='bx bx-log-out-circle'></i> Logout
                 </a>
             </li>
@@ -51,113 +47,76 @@
     </div>
     <!-- End of Sidebar -->
 
-    <!-- Main Content -->
     <div class="content">
+        <!-- Navbar -->
         <nav>
             <i class='bx bx-menu'></i>
             <form action="#">
                 <div class="form-input">
-                    <!-- <input type="search" placeholder="Search..."> -->
                     <button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> Name</span></button>
                 </div>
             </form>
             <input type="checkbox" id="theme-toggle" hidden>
-            <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
             <a href="#" class="notif">
                 <i class='bx bx-bell'></i>
                 <span class="count">12</span>
             </a>
-            <!-- <a href="#" class="profile">
-                <img src="images/logo.png">
-            </a> -->
         </nav>
+        <!-- End of Navbar -->
+
         <main>
             <div class="header">
-                <div class="left">
-                    <h1>User Profile</h1>
-                    <ul class="breadcrumb">
-                        <li><a href="#">Dashboard</a></li>
-                        /
-                        <li><a href="#" class="active">Profile</a></li>
-                    </ul>
-                </div>
+                <!-- Header content remains unchanged -->
             </div>
-
             <div class="bottom-data">
                 <div class="orders bg-white rounded-lg shadow-md p-6">
                     <div class="profile-container">
-                        <div class="profile-content flex flex-col md:flex-row items-center md:items-start gap-8">
-                            <div class="profile-image">
-                                <img id="profileImage" src="default-profile.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full object-cover shadow-lg">
+                        <div class="profile-content flex flex-col md:flex-row items-start gap-8">
+                            <div class="profile-image w-full md:w-1/3">
+                                <img id="profileImage" src="default-profile.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full object-cover shadow-lg mx-auto">
+                                <h2 id="profileName" class="text-2xl font-bold text-gray-800 text-center mt-4">John Doe</h2>
+                                <p id="profileEmail" class="text-gray-600 text-center">johndoe@example.com</p>
                             </div>
-                            <div class="profile-details space-y-4">
-                                <div class="mb-4">
-                                    <h2 id="profileName" class="text-2xl font-bold text-gray-800">John Doe</h2>
-                                    <p id="profileEmail" class="text-gray-600">johndoe@example.com</p>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="profile-details w-full md:w-2/3">
+                                <form id="profileForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
-                                        <p class="text-sm text-gray-500">Phone</p>
-                                        <p id="profilePhone" class="font-medium">+1234567890</p>
+                                        <label for="editImage" class="block text-sm font-medium text-gray-700 mb-1">Profile Image</label>
+                                        <input type="file" id="editImage" name="editImage" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" accept="image/*">
                                     </div>
                                     <div>
-                                        <p class="text-sm text-gray-500">Date of Birth</p>
-                                        <p id="profileDOB" class="font-medium">1990-01-01</p>
+                                        <label for="editName" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                        <input type="text" id="editName" name="editName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="John Doe" readonly>
                                     </div>
                                     <div>
-                                        <p class="text-sm text-gray-500">Department</p>
-                                        <p id="profileDepartment" class="font-medium">Computer Science</p>
+                                        <label for="editEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                        <input type="email" id="editEmail" name="editEmail" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="johndoe@example.com" readonly>
                                     </div>
                                     <div>
-                                        <p class="text-sm text-gray-500">Year</p>
-                                        <p id="profileYear" class="font-medium">3rd Year</p>
+                                        <label for="editPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                                        <input type="tel" id="editPhone" name="editPhone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="+1234567890" readonly>
                                     </div>
+                                    <div>
+                                        <label for="editDOB" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                                        <input type="date" id="editDOB" name="editDOB" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="1990-01-01" readonly>
+                                    </div>
+                                    <div>
+                                        <label for="editDepartment" class="block text-sm font-medium text-gray-700 mb-1">Department</label>
+                                        <input type="text" id="editDepartment" name="editDepartment" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="Computer Science" readonly>
+                                    </div>
+                                    <div>
+                                        <label for="editYear" class="block text-sm font-medium text-gray-700 mb-1">Year</label>
+                                        <input type="text" id="editYear" name="editYear" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="3rd Year" readonly>
+                                    </div>
+                                </form>
+                                <div class="mt-6 flex space-x-4">
+                                    <button id="editProfileBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
+                                        Edit Profile
+                                    </button>
+                                    <button id="saveProfileBtn" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out hidden">
+                                        Save Profile
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                        <button id="editProfileBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md mt-6 transition duration-300 ease-in-out">
-                            Edit Profile
-                        </button>
-                    </div>
-
-                    <!-- Edit Profile Modal -->
-                    <div id="editProfileModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
-                        <div class="relative top-20 mx-auto p-8 border w-96 shadow-lg rounded-lg bg-white">
-                            <h3 class="text-xl font-bold mb-6 text-gray-800">Edit Profile</h3>
-                            <form id="editProfileForm" class="space-y-4">
-                                <div>
-                                    <label for="editName" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                                    <input type="text" id="editName" name="editName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="editEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                    <input type="email" id="editEmail" name="editEmail" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="editPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                    <input type="tel" id="editPhone" name="editPhone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="editDOB" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-                                    <input type="date" id="editDOB" name="editDOB" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="editDepartment" class="block text-sm font-medium text-gray-700 mb-1">Department</label>
-                                    <input type="text" id="editDepartment" name="editDepartment" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="editYear" class="block text-sm font-medium text-gray-700 mb-1">Year</label>
-                                    <input type="text" id="editYear" name="editYear" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="editImage" class="block text-sm font-medium text-gray-700 mb-1">Profile Image</label>
-                                    <input type="file" id="editImage" name="editImage" accept="image/*" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div class="flex justify-end space-x-3 mt-6">
-                                    <button type="button" id="cancelEdit" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Cancel</button>
-                                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Save</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -169,48 +128,56 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const editProfileBtn = document.getElementById('editProfileBtn');
-            const editProfileModal = document.getElementById('editProfileModal');
-            const cancelEdit = document.getElementById('cancelEdit');
-            const editProfileForm = document.getElementById('editProfileForm');
+            const saveProfileBtn = document.getElementById('saveProfileBtn');
+            const profileForm = document.getElementById('profileForm');
+            const inputFields = profileForm.querySelectorAll('input');
+
+            function toggleEditMode(editable) {
+                inputFields.forEach(input => {
+                    input.readOnly = !editable;
+                    if (editable) {
+                        input.classList.add('bg-yellow-50');
+                    } else {
+                        input.classList.remove('bg-yellow-50');
+                    }
+                });
+                editProfileBtn.classList.toggle('hidden', editable);
+                saveProfileBtn.classList.toggle('hidden', !editable);
+            }
 
             editProfileBtn.addEventListener('click', function() {
-                editProfileModal.classList.remove('hidden');
-                // Populate form fields with current values
-                document.getElementById('editName').value = document.getElementById('profileName').textContent;
-                document.getElementById('editEmail').value = document.getElementById('profileEmail').textContent;
-                document.getElementById('editPhone').value = document.getElementById('profilePhone').textContent;
-                document.getElementById('editDOB').value = document.getElementById('profileDOB').textContent;
-                document.getElementById('editDepartment').value = document.getElementById('profileDepartment').textContent;
-                document.getElementById('editYear').value = document.getElementById('profileYear').textContent;
+                toggleEditMode(true);
             });
 
-            cancelEdit.addEventListener('click', function() {
-                editProfileModal.classList.add('hidden');
-            });
-
-            editProfileForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Update profile with new values
-                document.getElementById('profileName').textContent = document.getElementById('editName').value;
-                document.getElementById('profileEmail').textContent = document.getElementById('editEmail').value;
-                document.getElementById('profilePhone').textContent = document.getElementById('editPhone').value;
-                document.getElementById('profileDOB').textContent = document.getElementById('editDOB').value;
-                document.getElementById('profileDepartment').textContent = document.getElementById('editDepartment').value;
-                document.getElementById('profileYear').textContent = document.getElementById('editYear').value;
+            function saveProfileData() {
+                const profileData = {
+                    name: document.getElementById('editName').value,
+                    email: document.getElementById('editEmail').value,
+                    phone: document.getElementById('editPhone').value,
+                    dob: document.getElementById('editDOB').value,
+                    department: document.getElementById('editDepartment').value,
+                    year: document.getElementById('editYear').value
+                };
                 
-                const fileInput = document.getElementById('editImage');
-                if (fileInput.files && fileInput.files[0]) {
+                const imageInput = document.getElementById('editImage');
+                if (imageInput.files.length > 0) {
                     const reader = new FileReader();
                     reader.onload = function(e) {
                         document.getElementById('profileImage').src = e.target.result;
                     };
-                    reader.readAsDataURL(fileInput.files[0]);
+                    reader.readAsDataURL(imageInput.files[0]);
                 }
 
-                editProfileModal.classList.add('hidden');
+                console.log('Profile Data:', profileData);
+                // Here you can also send this data to a server or perform other actions
+            }
+
+            saveProfileBtn.addEventListener('click', function() {
+                saveProfileData();
+                toggleEditMode(false);
+                document.getElementById('profileName').textContent = document.getElementById('editName').value;
             });
         });
     </script>
 </body>
-
 </html>

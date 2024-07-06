@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,23 +21,23 @@
                 <div class="fields">
                     <div class="input-field">
                         <label>Full Name</label>
-                        <input type="text" name="name" placeholder="Enter your name" required>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
                     </div>
                     <div class="input-field">
                         <label>Roll Number</label>
-                        <input type="text" name="roll_number" placeholder="Enter your roll number" required>
+                        <input type="text" id="rollNumber" name="roll_number" placeholder="Enter your roll number" required>
                     </div>
                     <div class="input-field">
                         <label>Email</label>
-                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="input-field">
                         <label>Mobile Number</label>
-                        <input type="tel" name="mobile" placeholder="Enter mobile number" required>
+                        <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
                     </div>
                     <div class="input-field">
                         <label>Gender</label>
-                        <select name="gender" required>
+                        <select id="gender" name="gender" required>
                             <option value="" disabled selected>Select gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -44,15 +46,15 @@
                     </div>
                     <div class="input-field">
                         <label>Date of Birth</label>
-                        <input type="date" name="dob" required>
+                        <input type="date" id="dob" name="dob" required>
                     </div>
                     <div class="input-field">
                         <label>Photo</label>
-                        <input type="file" name="photo" accept=".jpg,.jpeg" required>
+                        <input type="file" id="photo" name="photo" accept=".jpg,.jpeg" required>
                     </div>
                     <div class="input-field">
                         <label>Sport</label>
-                        <input type="text" name="sport" placeholder="Enter your sport" required>
+                        <input type="text" id="sport" name="sport" placeholder="Enter your sport" required>
                     </div>
                 </div>
             </div>
@@ -63,33 +65,31 @@
     </form>
 
     <script>
-        const form = document.getElementById('registrationForm');
+        function storeFormData() {
+            // Retrieve values from form
+            const name = document.getElementById('name').value;
+            const rollNumber = document.getElementById('rollNumber').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const gender = document.getElementById('gender').value;
+            const dob = document.getElementById('dob').value;
+            const sport = document.getElementById('sport').value;
 
-        form.addEventListener('submit', function(event) {
+            // Log values to console
+            console.log('Name:', name);
+            console.log('Roll Number:', rollNumber);
+            console.log('Email:', email);
+            console.log('Mobile Number:', mobile);
+            console.log('Gender:', gender);
+            console.log('Date of Birth:', dob);
+            console.log('Sport:', sport);
+
+            // Optionally, store in local storage or perform other actions
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
             event.preventDefault();
-
-            // Get all form data
-            const formData = new FormData(form);
-
-            // Create an object to store the data
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            // Store the data in local storage
-            localStorage.setItem('registrationData', JSON.stringify(data));
-
-            console.log('Form data saved to local storage:', data);
-
-            // Log stored data directly in the console
-            const storedData = localStorage.getItem('registrationData');
-            if (storedData) {
-                const data = JSON.parse(storedData);
-                console.log('Stored Data:', data);
-            } else {
-                console.log('No data found in local storage.');
-            }
+            storeFormData();
         });
     </script>
 </body>
