@@ -11,6 +11,7 @@ Instead of sign in cntnue-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <title>Aagneya</title>
 
@@ -52,8 +53,8 @@ Instead of sign in cntnue-->
                                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </span>
-                            <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" id="roll_no"
-                                placeholder="Roll number">
+                            <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                id="roll_no" placeholder="Roll number">
                         </div>
                         <div class="relative flex items-center mt-4">
                             <span class="absolute">
@@ -75,37 +76,37 @@ Instead of sign in cntnue-->
         </section>
     </div>
     <script>
-        async function forgot(event){
+        async function forgot(event) {
             event.preventDefault();
-            const roll_no=document.getElementById('roll_no').value;
-            const dob=document.getElementById('dob').value;
+            const roll_no = document.getElementById('roll_no').value;
+            const dob = document.getElementById('dob').value;
+
+            console.log(dob)
+            var encrypt_roll_no = btoa(roll_no);
+            // window.location.href = `./qa.html?roll_no=${encrypt_roll_no}`;
+
+            //     try {
+
+            //         const response = await fetch('http://localhost:3000/api/verifyroleno', {
+            //         method: 'POST',
+            //         headers: {
+            //         'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify({
+            //             roll_no,
+            //             dob
+            //         })
+            //         });
+            //            const data = await response.json();
+
+            //            console.log(data);
+            //            console.log(data.message);
 
 
-            var encrypt_roll_no=btoa(roll_no);
-            window.location.href = `./qa.html?roll_no=${encrypt_roll_no}`;
-
-        //     try {
-
-        //         const response = await fetch('http://localhost:3000/api/verifyroleno', {
-        //         method: 'POST',
-        //         headers: {
-        //         'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify({
-        //             roll_no,
-        //             dob
-        //         })
-        //         });
-        //            const data = await response.json();
-
-        //            console.log(data);
-        //            console.log(data.message);
-
-
-        //     } catch (error) {
-        //     console.error('Error in login:', error.message);
-        //    }
-        }    
+            //     } catch (error) {
+            //     console.error('Error in login:', error.message);
+            //    }
+        }
     </script>
 
 
@@ -114,18 +115,17 @@ Instead of sign in cntnue-->
 
 
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        flatpickr("#event_date_edit", {
-            enableTime: true,
-            dateFormat: "i:Y-m-d H:i",
-            altInput: true,
-            altFormat: "i k:F j, Y h:i K",
-            monthSelectorType: "static" // This will show full month names instead of dropdown
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Initialize Flatpickr on the date input field
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#dob", {
+                dateFormat: "Y-m-d",
+                altInput: true,
+                altFormat: "F j, Y"
+            });
         });
-    });
-</script>     -->
+    </script>
 </body>
 
 </html>
