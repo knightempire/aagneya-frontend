@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <!-- Sidebar remains unchanged -->
+    <!-- Sidebar and navbar remain unchanged -->
     <div class="sidebar">
         <a href="#" class="logo">
             <i class='bx bx-code-alt'></i>
@@ -50,7 +50,6 @@
     </div>
     <!-- End of Sidebar -->
 
-    <!-- Main Content -->
     <div class="content">
         <!-- Navbar -->
         <nav>
@@ -72,19 +71,9 @@
             </a> -->
         </nav>
 
-        <!-- End of Navbar -->
-
-
         <main>
             <div class="header">
-                <div class="left">
-                    <h1>User Profile</h1>
-                    <ul class="breadcrumb">
-                        <li><a href="#">Dashboard</a></li>
-                        /
-                        <li><a href="#" class="active">Profile</a></li>
-                    </ul>
-                </div>
+                <!-- ... -->
             </div>
 
             <div class="bottom-data">
@@ -122,97 +111,91 @@
                                         <label for="editYear" class="block text-sm font-medium text-gray-700 mb-1">Year</label>
                                         <input type="text" id="editYear" name="editYear" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="3rd Year" readonly>
                                     </div>
+                                    <div>
+                                        <label for="editImage" class="block text-sm font-medium text-gray-700 mb-1">Profile Image</label>
+                                        <input type="file" id="editImage" name="editImage" accept="image/*" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
+                                    </div>
                                 </form>
-                                <div class="mt-6">
+                                <div class="mt-6 flex space-x-4">
                                     <button id="editProfileBtn" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
                                         Edit Profile
+                                    </button>
+                                    <button id="backBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out hidden">
+                                        Back
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Edit Profile Modal -->
-                    <div id="editProfileModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
-                        <div class="relative top-20 mx-auto p-8 border w-full max-w-2xl shadow-lg rounded-lg bg-white">
-                            <h3 class="text-xl font-bold mb-6 text-gray-800">Edit Profile</h3>
-                            <form id="editProfileForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="modalEditName" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                                    <input type="text" id="modalEditName" name="modalEditName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="modalEditPhone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                    <input type="tel" id="modalEditPhone" name="modalEditPhone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="modalEditDOB" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-                                    <input type="date" id="modalEditDOB" name="modalEditDOB" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div>
-                                    <label for="modalEditImage" class="block text-sm font-medium text-gray-700 mb-1">Profile Image</label>
-                                    <input type="file" id="modalEditImage" name="modalEditImage" accept="image/*" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-                                <div class="col-span-2 flex justify-end space-x-3 mt-6">
-                                    <button type="button" id="cancelEdit" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Cancel</button>
-                                    <button type="submit" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">Save</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </main>
-    </div>
 
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const editProfileBtn = document.getElementById('editProfileBtn');
-            const editProfileModal = document.getElementById('editProfileModal');
-            const cancelEdit = document.getElementById('cancelEdit');
-            const editProfileForm = document.getElementById('editProfileForm');
-            const profileForm = document.getElementById('profileForm');
-    
-            editProfileBtn.addEventListener('click', function() {
-                editProfileModal.classList.remove('hidden');
-                // Populate modal form fields with current values
-                document.getElementById('modalEditName').value = document.getElementById('editName').value;
-                document.getElementById('modalEditPhone').value = document.getElementById('editPhone').value;
-                document.getElementById('modalEditDOB').value = document.getElementById('editDOB').value;
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const editProfileBtn = document.getElementById('editProfileBtn');
+                const backBtn = document.getElementById('backBtn');
+                const profileForm = document.getElementById('profileForm');
+                const inputs = profileForm.querySelectorAll('input');
+                let isEditing = false;
+
+                editProfileBtn.addEventListener('click', function() {
+                    if (!isEditing) {
+                        // Enable editing
+                        inputs.forEach(input => {
+                            input.removeAttribute('readonly');
+                            input.removeAttribute('disabled');
+                        });
+                        editProfileBtn.textContent = 'Submit';
+                        editProfileBtn.classList.remove('bg-purple-500', 'hover:bg-purple-600');
+                        editProfileBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                        backBtn.classList.remove('hidden');
+                        isEditing = true;
+                    } else {
+                        // Save changes
+                        const formData = new FormData(profileForm);
+                        const profileData = {};
+                        formData.forEach((value, key) => {
+                            profileData[key] = value;
+                        });
+
+                        // Log the results to console
+                        console.log('Profile Data:', profileData);
+
+                        // Update profile name
+                        document.getElementById('profileName').textContent = profileData.editName;
+
+                        // Handle image update
+                        const fileInput = document.getElementById('editImage');
+                        if (fileInput.files && fileInput.files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                document.getElementById('profileImage').src = e.target.result;
+                            };
+                            reader.readAsDataURL(fileInput.files[0]);
+                        }
+
+                        // Disable editing
+                        inputs.forEach(input => {
+                            input.setAttribute('readonly', '');
+                            if (input.type === 'file') {
+                                input.setAttribute('disabled', '');
+                            }
+                        });
+                        editProfileBtn.textContent = 'Edit Profile';
+                        editProfileBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        editProfileBtn.classList.add('bg-purple-500', 'hover:bg-purple-600');
+                        backBtn.classList.add('hidden');
+                        isEditing = false;
+                    }
+                });
+
+                backBtn.addEventListener('click', function() {
+                    window.location.href = "editProfile.html";
+                });
             });
-    
-            cancelEdit.addEventListener('click', function() {
-                editProfileModal.classList.add('hidden');
-            });
-    
-            editProfileForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Log values to console
-                console.log("Name:", document.getElementById('modalEditName').value);
-                console.log("Phone:", document.getElementById('modalEditPhone').value);
-                console.log("Date of Birth:", document.getElementById('modalEditDOB').value);
-    
-                // Update profile with new values
-                document.getElementById('editName').value = document.getElementById('modalEditName').value;
-                document.getElementById('editPhone').value = document.getElementById('modalEditPhone').value;
-                document.getElementById('editDOB').value = document.getElementById('modalEditDOB').value;
-                document.getElementById('profileName').textContent = document.getElementById('modalEditName').value;
-    
-                const fileInput = document.getElementById('modalEditImage');
-                if (fileInput.files && fileInput.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('profileImage').src = e.target.result;
-                    };
-                    reader.readAsDataURL(fileInput.files[0]);
-                }
-    
-                editProfileModal.classList.add('hidden');
-            });
-        });
-    </script>
-    
+        </script>
+    </div>
 </body>
 
 </html>
