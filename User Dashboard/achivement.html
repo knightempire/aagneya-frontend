@@ -95,11 +95,13 @@
                 <div class="p-4 md:p-8">
                     <div class="flex flex-col md:flex-row gap-4">
                         <div class="w-full md:w-1/2">
-                            <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Name *" required />
+                            <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Achievement Name *" required />
                             <div id="event_name_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                         <div class="w-full md:w-1/2">
-                            <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Date" required />
+                            <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Achievement Date" required />
                             <div id="appointmentDate_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                     </div>
@@ -115,7 +117,8 @@
                         </div>
                         <div class="w-full md:w-1/2">
                             <label for="participation" class="block font-semibold text-gray-700">Select Participation Type</label>
-                            <select id="participation" name="participation" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="showFields()" required>
+                            <select id="participation" name="participation" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                onchange="showFields()" required>
                                 <option value="">Select Participation Type</option>
                                 <option value="individual">Individual</option>
                                 <option value="team">Team</option>
@@ -125,7 +128,8 @@
                     </div>
                     <div id="dynamicFields"></div>
                     <div class="mb-4 md:mb-10">
-                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Description" required></textarea>
+                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Achievement Description" required></textarea>
                         <div id="event_description_error" class="text-red-500 text-sm mt-1"></div>
                     </div>
                     <div class="text-center">
@@ -133,16 +137,16 @@
                     </div>
                 </div>
             </div>
-            
+
             <script>
-            function showFields() {
-                const dynamicFields = document.getElementById('dynamicFields');
-                dynamicFields.innerHTML = ''; // Clear previous fields
-                const participationType = document.getElementById('participation').value;
-            
-                if (participationType === 'team') {
-                    // Team selected
-                    dynamicFields.innerHTML = `
+                function showFields() {
+                    const dynamicFields = document.getElementById('dynamicFields');
+                    dynamicFields.innerHTML = ''; // Clear previous fields
+                    const participationType = document.getElementById('participation').value;
+
+                    if (participationType === 'team') {
+                        // Team selected
+                        dynamicFields.innerHTML = `
                         <div class="my-4 md:my-6">
                             <label for="teamSize" class="block font-semibold text-gray-700">Number of Persons in Team</label>
                             <input type="number" id="teamSize" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" oninput="generateTeamFields()" required>
@@ -150,9 +154,9 @@
                         </div>
                         <div id="teamMembers"></div>
                     `;
-                } else if (participationType === 'individual') {
-                    // Individual selected
-                    dynamicFields.innerHTML = `
+                    } else if (participationType === 'individual') {
+                        // Individual selected
+                        dynamicFields.innerHTML = `
                         <div class="flex flex-col md:flex-row gap-4">
                             <div class="w-full md:w-1/2">
                                 <input type="text" name="indiv_name" id="indiv_name" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Your name" required />
@@ -171,15 +175,15 @@
                             </div>
                         </div>
                     `;
+                    }
                 }
-            }
-            
-            function generateTeamFields() {
-                const teamSize = document.getElementById('teamSize').value;
-                const teamMembers = document.getElementById('teamMembers');
-                teamMembers.innerHTML = ''; // Clear previous fields
-            
-                teamMembers.innerHTML += `
+
+                function generateTeamFields() {
+                    const teamSize = document.getElementById('teamSize').value;
+                    const teamMembers = document.getElementById('teamMembers');
+                    teamMembers.innerHTML = ''; // Clear previous fields
+
+                    teamMembers.innerHTML += `
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                         <div class="w-full md:w-1/2">
                             <label for="captainName" class="block font-semibold text-gray-700">Captain Name</label>
@@ -193,10 +197,10 @@
                         </div>
                     </div>
                 `;
-            
-                for (let i = 2; i <= teamSize; i += 2) {
-                    const nextIndex = i + 1;
-                    teamMembers.innerHTML += `
+
+                    for (let i = 2; i <= teamSize; i += 2) {
+                        const nextIndex = i + 1;
+                        teamMembers.innerHTML += `
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                             <div class="w-full md:w-1/2">
                                 <input type="text" name="indiv_name${i}" id="indiv_name${i}" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Participant ${i} name" required />
@@ -371,11 +375,11 @@ function validateImage() {
                 }
             }
             </script>
-            
-            
-            
-              
-            
+
+
+
+
+
 
 
 
