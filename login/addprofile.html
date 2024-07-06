@@ -24,7 +24,7 @@
                     </div>
                     <div class="input-field">
                         <label>Roll Number</label>
-                        <input type="text" name="roll_number" placeholder="Enter your roll number" required>
+                        <input type="text" name="roll_number" placeholder="Enter your roll number" id="roll_no" readonly required>
                     </div>
                     <div class="input-field">
                         <label>Email</label>
@@ -32,15 +32,16 @@
                     </div>
                     <div class="input-field">
                         <label>Mobile Number</label>
-                        <input type="tel" name="mobile" placeholder="Enter mobile number" required>
+                        <input type="number" name="mobile" placeholder="Enter mobile number" required>
                     </div>
                     <div class="input-field">
                         <label>Gender</label>
-                        <input type="text" name="gender" placeholder="Enter your Gender" required>
+                        <input type="text" name="gender" placeholder="Enter your Gender" id="gender" readonly required>
                     </div>
                     <div class="input-field">
                         <label>Date of Birth</label>
-                        <input type="text" name="date" id="appointmentDate" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Date of Birth" required />
+                        <input type="text" name="date" id="appointmentDate" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Date of Birth" required />
                     </div>
                     <div class="input-field">
                         <label>Photo</label>
@@ -49,7 +50,7 @@
                     </div>
                     <div class="input-field">
                         <label>Sport</label>
-                        <input type="text" name="sport" placeholder="Enter your sport" required>
+                        <input type="text" name="sport_name" id="sport_name" placeholder="Enter your sport" required readonly>
                     </div>
                 </div>
             </div>
@@ -62,7 +63,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         // Initialize Flatpickr on the date input field
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             flatpickr("#appointmentDate", {
                 dateFormat: "Y-m-d",
                 altInput: true,
@@ -76,28 +77,28 @@
             const img = new Image();
             const errorContainer = document.getElementById('uploadPhotoError');
 
-            img.onload = function () {
+            img.onload = function() {
                 const width = img.width;
                 const height = img.height;
 
                 // Check if aspect ratio is 2:1
                 if (width !== height) {
-    errorContainer.textContent = 'Image dimensions must be in a 1:1 ratio.';
-    fileInput.value = ''; // Clear the input
-} else {
-    errorContainer.textContent = ''; // Clear error message if valid
-}
+                    errorContainer.textContent = 'Image dimensions must be in a 1:1 ratio.';
+                    fileInput.value = ''; // Clear the input
+                } else {
+                    errorContainer.textContent = ''; // Clear error message if valid
+                }
 
             };
 
-            img.onerror = function () {
+            img.onerror = function() {
                 errorContainer.textContent = 'Invalid image file.';
                 fileInput.value = ''; // Clear the input
             };
 
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     img.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
@@ -106,7 +107,7 @@
 
         const form = document.getElementById('registrationForm');
 
-        form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', function(event) {
             event.preventDefault();
 
             // Get all form data
@@ -125,3 +126,87 @@
 </body>
 
 </html>
+<script>
+    let roll_no;
+    let name;
+    let token;
+
+    async function decodeToken() {
+        try {
+            token = localStorage.getItem('token');
+            console.log('Token from localStorage:', token);
+
+            if (!token) {
+                console.error('Token not found in local storage');
+                window.location.href = '../login/login.html';
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/api/decodeToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Decoded token data:', data);
+
+                roll_no = data.roll_no;
+                name = data.name;
+                displayuser()
+
+            } else {
+                console.error('Failed to decode token:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error in decodeToken:', error.message);
+            // window.location.href = '../login/login.html';
+        }
+    }
+
+    async function displayuser() {
+        try {
+            const response = await fetch('http://localhost:3000/api/displaymem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    roll_no: roll_no
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch sports');
+            }
+
+            const data = await response.json();
+            console.log('Sports data:', data);
+            const sportName = data[0].sport_name; // Assuming you want the sport_name from the first object
+            sport_name = sportName
+
+
+            document.getElementById('roll_no').value = data[0].roll_no;
+            document.getElementById('gender').value = data[0].gender;
+            document.getElementById('sport_name').value = sportName;
+
+        } catch (error) {
+            console.error('Error fetching sports:', error);
+            throw error;
+        }
+    }
+
+
+    window.onload = function() {
+        decodeToken();
+
+
+    };
+</script>
