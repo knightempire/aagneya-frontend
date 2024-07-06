@@ -1,63 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi-Step Form with Responsive Line</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
-  <link rel="stylesheet" href="css/add_qa.css">
-</head>
-<body>
-  <div class="steps-container">
-    <div class="steps">
-      <div class="step step-one active">
-        <span>Step 1</span>
-      </div>
-      <div class="step step-two">
-        <span>Step 2</span>
-      </div>
-      <div class="step step-three">
-        <span>Step 3</span>
-      </div>
-      <div class="step step-four">
-        <span>Finish</span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="active-line"></div>
-    </div>
-    <div class="slider-ctr">
-      <div class="slider">
-        <form class="slider-form slider-one active">
-          <div class="validation-message">Please fill out this field.</div>
-          <h2><br>What is the name of the city where you were born?</h2>
-          <input type="text" placeholder="City of Birth" required>
-          <button class="next">Next Step</button>
-        </form>
-        <form class="slider-form slider-two">
-          <div class="validation-message">Please fill out this field.</div>
-          <h2><br>What was the name of your elementary school?</h2>
-          <input type="text" placeholder="Elementary School Name" required>
-          <button class="next">Next Step</button>
-        </form>
-        <form class="slider-form slider-three">
-          <div class="validation-message">Please fill out this field.</div>
-          <h2><br>What is the name of your favorite childhood friend?</h2>
-          <input type="text" placeholder="Favorite Childhood Friend" required>
-          <button class="next">Next Step</button>
-        </form>
-        <div class="slider-form slider-four">
-          <h2>Thank you!</h2>
-          <p>Your form has been submitted.</p><br>
-          <button class="submit">Home</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="js\add_qa.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form with Responsive Line</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link rel="stylesheet" href="css/add_qa.css">
+</head>
+
+<body>
+    <div class="steps-container">
+        <div class="steps">
+            <div class="step step-one active">
+                <span>Step 1</span>
+            </div>
+            <div class="step step-two">
+                <span>Step 2</span>
+            </div>
+            <div class="step step-three">
+                <span>Step 3</span>
+            </div>
+            <div class="step step-four">
+                <span>Finish</span>
+            </div>
+        </div>
+        <div class="line">
+            <div class="active-line"></div>
+        </div>
+        <div class="slider-ctr">
+            <div class="slider">
+                <form class="slider-form slider-one active">
+                    <div class="validation-message">Please fill out this field.</div>
+                    <h2><br>What is the name of the city where you were born?</h2>
+                    <input type="text" placeholder="City of Birth" name="hospital_born" required>
+                    <button class="next">Next Step</button>
+                </form>
+                <form class="slider-form slider-two">
+                    <div class="validation-message">Please fill out this field.</div>
+                    <h2><br>What was the name of your elementary school?</h2>
+                    <input type="text" placeholder="Elementary School Name" name="school" required>
+                    <button class="next">Next Step</button>
+                </form>
+                <form class="slider-form slider-three">
+                    <div class="validation-message">Please fill out this field.</div>
+                    <h2><br>What is the name of your favorite childhood friend?</h2>
+                    <input type="text" placeholder="Favorite Childhood Friend" name="fav_friend" required>
+                    <button class="next">Next Step</button>
+                </form>
+                <div class="slider-form slider-four">
+                    <h2>Thank you!</h2>
+                    <p>Your form has been submitted.</p><br>
+                    <button class="submit">Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js\add_qa.js"></script>
 
 </body>
+
 </html>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var steps = document.querySelectorAll('.step');
+        var activeLine = document.querySelector('.active-line');
+        var totalSteps = steps.length;
+        var currentStep = 1;
+        var sliderWidth = document.querySelector('.steps-container').offsetWidth;
+
+        // Object to store form data
+        var formData = {};
+
+        document.querySelectorAll('.next').forEach(function(nextButton) {
+            nextButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                var currentForm = this.closest('.slider-form');
+                var nextForm = currentForm.nextElementSibling;
+
+                // Check if the input field is valid
+                var inputField = currentForm.querySelector('input[required]');
+                if (inputField.value === '') {
+                    currentForm.querySelector('.validation-message').style.display = 'block';
+                    setTimeout(function() {
+                        currentForm.querySelector('.validation-message').style.display = 'none';
+                    }, 2000);
+                    return;
+                }
+
+                // Store input value in formData object
+                var inputName = inputField.getAttribute('name');
+                formData[inputName] = inputField.value;
+
+                if (nextForm && nextForm.classList.contains('slider-form')) {
+                    currentForm.classList.remove('active');
+                    nextForm.classList.add('active');
+                    currentStep++;
+                    updateSlider();
+                }
+
+                // Log formData to console
+                console.log(formData);
+            });
+        });
+
+        document.querySelector('.submit').addEventListener('click', async function() {
+            console.log('Final form data:', formData);
+            console.log(role)
+            try {
+                const response = await fetch('http://localhost:3000/api/addsecurity', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        roll_no,
+                        formData
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
+
+                }
+
+                const data = await response.json();
+                console.log('Response:', data);
+                console.log('Message:', data.message);
+                console.log(role)
+                if (role == 0) {
+                    window.location.href = '../Admin Dashboard/dashboard.html';
+                } else {
+                    window.location.href = '../User Dashboard/dashboard.html';
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                // Display error to user or handle it appropriately
+            }
+        });
+
+        function updateSlider() {
+            var stepWidth = (currentStep - 1) * (sliderWidth / (totalSteps - 1));
+            activeLine.style.width = stepWidth + 'px';
+            steps.forEach(function(step, index) {
+                step.classList.toggle('active', index === currentStep - 1);
+            });
+        }
+
+        window.addEventListener('resize', function() {
+            sliderWidth = document.querySelector('.steps-container').offsetWidth;
+            updateSlider();
+        });
+    });
+</script>
+
+<script>
+    let roll_no;
+    let name;
+    let token;
+    let role;
+
+    async function decodeToken() {
+        try {
+            token = localStorage.getItem('token');
+            console.log('Token from localStorage:', token);
+
+            if (!token) {
+                console.error('Token not found in local storage');
+                window.location.href = '../login/login.html';
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/api/decodeToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Decoded token data:', data);
+
+                roll_no = data.roll_no;
+                name = data.name;
+                role = data.role_id;
+
+            } else {
+                console.error('Failed to decode token:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error in decodeToken:', error.message);
+            window.location.href = '../login/login.html';
+        }
+    }
+
+    window.onload = function() {
+        decodeToken();
+
+
+    };
+</script>
