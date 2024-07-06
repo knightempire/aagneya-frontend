@@ -5,54 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Registration Form</title>
+    <title>Add profile</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="./css/addprofile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <body>
     <form id="registrationForm">
-        <header>Registration</header>
+        <header>Profile details</header>
         <div class="form">
             <div class="details personal">
                 <span class="title">Personal Details</span>
                 <div class="fields">
                     <div class="input-field">
                         <label>Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        <input type="text" name="name" placeholder="Enter your name" required>
                     </div>
                     <div class="input-field">
                         <label>Roll Number</label>
-                        <input type="text" id="rollNumber" name="roll_number" placeholder="Enter your roll number" required>
+                        <input type="text" name="roll_number" placeholder="Enter your roll number" required>
                     </div>
                     <div class="input-field">
                         <label>Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="input-field">
                         <label>Mobile Number</label>
-                        <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
+                        <input type="tel" name="mobile" placeholder="Enter mobile number" required>
                     </div>
                     <div class="input-field">
                         <label>Gender</label>
-                        <select id="gender" name="gender" required>
-                            <option value="" disabled selected>Select gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
+                        <input type="text" name="gender" placeholder="Enter your Gender" required>
                     </div>
                     <div class="input-field">
                         <label>Date of Birth</label>
-                        <input type="date" id="dob" name="dob" required>
+                        <input type="text" name="date" id="appointmentDate" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Date of Birth" required />
                     </div>
                     <div class="input-field">
                         <label>Photo</label>
-                        <input type="file" id="photo" name="photo" accept=".jpg,.jpeg" required>
+                        <input type="file" id="uploadPhoto" onchange="validateImage()" name="photo" accept=".jpg,.jpeg" required>
+                        <div id="uploadPhotoError" class="text-red-500 text-sm mt-1" style="color: red; font-size: small;"></div>
                     </div>
                     <div class="input-field">
                         <label>Sport</label>
-                        <input type="text" id="sport" name="sport" placeholder="Enter your sport" required>
+                        <input type="text" name="sport" placeholder="Enter your sport" required>
                     </div>
                 </div>
             </div>
@@ -62,32 +59,67 @@
         </div>
     </form>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        function storeFormData() {
-            // Retrieve values from form
-            const name = document.getElementById('name').value;
-            const rollNumber = document.getElementById('rollNumber').value;
-            const email = document.getElementById('email').value;
-            const mobile = document.getElementById('mobile').value;
-            const gender = document.getElementById('gender').value;
-            const dob = document.getElementById('dob').value;
-            const sport = document.getElementById('sport').value;
+        // Initialize Flatpickr on the date input field
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#appointmentDate", {
+                dateFormat: "Y-m-d",
+                altInput: true,
+                altFormat: "F j, Y"
+            });
+        });
 
-            // Log values to console
-            console.log('Name:', name);
-            console.log('Roll Number:', rollNumber);
-            console.log('Email:', email);
-            console.log('Mobile Number:', mobile);
-            console.log('Gender:', gender);
-            console.log('Date of Birth:', dob);
-            console.log('Sport:', sport);
+        function validateImage() {
+            const fileInput = document.getElementById('uploadPhoto');
+            const file = fileInput.files[0];
+            const img = new Image();
+            const errorContainer = document.getElementById('uploadPhotoError');
 
-            // Optionally, store in local storage or perform other actions
+            img.onload = function () {
+                const width = img.width;
+                const height = img.height;
+
+                // Check if aspect ratio is 2:1
+                if (width !== height) {
+    errorContainer.textContent = 'Image dimensions must be in a 1:1 ratio.';
+    fileInput.value = ''; // Clear the input
+} else {
+    errorContainer.textContent = ''; // Clear error message if valid
+}
+
+            };
+
+            img.onerror = function () {
+                errorContainer.textContent = 'Invalid image file.';
+                fileInput.value = ''; // Clear the input
+            };
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
         }
 
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        const form = document.getElementById('registrationForm');
+
+        form.addEventListener('submit', function (event) {
             event.preventDefault();
-            storeFormData();
+
+            // Get all form data
+            const formData = new FormData(form);
+
+            // Create an object to store the data
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            console.log('Form data', data);
+            // Here you can handle the submission of form data, e.g., send it to a server via AJAX
         });
     </script>
 </body>
