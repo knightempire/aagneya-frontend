@@ -101,8 +101,8 @@
                             <div id="event_name_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                         <div class="w-full md:w-1/2">
-                            <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                placeholder="Achievement Date" required />
+                            <input type="text" name="date" id="appointmentDate" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Date of Birth" required />
                             <div id="appointmentDate_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                     </div>
@@ -141,269 +141,264 @@
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
             <script>
-                function showFields() {
-                    const dynamicFields = document.getElementById('dynamicFields');
-                    dynamicFields.innerHTML = ''; // Clear previous fields
-                    const participationType = document.getElementById('participation').value;
+           function showFields() {
+    const dynamicFields = document.getElementById('dynamicFields');
+    dynamicFields.innerHTML = ''; // Clear previous fields
+    const participationType = document.getElementById('participation').value;
+
+    if (participationType === '1') {
+        // Team selected
+        dynamicFields.innerHTML = `
+            <div class="my-4 md:my-6">
+                <label for="teamSize" class="block font-semibold text-gray-700">Number of Persons in Team</label>
+                <input type="number" id="teamSize" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" oninput="generateTeamFields()" required>
+                <div id="teamSize_error" class="text-red-500 text-sm mt-1"></div>
+            </div>
+            <div id="teamMembers"></div>
+        `;
+    } else if (participationType === '0') {
+        // Individual selected
+        dynamicFields.innerHTML = `
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="w-full md:w-1/2">
+                                    <label for="individual" class="block font-semibold text-gray-700"> Name</label>
+
+                    <input type="text" name="indiv_name" id="indiv_name" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Your name" required />
+                    <div id="indiv_name_error" class="text-red-500 text-sm mt-1"></div>
+                </div>
+                <div class="w-full md:w-1/2">
+                                    <label for="individualrollnumber" class="block font-semibold text-gray-700"> Roll number</label>
+
+                    <input type="text" name="roll_num" id="indiv_roll_numb" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Your roll number" required />
+                    <div id="indiv_roll_numb_error" class="text-red-500 text-sm mt-1"></div>
+                </div>
+            </div>
+            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                <div class="w-full md:w-1/2">
+                    <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
+                    <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
+                    <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function generateTeamFields() {
+    const teamSize = document.getElementById('teamSize').value;
+    const teamMembers = document.getElementById('teamMembers');
+    teamMembers.innerHTML = ''; // Clear previous fields
+
+    teamMembers.innerHTML += `
+        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+            <div class="w-full md:w-1/2">
+                <label for="captainName" class="block font-semibold text-gray-700">Captain Name</label>
+                <input type="text" id="captainName" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Captain Name" required>
+                <div id="captainName_error" class="text-red-500 text-sm mt-1"></div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <label for="captainRollNumber" class="block font-semibold text-gray-700">Captain Roll Number</label>
+                <input type="text" id="captainRollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Captain Roll Number" required>
+                <div id="captainRollNumber_error" class="text-red-500 text-sm mt-1"></div>
+            </div>
+        </div>
+    `;
+
+    for (let i = 2; i <= teamSize; i += 2) {
+        const nextIndex = i + 1;
+        teamMembers.innerHTML += `
+            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                <div class="w-full md:w-1/2">
+                                    <label for="captainRollNumber" class="block font-semibold text-gray-700">Participant ${i} Roll Number</label>
+
+                    <input type="text" name="roll_num${i}" id="indiv_roll_numb${i}" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Participant ${i} roll number" required />
+                    <div id="indiv_roll_numb${i}_error" class="text-red-500 text-sm mt-1"></div>
+                </div>
+                ${nextIndex <= teamSize ? `
+                <div class="w-full md:w-1/2">
+                                    <label for="captainRollNumber" class="block font-semibold text-gray-700">Participant ${nextIndex} Roll Number</label>
+
+                    <input type="text" name="roll_num${nextIndex}" id="indiv_roll_numb${nextIndex}" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Participant ${nextIndex} roll number" required />
+                    <div id="indiv_roll_numb${nextIndex}_error" class="text-red-500 text-sm mt-1"></div>
+                </div>
+                ` : ''}
+            </div>
+        `;
+    }
+
+    // Add the file upload field for team photo
+    teamMembers.innerHTML += `
+        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+            <div class="w-full md:w-1/2">
+                <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Team Photo</label>
+                <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
+                <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
+            </div>
+        </div>
+    `;
+}
+
+function validateImage() {
+    const fileInput = document.getElementById('uploadPhoto');
+    const errorDiv = document.getElementById('uploadPhotoError');
+    const file = fileInput.files[0];
+    const img = new Image();
+    
+    img.onload = function () {
+        const width = img.width;
+        const height = img.height;
+
+        if (width / height !== 2 && height / width !== 2) {
+            errorDiv.textContent = 'Image dimensions must be in a 2:1 ratio.';
+            fileInput.value = ''; // Clear the input
+        } else {
+            errorDiv.textContent = ''; // Clear error message if valid
+        }
+    };
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    if (!file) {
+        errorDiv.textContent = 'Please upload a photo.';
+        return false;
+    }
+
+    errorDiv.textContent = ''; // Clear any existing error message
+    return true;
+}
+
+function validateForm() {
+    // Clear all previous error messages
+    document.querySelectorAll('.text-red-500').forEach(el => el.textContent = '');
+
+    let isValid = true;
+
+    const eventName = document.getElementById('event_name_edit').value;
+    if (!eventName) {
+        document.getElementById('event_name_error').textContent = 'Please enter the achievement name.';
+        isValid = false;
+    }
+
+    const appointmentDate = document.getElementById('appointmentDate').value;
+    if (!appointmentDate) {
+        document.getElementById('appointmentDate_error').textContent = 'Please enter the achievement date.';
+        isValid = false;
+    }
+
+    const sports = document.getElementById('sports').value;
+    if (!sports) {
+        document.getElementById('sports_error').textContent = 'Please select a sport.';
+        isValid = false;
+    }
+
+    const participation = document.getElementById('participation').value;
+    if (!participation) {
+        document.getElementById('participation_error').textContent = 'Please select a participation type.';
+        isValid = false;
+    }
+
+    const eventDescription = document.getElementById('event_description_edit').value;
+    if (!eventDescription) {
+        document.getElementById('event_description_error').textContent = 'Please enter the achievement description.';
+        isValid = false;
+    }
+
+    if (participation == 0) {
+
+
+        const indivRollNumb = document.getElementById('indiv_roll_numb').value;
+        if (!indivRollNumb) {
+            document.getElementById('indiv_roll_numb_error').textContent = 'Please enter your roll number.';
+            isValid = false;
+        }
+
+        if (!validateImage()) {
+            isValid = false;
+        }
+    } else if (participation == 1) {
+        const teamSize = document.getElementById('teamSize').value;
+        if (!teamSize || teamSize <= 0) {
+            document.getElementById('teamSize_error').textContent = 'Please enter a valid number of persons in the team.';
+            isValid = false;
+        }
+
+        const captainName = document.getElementById('captainName').value;
+        if (!captainName) {
+            document.getElementById('captainName_error').textContent = 'Please enter the captain\'s name.';
+            isValid = false;
+        }
+
+        const captainRollNumber = document.getElementById('captainRollNumber').value;
+        if (!captainRollNumber) {
+            document.getElementById('captainRollNumber_error').textContent = 'Please enter the captain\'s roll number.';
+            isValid = false;
+        }
+
+        for (let i = 2; i <= teamSize; i++) {
+            const rollNumber = document.getElementById(`indiv_roll_numb${i}`).value;
             
-                    if (participationType == 1) {
-                        // Team selected
-                        dynamicFields.innerHTML = `
-                            <div class="my-4 md:my-6">
-                                <label for="teamSize" class="block font-semibold text-gray-700">Number of Persons in Team</label>
-                                <input type="number" id="teamSize" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" oninput="generateTeamFields()" required>
-                                <div id="teamSize_error" class="text-red-500 text-sm mt-1"></div>
-                            </div>
-                            <div id="teamMembers"></div>
-                        `;
-                    } else if (participationType == 0) {
-                        // Individual selected
-                        dynamicFields.innerHTML = `
-                            <div class="flex flex-col md:flex-row gap-4">
-                                <div class="w-full md:w-1/2">
-                                    <input type="text" name="indiv_name" id="indiv_name" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Your name" required />
-                                    <div id="indiv_name_error" class="text-red-500 text-sm mt-1"></div>
-                                </div>
-                                <div class="w-full md:w-1/2">
-                                    <input type="text" name="roll_num" id="indiv_roll_numb" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Your roll number" required />
-                                    <div id="indiv_roll_numb_error" class="text-red-500 text-sm mt-1"></div>
-                                </div>
-                            </div>
-                            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                <div class="w-full md:w-1/2">
-                                    <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
-                                    <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required />
-                                    <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
-                                </div>
-                            </div>
-                        `;
-                    }
-                }
-            
-                function generateTeamFields() {
-                    const teamSize = document.getElementById('teamSize').value;
-                    const teamMembers = document.getElementById('teamMembers');
-                    teamMembers.innerHTML = ''; // Clear previous fields
-            
-                    teamMembers.innerHTML += `
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <div class="w-full md:w-1/2">
-                                <label for="captainName" class="block font-semibold text-gray-700">Captain Name</label>
-                                <input type="text" id="captainName" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Captain Name" required>
-                                <div id="captainName_error" class="text-red-500 text-sm mt-1"></div>
-                            </div>
-                            <div class="w-full md:w-1/2">
-                                <label for="captainRollNumber" class="block font-semibold text-gray-700">Captain Roll Number</label>
-                                <input type="text" id="captainRollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Captain Roll Number" required>
-                                <div id="captainRollNumber_error" class="text-red-500 text-sm mt-1"></div>
-                            </div>
-                        </div>
-                    `;
-            
-                    for (let i = 2; i <= teamSize; i += 2) {
-                        const nextIndex = i + 1;
-                        const fields = `
-                            <div class="flex flex-col md:flex-row gap-4">
-                            
-                                <div class="w-full md:w-1/2">
-                                    <input type="text" id="roll${i}" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Member ${i} Roll Number" required>
-                                    <div id="roll${i}_error" class="text-red-500 text-sm mt-1"></div>
-                                </div>
-                            </div>
-                        `;
-            
-                        const nextFields = nextIndex <= teamSize ? `
-                            <div class="flex flex-col md:flex-row gap-4">
-                              
-                                <div class="w-full md:w-1/2">
-                                    <input type="text" id="roll${nextIndex}" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Member ${nextIndex} Roll Number" required>
-                                    <div id="roll${nextIndex}_error" class="text-red-500 text-sm mt-1"></div>
-                                </div>
-                            </div>
-                        ` : '';
-            
-                        teamMembers.innerHTML += fields + nextFields;
-                    }
-            
-                    // Add the file upload field for team photo
-                    teamMembers.innerHTML += `
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <div class="w-full md:w-1/2">
-                                <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Team Photo</label>
-                                <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
-                                <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
-                            </div>
-                        </div>
-                    `;
-                }
-            
-                function validateImage() {
-                    const fileInput = document.getElementById('uploadPhoto');
-                    const errorDiv = document.getElementById('uploadPhotoError');
-                    const filePath = fileInput.value;
-                    const file = fileInput.files[0];
-                    const img = new Image();
-                    const errorContainer = document.getElementById('uploadPhotoError');
-            
-                    img.onload = function () {
-                        const width = img.width;
-                        const height = img.height;
-            
-                        if (width / height !== 2 && height / width !== 2) {
-                            errorContainer.textContent = 'Image dimensions must be in a 2:1 ratio.';
-                            fileInput.value = ''; // Clear the input
-                        } else {
-                            errorContainer.textContent = ''; // Clear error message if valid
-                        }
-                    };
-            
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function (e) {
-                            img.src = e.target.result;
-                        };
-                        reader.readAsDataURL(file);
-                    }
-            
-                    if (!file) {
-                        errorDiv.textContent = 'Please upload a photo.';
-                        return false;
-                    }
-            
-                    errorDiv.textContent = ''; // Clear any existing error message
-                    return true;
-                }
-            
-                function validateForm() {
-                    // Clear all previous error messages
-                    document.querySelectorAll('.text-red-500').forEach(el => el.textContent = '');
-            
-                    let isValid = true;
-            
-                    const eventName = document.getElementById('event_name_edit').value;
-                    if (!eventName) {
-                        document.getElementById('event_name_error').textContent = 'Please enter the achievement name.';
-                        isValid = false;
-                    }
-            
-                    const appointmentDate = document.getElementById('appointmentDate').value;
-                    if (!appointmentDate) {
-                        document.getElementById('appointmentDate_error').textContent = 'Please enter the achievement date.';
-                        isValid = false;
-                    }
-            
-                    const sports = document.getElementById('sports').value;
-                    if (!sports) {
-                        document.getElementById('sports_error').textContent = 'Please select a sport.';
-                        isValid = false;
-                    }
-            
-                    const participation = document.getElementById('participation').value;
-                    if (!participation) {
-                        document.getElementById('participation_error').textContent = 'Please select a participation type.';
-                        isValid = false;
-                    }
-            
-                    const eventDescription = document.getElementById('event_description_edit').value;
-                    if (!eventDescription) {
-                        document.getElementById('event_description_error').textContent = 'Please enter the achievement description.';
-                        isValid = false;
-                    }
-            
-                    if (participation == 0) {
-                        const indivName = document.getElementById('indiv_name').value;
-                        if (!indivName) {
-                            document.getElementById('indiv_name_error').textContent = 'Please enter your name.';
-                            isValid = false;
-                        }
-            
-                        const indivRollNumb = document.getElementById('indiv_roll_numb').value;
-                        if (!indivRollNumb) {
-                            document.getElementById('indiv_roll_numb_error').textContent = 'Please enter your roll number.';
-                            isValid = false;
-                        }
-            
-                        if (!validateImage()) {
-                            isValid = false;
-                        }
-                    } else if (participation == 1) {
-                        const teamSize = document.getElementById('teamSize').value;
-                        if (!teamSize || teamSize <= 0) {
-                            document.getElementById('teamSize_error').textContent = 'Please enter a valid number of persons in the team.';
-                            isValid = false;
-                        }
-            
-                        const captainName = document.getElementById('captainName').value;
-                        if (!captainName) {
-                            document.getElementById('captainName_error').textContent = 'Please enter the captain\'s name.';
-                            isValid = false;
-                        }
-            
-                        const captainRollNumber = document.getElementById('captainRollNumber').value;
-                        if (!captainRollNumber) {
-                            document.getElementById('captainRollNumber_error').textContent = 'Please enter the captain\'s roll number.';
-                            isValid = false;
-                        }
-            
-                        for (let i = 2; i <= teamSize; i++) {
-                            const rollNumber = document.getElementById(`roll${i}`).value;
-                            
-                            if (!rollNumber) {
-                                document.getElementById(`roll${i}_error`).textContent = `Please enter member ${i}'s roll number.`;
-                                isValid = false;
-                            }
-                        }
-            
-                        if (!validateImage()) {
-                            isValid = false;
-                        }
-                    }
-            
-                    return isValid;
-                }
-            
-                function addEvent() {
+            if (!rollNumber) {
+                document.getElementById(`indiv_roll_numb${i}_error`).textContent = `Please enter member ${i}'s roll number.`;
+                isValid = false;
+            }
+        }
+
+        if (!validateImage()) {
+            isValid = false;
+        }
+    }
+
+    return isValid;
+}
+function addEvent() {
     if (validateForm()) {
         const eventName = document.getElementById('event_name_edit').value;
         const appointmentDate = document.getElementById('appointmentDate').value;
         const sports = document.getElementById('sports').value;
         const participation = document.getElementById('participation').value;
         const eventDescription = document.getElementById('event_description_edit').value;
-        let participationData;
-        if (participation == 0) { // Individual
+        let participationData = '';
+
+        if (participation == 0) { 
             const indivName = document.getElementById('indiv_name').value;
             const indivRollNumb = document.getElementById('indiv_roll_numb').value;
-            participationData += `${indivName}, ${indivRollNumb}`;
+            console.log(`Individual Name: ${indivName}`);
+            participationData += `${indivRollNumb}`;
         } else if (participation == 1) { // Team
             const teamSize = document.getElementById('teamSize').value;
             const captainName = document.getElementById('captainName').value;
             const captainRollNumber = document.getElementById('captainRollNumber').value;
             participationData += `${captainRollNumber}`;
+            const captain = `${captainName}`;
+            console.log(`Captain Name: ${captainName}`);
             for (let i = 2; i <= teamSize; i++) {
-                const rollNumber = document.getElementById(`roll${i}`).value;
-                participationData += `, ${rollNumber}`;
+                const rollNumber = document.getElementById(`indiv_roll_numb${i}`).value;
+                console.log(`Member ${i - 1} Roll Number: ${rollNumber}`);
+                participationData += ` , ${rollNumber}`;
             }
         }
 
         console.log(`Achievement Name: ${eventName}`);
         console.log(`Achievement Date: ${appointmentDate}`);
         console.log(`Sports: ${sports}`);
-        console.log(`name: ${captainName}`)
         console.log(`Participation Data: ${participationData}`);
         console.log(`Achievement Description: ${eventDescription}`);
         console.log(`Image uploaded`);
     }
 }
-
-              
-              
-                document.addEventListener('DOMContentLoaded', function() {
-            flatpickr("#appointmentDate", {
-                dateFormat: "Y-m-d",
-                altInput: true,
-                altFormat: "F j, Y"
-            });
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    flatpickr("#appointmentDate", {
+        dateFormat: "Y-m-d",
+        altInput: true,
+        altFormat: "F j, Y"
+    });
+});
 
             </script>
             
