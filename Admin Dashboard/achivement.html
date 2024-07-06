@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <title>Aagneya</title>
 </head>
 
@@ -101,7 +103,8 @@
                             <div id="event_name_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                         <div class="w-full md:w-1/2">
-                            <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Date" required />
+                            <input type="text" name="date" id="appointmentDate" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            placeholder="Date of Birth" required />
                             <div id="appointmentDate_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                     </div>
@@ -131,12 +134,22 @@
                         <div id="event_description_error" class="text-red-500 text-sm mt-1"></div>
                     </div>
                     <div class="text-center">
-                        <button onclick="addEvent()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">Add Event</button>
+                        <button onclick="addEvent()"  class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add Event</button>
                     </div>
                 </div>
             </div>
-            
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
             <script>
+                    // Initialize Flatpickr on the date input field
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#appointmentDate", {
+                dateFormat: "Y-m-d",
+                altInput: true,
+                altFormat: "F j, Y"
+            });
+        });
+
             function showFields() {
                 const dynamicFields = document.getElementById('dynamicFields');
                 dynamicFields.innerHTML = ''; // Clear previous fields
