@@ -187,7 +187,7 @@
 <script>
     // script.js
 
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
     // Filter functionality
     const filterButtons = document.querySelectorAll(".filter-button");
     const selectpicker = document.querySelector(".selectpicker");
@@ -198,15 +198,21 @@ document.addEventListener("DOMContentLoaded", function () {
             const filterType = this.getAttribute("data-filter");
             const filterValue = this.getAttribute("data-value");
 
-            // Update buttons' active state
-            filterButtons.forEach(btn => {
-                if (btn.getAttribute("data-filter") === filterType) {
-                    btn.classList.remove("active");
-                }
-            });
-            this.classList.add("active");
+            // Check if the button is already active
+            if (this.classList.contains("active")) {
+                this.classList.remove("active");
+                showAllCards();
+            } else {
+                // Update buttons' active state
+                filterButtons.forEach(btn => {
+                    if (btn.getAttribute("data-filter") === filterType) {
+                        btn.classList.remove("active");
+                    }
+                });
+                this.classList.add("active");
 
-            filterCards(filterType, filterValue);
+                filterCards(filterType, filterValue);
+            }
         });
     });
 
@@ -226,6 +232,14 @@ document.addEventListener("DOMContentLoaded", function () {
             card.classList.toggle("hide", !card.classList.contains("show"));
         });
     }
+
+    function showAllCards() {
+        cards.forEach(card => {
+            card.classList.add("show");
+            card.classList.remove("hide");
+        });
+    }
 });
+
 
 </script>
