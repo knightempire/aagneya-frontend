@@ -216,12 +216,13 @@ function validateImage() {
     const width = img.width;
     const height = img.height;
 
-    if (width > 1300 || height > 650 || width < 1100 || height < 600) {
-      errorContainer.textContent = 'Image dimensions must be between 1100x600 and 1300x650 pixels.';
-      fileInput.value = ''; // Clear the input
-    } else {
-      errorContainer.textContent = ''; // Clear error message if valid
-    }
+    if (width / height !== 2 && height / width !== 2) {
+    errorContainer.textContent = 'Image dimensions must be in a 2:1 ratio.';
+    fileInput.value = ''; // Clear the input
+} else {
+    errorContainer.textContent = ''; // Clear error message if valid
+}
+
   };
 
   img.onerror = function() {
