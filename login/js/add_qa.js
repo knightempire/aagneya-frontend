@@ -1,53 +1,59 @@
-$(document).ready(function() {
-  var $steps = $('.step');
-  var $activeLine = $('.active-line');
-  var totalSteps = $steps.length;
+document.addEventListener("DOMContentLoaded", function() {
+  var steps = document.querySelectorAll('.step');
+  var activeLine = document.querySelector('.active-line');
+  var totalSteps = steps.length;
   var currentStep = 1;
-  var sliderWidth = $('.steps-container').width();
+  var sliderWidth = document.querySelector('.steps-container').offsetWidth;
 
   // Object to store form data
   var formData = {};
 
-  $('.next').click(function(e) {
-    e.preventDefault();
-    var $currentForm = $(this).closest('.slider-form');
-    var $nextForm = $currentForm.next('.slider-form');
+  document.querySelectorAll('.next').forEach(function(nextButton) {
+    nextButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      var currentForm = this.closest('.slider-form');
+      var nextForm = currentForm.nextElementSibling;
 
-    // Check if the input field is valid
-    var $inputField = $currentForm.find('input[required]');
-    if ($inputField.val() === '') {
-      $currentForm.find('.validation-message').fadeIn().delay(2000).fadeOut();
-      return;
-    }
+      // Check if the input field is valid
+      var inputField = currentForm.querySelector('input[required]');
+      if (inputField.value === '') {
+        currentForm.querySelector('.validation-message').style.display = 'block';
+        setTimeout(function() {
+          currentForm.querySelector('.validation-message').style.display = 'none';
+        }, 2000);
+        return;
+      }
 
-    // Store input value in formData object
-    var inputName = $inputField.attr('placeholder');
-    formData[inputName] = $inputField.val();
+      // Store input value in formData object
+      var inputName = inputField.getAttribute('placeholder');
+      formData[inputName] = inputField.value;
 
-    if ($nextForm.length > 0) {
-      $currentForm.removeClass('active');
-      $nextForm.addClass('active');
-      currentStep++;
-      updateSlider();
-    }
+      if (nextForm && nextForm.classList.contains('slider-form')) {
+        currentForm.classList.remove('active');
+        nextForm.classList.add('active');
+        currentStep++;
+        updateSlider();
+      }
 
-    // Log formData to console
-    console.log(formData);
+      // Log formData to console
+      console.log(formData);
+    });
   });
 
-  $('.submit').click(function() {
+  document.querySelector('.submit').addEventListener('click', function() {
     console.log('Final form data:', formData);
   });
 
   function updateSlider() {
     var stepWidth = (currentStep - 1) * (sliderWidth / (totalSteps - 1));
-    $activeLine.css('width', stepWidth + 'px');
-    $steps.removeClass('active');
-    $steps.eq(currentStep - 1).addClass('active');
+    activeLine.style.width = stepWidth + 'px';
+    steps.forEach(function(step, index) {
+      step.classList.toggle('active', index === currentStep - 1);
+    });
   }
 
-  $(window).resize(function() {
-    sliderWidth = $('.steps-container').width();
+  window.addEventListener('resize', function() {
+    sliderWidth = document.querySelector('.steps-container').offsetWidth;
     updateSlider();
   });
 });
