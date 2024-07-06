@@ -90,191 +90,218 @@
             </div>
             <br>
             <!-- code from here -->
-
+       
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
                 <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Achievement Details</div>
                 <div class="p-4 md:p-8">
-                  <div class="flex flex-col md:flex-row gap-4">
-                    <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Name" required/>
-                    <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Date" required />
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Name *" required/>
+                        <input type="text" name="date" id="appointmentDate" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Date " required />
+                    </div>
+                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                        <div class="w-full md:w-1/2">
+                            <label for="sports" class="block font-semibold text-gray-700">Select Sports</label>
+                            <select name="sports" id="sports" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                <option disabled selected>Please Select Sports</option>
+                                <option value="cricket">Cricket</option>
+                                <option value="football">Football</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label for="participation" class="block font-semibold text-gray-700">Select Participation Type</label>
+                            <select id="participation" name="participation" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="showFields()">
+                                <option value="">Select Participation Type</option>
+                                <option value="individual">Individual</option>
+                                <option value="team">Team</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="dynamicFields"></div>
+                    <div class="mb-4 md:mb-10">
+                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Description" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button onclick="addEvent()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">Add Event</button>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+            function showFields() {
+              const dynamicFields = document.getElementById('dynamicFields');
+              dynamicFields.innerHTML = ''; // Clear previous fields
+              const participationType = document.getElementById('participation').value;
+            
+              if (participationType === 'team') {
+                // Team selected
+                dynamicFields.innerHTML = `
+                  <div class="my-4 md:my-6">
+                    <label for="teamSize" class="block font-semibold text-gray-700">Number of Persons in Team</label>
+                    <input type="number" id="teamSize" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" oninput="generateTeamFields()" required>
                   </div>
+                  <div id="teamMembers"></div>
+                `;
+              } else if (participationType === 'individual') {
+                // Individual selected
+                dynamicFields.innerHTML = `
+               <div class="flex flex-col md:flex-row gap-4">
+                        <input type="text" name="indiv_name" id="indiv_name" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Your name" required/>
+                        <input type="text" name="roll num" id="indiv_roll_numb" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Your roll number " required />
+                    </div>
                   <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                    <select name="sports" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                      <option disabled selected>Please Select</option>
-                      <option value="cricket">Cricket</option>
-                      <option value="football">Football</option>
-                    </select>
-                  </div>
-                  <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                    <label class="block font-semibold text-gray-700">Participation Type</label>
-                    <div class="mt-2 flex items-center">
-                      <input type="radio" name="participation" id="individual" value="individual" class="mr-2" onclick="showFields()">
-                      <label for="individual" class="mr-4">Individual</label>
-                      <input type="radio" name="participation" id="team" value="team" class="mr-2" onclick="showFields()">
-                      <label for="team">Team</label>
+                    <div class="w-full md:w-1/2">
+                      <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
+                      <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
+                      <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
                     </div>
                   </div>
-                  <div id="dynamicFields"></div>
-                  <div class="mb-4 md:mb-10">
-                    <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 sm:p-5 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Achievement Description" required></textarea>
+                `;
+              }
+            }
+            
+            function generateTeamFields() {
+              const teamSize = document.getElementById('teamSize').value;
+              const teamMembers = document.getElementById('teamMembers');
+              teamMembers.innerHTML = ''; // Clear previous fields
+            
+              teamMembers.innerHTML += `
+                <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                  <div class="w-full md:w-1/2">
+                    <label for="captainName" class="block font-semibold text-gray-700">Captain Name</label>
+                    <input type="text" id="captainName" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Captain Name" required>
                   </div>
-                  <div class="text-center">
-                    <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="addEvent()">Add Event</button>
+                  <div class="w-full md:w-1/2">
+                    <label for="captainRollNumber" class="block font-semibold text-gray-700">Captain Roll Number</label>
+                    <input type="text" id="captainRollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Captain Roll Number" required>
                   </div>
                 </div>
-              </div>
-              
-              <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-              <script>
-                function showFields() {
-                  const dynamicFields = document.getElementById('dynamicFields');
-                  dynamicFields.innerHTML = ''; // Clear previous fields
-              
-                  if (document.getElementById('team').checked) {
-                    // Team selected
-                    dynamicFields.innerHTML = `
-                      <div class="my-4 md:my-6">
-                        <label for="teamSize" class="block font-semibold text-gray-700">Number of Persons in Team</label>
-                        <input type="number" id="teamSize" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" oninput="generateTeamFields()" required>
-                      </div>
-                      <div id="teamMembers"></div>
-                    `;
-                  } else if (document.getElementById('individual').checked) {
-                    // Individual selected
-                    dynamicFields.innerHTML = `
-                      <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <div class="w-full md:w-1/2">
-                          <label for="rollNumber" class="block font-semibold text-gray-700">Roll Number</label>
-                          <input type="text" id="rollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Roll Number" required>
-                        </div>
-                      </div>
-                      <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                        <div class="w-full md:w-1/2">
-                          <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
-<input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
-<div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
-                        </div>
-                      </div>
-                    `;
-                  }
-                }
-              
-                function generateTeamFields() {
-                  const teamSize = document.getElementById('teamSize').value;
-                  const teamMembers = document.getElementById('teamMembers');
-                  teamMembers.innerHTML = ''; // Clear previous fields
-              
-                  for (let i = 1; i <= teamSize; i++) {
-                    if (i === 1) {
-                      teamMembers.innerHTML += `
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                          <div class="w-full md:w-1/2">
-                            <label for="member${i}RollNumber" class="block font-semibold text-gray-700">Captain Roll Number</label>
-                            <input type="text" id="member${i}RollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Captain Roll Number" required>
-                          </div>
-                        </div>
-                      `;
-                    } else {
-                      teamMembers.innerHTML += `
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                          <div class="w-full md:w-1/2">
-                            <label for="member${i}RollNumber" class="block font-semibold text-gray-700">Member ${i} Roll Number</label>
-                            <input type="text" id="member${i}RollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Member ${i} Roll Number" required>
-                          </div>
-                        </div>
-                      `;
-                    }
-                  }
-                  // Add a field for photo upload
-                  teamMembers.innerHTML += `
-                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                      <div class="w-full md:w-1/2">
-                        <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
-<input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
-<div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
-                      </div>
+              `;
+            
+              for (let i = 2; i <= teamSize; i += 2) {
+                const nextIndex = i + 1;
+                teamMembers.innerHTML += `
+                  <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                    <div class="w-full md:w-1/2">
+                      <label for="member${i}RollNumber" class="block font-semibold text-gray-700">Member ${i} Roll Number</label>
+                      <input type="text" id="member${i}RollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Member ${i} Roll Number" required>
                     </div>
-                  `;
-                }
-                function validateImage() {
-    const fileInput = document.getElementById('uploadPhoto');
-    const file = fileInput.files[0];
-    const img = new Image();
-    const errorContainer = document.getElementById('uploadPhotoError');
+                    ${nextIndex <= teamSize ? `
+                    <div class="w-full md:w-1/2">
+                      <label for="member${nextIndex}RollNumber" class="block font-semibold text-gray-700">Member ${nextIndex} Roll Number</label>
+          <input type="text" id="member${nextIndex}RollNumber" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" placeholder="Member ${nextIndex} Roll Number" required>
+        </div>` : ''}
+      </div>
+    `;
+  }
 
-    img.onload = function() {
-        const width = img.width;
-        const height = img.height;
-
-        if (width > 1300 || height > 650 || width < 1100 || height < 600) {
-            errorContainer.textContent = 'Image dimensions must be between 1100x600 and 1300x650 pixels.';
-            fileInput.value = ''; // Clear the input
-        } else {
-            errorContainer.textContent = ''; // Clear error message if valid
-        }
-    };
-
-    img.onerror = function() {
-        errorContainer.textContent = 'Invalid image file.';
-        fileInput.value = ''; // Clear the input
-    };
-
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
+  // Add a field for photo upload
+  teamMembers.innerHTML += `
+    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+      <div class="w-full md:w-1/2">
+        <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
+        <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
+        <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
+      </div>
+    </div>
+  `;
 }
 
-              
-                // Initialize Flatpickr on the date input field
-                document.addEventListener('DOMContentLoaded', function() {
-                  flatpickr("#appointmentDate", {
-                    dateFormat: "Y-m-d",
-                    altInput: true,
-                    altFormat: "F j, Y"
-                  });
-                });
-              
-                function addEvent() {
-    // Capture form data
-    const eventName = document.getElementById('event_name_edit').value;
-    const eventDate = document.getElementById('appointmentDate').value;
-    const sport = document.getElementById('sports').value;
-    const participationType = document.querySelector('input[name="participation"]:checked').value;
-    const eventDescription = document.getElementById('event_description_edit').value;
+function validateImage() {
+  const fileInput = document.getElementById('uploadPhoto');
+  const file = fileInput.files[0];
+  const img = new Image();
+  const errorContainer = document.getElementById('uploadPhotoError');
 
-    let formData = {
-        eventName,
-        eventDate,
-        sport,
-        participationType,
-        eventDescription
-    };
+  img.onload = function() {
+    const width = img.width;
+    const height = img.height;
 
-    if (participationType === 'team') {
-        formData.teamDetails = [];
-        const teamSize = document.getElementById('teamSize').value;
-        for (let i = 1; i <= teamSize; i++) {
-            formData.teamDetails.push({
-                [`member${i}RollNumber`]: document.getElementById(`member${i}RollNumber`).value
-            });
-        }
-    } else if (participationType === 'individual') {
-        formData.rollNumber = document.getElementById('rollNumber').value;
-        const uploadPhotoInput = document.getElementById('uploadPhoto');
-        if (uploadPhotoInput.files.length > 0) {
-            formData.uploadPhotoName = uploadPhotoInput.files[0].name;
-        }
+    if (width > 1300 || height > 650 || width < 1100 || height < 600) {
+      errorContainer.textContent = 'Image dimensions must be between 1100x600 and 1300x650 pixels.';
+      fileInput.value = ''; // Clear the input
+    } else {
+      errorContainer.textContent = ''; // Clear error message if valid
     }
+  };
 
-    // Log the form data to the console
-    console.log(formData);
+  img.onerror = function() {
+    errorContainer.textContent = 'Invalid image file.';
+    fileInput.value = ''; // Clear the input
+  };
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
 }
 
-              </script>
+// Initialize Flatpickr on the date input field
+document.addEventListener('DOMContentLoaded', function() {
+  flatpickr("#appointmentDate", {
+    dateFormat: "Y-m-d",
+    altInput: true,
+    altFormat: "F j, Y"
+  });
+});
+
+
+function addEvent() {
+  // Capture form data
+  const eventName = document.getElementById('event_name_edit').value;
+  const eventDate = document.getElementById('appointmentDate').value;
+  const sport = document.getElementById('sports').value;
+  const participationType = document.getElementById('participation').value;
+  const eventDescription = document.getElementById('event_description_edit').value;
+
+  let formData = {
+    eventName,
+    eventDate,
+    sport,
+    participationType,
+    eventDescription
+  };
+
+  let participationData = '';
+
+  if (participationType === 'team') {
+    const captainName = document.getElementById('captainName').value;
+    const captainRollNumber = document.getElementById('captainRollNumber').value;
+    const teamSize = document.getElementById('teamSize').value;
+    let teamMembers = [];
+
+    for (let i = 2; i <= teamSize; i++) {
+      teamMembers.push(document.getElementById(`member${i}RollNumber`).value);
+    }
+
+    const uploadPhotoInput = document.getElementById('uploadPhoto');
+    let uploadPhotoName = '';
+    if (uploadPhotoInput.files.length > 0) {
+      uploadPhotoName = uploadPhotoInput.files[0].name;
+    }
+
+    participationData = `Participation Type: team, ${teamSize}, ${captainName}, ${captainRollNumber}, ${teamMembers.join(', ')}, ${uploadPhotoName}`;
+  } else if (participationType === 'individual') {
+    const indivName = document.getElementById('indiv_name').value;
+    const rollNumber = document.getElementById('indiv_roll_numb').value;
+    const uploadPhotoInput = document.getElementById('uploadPhoto');
+    let uploadPhotoName = '';
+    if (uploadPhotoInput.files.length > 0) {
+      uploadPhotoName = uploadPhotoInput.files[0].name;
+    }
+
+    participationData = `Participation Type: individual, 1, ${indivName}, ${rollNumber}, ${uploadPhotoName}`;
+  }
+
+  formData.participationData = participationData;
+
+  // Log the form data to the console
+  console.log(formData);
+}
+
+</script>
               
             
 
