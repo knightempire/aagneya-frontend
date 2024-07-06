@@ -32,7 +32,7 @@
                     </div>
                     <div class="input-field">
                         <label>Mobile Number</label>
-                        <input type="number" name="mobile" placeholder="Enter mobile number" required>
+                        <input type="number" name="phone" placeholder="Enter phone number" required>
                     </div>
                     <div class="input-field">
                         <label>Gender</label>
@@ -45,8 +45,8 @@
                     </div>
                     <div class="input-field">
                         <label>Photo</label>
-                        <input type="file" id="uploadPhoto" onchange="validateImage()" name="photo" accept=".jpg,.jpeg" required>
-                        <div id="uploadPhotoError" class="text-red-500 text-sm mt-1" style="color: red; font-size: small;"></div>
+                        <input type="file" id="image" onchange="validateImage()" name="image" accept=".jpg,.jpeg" required>
+                        <div id="imageError" class="text-red-500 text-sm mt-1" style="color: red; font-size: small;"></div>
                     </div>
                     <div class="input-field">
                         <label>Sport</label>
@@ -72,10 +72,10 @@
         });
 
         function validateImage() {
-            const fileInput = document.getElementById('uploadPhoto');
+            const fileInput = document.getElementById('image');
             const file = fileInput.files[0];
             const img = new Image();
-            const errorContainer = document.getElementById('uploadPhotoError');
+            const errorContainer = document.getElementById('imageError');
 
             img.onload = function() {
                 const width = img.width;
@@ -107,20 +107,35 @@
 
         const form = document.getElementById('registrationForm');
 
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', async function(event) {
             event.preventDefault();
 
-            // Get all form data
             const formData = new FormData(form);
 
-            // Create an object to store the data
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
+            console.log(formData)
 
-            console.log('Form data', data);
-            // Here you can handle the submission of form data, e.g., send it to a server via AJAX
+            try {
+                const response = await fetch('http://localhost:3000/api/addprofile', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to add profile');
+                }
+
+                const data = await response.json();
+                console.log('Profile added successfully:', data);
+
+                // Optionally reset the form after successful submission
+                form.reset();
+            } catch (error) {
+                console.error('Error adding profile:', error.message);
+                // Handle error as needed
+            }
         });
     </script>
 </body>
