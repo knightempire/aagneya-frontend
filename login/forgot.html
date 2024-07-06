@@ -74,6 +74,18 @@ Instead of sign in cntnue-->
             </div>
         </section>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#event_date_edit", {
+            enableTime: true,
+            dateFormat: "i:Y-m-d H:i",
+            altInput: true,
+            altFormat: "i k:F j, Y h:i K",
+            monthSelectorType: "static" // This will show full month names instead of dropdown
+        });
+    });
+</script>    
 </body>
 
 </html>
