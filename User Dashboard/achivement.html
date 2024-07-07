@@ -252,16 +252,16 @@ function validateImage() {
         errorDiv.textContent = 'Please upload a photo.';
         return false;
     }
+
     const filePath = fileInput.value;
 
     // Check file extension
     if (!allowedExtensions.exec(filePath)) {
         errorDiv.textContent = 'Please upload a file with .jpeg/.jpg/.png extension only.';
         fileInput.value = ''; // Clear the input
-        return;
+        return false;
     }
 
-    // Check image dimensions
     const reader = new FileReader();
 
     reader.onload = function (e) {
@@ -273,28 +273,16 @@ function validateImage() {
             if (width / height !== 2 && height / width !== 2) {
                 errorDiv.textContent = 'Image dimensions must be in a 2:1 ratio.';
                 fileInput.value = ''; // Clear the input
+                return false;
             }
+            errorDiv.textContent = ''; // Clear any existing error message
+            return true;
         };
     };
 
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
-
-    if (!file) {
-        errorDiv.textContent = 'Please upload a photo.';
-        return false;
-    }
-
-    errorDiv.textContent = ''; // Clear any existing error message
+    reader.readAsDataURL(file);
     return true;
-
 }
-
 function validateForm() {
     // Clear all previous error messages
     document.querySelectorAll('.text-red-500').forEach(el => el.textContent = '');
