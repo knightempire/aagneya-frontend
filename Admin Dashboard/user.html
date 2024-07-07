@@ -992,12 +992,14 @@
                 if (user.spl_role_name == "Admin") {
                     user.spl_role_name = ""
                 }
+                const imgSrc = user.photo_path ? `http://localhost:3000/${user.photo_path}` : 'http://localhost:3000/img/default-user-image.jpg'; // Replace with your default image path
+
 
                 row.innerHTML = `
                 <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
-                            <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
+                <img class="h-10 w-10 rounded-full" src="${imgSrc}" alt="User Image">
                         </div>
                         <div class="ml-4">
                             <div class="text-sm font-medium text-gray-900" id="name">
