@@ -19,13 +19,14 @@
         <div class="flex flex-wrap justify-center gap-4 mb-8" id="filter-buttons">
             <!-- Sports Filter -->
             <div class="relative inline-block w-full sm:w-64">
-                <select class="selectpicker block w-full p-2 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring" multiple aria-label="Default select example" data-live-search="true">
+                <select class="selectpicker block w-full p-2 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring" multiple aria-label="Default select example" data-live-search="true" title="Select sports">
                     <option value="football">Football</option>
                     <option value="cricket">Cricket</option>
                     <option value="volleyball">Volleyball</option>
                     <option value="hockey">Hockey</option>
                     <option value="chess">Chess</option>
                 </select>
+                
             </div>
             <!-- Position Filter -->
             <div class="btn-group" role="group" aria-label="Position" data-filter="position">
@@ -38,10 +39,7 @@
                 <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="female">Female</button>
             </div>
             <!-- Team Filter -->
-            <div class="btn-group" role="group" aria-label="Team" data-filter="team">
-                <button class="filter-button btn btn-outline-primary" data-filter="team" data-value="group">Group</button>
-                <button class="filter-button btn btn-outline-primary" data-filter="team" data-value="individual">Individual</button>
-            </div>
+           
         </div>
         <!-- Filterable Images / Cards Section -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center" id="filterable-cards">
@@ -144,6 +142,8 @@
 
 </html>
 <style>
+
+    
     /* style.css */
 
 /* Custom styles for the cards */
