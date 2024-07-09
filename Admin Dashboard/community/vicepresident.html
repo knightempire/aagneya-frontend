@@ -29,10 +29,7 @@
         }
     </style> -->
 <style>
-    .card img:hover {
-        transform: scale(1.1);
-        transition: transform 0.3s ease;
-    }
+  
     .heart:hover{
         transform: scale(1.1);
         transition: transform 0.3s ease;
@@ -194,6 +191,14 @@
                         
                         
                         <h1>hi</h1>
+                        <!-- flex justify-between items-center pt-4  - after vote
+                        text-center   - init -->
+                        <!-- id name of div votechange -->
+                        <!-- vote div -     <div class="flex items-center space-x-2">
+                            <i class="heart fas fa-heart text-purple-700"></i>
+                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
+                        </div> -->
+
                         <div class="flex flex-wrap justify-center p-4">
                             <!-- Card 1 -->
                             <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
@@ -203,12 +208,9 @@
                                         <h2 class="text-xl font-semibold sm:text-2xl">Leroy Jenkins</h2>
                                         <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
                                     </div>
-                                    <div class="flex justify-between items-center pt-4">
-                                        <div class="flex items-center space-x-2">
-                                            <i class="heart fas fa-heart text-purple-700"></i>
-                                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
-                                        </div>
-                                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white transition-all transform hover:scale-105">Vote</button>
+                                    <div class="text-center" id="votechange">
+                                     
+                                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white transition-all transform hover:scale-105" >Vote</button>
                                     </div>
                                 </div>
                             </div>
@@ -220,12 +222,13 @@
                                         <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
                                         <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
                                     </div>
-                                    <div class="flex justify-between items-center pt-4">
-                                        <div class="flex items-center space-x-2">
+                                    
+                                    <div class="text-center flex justify-between items-center pt-4"  id="votechange">
+                                        <div class="flex items-center space-x-2" >
                                             <i class="heart fas fa-heart text-purple-700"></i>
-                                            <span class="text-sm sm:text-base dark:text-gray-600">50 votes</span>
+                                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
                                         </div>
-                                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white transition-all transform hover:scale-105">Vote</button>
+                                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +240,7 @@
                                         <h2 class="text-xl font-semibold sm:text-2xl">Jane Smith</h2>
                                         <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
                                     </div>
-                                    <div class="flex justify-between items-center pt-4">
+                                    <div class="flex justify-between items-center pt-4"  id="votechange">
                                         <div class="flex items-center space-x-2">
                                             <i class="heart fas fa-heart text-purple-700"></i>
                                             <span class="text-sm sm:text-base dark:text-gray-600">120 votes</span>
@@ -254,7 +257,7 @@
                                         <h2 class="text-xl font-semibold sm:text-2xl">Alice Johnson</h2>
                                         <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
                                     </div>
-                                    <div class="flex justify-between items-center pt-4">
+                                    <div class="flex justify-between items-center pt-4"  id="votechange">
                                         <div class="flex items-center space-x-2">
                                             <i class="heart fas fa-heart text-purple-700"></i>
                                             <span class="text-sm sm:text-base dark:text-gray-600">200 votes</span>
