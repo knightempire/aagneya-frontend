@@ -7,12 +7,53 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/style.css">
     <title>Aagneya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script>
+    <style>
+        .vote-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: transform 0.2s ease-in-out;
+        }
+        .vote-icon:hover {
+            transform: scale(1.2);
+        }
+        .card {
+                position: relative;
+            }
+            .position-badge {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: #fff;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+    </style>
+    <!-- <style>
+        .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style> -->
+<style>
+  
+    .heart:hover{
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+</style>
+   <script>
         tailwind.config = {
             darkMode: 'class',
         }
@@ -165,8 +206,87 @@
 
                     <!-- Sections to toggle visibility -->
                     <div id="viewAllSection" class="flex flex-col mt-6">
+                        
+                        
                         <h1>hi</h1>
+                        <!-- id votewinner -->
+        <!-- <div class="position-badge" id="votewinner">
+            <i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i>
+        </div> -->
 
+
+
+
+
+        <div class="flex flex-wrap justify-center p-4">
+            <!-- Card 1 -->
+            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                <div class="position-badge" id="votewinner">
+                    <i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i>
+                </div>
+                <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                    <div class="my-2 space-y-1">
+                        <h2 class="text-xl font-semibold sm:text-2xl">Leroy Jenkins</h2>
+                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                    </div>
+                    <div class="text-center">
+                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                
+                <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                    <div class="my-2 space-y-1">
+                        <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
+                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                    </div>
+                    
+                    <div class="text-center flex justify-between items-center pt-4"  id="votechange">
+                        <div class="flex items-center space-x-2" >
+                            <i class="heart fas fa-heart text-purple-700"></i>
+                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
+                        </div>
+                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                
+                <img src="https://pbs.twimg.com/profile_images/1299516989657014272/gRhHG0kk_400x400.jpg"  style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                    <div class="my-2 space-y-1">
+                        <h2 class="text-xl font-semibold sm:text-2xl">Jane Smith</h2>
+                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                    </div>
+                    <div class="text-center">
+                        <button class="rounded-lg bg-purple-300 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 disabled:opacity-50 cursor-not-allowed transition-all transform hover:scale-105 disabled:text-red-600">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                <img src="https://pbs.twimg.com/profile_images/1299516989657014272/gRhHG0kk_400x400.jpg"style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                    <div class="my-2 space-y-1">
+                        <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
+                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                    </div>
+                    
+                    <div class="text-center flex justify-between items-center pt-4"  id="votechange">
+                        <div class="flex items-center space-x-2" >
+                            <i class="heart fas fa-heart text-purple-700"></i>
+                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
+                        </div>
+                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
                     </div>
@@ -203,6 +323,7 @@
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <script src="../js/index.js"></script>
