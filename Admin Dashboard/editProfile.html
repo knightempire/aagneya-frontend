@@ -10,6 +10,12 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -56,23 +62,19 @@
             <i class='bx bx-menu'></i>
             <form action="#">
                 <div class="form-input">
-                    <!-- <input type="search" placeholder="Search..."> -->
                     <button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> Name</span></button>
                 </div>
             </form>
             <input type="checkbox" id="theme-toggle" hidden>
-            <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
             <a href="#" class="notif">
                 <i class='bx bx-bell'></i>
                 <span class="count">12</span>
             </a>
-            <!-- <a href="#" class="profile">
-                <img src="images/logo.png">
-            </a> -->
         </nav>
 
         <main>
             <div class="header">
+                <h1>Profile Management</h1>
                 <!-- ... -->
             </div>
 
@@ -81,9 +83,18 @@
                     <div class="profile-container">
                         <div class="profile-content flex flex-col md:flex-row items-start gap-8">
                             <div class="profile-image w-full md:w-1/3">
-                                <img id="profileImage" src="default-profile.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full object-cover shadow-lg mx-auto">
-                                <h2 id="profileName" class="text-2xl font-bold text-gray-800 text-center mt-4">John Doe</h2>
-                                <p id="profileEmail" class="text-gray-600 text-center">johndoe@example.com</p>
+                                <!-- Card Component -->
+                                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg" id="profileCard">
+                                    <img class="object-cover object-center w-full" id="profileCardImage" src="https://upload.wikimedia.org/wikipedia/commons/4/43/1500x1500-abstract-sd2003.jpg" alt="Profile Picture">
+                                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-crown text-yellow-500"></i>
+                                            <h1 class="mx-3 text-lg font-semibold text-white">Vice Captain</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span id="imageWarning" class="text-red-500 hidden mt-2">The image must be 1:1 ratio.</span>
+                                <span id="fileTypeWarning" class="text-red-500 hidden mt-2">Only JPG or JPEG images are allowed.</span>
                             </div>
                             <div class="profile-details w-full md:w-2/3">
                                 <form id="profileForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -113,14 +124,14 @@
                                     </div>
                                     <div>
                                         <label for="editImage" class="block text-sm font-medium text-gray-700 mb-1">Profile Image</label>
-                                        <input type="file" id="editImage" name="editImage" accept="image/*" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
+                                        <input type="file" id="editImage" name="editImage" accept="image/jpeg, image/jpg" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
                                     </div>
                                 </form>
                                 <div class="mt-6 flex space-x-4">
                                     <button id="editProfileBtn" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out">
                                         Edit Profile
                                     </button>
-                                    <button id="backBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out hidden">
+                                    <button id="backBtn" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out hidden">
                                         Back
                                     </button>
                                 </div>
@@ -137,6 +148,8 @@
                 const backBtn = document.getElementById('backBtn');
                 const profileForm = document.getElementById('profileForm');
                 const inputs = profileForm.querySelectorAll('input');
+                const imageWarning = document.getElementById('imageWarning');
+                const fileTypeWarning = document.getElementById('fileTypeWarning');
                 let isEditing = false;
 
                 editProfileBtn.addEventListener('click', function() {
@@ -148,7 +161,7 @@
                         });
                         editProfileBtn.textContent = 'Submit';
                         editProfileBtn.classList.remove('bg-purple-500', 'hover:bg-purple-600');
-                        editProfileBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                        editProfileBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
                         backBtn.classList.remove('hidden');
                         isEditing = true;
                     } else {
@@ -162,17 +175,38 @@
                         // Log the results to console
                         console.log('Profile Data:', profileData);
 
-                        // Update profile name
-                        document.getElementById('profileName').textContent = profileData.editName;
+                        // Update profile name and email
+                        document.getElementById('name').textContent = profileData.editName;
 
                         // Handle image update
                         const fileInput = document.getElementById('editImage');
                         if (fileInput.files && fileInput.files[0]) {
-                            const reader = new FileReader();
-                            reader.onload = function(e) {
-                                document.getElementById('profileImage').src = e.target.result;
-                            };
-                            reader.readAsDataURL(fileInput.files[0]);
+                            const file = fileInput.files[0];
+                            const fileType = file.type;
+                            if (fileType !== 'image/jpeg' && fileType !== 'image/jpg') {
+                                fileTypeWarning.classList.remove('hidden');
+                                imageWarning.classList.add('hidden');
+                            } else {
+                                const img = new Image();
+                                const reader = new FileReader();
+
+                                reader.onload = function(e) {
+                                    img.src = e.target.result;
+                                };
+
+                                img.onload = function() {
+                                    if (img.width !== img.height) {
+                                        imageWarning.classList.remove('hidden');
+                                        fileTypeWarning.classList.add('hidden');
+                                    } else {
+                                        document.getElementById('profileCardImage').src = img.src;
+                                        imageWarning.classList.add('hidden');
+                                        fileTypeWarning.classList.add('hidden');
+                                    }
+                                };
+
+                                reader.readAsDataURL(file);
+                            }
                         }
 
                         // Disable editing
@@ -183,7 +217,7 @@
                             }
                         });
                         editProfileBtn.textContent = 'Edit Profile';
-                        editProfileBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        editProfileBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
                         editProfileBtn.classList.add('bg-purple-500', 'hover:bg-purple-600');
                         backBtn.classList.add('hidden');
                         isEditing = false;
@@ -192,6 +226,36 @@
 
                 backBtn.addEventListener('click', function() {
                     window.location.href = "editProfile.html";
+                });
+
+                document.getElementById('editImage').addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    const fileType = file.type;
+
+                    if (fileType !== 'image/jpeg' && fileType !== 'image/jpg') {
+                        fileTypeWarning.classList.remove('hidden');
+                        imageWarning.classList.add('hidden');
+                    } else {
+                        const img = new Image();
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            img.src = e.target.result;
+                        };
+
+                        img.onload = function() {
+                            if (img.width !== img.height) {
+                                imageWarning.classList.remove('hidden');
+                                fileTypeWarning.classList.add('hidden');
+                            } else {
+                                document.getElementById('profileCardImage').src = img.src;
+                                imageWarning.classList.add('hidden');
+                                fileTypeWarning.classList.add('hidden');
+                            }
+                        };
+
+                        reader.readAsDataURL(file);
+                    }
                 });
             });
         </script>
