@@ -104,9 +104,9 @@
                             <div id="event_name_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                         <div class="w-full md:w-1/2">
-                            <input type="text" name="date" id="appointmentDate" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="text" name="date" id="achivement_date" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Date of Birth" required />
-                            <div id="appointmentDate_error" class="text-red-500 text-sm mt-1"></div>
+                            <div id="achivement_date_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                     </div>
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
@@ -335,16 +335,16 @@ function validateForm() {
 
     let isValid = true;
 
-    const eventName = document.getElementById('event_name_edit').value;
-    if (!eventName) {
+    const achivement_name = document.getElementById('event_name_edit').value;
+    if (!achivement_name) {
         document.getElementById('event_name_error').textContent = 'Please enter the achievement name.';
         isValid = false;
     }
     
 
-    const appointmentDate = document.getElementById('appointmentDate').value;
-    if (!appointmentDate) {
-        document.getElementById('appointmentDate_error').textContent = 'Please enter the achievement date.';
+    const achivement_date = document.getElementById('achivement_date').value;
+    if (!achivement_date) {
+        document.getElementById('achivement_date_error').textContent = 'Please enter the achievement date.';
         isValid = false;
     }
 
@@ -422,8 +422,8 @@ function validateForm() {
 }
 function addEvent() {
     if (validateForm()) {
-        const eventName = document.getElementById('event_name_edit').value;
-        const appointmentDate = document.getElementById('appointmentDate').value;
+        const achivement_name = document.getElementById('event_name_edit').value;
+        const achivement_date = document.getElementById('achivement_date').value;
         const sports = document.getElementById('sports').value;
         const participation = document.getElementById('participation').value;
         const eventDescription = document.getElementById('event_description_edit').value;
@@ -462,16 +462,19 @@ function addEvent() {
         console.log(`Uploaded PDF : ${pdfName}`);
         }
 
-        console.log(`Achievement Name: ${eventName}`);
-        console.log(`Achievement Date: ${appointmentDate}`);
+        console.log(`Achievement Name: ${achivement_name}`);
+        console.log(`Achievement Date: ${achivement_date}`);
         console.log(`Sports: ${sports}`);
         console.log(`Participation roll number: ${participationData}`);
         console.log(`Achievement Description: ${eventDescription}`);
 
     }
 }
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    flatpickr("#appointmentDate", {
+    flatpickr("#achivement_date", {
         dateFormat: "Y-m-d",
         altInput: true,
         altFormat: "F j, Y"
