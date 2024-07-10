@@ -236,7 +236,7 @@
                             <td style="width: 50%; text-align: right;">
                                 <div class="relative inline-block text-left">
                                     <div>
-                                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true"  onclick="toggleDropdown()">
+                                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true" w onclick="toggleDropdown()">
                                             Select y
                                             <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
@@ -285,72 +285,75 @@
 
 
 
-        <div class="flex flex-wrap justify-center p-4">
-            <!-- Card 1 -->
-            <div class="card flex flex-col justify-center w-1/4 p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-                <div class="position-badge" id="votewinner">
-                    <i class="bi bi-trophy-fill" style="color: rgb(176, 30, 229); font-size: x-large;"></i>
-                </div>
-                <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
-                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
-                    <div class="my-2 space-y-1">
-                        <h2 class="text-xl font-semibold sm:text-2xl">Leroy Jenkins</h2>
-                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
-                    </div>
-                    <div class="text-center">
-                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="card flex flex-col justify-center w-1/4 p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-                <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
-                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
-                    <div class="my-2 space-y-1">
-                        <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
-                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
-                    </div>
-                    <div class="text-center flex justify-between items-center pt-4" id="votechange">
-                        <div class="flex items-center space-x-2">
-                            <i class="heart fas fa-heart text-purple-700"></i>
-                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
+                        <div class="flex flex-wrap justify-center p-4">
+                            <!-- Card 1 -->
+                            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                                <div class="position-badge" id="votewinner">
+                                    <i class="bi bi-trophy-fill" style="color: rgb(176, 30, 229); font-size: x-large;"></i>
+                                </div>
+                                <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                                    <div class="my-2 space-y-1">
+                                        <h2 class="text-xl font-semibold sm:text-2xl">Leroy Jenkins</h2>
+                                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+
+                                <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                                    <div class="my-2 space-y-1">
+                                        <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
+                                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                                    </div>
+
+                                    <div class="text-center flex justify-between items-center pt-4" id="votechange">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="heart fas fa-heart text-purple-700"></i>
+                                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
+                                        </div>
+                                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+
+                                <img src="https://pbs.twimg.com/profile_images/1299516989657014272/gRhHG0kk_400x400.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                                    <div class="my-2 space-y-1">
+                                        <h2 class="text-xl font-semibold sm:text-2xl">Jane Smith</h2>
+                                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="rounded-lg bg-purple-300 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 disabled:opacity-50 cursor-not-allowed transition-all transform hover:scale-105 disabled:text-red-600">Vote</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                                <img src="https://pbs.twimg.com/profile_images/1299516989657014272/gRhHG0kk_400x400.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                                    <div class="my-2 space-y-1">
+                                        <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
+                                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
+                                    </div>
+
+                                    <div class="text-center flex justify-between items-center pt-4" id="votechange">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="heart fas fa-heart text-purple-700"></i>
+                                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
+                                        </div>
+                                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="card flex flex-col justify-center w-1/4 p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-                <img src="https://pbs.twimg.com/profile_images/1299516989657014272/gRhHG0kk_400x400.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
-                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
-                    <div class="my-2 space-y-1">
-                        <h2 class="text-xl font-semibold sm:text-2xl">Jane Smith</h2>
-                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
-                    </div>
-                    <div class="text-center">
-                        <button class="rounded-lg bg-purple-300 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 disabled:opacity-50 cursor-not-allowed transition-all transform hover:scale-105 disabled:text-red-600">Vote</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="card flex flex-col justify-center w-1/4 p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-                <img src="https://pbs.twimg.com/profile_images/1299516989657014272/gRhHG0kk_400x400.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
-                <div class="space-y-4 text-center divide-y dark:divide-gray-300">
-                    <div class="my-2 space-y-1">
-                        <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
-                        <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
-                    </div>
-                    <div class="text-center flex justify-between items-center pt-4" id="votechange">
-                        <div class="flex items-center space-x-2">
-                            <i class="heart fas fa-heart text-purple-700"></i>
-                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
-                        </div>
-                        <button onclick="console.log('hi')" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105">Vote</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
 
 
                     </div>
