@@ -145,6 +145,7 @@
 
             <script>
            function showFields() {
+            
     const dynamicFields = document.getElementById('dynamicFields');
     dynamicFields.innerHTML = ''; // Clear previous fields
     const participationType = document.getElementById('participation').value;
@@ -177,12 +178,22 @@
                 </div>
             </div>
            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+  <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
     <div class="w-full md:w-1/2">
         <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
         <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
         <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
     </div>
+    <div class="w-full md:w-1/2">
+        <label for="uploadcertificate" class="block font-semibold text-gray-700">Upload Certificate</label>
+        <input type="file" id="uploadcertificate" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validatepdf()" required>
+        <div id="uploadcertificateError" class="text-red-500 text-sm mt-1"></div>
+    </div>
 </div>
+
+    
+</div>
+
         `;
     }
 }
@@ -231,61 +242,105 @@ function generateTeamFields() {
 
     // Add the file upload field for team photo
     teamMembers.innerHTML += `
-        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+       <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
     <div class="w-full md:w-1/2">
         <label for="uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
         <input type="file" id="uploadPhoto" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validateImage()" required>
         <div id="uploadPhotoError" class="text-red-500 text-sm mt-1"></div>
     </div>
+    <div class="w-full md:w-1/2">
+        <label for="uploadcertificate" class="block font-semibold text-gray-700">Upload Certificate</label>
+        <input type="file" id="uploadcertificate" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" onchange="validatepdf()" required>
+        <div id="uploadcertificateError" class="text-red-500 text-sm mt-1"></div>
+    </div>
 </div>
+
     `;
+}
+
+
+
+function validateForm() {
+    let isValid = true;
+
+    // Validate individual name if it's an individual participation
+    const participationType = document.getElementById('participation').value;
+    if (participationType === '0') {
+        const indivName = document.getElementById('indiv_name').value;
+        const indivNameError = document.getElementById('indiv_name_error');
+
+        if (indivName.trim() === '') {
+            indivNameError.textContent = 'Name is required';
+            isValid = false;
+        } else {
+            indivNameError.textContent = '';
+        }
+    }
+
+    // Additional validations (e.g., file validations) can be added here
+
+    return isValid;
+}
+
+function validatepdf() {
+    const fileInput = document.getElementById('uploadcertificate');
+    const errorDiv = document.getElementById('uploadcertificateError');
+    const file = fileInput.files[0];
+
+    if (!file) {
+        errorDiv.textContent = 'Please upload a certificate';
+        return false;
+    }
+
+    const fileType = file.type;
+    const fileSize = file.size;
+
+    if (fileType !== 'application/pdf') {
+        errorDiv.textContent = 'Only PDF files are allowed';
+        fileInput.value = ''; // Clear the input
+        return false;
+    }
+
+    // if (fileSize > 5 * 1024 * 1024) { // 5MB
+    //     errorDiv.textContent = 'File size should not exceed 5MB';
+    //     fileInput.value = ''; // Clear the input
+    //     return false;
+    // }
+
+    errorDiv.textContent = ''; // Clear error message if any
+    return true;
 }
 
 function validateImage() {
     const fileInput = document.getElementById('uploadPhoto');
     const errorDiv = document.getElementById('uploadPhotoError');
     const file = fileInput.files[0];
-    const img = new Image();
-    const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
-
-    // Clear any previous error messages
-    errorDiv.textContent = '';
 
     if (!file) {
-        errorDiv.textContent = 'Please upload a photo.';
+        errorDiv.textContent = 'Please upload a photo';
         return false;
     }
 
-    const filePath = fileInput.value;
+    const fileType = file.type;
+    const fileSize = file.size;
+    const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
-    // Check file extension
-    if (!allowedExtensions.exec(filePath)) {
-        errorDiv.textContent = 'Please upload a file with .jpeg/.jpg/.png extension only.';
+    if (!validTypes.includes(fileType)) {
+        errorDiv.textContent = 'Only JPEG, PNG, and JPG files are allowed';
         fileInput.value = ''; // Clear the input
         return false;
     }
 
-    const reader = new FileReader();
+    // if (fileSize > 2 * 1024 * 1024) { // 2MB
+    //     errorDiv.textContent = 'File size should not exceed 2MB';
+    //     fileInput.value = ''; // Clear the input
+    //     return false;
+    // }
 
-    reader.onload = function (e) {
-        img.src = e.target.result;
-        img.onload = function () {
-            const width = img.width;
-            const height = img.height;
-
-            if (width / height !== 2 && height / width !== 2) {
-                errorDiv.textContent = 'Image dimensions must be in a 2:1 ratio.';
-                fileInput.value = ''; // Clear the input
-                return false;
-            }
-            errorDiv.textContent = ''; // Clear any existing error message
-            return true;
-        };
-    };
-
-    reader.readAsDataURL(file);
+    errorDiv.textContent = ''; // Clear error message if any
     return true;
 }
+
 function validateForm() {
     // Clear all previous error messages
     document.querySelectorAll('.text-red-500').forEach(el => el.textContent = '');
@@ -297,6 +352,7 @@ function validateForm() {
         document.getElementById('event_name_error').textContent = 'Please enter the achievement name.';
         isValid = false;
     }
+    
 
     const appointmentDate = document.getElementById('appointmentDate').value;
     if (!appointmentDate) {
