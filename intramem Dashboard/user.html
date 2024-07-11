@@ -7,6 +7,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/style.css">
     <title>Aagneya</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+   
 </head>
 
 <body>
@@ -272,9 +276,14 @@
                                 <div class="flex justify-end p-4">
                                     <div class="relative inline-block text-left dropdown">
                                         <div class="flex space-x-2">
-                                            <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                            <button id="dropdownButton" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                Menu
+                                            <div class="relative">
+                                                <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                    <i class="bi bi-search text-gray-400"></i>
+                                                </div>
+                                            </div>
+                                            <button id="dropdownButton" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                                Menu <i class="bi bi-chevron-down ml-2"></i>
                                             </button>
                                         </div>
                                         <div id="dropdownContent" class="dropdown-content">
@@ -515,7 +524,7 @@
                                         text-decoration: none;
                                         display: block;
                                     }
-                                    .dropdown-content1 a:hover {
+                                    .dropdown-content a:hover {
                                         background-color: #f1f1f1;
                                     }
                                 </style>
@@ -524,12 +533,17 @@
                             <div class="flex justify-end p-4">
                                 <div class="relative inline-block text-left dropdown">
                                     <div class="flex space-x-2">
-                                        <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                        <button id="dropdownButton1" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                            Menu
+                                        <div class="relative">
+                                            <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <i class="bi bi-search text-gray-400"></i>
+                                            </div>
+                                        </div>
+                                        <button id="dropdownButton1" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                            Menu <i class="bi bi-chevron-down ml-2"></i>
                                         </button>
                                     </div>
-                                    <div id="dropdownContent1" class="dropdown-content1">
+                                    <div id="dropdownContent1" class="dropdown-content">
                                         <a href="#">Option 1</a>
                                         <a href="#">Option 2</a>
                                         <a href="#">Option 3</a>
