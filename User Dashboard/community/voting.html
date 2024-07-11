@@ -52,7 +52,7 @@
             <form action="#">
                 <div class="form-input">
                     <!-- <input type="search" placeholder="Search..."> -->
-                    <button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button>
+                    <button style="background-color: transparent; color: #1976d2; width: fit-content;">Hi , <span id="name"> Name</span></button>
                 </div>
             </form>
             <input type="checkbox" id="theme-toggle" hidden>
@@ -93,60 +93,15 @@
 
                 <br>
 
-                <div class="flex justify-center items-center " id="useraddeddone" style="display: none;">
-                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
-                        <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
-                            <div class="flex gap-2">
-                                <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
-                            </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white">done successfully :)</p>
-                                    <p class="text-gray-500">User added</p>
-                                </div>
-                            </div>
-                            <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                          </svg>
-                        </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center items-center " id="userfail" style="display: none;">
-                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
-                        <div class="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
-                            <div class="flex gap-2">
-                                <div class="text-[#d65563] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"></path>
-                            </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white">Please try again</p>
-                                    <p class="text-gray-500" id="errormsg">This is the description part</p>
-                                </div>
-                            </div>
-                            <button class="text-gray-600 hover:bg-white/10 p-1 rounded-md transition-colors ease-linear">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                          </svg>
-                        </button>
-                        </div>
-                    </div>
-                </div>
 
 
-                <form onsubmit="addUser(); return false;">
+                <form id="registersubmit" onsubmit="submitForm(event)">
                     <!-- Prevents default form submission -->
-                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add User Details</div>
+                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Election Registration</div>
                     <div class="p-4 md:p-8">
                         <div class="flex flex-col md:flex-row gap-4">
-                            <input type="text" name="roll_no" id="roll_no" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                placeholder="Roll_no *" required>
+                            <input type="text" name="roll_no" id="roll_no_dis" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="Roll_no " readonly>
 
                             <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 required>
@@ -156,29 +111,23 @@
                         </div>
 
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select name="category" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <select name="category" id="year" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 required>
-                                <option value="" disabled selected>Select Sport</option>
-                                <!-- Options will be dynamically added here -->
-                            </select>
+                            <option value="" disabled selected>Select year</option>
+                            <!-- Ensure values are set in options -->
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <!-- Additional options can be dynamically added here -->
+                        </select>
 
-                            <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                required>
-                                <option value="" disabled selected>Select Gender</option>
-                                <option value="Boys">Boys</option>
-                                <option value="Girls">Girls</option>
-                            </select>
                         </div>
 
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select id="event_year_dropdown" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                required>
-                            <!-- Options will be added dynamically using JavaScript -->
-                        </select>
+
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add User</button>
+                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Register</button>
                         </div>
                     </div>
                 </form>
@@ -273,3 +222,148 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+
+
+<script>
+    let roll_no;
+    let name;
+    let token;
+
+    async function decodeToken() {
+        try {
+            token = localStorage.getItem('token');
+            console.log('Token from localStorage:', token);
+
+            if (!token) {
+                console.error('Token not found in local storage');
+                window.location.href = '../login/login.html';
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/api/decodeToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Decoded token data:', data);
+
+                // Example of handling the decoded data
+                roll_no = data.roll_no;
+                name = data.name;
+
+                if (data.is_active === 1) {
+                    if (data.role_id != 0) {
+                        console.log("Hello admin");
+
+                        // Example of updating UI with user's name
+                        const nameElement = document.getElementById('name');
+                        nameElement.textContent = name;
+
+                        const roleElement = document.getElementById('roll_no_dis');
+                        roleElement.value = roll_no;
+
+                        getrole();
+
+
+                    } else {
+                        window.location.href = '../../Admin Dashboard/dashboard.html';
+                    }
+                } else {
+                    console.error('User is not active');
+                    window.location.href = '../login/login.html';
+
+                }
+
+            } else {
+                console.error('Failed to decode token:', response.statusText);
+                // window.location.href = '../login/login.html';
+            }
+        } catch (error) {
+            console.error('Error in decodeToken:', error.message);
+            window.location.href = '../login/login.html';
+
+        }
+    }
+
+    async function getrole() {
+        try {
+            const response = await fetch('http://localhost:3000/api/displayroles', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch roles');
+            }
+
+            const data = await response.json();
+            console.log('Roles data:', data.roles);
+
+            const populateRoles = (selectElement) => {
+                // Clear existing options
+                selectElement.innerHTML = '<option value="" disabled selected>Select Role</option>';
+
+                // Filter roles based on role_id
+                const filteredRoles = data.roles.filter(role => ![0, 5, 6].includes(role.role_id));
+
+                // Add options based on filtered data
+                filteredRoles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.role_id; // Assign the role_id as the option value
+                    option.textContent = role.role_name; // Assign the role_name as the option text
+                    selectElement.appendChild(option);
+                });
+            };
+
+
+
+            // Select elements to populate
+            const rolesSelect = document.getElementById('roles');
+
+
+            // Populate roles in both select elements
+            populateRoles(rolesSelect);
+
+
+        } catch (error) {
+            console.error('Error fetching roles:', error);
+            throw error;
+        }
+    }
+
+
+    window.onload = function() {
+        decodeToken();
+    };
+</script>
+
+<script>
+    // Function to handle form submission
+    function submitForm(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get values from the form
+        const roll_no = document.getElementById('roll_no_dis').value;
+        const spl_role = document.getElementById('roles').value;
+        const year = document.getElementById('year').value;
+
+
+        // Display data in console
+        console.log('Roll Number:', roll_no);
+        console.log('Special Role:', spl_role);
+        console.log('year:', year);
+
+        // Additional logic or API calls can be added here
+    }
+</script>
