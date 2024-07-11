@@ -211,39 +211,86 @@
 
 
             <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
+                <style>
+                    /* Add custom animations and styles here */
+                    .fade-in {
+                        animation: fadeIn 1s ease-in-out;
+                    }
+                    @keyframes fadeIn {
+                        from {
+                            opacity: 0;
+                        }
+                        to {
+                            opacity: 1;
+                        }
+                    }
+            
+                    .dropdown-menu {
+                        display: none;
+                    }
+            
+                    .dropdown-menu.show {
+                        display: block;
+                        animation: slideDown 0.5s ease-in-out;
+                    }
+            
+                    @keyframes slideDown {
+                        from {
+                            opacity: 0;
+                            transform: translateY(-10px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+            
+                    .toggle-btn.active {
+                        color: white;
+                    }
+            
+                    .card {
+                        transition: transform 0.3s, box-shadow 0.3s;
+                    }
+            
+                    .card:hover {
+                        transform: translateY(-10px);
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                    }
+                </style>
+        
                 <section class="container px-4 mx-auto">
-                    <div class="sm:flex sm:items-center sm:justify-between">
-                    </div>
-
+                    <div class="sm:flex sm:items-center sm:justify-between"></div>
+            
                     <!-- Buttons for toggling sections -->
-                    <table style="width: 100%;">
+                    <table class="w-full">
                         <tr>
-                            <td style="width: 50%;">
+                            <td class="w-1/2">
                                 <div class="mt-6 md:flex md:items-center md:justify-start">
                                     <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
-                                        <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 ">
+                                        <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 active">
                                             Boys
                                         </button>
                                         <button id="monitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
                                             Girls
                                         </button>
-                                          <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                        <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
                                             Unmonitored
                                         </button>
                                     </div>
                                 </div>
                             </td>
-                            <td style="width: 50%; text-align: right;">
+                            <td class="w-1/2 text-right relative">
                                 <div class="relative inline-block text-left">
                                     <div>
-                                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true" w onclick="toggleDropdown()">
-                                            Select y
+                                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true" onclick="toggleDropdown()">
+                                            Select Year
                                             <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                             </svg>
                                         </button>
                                     </div>
-                                    <div class="dropdown-menu absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                    <div class="dropdown-menu absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                                         <div class="py-1" role="none">
                                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">01</a>
                                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-1">02</a>
@@ -257,15 +304,19 @@
                             </td>
                         </tr>
                     </table>
-                  
-
+                    
+                    <script>
+                    function toggleDropdown() {
+                        document.querySelector('.dropdown-menu').classList.toggle('hidden');
+                    }
+                    </script>
+                    
+            
                     <!-- Sections to toggle visibility -->
                     <div id="viewAllSection" class="flex flex-col mt-6">
 
-
                         <!-- info to backend -->
-
-
+            
                         <!-- flex justify-between items-center pt-4  - after vote
                         text-center   - init -->
                         <!-- id name of div votechange -->
@@ -273,23 +324,17 @@
                             <i class="heart fas fa-heart text-purple-700"></i>
                             <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
                         </div> -->
-
-
-
+            
                         <!-- id votewinner -->
                         <!-- <div class="position-badge" id="votewinner">
-            <i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i>
-        </div> -->
-
-
-
-
-
-                        <div class="flex flex-wrap justify-center p-4">
+                            <i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i>
+                        </div> -->
+            
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
                             <!-- Card 1 -->
                             <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
                                 <div class="position-badge" id="votewinner">
-                                    <i class="bi bi-trophy-fill" style="color: rgb(176, 30, 229); font-size: x-large;"></i>
+                                    <i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i>
                                 </div>
                                 <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
                                 <div class="space-y-4 text-center divide-y dark:divide-gray-300">
@@ -304,14 +349,12 @@
                             </div>
                             <!-- Card 2 -->
                             <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-
                                 <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
                                 <div class="space-y-4 text-center divide-y dark:divide-gray-300">
                                     <div class="my-2 space-y-1">
                                         <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
                                         <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
                                     </div>
-
                                     <div class="text-center flex justify-between items-center pt-4" id="votechange">
                                         <div class="flex items-center space-x-2 pt-4">
                                             <i class="heart fas fa-heart text-purple-700"></i>
@@ -323,7 +366,6 @@
                             </div>
                             <!-- Card 3 -->
                             <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-
                                 <img src="https://pbs.twimg.com/profile_images/1299516989657014272/gRhHG0kk_400x400.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
                                 <div class="space-y-4 text-center divide-y dark:divide-gray-300">
                                     <div class="my-2 space-y-1">
@@ -343,7 +385,6 @@
                                         <h2 class="text-xl font-semibold sm:text-2xl">John Doe</h2>
                                         <p class="px-5 text-xs sm:text-base dark:text-gray-600">CB.EN.U4CSE21313</p>
                                     </div>
-
                                     <div class="text-center flex justify-between items-center pt-4" id="votechange">
                                         <div class="flex items-center space-x-2">
                                             <i class="heart fas fa-heart text-purple-700"></i>
@@ -354,30 +395,58 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-
-
-                    <div id="monitoredSection" class="flex flex-col mt-6 hidden">
+                    <div id="monitoredSection" class="flex flex-col mt-6 hidden fade-in">
                         <p>Monitored section content goes here.</p>
                         <h1>hello</h1>
-
-
                     </div>
-
-
-
-                    <div id="unmonitoredSection" class="flex flex-col mt-6 hidden">
-
-
-
-
+            
+                    <div id="unmonitoredSection" class="flex flex-col mt-6 hidden fade-in">
                         <p>Unmonitored section content goes here.</p>
                     </div>
-
-
                 </section>
+            
+                <script>
+                    const viewAllSectionBtn = document.getElementById('viewAllSectionBtn');
+                    const monitoredSectionBtn = document.getElementById('monitoredSectionBtn');
+                    const unmonitoredSectionBtn = document.getElementById('unmonitoredSectionBtn');
+                    const viewAllSection = document.getElementById('viewAllSection');
+                    const monitoredSection = document.getElementById('monitoredSection');
+                    const unmonitoredSection = document.getElementById('unmonitoredSection');
+                    const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+                    function toggleDropdown() {
+                        dropdownMenu.classList.toggle('show');
+                    }
+            
+                    viewAllSectionBtn.addEventListener('click', () => {
+                        viewAllSection.classList.remove('hidden');
+                        monitoredSection.classList.add('hidden');
+                        unmonitoredSection.classList.add('hidden');
+                        viewAllSectionBtn.classList.add('active');
+                        monitoredSectionBtn.classList.remove('active');
+                        unmonitoredSectionBtn.classList.remove('active');
+                    });
+            
+                    monitoredSectionBtn.addEventListener('click', () => {
+                        viewAllSection.classList.add('hidden');
+                        monitoredSection.classList.remove('hidden');
+                        unmonitoredSection.classList.add('hidden');
+                        viewAllSectionBtn.classList.remove('active');
+                        monitoredSectionBtn.classList.add('active');
+                        unmonitoredSectionBtn.classList.remove('active');
+                    });
+            
+                    unmonitoredSectionBtn.addEventListener('click', () => {
+                        viewAllSection.classList.add('hidden');
+                        monitoredSection.classList.add('hidden');
+                        unmonitoredSection.classList.remove('hidden');
+                        viewAllSectionBtn.classList.remove('active');
+                        monitoredSectionBtn.classList.remove('active');
+                        unmonitoredSectionBtn.classList.add('active');
+                    });
+                </script>
+            
 
 
 
