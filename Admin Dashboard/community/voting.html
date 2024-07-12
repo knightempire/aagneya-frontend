@@ -162,127 +162,129 @@
                         <br>
             
                         <style>
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 80px; /* Increased width to accommodate labels */
-  height: 34px;
-}
-
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: background-color 0.4s;
-  border-radius: 34px; /* Makes slider round */
-  display: flex;
-  justify-content: space-between; /* Ensures labels are spaced correctly */
-  align-items: center; /* Centers labels vertically */
-  padding: 0 10px; /* Adds padding to space labels from the edges */
-  font-family: 'Poppins', sans-serif;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: transform 0.4s;
-  border-radius: 50%; /* Makes knob round */
-  font-family: 'Poppins', sans-serif;
-}
-
-input:checked + .slider {
-  background-color: #2196F3; /* Blue background when checked */
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3; /* Blue shadow when focused */
-}
-
-input:checked + .slider:before {
-  transform: translateX(46px); /* Moves knob to the right (adjusted for larger width) */
-}
-
-.on-label {
-  z-index: 1; /* Ensure ON label is above slider */
-}
-
-.off-label {
-  position: absolute;
-  top: 50%;
-  right: 10px; /* Adjust right position as needed */
-  transform: translateY(-50%);
-  display: none; /* Hide OFF label by default */
-}
-</style>
-</head>
-<body>
-
-<div id="conditional-fields" class="conditional-field">
-  <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-    <label for="publish-toggle">Reister</label>
-    <label class="switch">
-      <input type="checkbox" checked onchange="toggleSwitch(this)">
-      <span class="slider">
-        <span class="on-label">ON</span>
-        <span class="off-label">OFF</span>
-      </span>
-    </label>
-    <br>
-   
-    <label for="publish-toggle">Vote</label>
-    <label class="switch">
-      <input type="checkbox" checked onchange="toggleSwitch(this)">
-      <span class="slider">
-        <span class="on-label">ON</span>
-        <span class="off-label">OFF</span>
-      </span>
-    </label>
-    <br>
-    <br>
-    <label for="publish-toggle">Publish</label>
-    <label class="switch">
-      <input type="checkbox" checked onchange="toggleSwitch(this)">
-      <span class="slider">
-        <span class="on-label">ON</span>
-        <span class="off-label">OFF</span>
-      </span>
-    </label
-   </div>
-  
-</div>
-
-<script>
-function toggleSwitch(element) {
-  const slider = element.nextElementSibling;
-  const onLabel = slider.querySelector('.on-label');
-  const offLabel = slider.querySelector('.off-label');
-
-  if (element.checked) {
-    onLabel.style.display = 'inline'; // Show ON label
-    offLabel.style.display = 'none'; // Hide OFF label
-    console.log("Status: 1 (ON)");
-  } else {
-    onLabel.style.display = 'none'; // Hide ON label
-    offLabel.style.display = 'inline'; // Show OFF label
-    console.log("Status: 0 (OFF)");
-  }
-}
-</script>
+                            .switch {
+                              position: relative;
+                              display: inline-block;
+                              width: 80px; /* Increased width to accommodate labels */
+                              height: 34px;
+                            }
+                            
+                            .switch input { 
+                              opacity: 0;
+                              width: 0;
+                              height: 0;
+                            }
+                            
+                            .slider {
+                              position: absolute;
+                              cursor: pointer;
+                              top: 0;
+                              left: 0;
+                              right: 0;
+                              bottom: 0;
+                              background-color: #ccc;
+                              transition: background-color 0.4s;
+                              border-radius: 34px; /* Makes slider round */
+                              display: flex;
+                              justify-content: space-between; /* Ensures labels are spaced correctly */
+                              align-items: center; /* Centers labels vertically */
+                              padding: 0 10px; /* Adds padding to space labels from the edges */
+                              font-family: 'Poppins', sans-serif;
+                            }
+                            
+                            .slider:before {
+                              position: absolute;
+                              content: "";
+                              height: 26px;
+                              width: 26px;
+                              left: 4px;
+                              bottom: 4px;
+                              background-color: white;
+                              transition: transform 0.4s;
+                              border-radius: 50%; /* Makes knob round */
+                              font-family: 'Poppins', sans-serif;
+                            }
+                            
+                            input:checked + .slider {
+                              background-color: #2196F3; /* Blue background when checked */
+                            }
+                            
+                            input:focus + .slider {
+                              box-shadow: 0 0 1px #2196F3; /* Blue shadow when focused */
+                            }
+                            
+                            input:checked + .slider:before {
+                              transform: translateX(46px); /* Moves knob to the right (adjusted for larger width) */
+                            }
+                            
+                            .on-label {
+                              z-index: 1; /* Ensure ON label is above slider */
+                            }
+                            
+                            .off-label {
+                              position: absolute;
+                              top: 50%;
+                              right: 10px; /* Adjust right position as needed */
+                              transform: translateY(-50%);
+                              display: none; /* Hide OFF label by default */
+                            }
+                            </style>
+                            </head>
+                            <body>
+                            
+                            <div id="conditional-fields" class="conditional-field">
+                              <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                <div class="flex flex-col items-center">
+                                  <label for="register-toggle">Register</label>
+                                  <label class="switch">
+                                    <input id="register-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
+                                    <span class="slider">
+                                      <span class="on-label">ON</span>
+                                      <span class="off-label">OFF</span>
+                                    </span>
+                                  </label>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                  <label for="vote-toggle">Vote</label>
+                                  <label class="switch">
+                                    <input id="vote-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
+                                    <span class="slider">
+                                      <span class="on-label">ON</span>
+                                      <span class="off-label">OFF</span>
+                                    </span>
+                                  </label>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                  <label for="publish-toggle">Publish</label>
+                                  <label class="switch">
+                                    <input id="publish-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
+                                    <span class="slider">
+                                      <span class="on-label">ON</span>
+                                      <span class="off-label">OFF</span>
+                                    </span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <script>
+                            function toggleSwitch(element) {
+                              const slider = element.nextElementSibling;
+                              const onLabel = slider.querySelector('.on-label');
+                              const offLabel = slider.querySelector('.off-label');
+                            
+                              if (element.checked) {
+                                onLabel.style.display = 'inline'; // Show ON label
+                                offLabel.style.display = 'none'; // Hide OFF label
+                                console.log("Status: 1 (ON)");
+                              } else {
+                                onLabel.style.display = 'none'; // Hide ON label
+                                offLabel.style.display = 'inline'; // Show OFF label
+                                console.log("Status: 0 (OFF)");
+                              }
+                            }
+                            </script>
+                            
 
                         </div>
          
