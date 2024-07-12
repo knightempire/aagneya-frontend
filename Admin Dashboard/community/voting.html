@@ -159,136 +159,29 @@
                             </select>
                         </div>
             
-                        <br>
-            
-                        <style>
-                            .switch {
-                              position: relative;
-                              display: inline-block;
-                              width: 80px; /* Increased width to accommodate labels */
-                              height: 34px;
-                            }
-                            
-                            .switch input { 
-                              opacity: 0;
-                              width: 0;
-                              height: 0;
-                            }
-                            
-                            .slider {
-                              position: absolute;
-                              cursor: pointer;
-                              top: 0;
-                              left: 0;
-                              right: 0;
-                              bottom: 0;
-                              background-color: #ccc;
-                              transition: background-color 0.4s;
-                              border-radius: 34px; /* Makes slider round */
-                              display: flex;
-                              justify-content: space-between; /* Ensures labels are spaced correctly */
-                              align-items: center; /* Centers labels vertically */
-                              padding: 0 10px; /* Adds padding to space labels from the edges */
-                              font-family: 'Poppins', sans-serif;
-                            }
-                            
-                            .slider:before {
-                              position: absolute;
-                              content: "";
-                              height: 26px;
-                              width: 26px;
-                              left: 4px;
-                              bottom: 4px;
-                              background-color: white;
-                              transition: transform 0.4s;
-                              border-radius: 50%; /* Makes knob round */
-                              font-family: 'Poppins', sans-serif;
-                            }
-                            
-                            input:checked + .slider {
-                              background-color: #2196F3; /* Blue background when checked */
-                            }
-                            
-                            input:focus + .slider {
-                              box-shadow: 0 0 1px #2196F3; /* Blue shadow when focused */
-                            }
-                            
-                            input:checked + .slider:before {
-                              transform: translateX(46px); /* Moves knob to the right (adjusted for larger width) */
-                            }
-                            
-                            .on-label {
-                              z-index: 1; /* Ensure ON label is above slider */
-                            }
-                            
-                            .off-label {
-                              position: absolute;
-                              top: 50%;
-                              right: 10px; /* Adjust right position as needed */
-                              transform: translateY(-50%);
-                              display: none; /* Hide OFF label by default */
-                            }
-                            </style>
-                            </head>
-                            <body>
-                            
-                            <div id="conditional-fields" class="conditional-field">
-                              <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                <div class="flex flex-col items-center">
-                                  <label for="register-toggle">Register</label>
-                                  <label class="switch">
-                                    <input id="register-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
-                                    <span class="slider">
-                                      <span class="on-label">ON</span>
-                                      <span class="off-label">OFF</span>
-                                    </span>
-                                  </label>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                  <label for="vote-toggle">Vote</label>
-                                  <label class="switch">
-                                    <input id="vote-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
-                                    <span class="slider">
-                                      <span class="on-label">ON</span>
-                                      <span class="off-label">OFF</span>
-                                    </span>
-                                  </label>
-                                </div>
-                                <div class="flex flex-col items-center">
-                                  <label for="publish-toggle">Publish</label>
-                                  <label class="switch">
-                                    <input id="publish-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
-                                    <span class="slider">
-                                      <span class="on-label">ON</span>
-                                      <span class="off-label">OFF</span>
-                                    </span>
-                                  </label>
-                                </div>
-                              </div>
+                        <div id="conditional-fields" class="conditional-field">
+                            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <option value="" disabled selected>Select Role</option>
+                                    <!-- Options will be dynamically added here -->
+                                </select>
+                                <select name="category" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <option value="" disabled selected>Select Sport</option>
+                                    <!-- Options will be dynamically added here -->
+                                </select>
                             </div>
-                            
-                            <script>
-                            function toggleSwitch(element) {
-                              const slider = element.nextElementSibling;
-                              const onLabel = slider.querySelector('.on-label');
-                              const offLabel = slider.querySelector('.off-label');
-                            
-                              if (element.checked) {
-                                onLabel.style.display = 'inline'; // Show ON label
-                                offLabel.style.display = 'none'; // Hide OFF label
-                                console.log("Status: 1 (ON)");
-                              } else {
-                                onLabel.style.display = 'none'; // Hide ON label
-                                offLabel.style.display = 'inline'; // Show OFF label
-                                console.log("Status: 0 (OFF)");
-                              }
-                            }
-                            </script>
-                            
-
+            
+                            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Boys">Boys</option>
+                                    <option value="Girls">Girls</option>
+                                </select>
+                                <select id="event_year_dropdown" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <!-- Options will be added dynamically using JavaScript -->
+                                </select>
+                            </div>
                         </div>
-         
-                        <br>
             
                         <div class="text-center">
                             <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Update</button>
