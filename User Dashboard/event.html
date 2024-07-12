@@ -178,6 +178,73 @@
                             <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100"> History </button>
                         </div>
                     </div>
+
+                    <style>
+                        .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            right: 0;
+                            background-color: white;
+                            min-width: 160px;
+                            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                            z-index: 1;
+                            transition: all 0.3s ease;
+                        }
+                        .dropdown-content.show {
+                            display: block;
+                        }
+                        .dropdown-content a {
+                            color: black;
+                            padding: 12px 16px;
+                            text-decoration: none;
+                            display: block;
+                        }
+                        .dropdown-content a:hover {
+                            background-color: #f1f1f1;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="flex justify-end p-4">
+                        <div class="relative inline-block text-left dropdown">
+                            <div class="flex space-x-2">
+                                <div class="relative">
+                                    <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <i class="bi bi-search text-gray-400"></i>
+                                    </div>
+                                </div>
+                                <button id="dropdownButton1" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                    Menu <i class="bi bi-chevron-down ml-2"></i>
+                                </button>
+                            </div>
+                            <div id="dropdownContent" class="dropdown-content">
+                                <a href="#">Option 1</a>
+                                <a href="#">Option 2</a>
+                                <a href="#">Option 3</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <script>
+                        document.getElementById('dropdownButton1').addEventListener('click', function() {
+                            var dropdownContent = document.getElementById('dropdownContent');
+                            dropdownContent.classList.toggle('show');
+                        });
+                
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function(event) {
+                            if (!event.target.matches('#dropdownButton1')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                for (var i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+                    </script>
                     <!-- Sections to toggle visibility -->
                     <div id="viewAllSection" class="flex flex-col mt-6">
 
@@ -1471,10 +1538,10 @@
     }
 
 
-    window.onload = function() {
-        decodeToken();
+    // window.onload = function() {
+    //     decodeToken();
 
-    };
+    // };
 </script>
 
 

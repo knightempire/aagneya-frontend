@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Aagneya</title>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name"><span>Aag</span>neya</div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="event.html"><i class='bx bx-calendar-event'></i>Events</a></li>
+            <li><a href="achivement.html"><i class='bx bx-medal'></i>Achievement</a></li>
+            <li><a href="#"><i class='bx bx-news'></i>Blog</a></li>
+            <li><a href="user.html"><i class='bx bx-group'></i>Users</a></li>
+            <li class="active"><a href="#" class="toggle-submenu" data-target="community"><i class='bx bx-category-alt'></i>Community <i class='bx bx-chevron-down'></i> </a> </li>
+            <ul class="submenu" id="community-submenu">
+                <li><a href="voting.html"><i class='bx bxl-graphql'></i>Stats</a></li>
+                <li><a href="president.html"><i class='bx bx-crown'></i>President</a></li>
+                <li><a href="vicepresident.html"><i class='bx bx-star'></i>Vice President</a></li>
+                <li><a href="secretary.html"><i class='bx bx-notepad'></i>Secretary</a></li>
+                <li><a href="pulicrelation.html"><i class='bx bx-broadcast'></i>Public Relation</a></li>
+            </ul>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
+        </ul>
+
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <!-- <input type="search" placeholder="Search..."> -->
+                    <button style="background-color: transparent; color: #1976d2;">Hi , <span id="name"> Name</span></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <!-- <label for="theme-toggle" class="theme-toggle"></label> -->
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <!-- <a href="#" class="profile">
+                <img src="images/logo.png">
+            </a> -->
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>Dashboard</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                Analytics
+                            </a></li>
+                        /
+                        <li><a href="#" class="active">Shop</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="report">
+                    <i class='bx bxs-add-to-queue'></i>
+                    <span id="changes">Menu</span>
+                    <i class='bx bxs-x-circle' style="display: none;"></i>
+                </a>
+            </div>
+            <br>
+            <!-- code from here -->
+
+            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
+
+                <br>
+
+                <div class="flex justify-center items-center " id="useraddeddone" style="display: none;">
+                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                        <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                            <div class="flex gap-2">
+                                <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                            </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white">done successfully :)</p>
+                                    <p class="text-gray-500">User added</p>
+                                </div>
+                            </div>
+                            <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                          </svg>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center " id="userfail" style="display: none;">
+                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                        <div class="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                            <div class="flex gap-2">
+                                <div class="text-[#d65563] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"></path>
+                            </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white">Please try again</p>
+                                    <p class="text-gray-500" id="errormsg">This is the description part</p>
+                                </div>
+                            </div>
+                            <button class="text-gray-600 hover:bg-white/10 p-1 rounded-md transition-colors ease-linear">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                          </svg>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <form onsubmit="addUser(); return false;">
+                    <style>
+                        /* Initially hide the fields */
+                        .conditional-field {
+                            display: none;
+                        }
+                    </style>
+                    <!-- Prevents default form submission -->
+                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add User Details</div>
+                    <div class="p-4 md:p-8">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <select name="year" id="year" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                <option value="" disabled selected>Year *</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+            
+                        <div id="conditional-fields" class="conditional-field">
+                            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <option value="" disabled selected>Select Role</option>
+                                    <!-- Options will be dynamically added here -->
+                                </select>
+                                <select name="category" id="sports" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <option value="" disabled selected>Select Sport</option>
+                                    <!-- Options will be dynamically added here -->
+                                </select>
+                            </div>
+            
+                            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Boys">Boys</option>
+                                    <option value="Girls">Girls</option>
+                                </select>
+                                <select id="event_year_dropdown" name="event_year_dropdown" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                                    <!-- Options will be added dynamically using JavaScript -->
+                                </select>
+                            </div>
+                            <div class="text-center" >
+                                <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Update</button>
+                            </div>
+                            <div class="text-right">
+                                <button id="reset" class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 px-5 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out" onclick="resetpass()">
+                                    Add year
+                                </button>
+                            </div>
+                        </div>
+            
+                       
+                    </div>
+                </form>
+                <script>
+                    
+                    document.getElementById('year').addEventListener('change', function() {
+                        const conditionalFields = document.getElementById('conditional-fields');
+                        if (this.value) {
+                            conditionalFields.style.display = 'block';
+                        } else {
+                            conditionalFields.style.display = 'none';
+                        }
+                    });
+            
+                    function addUser() {
+                        // Your form submission logic here
+                    }
+            
+                    function resetpass() {
+                        // Your reset logic here
+                    }
+                
+                </script>
+                
+            </div>
+
+
+
+            <br>
+
+
+            <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
+                <section class="container px-4 mx-auto">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                    </div>
+
+                    <!-- Buttons for toggling sections -->
+                    <div class="mt-6 md:flex md:items-center md:justify-between">
+                        <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+                            <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 ">
+                                View all
+                            </button>
+                            <button id="monitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                Monitored
+                            </button>
+                            <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                                Unmonitored
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sections to toggle visibility -->
+                    <div id="viewAllSection" class="flex flex-col mt-6">
+                        <h1>hi</h1>
+
+
+
+                    </div>
+
+
+                    <div id="monitoredSection" class="flex flex-col mt-6 hidden">
+                        <p>Monitored section content goes here.</p>
+                        <h1>hello</h1>
+
+
+                    </div>
+
+
+
+                    <div id="unmonitoredSection" class="flex flex-col mt-6 hidden">
+
+
+
+
+                        <p>Unmonitored section content goes here.</p>
+                    </div>
+
+
+                </section>
+
+
+
+            </div>
+
+
+
+        </main>
+
+    </div>
+
+
+
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
+
+<style>
+    [x-cloak] {
+        display: none
+    }
+</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+
+<script src="//unpkg.com/alpinejs" defer></script>
