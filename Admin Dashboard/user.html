@@ -280,9 +280,7 @@
                                                     <i class="bi bi-search text-gray-400"></i>
                                                 </div>
                                             </div>
-                                            <button id="dropdownButton" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                Menu <i class="bi bi-chevron-down ml-2"></i>
-                                            </button>
+
                                         </div>
                                         <div id="dropdownContent" class="dropdown-content">
                                             <a href="#">Option 1</a>
@@ -474,6 +472,26 @@
                                         </th>
                                     </tr>
                                 </thead>
+                                <div class="flex justify-end p-4">
+                                    <div class="relative inline-block text-left dropdown">
+                                        <div class="flex space-x-2">
+                                            <div class="relative">
+                                                <input type="text" id="searchInputdis" placeholder="Search..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" oninput="filterUsers(this.value)">
+                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                    <i class="bi bi-search text-gray-400"></i>
+                                                </div>
+                                            </div>
+                                            <button id="dropdownButton" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                                Menu <i class="bi bi-chevron-down ml-2"></i>
+                                            </button>
+                                        </div>
+                                        <div id="dropdownContent" class="dropdown-content" id="year_election">
+                                            <a href="#">Option 1</a>
+                                            <a href="#">Option 2</a>
+                                            <a href="#">Option 3</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <tbody class="bg-white divide-y divide-gray-200" id="displayallusers">
 
                                     <tr>
@@ -1080,8 +1098,10 @@
     // Event listener for search input
     document.getElementById('searchInput').addEventListener('input', displaycurrentmem);
 
+    // Function to fetch and display current members
     async function displaycurrentmembers() {
         try {
+            // Fetch data from API endpoint
             const response = await fetch('http://localhost:3000/api/displaymem', {
                 method: 'GET',
                 headers: {
@@ -1090,68 +1110,85 @@
                 }
             });
 
+            // Throw error if fetch failed
             if (!response.ok) {
                 throw new Error('Failed to fetch members');
             }
 
+            // Parse response data
             const data = await response.json();
             console.log('Users data:', data);
 
             // Filter data where role_id != 0 and is_active == 0
             const filteredData = data.filter(user => user.role_id !== 0 && user.is_active === 0);
 
+            // Get table element to display users
             const displayUsers = document.getElementById('displayallusers');
             displayUsers.innerHTML = ''; // Clear existing rows if any
 
-            // Loop through filtered data
-            filteredData.forEach(user => {
-                const row = document.createElement('tr');
-                if (user.spl_role_name == "Admin") {
-                    user.spl_role_name = ""
-                }
-                row.innerHTML = `
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 h-10 w-10">
-                            <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
-                        </div>
-                        <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900" id="name">
-                                ${user.name}
-                            </div>
-                            <div class="text-sm text-gray-500" id="roll_no">
-                                ${user.roll_no}
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
-                        ${user.sport_name}
-                    </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="ml-4">
-                        <div class="text-sm font-medium text-gray-900" id="role_name">
-                            ${user.role_name}
-                        </div>
-                        <div class="text-sm text-gray-500" id="spl_role_name">
-                            ${user.spl_role_name}
-                        </div>
-                    </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
-                    ${user.year}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
-                    ${user.phone || ''}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-    <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="activate('${user.roll_no}')">Activate</a>
-                </td>
-            `;
+            // Function to filter users by name
+            function filterUsers(searchText) {
+                const filteredUsers = filteredData.filter(user =>
+                    user.name.toLowerCase().includes(searchText.toLowerCase())
+                );
 
-                displayUsers.appendChild(row);
+                // Clear existing rows
+                displayUsers.innerHTML = '';
+
+                // Display filtered users
+                filteredUsers.forEach(user => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900" id="name">
+                                    ${user.name}
+                                </div>
+                                <div class="text-sm text-gray-500" id="roll_no">
+                                    ${user.roll_no}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
+                            ${user.sport_name}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900" id="role_name">
+                                ${user.role_name}
+                            </div>
+                            <div class="text-sm text-gray-500" id="spl_role_name">
+                                ${user.spl_role_name}
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
+                        ${user.year}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
+                        ${user.phone || ''}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                        <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="activate('${user.roll_no}')">Activate</a>
+                    </td>
+                `;
+                    displayUsers.appendChild(row);
+                });
+            }
+
+            // Initial display with no search
+            filterUsers('');
+
+            // Function to handle input in the search field
+            document.getElementById('searchInputdis').addEventListener('input', function() {
+                filterUsers(this.value);
             });
 
         } catch (error) {
@@ -1160,6 +1197,34 @@
         }
     }
 
+    // Function to activate a user
+    async function activate(roll_no) {
+        try {
+            // Implement activation logic here
+            // Example fetch request to activate user
+            const response = await fetch(`http://localhost:3000/api/activate/${roll_no}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to activate user');
+            }
+
+            // Handle success response as needed
+            console.log('User activated successfully');
+
+            // Optionally, refresh the displayed members after activation
+            displaycurrentmembers();
+
+        } catch (error) {
+            console.error('Error activating user:', error);
+            throw error;
+        }
+    }
 
 
 
