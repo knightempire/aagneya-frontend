@@ -158,43 +158,61 @@
                                 <option value="2025">2025</option>
                             </select>
                         </div>
-                        <br>
+                        <br><br>
             
                         <div id="conditional-fields" class="conditional-field">
-  <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-    <div class="flex flex-col items-center">
-      <label for="register-toggle">Register</label>
-      <label class="switch">
-        <input id="register-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
-        <span class="slider">
-          <span class="on-label">ON</span>
-          <span class="off-label">OFF</span>
-        </span>
-      </label>
-    </div>
-    <div class="flex flex-col items-center">
-      <label for="vote-toggle">Vote</label>
-      <label class="switch">
-        <input id="vote-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
-        <span class="slider">
-          <span class="on-label">ON</span>
-          <span class="off-label">OFF</span>
-        </span>
-      </label>
-    </div>
-    <div class="flex flex-col items-center">
-      <label for="publish-toggle">Publish</label>
-      <label class="switch">
-        <input id="publish-toggle" type="checkbox" checked onchange="toggleSwitch(this)">
-        <span class="slider">
-          <span class="on-label">ON</span>
-          <span class="off-label">OFF</span>
-        </span>
-      </label>
-    </div>
-  </div>
+                            
+                            <div class="flex flex-col md:flex-row gap-4">
+                                
+                            <div id="contains" id="reg_toggle">
+                                
+                                <div id="contains">
+                                <div class="inner-contains">
+                                    <div class="toggle">
+                                        <p>ON</p>
+                                    </div>
+                                    <div class="toggle">
+                                        <p>OFF</p>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="inner-contains" id='toggle-contains'>
+                                    <div class="toggle">
+                                        <p>ON</p>
+                                    </div>
+                                    <div class="toggle">
+                                        <p>OFF</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div id="contains2" id="vote_toggle">
+                                <div class="inner-contains2">
+                                    <div class="toggle2">
+                                        <p>ON</p>
+                                    </div>
+                                    <div class="toggle2">
+                                        <p>OFF</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="inner-contains2" id='toggle2-contains2'>
+                                    <div class="toggle2">
+                                        <p>ON</p>
+                                    </div>
+                                    <div class="toggle2">
+                                        <p>OFF</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                    
+                            <button id="publish" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Publish</button>
+
 </div>
-            
+                        </div>
+                        <br><br>
                         <div class="text-center">
                             <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Update</button>
                         </div>
@@ -205,26 +223,9 @@
                         </div>
                     </div>
                 </form>
-                <script>
-                    
-                    document.getElementById('year').addEventListener('change', function() {
-                        const conditionalFields = document.getElementById('conditional-fields');
-                        if (this.value) {
-                            conditionalFields.style.display = 'block';
-                        } else {
-                            conditionalFields.style.display = 'none';
-                        }
-                    });
-            
-                    function addUser() {
-                        // Your form submission logic here
-                    }
-            
-                    function resetpass() {
-                        // Your reset logic here
-                    }
+
                 
-                </script>
+
                 
             </div>
 
@@ -398,3 +399,177 @@ input:checked + .slider:before {
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+
+
+    
+    <script>
+        var toggle2 = document.getElementById('contains2');
+    var toggle2contains2 = document.getElementById('toggle2-contains2');
+    var toggle2Number;
+    
+    toggle2.addEventListener('click', function() {
+        toggle2Number = !toggle2Number;
+        if (toggle2Number) {
+            toggle2contains2.style.clipPath = 'inset(0 0 0 50%)';
+            toggle2contains2.style.backgroundColor = 'dodgerblue';
+        } else {
+            toggle2contains2.style.clipPath = 'inset(0 50% 0 0)';
+            toggle2contains2.style.backgroundColor = '#D74046';
+        }
+        console.log(toggle2Number)
+    });
+    </script>
+                
+
+    <script>
+        var toggle = document.getElementById('contains');
+    var togglecontains = document.getElementById('toggle-contains');
+    var toggleNumber;
+    
+    toggle.addEventListener('click', function() {
+        toggleNumber = !toggleNumber;
+        if (toggleNumber) {
+            togglecontains.style.clipPath = 'inset(0 0 0 50%)';
+            togglecontains.style.backgroundColor = 'dodgerblue';
+        } else {
+            togglecontains.style.clipPath = 'inset(0 50% 0 0)';
+            togglecontains.style.backgroundColor = '#D74046';
+            
+        }
+        console.log(toggleNumber)
+    });
+    </script>
+                <script>
+                    
+                    document.getElementById('year').addEventListener('change', function() {
+                        const conditionalFields = document.getElementById('conditional-fields');
+                        if (this.value) {
+                            conditionalFields.style.display = 'block';
+                        } else {
+                            conditionalFields.style.display = 'none';
+                        }
+                    });
+            
+                    function addUser() {
+                        // Your form submission logic here
+                    }
+            
+                    function resetpass() {
+                        // Your reset logic here
+                    }
+                
+                </script>
+
+
+
+<style>
+	
+
+
+    #contains {
+        width: 160px;
+        height: 36px;
+        margin: auto;
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden;
+        user-select: none;
+        cursor: pointer;
+    }
+    
+    .inner-contains {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        text-transform: uppercase;
+        font-size: .6em;
+        letter-spacing: .2em;
+    }
+    
+    .inner-contains:first-child {
+        background: #e9e9e9;
+        color: #a9a9a9;
+    }
+    
+    .inner-contains:nth-child(2) {
+        background: #D74046;
+        color: white;
+        clip-path: inset(0 50% 0 0);
+        transition: .3s cubic-bezier(0,0,0,1);
+    }
+    
+    .toggle {
+        width: 50%;
+        position: absolute;
+        height: inherit;
+        display: flex;
+        box-sizing: border-box;
+    }
+    
+    .toggle p {
+        margin: auto;
+    }
+    
+    .toggle:nth-child(1) {
+        right: 0;
+    }
+    
+    </style>
+    
+<style>
+	
+
+
+    #contains2 {
+        width: 160px;
+        height: 36px;
+        margin: auto;
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden;
+        user-select: none;
+        cursor: pointer;
+    }
+    
+    .inner-contains2 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        text-transform: uppercase;
+        font-size: .6em;
+        letter-spacing: .2em;
+    }
+    
+    .inner-contains2:first-child {
+        background: #e9e9e9;
+        color: #a9a9a9;
+    }
+    
+    .inner-contains2:nth-child(2) {
+        background: #D74046;
+        color: white;
+        clip-path: inset(0 50% 0 0);
+        transition: .3s cubic-bezier(0,0,0,1);
+    }
+    
+    .toggle2 {
+        width: 50%;
+        position: absolute;
+        height: inherit;
+        display: flex;
+        box-sizing: border-box;
+    }
+    
+    .toggle2 p {
+        margin: auto;
+    }
+    
+    .toggle2:nth-child(1) {
+        right: 0;
+    }
+    
+    </style>
