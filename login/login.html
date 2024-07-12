@@ -147,13 +147,13 @@
                         window.location.href = '../Admin Dashboard/dashboard.html';
                     } else if (data.role_id > 0) {
 
-                        // if (data.profile == 0) {
-                        //     window.location.href = '../User Dashboard/dashboard.html';
-                        // } else {
-                        //     window.location.href = './addprofile.html';
-                        // }
+                        if (data.profile == 1) {
+                            window.location.href = '../User Dashboard/dashboard.html';
+                        } else {
+                            window.location.href = './addprofile.html';
+                        }
 
-                        window.location.href = '../User Dashboard/dashboard.html';
+                        // window.location.href = '../User Dashboard/dashboard.html';
                     }
                 } else {
                     console.error('Login failed:', response.statusText);
