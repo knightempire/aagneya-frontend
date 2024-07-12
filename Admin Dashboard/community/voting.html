@@ -453,19 +453,21 @@
 <script>
     var toggle2 = document.getElementById('contains2');
     var toggle2contains2 = document.getElementById('toggle2-contains2');
-    var toggle2Number;
+    var toggle2Number = false;
 
     toggle2.addEventListener('click', function() {
         toggle2Number = !toggle2Number;
         if (toggle2Number) {
             toggle2contains2.style.clipPath = 'inset(0 0 0 50%)';
             toggle2contains2.style.backgroundColor = 'dodgerblue';
-        } else {
+            console.log('status vote 1');
+    }   else {
             toggle2contains2.style.clipPath = 'inset(0 50% 0 0)';
             toggle2contains2.style.backgroundColor = '#D74046';
-        }
-        console.log(toggle2Number)
-    });
+            console.log('status vote 0');
+            }
+});
+
 </script>
 
 
@@ -479,13 +481,14 @@
         if (toggleNumber) {
             togglecontains.style.clipPath = 'inset(0 0 0 50%)';
             togglecontains.style.backgroundColor = 'dodgerblue';
-        } else {
+            console.log('status register 1');
+    }   else {
             togglecontains.style.clipPath = 'inset(0 50% 0 0)';
             togglecontains.style.backgroundColor = '#D74046';
+            console.log('status register 0');
+    }
+});
 
-        }
-        console.log(toggleNumber)
-    });
 </script>
 <script>
     document.getElementById('year_election').addEventListener('change', function() {
