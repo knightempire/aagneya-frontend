@@ -89,58 +89,32 @@
             <br>
             <!-- code from here -->
 
+            <div class="flex justify-center items-center" id="msgok" style="display: none;">
+                <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                    <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                        <div class="flex gap-2">
+                            <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white">Activated successfully :)</p>
+                                <p class="text-gray-500" id="Msg">User activated</p>
+                            </div>
+                        </div>
+                        <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
 
-                <br>
-
-                <div class="flex justify-center items-center " id="useraddeddone" style="display: none;">
-                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
-                        <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
-                            <div class="flex gap-2">
-                                <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
-                            </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white">done successfully :)</p>
-                                    <p class="text-gray-500">User added</p>
-                                </div>
-                            </div>
-                            <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                          </svg>
-                        </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center items-center " id="userfail" style="display: none;">
-                    <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
-                        <div class="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
-                            <div class="flex gap-2">
-                                <div class="text-[#d65563] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"></path>
-                            </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white">Please try again</p>
-                                    <p class="text-gray-500" id="errormsg">This is the description part</p>
-                                </div>
-                            </div>
-                            <button class="text-gray-600 hover:bg-white/10 p-1 rounded-md transition-colors ease-linear">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                          </svg>
-                        </button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <form onsubmit="addUser(); return false;">
+                <form>
                     <style>
                         /* Initially hide the fields */
                         
@@ -163,9 +137,7 @@
                         <br><br>
 
                         <div id="conditional-fields" class="conditional-field">
-
                             <div class="flex flex-col md:flex-row gap-4">
-
                                 <!-- Register Toggle Section -->
                                 <div id="register-toggle-container" class="toggle-container">
                                     <label for="register-toggle" class="toggle-label">Register</label>
@@ -211,21 +183,15 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
 
                             <div class="text-center">
                                 <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Publish</button>
                             </div>
-
                         </div>
-
-
                     </div>
                     <div class="text-right" style="margin-top: -2%; padding: 5%;">
-                        <button id="addyear" class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 px-5 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out" onclick="year()">
+                        <button id="addyear" type="button" class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-2 px-5 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
                             Add year
                         </button>
                     </div>
@@ -428,55 +394,120 @@
         }
     }
 
+    async function year(event) {
+        // Prevent the default action of the button click
+        if (event) event.preventDefault();
 
-
-
-
-    window.onload = function() {
-        decodeToken();
-    };
-</script>
-
-<script>
-    function year() {
         // Set the variable `nextyear` to 1
         let nextyear = 1;
 
-        // Print the `nextyear` variable to the console
         console.log(nextyear);
+        try {
+            // Fetching from the correct endpoint
+            const response = await fetch('http://localhost:3000/api/electionaddyear', {
+                method: 'POST', // GET request should not have a body
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    nextyear: nextyear
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch election data');
+            }
+
+            const responseData = await response.json();
+            console.log('Success:', responseData);
+
+            // Assuming you have an element with id 'msgok' and 'Msg' to show the message
+            const successMsg = document.getElementById('msgok');
+            const message = responseData.message; // Extract message from response
+            console.log(message);
+            document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+            successMsg.style.display = 'flex';
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+
+            await getelection(); // Ensure `getelection` is defined somewhere
+
+        } catch (error) {
+            console.error('Error fetching election data:', error);
+            throw error;
+        }
     }
-</script>
-<script src="//unpkg.com/alpinejs" defer></script>
+    document.getElementById('addyear').addEventListener('click', year);
 
 
+    document.getElementById('year_election').addEventListener('change', async function() {
+        const conditionalFields = document.getElementById('conditional-fields');
+        const selectedYear = this.value;
 
-<script>
-    var toggle2 = document.getElementById('contains2');
-    var toggle2contains2 = document.getElementById('toggle2-contains2');
-    var toggle2Number = false;
+        // Log the selected year to the console
+        console.log('Selected Year:', selectedYear);
 
-    toggle2.addEventListener('click', function() {
-        toggle2Number = !toggle2Number;
-        if (toggle2Number) {
-            toggle2contains2.style.clipPath = 'inset(0 0 0 50%)';
-            toggle2contains2.style.backgroundColor = 'dodgerblue';
-            console.log('status vote 1');
+        if (selectedYear) {
+            conditionalFields.style.display = 'block';
+
+            try {
+                // Call the API with the selected year
+                const response = await fetch('http://localhost:3000/api/electionstatus', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        year: selectedYear
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('API Response:', result);
+
+                    // Handle the API response data
+                    if (result.success) {
+                        // Update the UI with the election data
+                        console.log('Election Data:', result.data);
+
+                        // Set the toggle states based on the API response
+                        toggleNumber = result.data.is_register === 1;
+                        toggle2Number = result.data.is_vote === 1;
+
+                        // Update the appearance of the toggles
+                        updateRegisterToggle();
+                        updateVoteToggle();
+                    } else {
+                        console.error('Error:', result.error);
+                    }
+                } else {
+                    const errorData = await response.json();
+                    console.error('Failed to fetch election status:', response.status, errorData);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
         } else {
-            toggle2contains2.style.clipPath = 'inset(0 50% 0 0)';
-            toggle2contains2.style.backgroundColor = '#D74046';
-            console.log('status vote 0');
+            conditionalFields.style.display = 'none';
         }
     });
-</script>
 
-
-<script>
+    // Initialize the state of the toggles
     var toggle = document.getElementById('contains');
     var togglecontains = document.getElementById('toggle-contains');
-    var toggleNumber;
+    var toggleNumber = false; // Default to false initially
 
-    toggle.addEventListener('click', function() {
-        toggleNumber = !toggleNumber;
+    var toggle2 = document.getElementById('contains2');
+    var toggle2contains2 = document.getElementById('toggle2-contains2');
+    var toggle2Number = false; // Default to false initially
+
+    // Function to update the appearance of the "Register" toggle
+    function updateRegisterToggle() {
         if (toggleNumber) {
             togglecontains.style.clipPath = 'inset(0 0 0 50%)';
             togglecontains.style.backgroundColor = 'dodgerblue';
@@ -486,18 +517,48 @@
             togglecontains.style.backgroundColor = '#D74046';
             console.log('status register 0');
         }
-    });
-</script>
-<script>
-    document.getElementById('year_election').addEventListener('change', function() {
-        const conditionalFields = document.getElementById('conditional-fields');
-        if (this.value) {
-            conditionalFields.style.display = 'block';
+    }
+
+    // Function to update the appearance of the "Vote" toggle
+    function updateVoteToggle() {
+        if (toggle2Number) {
+            toggle2contains2.style.clipPath = 'inset(0 0 0 50%)';
+            toggle2contains2.style.backgroundColor = 'dodgerblue';
+            console.log('status vote 1');
         } else {
-            conditionalFields.style.display = 'none';
+            toggle2contains2.style.clipPath = 'inset(0 50% 0 0)';
+            toggle2contains2.style.backgroundColor = '#D74046';
+            console.log('status vote 0');
         }
+    }
+
+    // Set the initial state of the toggles
+    updateRegisterToggle();
+    updateVoteToggle();
+
+    // Add event listeners for the toggles
+    toggle.addEventListener('click', function() {
+        toggleNumber = !toggleNumber;
+        updateRegisterToggle();
     });
+
+    toggle2.addEventListener('click', function() {
+        toggle2Number = !toggle2Number;
+        updateVoteToggle();
+    });
+
+
+    window.onload = function() {
+        decodeToken();
+    };
 </script>
+
+<script src="//unpkg.com/alpinejs" defer></script>
+
+
+
+
+
 
 
 
