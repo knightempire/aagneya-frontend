@@ -115,17 +115,20 @@
                         </div>
                     </div>
                     <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+
+
+
                         <div class="w-full md:w-1/2">
                             <label for="sports" class="block font-semibold text-gray-700">Select Sports</label>
                             <select name="sports" id="sports"
                                 class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 required>
                                 <option value="" disabled selected>Please Select Sports</option>
-                                <option value="cricket">Cricket</option>
-                                <option value="football">Football</option>
                             </select>
                             <div id="sports_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
+
+
                         <div class="w-full md:w-1/2">
                             <label for="participation" class="block font-semibold text-gray-700">Select Participation
                                 Type</label>
@@ -1152,7 +1155,82 @@
     </div>
 
 
-
+    <script>
+        let token;
+    
+        async function decodeToken() {
+            try {
+                token = localStorage.getItem('token');
+                console.log('Token from localStorage:', token);
+    
+                if (!token) {
+                    console.error('Token not found in local storage');
+                    window.location.href = '../login/login.html';
+                    return;
+                }
+    
+                const response = await fetch('http://localhost:3000/api/decodeToken', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ token: token })
+                });
+    
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Decoded token data:', data);
+    
+                    // Fetch sports data after successful token decoding
+                    fetchSportsData();
+                } else {
+                    console.error('Failed to decode token:', response.statusText);
+                    window.location.href = '../login/login.html';
+                }
+            } catch (error) {
+                console.error('Error in decodeToken:', error.message);
+                window.location.href = '../login/login.html';
+            }
+        }
+    
+        async function fetchSportsData() {
+            try {
+                const response = await fetch('http://localhost:3000/api/displaysports', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Failed to fetch sports data');
+                }
+    
+                const data = await response.json();
+                const sportsSelect = document.getElementById('sports');
+    
+                // Clear previous options except the default one
+                sportsSelect.innerHTML = '<option value="" disabled selected>Please Select Sports</option>';
+    
+                data.sports.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.sport_name.toLowerCase();
+                    option.textContent = sport.sport_name;
+                    sportsSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching sports data:', error);
+                document.getElementById('sports_error').textContent = 'Error fetching sports data. Please try again later.';
+            }
+        }
+    
+        // Decode token and fetch sports data on page load
+        document.addEventListener('DOMContentLoaded', decodeToken);
+        
+    </script>
+    
+  
 
     <script src="./js/index.js"></script>
 </body>
