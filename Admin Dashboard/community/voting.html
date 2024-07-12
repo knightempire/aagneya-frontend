@@ -143,6 +143,7 @@
                 <form onsubmit="addUser(); return false;">
                     <style>
                         /* Initially hide the fields */
+                        
                         .conditional-field {
                             display: none;
                         }
@@ -151,7 +152,8 @@
                     <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add User Details</div>
                     <div class="p-4 md:p-8">
                         <div class="flex flex-col md:flex-row gap-4">
-                            <select name="year" id="year" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
+                            <select name="year" id="year" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
                                 <option value="" disabled selected>Year *</option>
                                 <option value="2023">2023</option>
                                 <option value="2024">2024</option>
@@ -159,59 +161,69 @@
                             </select>
                         </div>
                         <br><br>
-            
+
                         <div id="conditional-fields" class="conditional-field">
-                            
+
                             <div class="flex flex-col md:flex-row gap-4">
-                                
-                            <div id="contains" id="reg_toggle">
-                                
-                                <div id="contains">
-                                <div class="inner-contains">
-                                    <div class="toggle">
-                                        <p>ON</p>
-                                    </div>
-                                    <div class="toggle">
-                                        <p>OFF</p>
+
+                                <!-- Register Toggle Section -->
+                                <div id="register-toggle-container" class="toggle-container">
+                                    <label for="register-toggle" class="toggle-label">Register</label>
+                                    <div id="contains" class="toggle-button" id="reg_toggle">
+                                        <div class="inner-contains">
+                                            <div class="toggle">
+                                                <p>ON</p>
+                                            </div>
+                                            <div class="toggle">
+                                                <p>OFF</p>
+                                            </div>
+                                        </div>
+                                        <div class="inner-contains" id="toggle-contains">
+                                            <div class="toggle">
+                                                <p>ON</p>
+                                            </div>
+                                            <div class="toggle">
+                                                <p>OFF</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="inner-contains" id='toggle-contains'>
-                                    <div class="toggle">
-                                        <p>ON</p>
+
+                                <!-- Vote Toggle Section -->
+                                <div id="vote-toggle-container" class="toggle-container">
+                                    <label for="vote-toggle" class="toggle-label">Vote</label>
+                                    <div id="contains2" class="toggle-button" id="vote_toggle">
+                                        <div class="inner-contains2">
+                                            <div class="toggle2">
+                                                <p>ON</p>
+                                            </div>
+                                            <div class="toggle2">
+                                                <p>OFF</p>
+                                            </div>
+                                        </div>
+                                        <div class="inner-contains2" id="toggle2-contains2">
+                                            <div class="toggle2">
+                                                <p>ON</p>
+                                            </div>
+                                            <div class="toggle2">
+                                                <p>OFF</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="toggle">
-                                        <p>OFF</p>
-                                    </div>
                                 </div>
+
+
+
                             </div>
 
-                            
-                            <div id="contains2" id="vote_toggle">
-                                <div class="inner-contains2">
-                                    <div class="toggle2">
-                                        <p>ON</p>
-                                    </div>
-                                    <div class="toggle2">
-                                        <p>OFF</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="inner-contains2" id='toggle2-contains2'>
-                                    <div class="toggle2">
-                                        <p>ON</p>
-                                    </div>
-                                    <div class="toggle2">
-                                        <p>OFF</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                    
-                            <button id="publish" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Publish</button>
-
-</div>
+                            <br><br>
+                            <button id="publish" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">
+                                Publish
+                            </button>
                         </div>
+
+
+
                         <br><br>
                         <div class="text-center">
                             <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Update</button>
@@ -224,9 +236,9 @@
                     </div>
                 </form>
 
-                
 
-                
+
+
             </div>
 
 
@@ -303,77 +315,6 @@
 
 </html>
 
-<style>
-    [x-cloak] {
-        display: none
-    }
-    .switch {
-  position: relative;
-  display: inline-block;
-  width: 80px; /* Increased width to accommodate labels */
-  height: 34px;
-}
-
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: background-color 0.4s;
-  border-radius: 34px; /* Makes slider round */
-  display: flex;
-  justify-content: space-between; /* Ensures labels are spaced correctly */
-  align-items: center; /* Centers labels vertically */
-  padding: 0 10px; /* Adds padding to space labels from the edges */
-  font-family: 'Poppins', sans-serif;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: transform 0.4s;
-  border-radius: 50%; /* Makes knob round */
-  font-family: 'Poppins', sans-serif;
-}
-
-input:checked + .slider {
-  background-color: #2196F3; /* Blue background when checked */
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3; /* Blue shadow when focused */
-}
-
-input:checked + .slider:before {
-  transform: translateX(46px); /* Moves knob to the right (adjusted for larger width) */
-}
-
-.on-label {
-  z-index: 1; /* Ensure ON label is above slider */
-}
-
-.off-label {
-  position: absolute;
-  top: 50%;
-  right: 10px; /* Adjust right position as needed */
-  transform: translateY(-50%);
-  display: none; /* Hide OFF label by default */
-}
-</style>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -381,32 +322,17 @@ input:checked + .slider:before {
     tailwind.config = {
         darkMode: 'class',
     }
-    function toggleSwitch(element) {
-  const slider = element.nextElementSibling;
-  const onLabel = slider.querySelector('.on-label');
-  const offLabel = slider.querySelector('.off-label');
-
-  if (element.checked) {
-    onLabel.style.display = 'inline'; // Show ON label
-    offLabel.style.display = 'none'; // Hide OFF label
-    console.log("Status: 1 (ON)");
-  } else {
-    onLabel.style.display = 'none'; // Hide ON label
-    offLabel.style.display = 'inline'; // Show OFF label
-    console.log("Status: 0 (OFF)");
-  }
-}
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
 
 
-    
-    <script>
-        var toggle2 = document.getElementById('contains2');
+
+<script>
+    var toggle2 = document.getElementById('contains2');
     var toggle2contains2 = document.getElementById('toggle2-contains2');
     var toggle2Number;
-    
+
     toggle2.addEventListener('click', function() {
         toggle2Number = !toggle2Number;
         if (toggle2Number) {
@@ -418,14 +344,14 @@ input:checked + .slider:before {
         }
         console.log(toggle2Number)
     });
-    </script>
-                
+</script>
 
-    <script>
-        var toggle = document.getElementById('contains');
+
+<script>
+    var toggle = document.getElementById('contains');
     var togglecontains = document.getElementById('toggle-contains');
     var toggleNumber;
-    
+
     toggle.addEventListener('click', function() {
         toggleNumber = !toggleNumber;
         if (toggleNumber) {
@@ -434,42 +360,125 @@ input:checked + .slider:before {
         } else {
             togglecontains.style.clipPath = 'inset(0 50% 0 0)';
             togglecontains.style.backgroundColor = '#D74046';
-            
+
         }
         console.log(toggleNumber)
     });
-    </script>
-                <script>
-                    
-                    document.getElementById('year').addEventListener('change', function() {
-                        const conditionalFields = document.getElementById('conditional-fields');
-                        if (this.value) {
-                            conditionalFields.style.display = 'block';
-                        } else {
-                            conditionalFields.style.display = 'none';
-                        }
-                    });
-            
-                    function addUser() {
-                        // Your form submission logic here
-                    }
-            
-                    function resetpass() {
-                        // Your reset logic here
-                    }
-                
-                </script>
+</script>
+<script>
+    document.getElementById('year').addEventListener('change', function() {
+        const conditionalFields = document.getElementById('conditional-fields');
+        if (this.value) {
+            conditionalFields.style.display = 'block';
+        } else {
+            conditionalFields.style.display = 'none';
+        }
+    });
+
+    function addUser() {
+        // Your form submission logic here
+    }
+
+    function resetpass() {
+        // Your reset logic here
+    }
+</script>
 
 
 
 <style>
-	
-
-
-    #contains {
+    [x-cloak] {
+        display: none;
+    }
+    
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 34px;
+    }
+    
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: background-color 0.4s;
+        border-radius: 34px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: transform 0.4s;
+        border-radius: 50%;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+    
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked+.slider:before {
+        transform: translateX(46px);
+    }
+    
+    .on-label {
+        z-index: 1;
+    }
+    
+    .off-label {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        display: none;
+    }
+    /* New Styles */
+    
+    .toggle-container {
+        width: 160px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .toggle-label {
+        font-size: 1em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .toggle-button {
         width: 160px;
         height: 36px;
-        margin: auto;
         position: relative;
         border-radius: 6px;
         overflow: hidden;
@@ -484,8 +493,8 @@ input:checked + .slider:before {
         width: inherit;
         height: inherit;
         text-transform: uppercase;
-        font-size: .6em;
-        letter-spacing: .2em;
+        font-size: 0.6em;
+        letter-spacing: 0.2em;
     }
     
     .inner-contains:first-child {
@@ -497,7 +506,7 @@ input:checked + .slider:before {
         background: #D74046;
         color: white;
         clip-path: inset(0 50% 0 0);
-        transition: .3s cubic-bezier(0,0,0,1);
+        transition: 0.3s cubic-bezier(0, 0, 0, 1);
     }
     
     .toggle {
@@ -516,12 +525,6 @@ input:checked + .slider:before {
         right: 0;
     }
     
-    </style>
-    
-<style>
-	
-
-
     #contains2 {
         width: 160px;
         height: 36px;
@@ -540,8 +543,8 @@ input:checked + .slider:before {
         width: inherit;
         height: inherit;
         text-transform: uppercase;
-        font-size: .6em;
-        letter-spacing: .2em;
+        font-size: 0.6em;
+        letter-spacing: 0.2em;
     }
     
     .inner-contains2:first-child {
@@ -553,7 +556,7 @@ input:checked + .slider:before {
         background: #D74046;
         color: white;
         clip-path: inset(0 50% 0 0);
-        transition: .3s cubic-bezier(0,0,0,1);
+        transition: 0.3s cubic-bezier(0, 0, 0, 1);
     }
     
     .toggle2 {
@@ -571,5 +574,4 @@ input:checked + .slider:before {
     .toggle2:nth-child(1) {
         right: 0;
     }
-    
-    </style>
+</style>
