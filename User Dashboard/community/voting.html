@@ -80,14 +80,74 @@
                         <li><a href="#" class="active">Shop</a></li>
                     </ul>
                 </div>
-                <a href="#" class="report">
+                <a href="#" class="report" id="reg_show" style="display: none;">
                     <i class='bx bxs-add-to-queue'></i>
-                    <span id="changes">Register</span>
+                    <span id="changes">Add</span>
                     <i class='bx bxs-x-circle' style="display: none;"></i>
                 </a>
             </div>
             <br>
             <!-- code from here -->
+
+            <div class="flex justify-center items-center" id="msgok" style="display:none ;">
+                <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                    <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                        <div class="flex gap-2">
+                            <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white">Activated successfully :)</p>
+                                <p class="text-gray-500" id="Msg">User activated</p>
+                            </div>
+                        </div>
+                        <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flex justify-center items-center flex-col gap-2  text-[10px] " id="msgfail" style="display: none;">
+                <div class="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                    <div class="flex gap-2">
+                        <div class="text-[#d65563] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white">Please try again</p>
+                            <p class="text-gray-500" id="Msgerr">This is the description part</p>
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:bg-white/10 p-1 rounded-md transition-colors ease-linear">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
 
@@ -111,14 +171,8 @@
                         </div>
 
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select name="category" id="year" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                required>
-                            <option value="" disabled selected>Select year</option>
-                            <!-- Ensure values are set in options -->
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <!-- Additional options can be dynamically added here -->
-                        </select>
+                            <input type="text" name="year" id="year_dis" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="year" readonly>
 
                         </div>
 
@@ -127,7 +181,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Register</button>
+                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4"> Register</button>
                         </div>
                     </div>
                 </form>
@@ -270,6 +324,7 @@
                         const roleElement = document.getElementById('roll_no_dis');
                         roleElement.value = roll_no;
 
+                        getelectionshow();
                         getrole();
 
 
@@ -292,6 +347,45 @@
 
         }
     }
+
+    async function getelectionshow() {
+        try {
+            const response = await fetch('http://localhost:3000/api/electionshow', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch election show data');
+            }
+
+            const data = await response.json();
+            console.log('Election shows data:', data);
+
+            // Check if the array length is greater than 0
+            if (data.length > 0) {
+                // Assuming 'year' is a property in the fetched data
+                const year = data[0].year; // Adjust according to your API response structure
+
+                // Update the value of year_dis input element
+                document.getElementById('year_dis').value = year;
+
+                // Show the anchor tag with id 'reg_show'
+                document.getElementById('reg_show').style.display = 'inline-block';
+            } else {
+                // Optionally, handle case when array is empty (not specified in your example)
+                console.log('No election shows available.');
+            }
+
+        } catch (error) {
+            console.error('Error fetching election shows:', error);
+            throw error;
+        }
+    }
+
 
     async function getrole() {
         try {
@@ -343,20 +437,14 @@
     }
 
 
-    window.onload = function() {
-        decodeToken();
-    };
-</script>
-
-<script>
     // Function to handle form submission
-    function submitForm(event) {
+    async function submitForm(event) {
         event.preventDefault(); // Prevent default form submission
 
         // Get values from the form
         const roll_no = document.getElementById('roll_no_dis').value;
         const spl_role = document.getElementById('roles').value;
-        const year = document.getElementById('year').value;
+        const year = document.getElementById('year_dis').value;
 
 
         // Display data in console
@@ -364,6 +452,79 @@
         console.log('Special Role:', spl_role);
         console.log('year:', year);
 
+        const data = {
+            roll_no: roll_no,
+            year: year,
+            role_id: spl_role
+        };
+
         // Additional logic or API calls can be added here
+        try {
+            const response = await fetch('http://localhost:3000/api/electionregister', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log('Success:', responseData);
+
+                // Assuming you have an element with id 'msgok' and 'Msg' to show the message
+                const successMsg = document.getElementById('msgok');
+                const message = responseData.message; // Extract message from response
+                console.log(message);
+                document.getElementById('Msg').textContent = message; // Update message content dynamically
+
+                successMsg.style.display = 'flex';
+                setTimeout(function() {
+                    successMsg.style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+            } else {
+                // Show the failure message
+                const failMsg = document.getElementById('msgfail');
+                let responseData = {};
+                try {
+                    responseData = await response.json(); // Try to parse response JSON
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                }
+
+                const error = responseData.error || 'Failed to get error message'; // Extract error message or provide a default
+                console.log(error);
+                document.getElementById('Msgerr').textContent = error; // Update error message content dynamically
+
+                if (failMsg) {
+                    failMsg.style.display = 'flex';
+                    setTimeout(() => {
+                        failMsg.style.display = 'none';
+                    }, 3000); // Hide after 3 seconds
+                }
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.error('Error updating user details:', error);
+        }
+
+
+
+
+
+
+        successMsg.style.display = 'flex';
+        setTimeout(function() {
+            successMsg.style.display = 'none';
+        }, 3000); // Hide after 3 seconds
+
+
     }
+
+
+
+    window.onload = function() {
+        decodeToken();
+    };
 </script>
