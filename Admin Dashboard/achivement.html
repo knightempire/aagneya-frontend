@@ -495,7 +495,7 @@
                     if (validateForm()) {
                         const achievement_name = document.getElementById('event_name_edit').value;
                         const achievement_date = document.getElementById('achivement_date').value;
-                        const sports = document.getElementById('sports').value;
+                        const sport = document.getElementById('sports').value;
                         const is_team = document.getElementById('participation').value;
                         const description = document.getElementById('event_description_edit').value;
 
@@ -522,7 +522,7 @@
                         formData.append('name', name);
                         formData.append('roll_no', JSON.stringify(roll_numbers));
                         formData.append('is_team', is_team);
-                        formData.append('sports', sports);
+                        formData.append('sport', sport);
 
                         // Append files
                         const photoFile = document.getElementById('uploadPhoto').files[0];
@@ -688,11 +688,8 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            achivement name
+                                            Achievement Name
                                         </th>
-                                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Title
-                                    </th> -->
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Sports
@@ -716,109 +713,11 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
-
-
-
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        2020 National Championship
-                                                    </div>
-                                                    <div class="text-sm text-gray-500">
-                                                        Amrita
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                Chess
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    Abinesh T
-                                                </div>
-                                                <div class="text-sm text-gray-500">
-                                                    CB.EN.U4CSE21302
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            03/07/2024
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                Team
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton"
-                                                onclick="showEditFormallmember()">Edit</a>
-                                            <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        2020 National Championship
-                                                    </div>
-                                                    <div class="text-sm text-gray-500">
-                                                        Amrita
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                Chess
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    Abinesh T
-                                                </div>
-                                                <div class="text-sm text-gray-500">
-                                                    CB.EN.U4CSE21302
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            03/07/2024
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                Team
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton"
-                                                onclick="showEditFormallmember()">Edit</a>
-                                            <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
-                                        </td>
-                                    </tr>
-
-                                    <!-- More rows... -->
-
+                                    <!-- Achievement rows will be dynamically added here -->
                                 </tbody>
                             </table>
-
                         </div>
+                        
 
                         <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
                             id="allmember" style="display: none;">
@@ -1382,4 +1281,147 @@
             editForm.style.display = 'none';
         }
     }
+</script>
+<script>
+   // Function to truncate text to a specified length followed by ellipsis
+function truncateText(text, length) {
+    if (text.length > length) {
+        return text.substring(0, length) + '...';
+    }
+    return text;
+}
+
+document.addEventListener('DOMContentLoaded', async function () {
+    try {
+        const response = await fetch('http://localhost:3000/api/displayachievements', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch achievements');
+        }
+
+        const data = await response.json();
+        console.log('Achievements:', data.achievements);
+        displayAchievements(data.achievements); // Display achievements in the table
+    } catch (error) {
+        console.error('Error fetching achievements:', error);
+        // Handle error in UI, e.g., display an error message
+    }
+});
+
+function displayAchievements(achievements) {
+    const tableBody = document.getElementById('displayusers');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    achievements.forEach(achievement => {
+        // Check if the achievement should be displayed based on is_display field
+        if (achievement.is_display !== 1) {
+            return; // Skip this achievement if not marked for display
+        }
+
+        // Determine the team or individual label based on is_team value
+        const category = achievement.is_team ? 'Team' : 'Individual';
+
+        // Truncate achievement description to 19 characters + ellipsis
+        const truncatedDescription = truncateText(achievement.description, 19);
+
+        // Convert roll number to uppercase
+        const rollNumber = JSON.parse(achievement.roll_no)[0].toUpperCase();
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900">
+                            ${achievement.achievement_name}
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            ${truncatedDescription}
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    ${achievement.sport.toLowerCase()} <!-- Display sport in lowercase -->
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">
+                        ${achievement.name}
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        ${rollNumber} <!-- Display roll number in uppercase -->
+                    </div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                ${new Date(achievement.achievement_date).toLocaleDateString()}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                    ${category}
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">Edit</a>
+                <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+
+
+    const tableBody = document.getElementById('displayusers');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    achievements.forEach(achievement => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900">
+                            ${achievement.achievement_name}
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            ${achievement.name} <!-- Assuming 'name' is the team head or related field -->
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    ${achievement.sports} <!-- Replace with actual sports field from achievements -->
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                ${achievement.team_head} <!-- Replace with actual team head field from achievements -->
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                ${new Date(achievement.achievement_date).toLocaleDateString()} <!-- Format date as needed -->
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                    Team <!-- Assuming category is 'Team' -->
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton"
+                    onclick="showEditFormallmember()">Edit</a>
+                <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+
+
 </script>
