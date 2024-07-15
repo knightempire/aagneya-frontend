@@ -1153,6 +1153,15 @@
         </main>
 
     </div>
+    <script>
+        function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+    </script>
 
 
     <script>
