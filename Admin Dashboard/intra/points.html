@@ -151,35 +151,39 @@
                     <!-- Sections to toggle visibility -->
                     <div id="viewAllSection" class="flex flex-col mt-6">
                         <!-- code from here -->
-                        <table>
-                            <tr>
-                                <th>Sports</th>
-                                <th>Amritamayi</th>
-                                <th>Anandamayi</th>
-                                <th>Chinmayi </th>
-                                <th>Jyothirmayi</th>
-                            </tr>
-                            <tr>
-                                <td>Chess</td>
-                                <td>98</td>
-                                <td>58</td>
-                                <td>67</td>
-                                <td>89</td>
-                            </tr>
-                            <tr>
-                                <td>Cricket</td>
-                                <td>81</td>
-                                <td>85</td>
-                                <td>74</td>
-                                <td>91</td>
-                            </tr>
-                            <tr>
-                                <td>Football</td>
-                                <td>42</td>
-                                <td>100</td>
-                                <td>69</td>
-                                <td>76</td>
-                            </tr>
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead>
+                                <tr>
+                                    <th class="py-3 px-6 border-b border-r border-gray-200 bg-blue-100 text-left">SPORTS</th>
+                                    <th class="py-3 px-6 border-b border-r border-gray-200 bg-blue-100 text-left">AMRITAMAYI</th>
+                                    <th class="py-3 px-6 border-b border-r border-gray-200 bg-blue-100 text-left">ANANDMAYI</th>
+                                    <th class="py-3 px-6 border-b border-r border-gray-200 bg-blue-100 text-left">CHINMAYI</th>
+                                    <th class="py-3 px-6 bg-blue-100 text-left">JYOTHIRMAYI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-100">
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">Chess</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">98</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">58</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">67</td>
+                                    <td class="py-3 px-6">71</td>
+                                </tr>
+                                <tr class="hover:bg-gray-100">
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">Football</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">81</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">85</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">74</td>
+                                    <td class="py-3 px-6">93</td>
+                                </tr>
+                                <tr class="hover:bg-gray-100">
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">Cricket</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">46</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">100</td>
+                                    <td class="py-3 px-6 border-b border-r border-gray-200">69</td>
+                                    <td class="py-3 px-6">95</td>
+                                </tr>
+                            </tbody>
                         </table>
 
 
@@ -240,27 +244,3 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    tr:hover {
-        background-color: #f1f1f1;
-    }
-</style>
