@@ -160,8 +160,9 @@
                             display: none;
                         }
                     </style>
+
                     <!-- Prevents default form submission -->
-                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Elections </div>
+                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Elections</div>
                     <div class="p-4 md:p-8">
                         <div class="flex flex-col md:flex-row gap-4">
                             <select name="year" id="year_election" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
@@ -223,8 +224,9 @@
                                 </div>
                             </div>
 
+
                             <div class="text-center">
-                                <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Publish</button>
+                                <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="publish(event)">Publish</button>
                             </div>
                         </div>
                     </div>
@@ -236,6 +238,38 @@
                 </form>
 
 
+
+
+                <div id="alertModal" class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
+                        <div id="alert">
+                            <div class="flex items-center gap-4">
+                                <span class="shrink-0 rounded-full bg-emerald-400 p-2 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+                                        <path fill-rule="evenodd"
+                                            d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </span>
+                                <p class="font-medium sm:text-lg text-emerald-600">Alert!</p>
+                            </div>
+
+                            <p class="mt-4 text-gray-600" id="alrtMsg">
+
+                            </p>
+
+                            <div class="mt-6 sm:flex sm:gap-4">
+                                <div class="inline-block w-full rounded-lg bg-emerald-500 px-5 py-3 text-center text-sm font-semibold text-white sm:w-auto" onclick="respublish()">
+                                    continue
+                                </div>
+
+                                <a href="#" id="dismissBtn" class="mt-2 inline-block w-full rounded-lg bg-stone-300 px-5 py-3 text-center text-sm font-semibold text-gray-800 sm:mt-0 sm:w-auto">
+                                    Dismiss
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
@@ -327,6 +361,7 @@
     let roll_no;
     let name;
     let token;
+    let yr;
 
     async function decodeToken() {
         try {
@@ -433,20 +468,16 @@
     }
 
     async function year(event) {
-        // Prevent the default action of the button click
-        if (event) event.preventDefault();
+        if (event) event.preventDefault(); // Prevent default form submission
 
-        // Set the variable `nextyear` to 1
-        let nextyear = 1;
+        let nextyear = 1; // Set nextyear variable (assuming it's predefined or calculated elsewhere)
 
-        console.log(nextyear);
         try {
-            // Fetching from the correct endpoint
             const response = await fetch('http://localhost:3000/api/electionaddyear', {
-                method: 'POST', // GET request should not have a body
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}` // Assuming token is defined or passed to the function
                 },
                 body: JSON.stringify({
                     nextyear: nextyear
@@ -454,36 +485,58 @@
             });
 
             if (!response.ok) {
-                throw new Error('Failed to fetch election data');
+                // Handle server-side errors
+                const errorData = await response.json();
+                const errorMessage = errorData.error;
+                console.error('Server error:', errorMessage);
+
+                // Update error message in Msgerr element
+                const errorMsgElement = document.getElementById('Msgerr');
+                errorMsgElement.textContent = errorMessage;
+
+                // Display error message box
+                const failMsg = document.getElementById('msgfail');
+                failMsg.style.display = 'flex';
+                setTimeout(() => {
+                    failMsg.style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+
+            } else {
+                // Successful response handling
+                const responseData = await response.json();
+                console.log('Success:', responseData);
+
+                // Update success message in Msg element
+                const successMsgElement = document.getElementById('Msg');
+                const successMessage = responseData.message;
+                successMsgElement.textContent = successMessage;
+
+                // Display success message box
+                const successMsg = document.getElementById('msgok');
+                successMsg.style.display = 'flex';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+
+                // Example: Call a function to update election data after successful year addition
+                await getelection(); // Ensure getelection function is defined somewhere
             }
 
-            const responseData = await response.json();
-            console.log('Success:', responseData);
-
-            // Assuming you have an element with id 'msgok' and 'Msg' to show the message
-            const successMsg = document.getElementById('msgok');
-            const message = responseData.message; // Extract message from response
-            console.log(message);
-            document.getElementById('Msg').textContent = message; // Update message content dynamically
-
-            successMsg.style.display = 'flex';
-            setTimeout(function() {
-                successMsg.style.display = 'none';
-            }, 3000); // Hide after 3 seconds
-
-            await getelection(); // Ensure `getelection` is defined somewhere
-
         } catch (error) {
-            console.error('Error fetching election data:', error);
-            throw error;
+            // Handle client-side errors (e.g., network issues, fetch API failures)
+            console.error('Error fetching election data:', error.message);
+            const errorMsg = document.getElementById('msgerror');
+            errorMsg.textContent = 'Failed to fetch election data. Please try again later.';
         }
     }
+
     document.getElementById('addyear').addEventListener('click', year);
 
 
     document.getElementById('year_election').addEventListener('change', async function() {
         const conditionalFields = document.getElementById('conditional-fields');
         const selectedYear = this.value;
+        yr = selectedYear
 
         console.log('Selected Year:', selectedYear);
 
@@ -789,6 +842,65 @@
         });
     }
 
+
+    async function publish(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Assuming 'yr' and 'token' are defined somewhere accessible, or you pass them as arguments
+        console.log('publish Year:', yr);
+
+        try {
+            // Call the API to update the vote status
+            const response = await fetch('http://localhost:3000/api/publishcheck', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    year: yr
+                })
+            });
+
+            // Ensure the response is successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // Parse the JSON response
+            const data = await response.json();
+            console.log('Response data:', data);
+
+            // Determine the message based on the 'missing' array length
+            let message;
+            if (data.missing && data.missing.length > 0) {
+                message = `${data.missing.length} catagories are not registered. Are you sure you want to proceed?`;
+            } else {
+                message = 'Do you want to publish the result?';
+            }
+
+            // Display the modal once data is fetched successfully
+            document.getElementById('alertModal').classList.remove('hidden');
+
+            // Display the message in the modal
+            document.getElementById('alrtMsg').innerText = message;
+
+            // Handle dismiss button click
+            document.getElementById('dismissBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('alertModal').classList.add('hidden');
+            });
+
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    }
+
+    async function respublish() {
+        document.getElementById('alertModal').classList.add('hidden');
+        console.log("published yr", yr)
+    }
+
     window.onload = function() {
         decodeToken();
     };
@@ -991,4 +1103,5 @@
     .toggle2:nth-child(1) {
         right: 0;
     }
+</style>
 </style>
