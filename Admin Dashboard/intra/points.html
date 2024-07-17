@@ -90,7 +90,7 @@
             <!-- code from here -->
 
             <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
-                <form onsubmit="">
+                <form onsubmit="printFormValues(event)">
                     <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add House Points</div>
                     <div class="p-4 md:p-8">
                         <div class="flex flex-col md:flex-row gap-4">
@@ -110,19 +110,19 @@
                         </div>
                         
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <input type="text" name="amritamayi_points" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="number" name="amritamayi_points" id="amritamayi_points" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="AMRITAMAYI Points" required />
-                                <input type="text" name="anandmayi_points" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="number" name="anandmayi_points" id="anandmayi_points" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="ANANDMAYI Points" required />
                             
                             </select>
                         </div>
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
 
-                            <input type="text" name="chinmayi_points" id="last_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="number" name="chinmayi_points" id="chinmayi_points" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="CHINMAYI Points" required />
-                            <input type="number" name="jyothirmayi_points" id="entry_fee_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                placeholder="JYOTHIRMAYI Points " required />
+                                <input type="number" name="jyothirmayi_points" id="jyothirmayi_points" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                placeholder="JYOTHIRMAYI Points" required />
                             
                         </div>
                         
@@ -256,3 +256,26 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+
+
+<script>
+    function printFormValues(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        const sport = document.getElementById('sport_name_input').value;
+        const amritamayiPoints = document.getElementById('amritamayi_points').value;
+        const anandmayiPoints = document.getElementById('anandmayi_points').value;
+        const chinmayiPoints = document.getElementById('chinmayi_points').value;
+        const jyothirmayiPoints = document.getElementById('jyothirmayi_points').value;
+
+        const formData = {
+            "Sport": sport,
+            "AMRITAMAYI Points": amritamayiPoints,
+            "ANANDMAYI Points": anandmayiPoints,
+            "CHINMAYI Points": chinmayiPoints,
+            "JYOTHIRMAYI Points": jyothirmayiPoints,
+        };
+
+        console.log(formData); // Print the form data in a table format in the console
+    }
+</script>
