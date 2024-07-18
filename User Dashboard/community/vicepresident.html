@@ -91,7 +91,7 @@
                 <li><a href="./secretary.html"><i class='bx bx-notepad'></i>Secretary</a></li>
                 <li><a href="./pulicrelation.html"><i class='bx bx-broadcast'></i>Public Relation</a></li>
             </ul>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
+            <li><a href="../editprofile.html"><i class='bx bx-cog'></i>Settings</a></li>
         </ul>
 
 
@@ -405,7 +405,7 @@
 
             if (!token) {
                 console.error('Token not found in local storage');
-                window.location.href = '../login/login.html';
+                window.location.href = '../../login/login.html';
                 return;
             }
 
@@ -444,17 +444,17 @@
                     }
                 } else {
                     console.error('User is not active');
-                    window.location.href = '../login/login.html';
+                    window.location.href = '../../login/login.html';
 
                 }
 
             } else {
                 console.error('Failed to decode token:', response.statusText);
-                // window.location.href = '../login/login.html';
+                // window.location.href = '../../login/login.html';
             }
         } catch (error) {
             console.error('Error in decodeToken:', error.message);
-            window.location.href = '../login/login.html';
+            window.location.href = '../../login/login.html';
 
         }
     }
@@ -808,6 +808,6 @@
         localStorage.removeItem('token');
 
         // Redirect to index.html
-        window.location.href = '../login/login.html';
+        window.location.href = '../../login/login.html';
     }
 </script>

@@ -368,7 +368,7 @@
 
             if (!token) {
                 console.error('Token not found in local storage');
-                window.location.href = '../login/login.html';
+                window.location.href = '../../login/login.html';
                 return;
             }
 
@@ -405,17 +405,17 @@
                     }
                 } else {
                     console.error('User is not active');
-                    window.location.href = '../../login/login.html';
+                    window.location.href = '../../../login/login.html';
 
                 }
 
             } else {
                 console.error('Failed to decode token:', response.statusText);
-                // window.location.href = '../../login/login.html';
+                // window.location.href = '../../../login/login.html';
             }
         } catch (error) {
             console.error('Error in decodeToken:', error.message);
-            // window.location.href = '../../login/login.html';
+            // window.location.href = '../../../login/login.html';
 
         }
     }
@@ -1109,6 +1109,6 @@
         localStorage.removeItem('token');
 
         // Redirect to index.html
-        window.location.href = '../login/login.html';
+        window.location.href = '../../login/login.html';
     }
 </script>
