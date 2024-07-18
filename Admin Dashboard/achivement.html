@@ -37,7 +37,7 @@
                 <li><a href="./community/secretary.html"><i class='bx bx-user-notepad'></i>Secretary</a></li>
                 <li><a href="./community/pulicrelation.html"><i class='bx bx-broadcast'></i>Public Relation</a></li>
             </ul>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
+            <li><a href="./editProfile.html"><i class='bx bx-cog'></i>Settings</a></li>`
         </ul>
 
         <ul class="side-menu">
@@ -96,20 +96,17 @@
             <br>
             <!-- code from here -->
 
-            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
-                id="formcontent">
+            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
                 <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Achievement Details</div>
                 <div class="p-4 md:p-8">
                     <div class="flex flex-col md:flex-row gap-4">
                         <div class="w-full md:w-1/2">
-                            <input type="text" name="event_name" id="event_name_edit"
-                                class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Achievement Name" required />
                             <div id="event_name_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                         <div class="w-full md:w-1/2">
-                            <input type="text" name="date" id="achivement_date"
-                                class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="text" name="date" id="achivement_date" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Date of Birth" required />
                             <div id="achivement_date_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
@@ -120,9 +117,7 @@
 
                         <div class="w-full md:w-1/2">
                             <label for="sports" class="block font-semibold text-gray-700">Select Sports</label>
-                            <select name="sports" id="sports"
-                                class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                required>
+                            <select name="sports" id="sports" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
                                 <option value="" disabled selected>Please Select Sports</option>
                             </select>
                             <div id="sports_error" class="text-red-500 text-sm mt-1"></div>
@@ -132,8 +127,7 @@
                         <div class="w-full md:w-1/2">
                             <label for="participation" class="block font-semibold text-gray-700">Select Participation
                                 Type</label>
-                            <select id="participation" name="participation"
-                                class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <select id="participation" name="participation" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 onchange="showFields()" required>
                                 <option value="">Select Participation Type</option>
                                 <option value="0">Individual</option>
@@ -144,14 +138,12 @@
                     </div>
                     <div id="dynamicFields"></div>
                     <div class="mb-4 md:mb-10">
-                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5"
-                            class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                        <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                             placeholder="Achievement Description" required></textarea>
                         <div id="event_description_error" class="text-red-500 text-sm mt-1"></div>
                     </div>
                     <div class="text-center">
-                        <button onclick="sendAchievementData()"
-                            class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add
+                        <button onclick="sendAchievementData()" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add
                             Achievement</button>
                     </div>
                 </div>
@@ -576,18 +568,14 @@
 
                     <!-- Buttons for toggling sections -->
                     <div class="mt-6 md:flex md:items-center md:justify-between">
-                        <div
-                            class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
-                            <button id="viewAllSectionBtn"
-                                class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                        <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+                            <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
                                 View all
                             </button>
-                            <button id="monitoredSectionBtn"
-                                class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                            <button id="monitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
                                 Pending
                             </button>
-                            <button id="unmonitoredSectionBtn"
-                                class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+                            <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
                                 History
                             </button>
                         </div>
@@ -603,27 +591,20 @@
 
                         <div class="mx-auto bg-gray-50 flex items-center justify-center mt-6">
                             <div class="flex flex-col space-y-4 items-center">
-                                <div class="bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5"
-                                    style="margin: 20px;">
+                                <div class="bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5" style="margin: 20px;">
                                     <div class="w-full h-100 rounded-t overflow-hidden">
-                                        <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
-                                            alt="CFP Trophy" class="w-full h-full object-cover">
+                                        <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="CFP Trophy" class="w-full h-full object-cover">
                                     </div>
                                     <div class="flex flex-col md:flex-row">
-                                        <div
-                                            class="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
+                                        <div class="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
                                             <div class="md:text-3xl">Jan</div>
                                             <div class="md:text-6xl">13</div>
                                             <div class="md:text-xl">7 pm</div>
                                         </div>
                                         <div class="p-4 font-normal text-gray-800 md:w-3/4">
-                                            <h1
-                                                class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-800 event-title">
+                                            <h1 class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-800 event-title">
                                                 2020 National Championship</h1>
-                                            <p class="text-sm leading-tight event-description">The College Football
-                                                Playoff (CFP) determines the national champion of the top division of
-                                                college football. The format fits within the academic calendar and
-                                                preserves the sport’s unique and compelling regular
+                                            <p class="text-sm leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular
                                                 season.
                                             </p>
                                             <div class="flex flex-row items-center mt-4 text-gray-700 event-details">
@@ -637,26 +618,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5"
-                                    style="margin: 20px;">
-                                    <div class="w-full h-64 bg-top bg-cover rounded-t"
-                                        style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)">
+                                <div class="bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5" style="margin: 20px;">
+                                    <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)">
                                     </div>
                                     <div class="flex flex-col md:flex-row">
-                                        <div
-                                            class="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
+                                        <div class="flex flex-row justify-around p-4 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
                                             <div class="md:text-3xl">Jan</div>
                                             <div class="md:text-6xl">13</div>
                                             <div class="md:text-xl">7 pm</div>
                                         </div>
                                         <div class="p-4 font-normal text-gray-800 md:w-3/4">
-                                            <h1
-                                                class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-800 event-title">
+                                            <h1 class="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-800 event-title">
                                                 2020 National Championship</h1>
-                                            <p class="text-sm leading-tight event-description">The College Football
-                                                Playoff (CFP) determines the national champion of the top division of
-                                                college football. The format fits within the academic calendar and
-                                                preserves the sport’s unique and compelling regular
+                                            <p class="text-sm leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular
                                                 season.
                                             </p>
                                             <div class="flex flex-row items-center mt-4 text-gray-700 event-details">
@@ -686,28 +660,22 @@
                             <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
                                 <thead class="bg-blue-100">
                                     <tr>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Achievement Name
                                         </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Sports
                                         </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Team Head
                                         </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Date
                                         </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Category
                                         </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Actions
                                         </th>
                                     </tr>
@@ -720,11 +688,8 @@
 
 
                         <!-- //removed the code for the form -->
-                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
-                            id="allmember" style="display: none;">
-                            <button
-                                class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center"
-                                onclick="closeFormallmember()">
+                        <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="allmember" style="display: none;">
+                            <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeFormallmember()">
                                 <span class="mr-1">Close</span>
                                 <i class='bx bxs-x-circle'></i>
                             </button>
@@ -732,14 +697,12 @@
                             <div class="p-4 md:p-8">
                                 <div class="flex flex-col md:flex-row gap-4">
                                     <div class="w-full md:w-1/2">
-                                        <input type="text" name="event_name" id="event_name_edit"
-                                            class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        <input type="text" name="event_name" id="event_name_edit" class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                             placeholder="Achievement Name" required />
                                         <div id="event_name_error" class="text-red-500 text-sm mt-1"></div>
                                     </div>
                                     <div class="w-full md:w-1/2">
-                                        <input type="text" name="date" id="achivement_date"
-                                            class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        <input type="text" name="date" id="achivement_date" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                             placeholder="Date of Birth" required />
                                         <div id="achivement_date_error" class="text-red-500 text-sm mt-1"></div>
                                     </div>
@@ -751,9 +714,7 @@
                                     <div class="w-full md:w-1/2">
                                         <label for="sports" class="block font-semibold text-gray-700">Select
                                             Sports</label>
-                                        <select name="sports" id="sports"
-                                            class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                            required>
+                                        <select name="sports" id="sports" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" required>
                                             <option value="" disabled selected>Please Select Sports</option>
                                         </select>
                                         <div id="sports_error" class="text-red-500 text-sm mt-1"></div>
@@ -764,8 +725,7 @@
                                         <label for="participation" class="block font-semibold text-gray-700">Select
                                             Participation
                                             Type</label>
-                                        <select id="participation" name="participation"
-                                            class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                        <select id="participation" name="participation" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                             onchange="showFields()" required>
                                             <option value="">Select Participation Type</option>
                                             <option value="0">Individual</option>
@@ -776,14 +736,12 @@
                                 </div>
                                 <div id="dynamicFields"></div>
                                 <div class="mb-4 md:mb-10">
-                                    <textarea name="event_description" id="event_description_edit" cols="30" rows="5"
-                                        class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                    <textarea name="event_description" id="event_description_edit" cols="30" rows="5" class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                         placeholder="Achievement Description" required></textarea>
                                     <div id="event_description_error" class="text-red-500 text-sm mt-1"></div>
                                 </div>
                                 <div class="text-center">
-                                    <button onclick="sendAchievementData()"
-                                        class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add
+                                    <button onclick="sendAchievementData()" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add
                                         Achievement</button>
                                 </div>
                             </div>
@@ -801,31 +759,25 @@
                     <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
                         <thead class="bg-blue-100">
                             <tr>
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name
                                 </th>
                                 <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Title
                                     </th> -->
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Sports
                                 </th>
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Role
                                 </th>
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Year
                                 </th>
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Phone
                                 </th>
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Actions
                                 </th>
                             </tr>
@@ -849,8 +801,7 @@
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                         Chess
                                     </span>
                                 </td>
@@ -868,16 +819,13 @@
                                     03/07/2024
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                         Team
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton"
-                                        onclick="showEditForm()">Edit</a>
-                                    <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate"
-                                        onclick="deactivate()">Delete</a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
+                                    <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
                                 </td>
                             </tr>
 
@@ -897,8 +845,7 @@
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                         Chess
                                     </span>
                                 </td>
@@ -916,16 +863,13 @@
                                     03/07/2024
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                         Team
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton"
-                                        onclick="showEditForm()">Edit</a>
-                                    <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate"
-                                        onclick="deactivate()">Delete</a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
+                                    <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
                                 </td>
                             </tr>
 
@@ -938,16 +882,12 @@
 
                 </div>
 
-                <div id="deactivateModal"
-                    class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
-                    <div
-                        class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
+                <div id="deactivateModal" class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
                         <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div class="sm:flex sm:items-start">
-                                <div
-                                    class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
-                                        fill="none" class="h-6 w-6 text-red-600">
+                                <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
                                         <path
                                             d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
                                             stroke-linejoin="round" stroke-linecap="round"></path>
@@ -966,14 +906,10 @@
                             </div>
                         </div>
                         <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <button id="deactivateBtn"
-                                class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                type="button">
+                            <button id="deactivateBtn" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" type="button">
                                 Deactivate
                             </button>
-                            <button id="deactivateCancel" onclick="closedeactivate()"
-                                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                                type="button">
+                            <button id="deactivateCancel" onclick="closedeactivate()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" type="button">
                                 Cancel
                             </button>
                         </div>
@@ -981,23 +917,18 @@
                 </div>
 
 
-                <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
-                    id="editvent" style="display: none;">
-                    <button
-                        class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center"
-                        onclick="closeForm()">
+                <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="editvent" style="display: none;">
+                    <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeForm()">
                         <span class="mr-1">Close</span>
                         <i class='bx bxs-x-circle'></i>
                     </button>
                     <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit user Details</div>
                     <div class="p-4 md:p-8">
                         <div class="flex flex-col md:flex-row gap-4">
-                            <input type="text" name="roll_no" id="roll__edit"
-                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="text" name="roll_no" id="roll__edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Roll_no *" />
 
-                            <select name="category" id="category_edit"
-                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
                                 <option value="" disabled selected>Select Role</option>
                                 <option value="Category 1">Category 1</option>
                                 <option value="Category 2">Category 2</option>
@@ -1006,16 +937,14 @@
                         </div>
 
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <select name="category" id="category_edit"
-                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <select name="category" id="category_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
                                 <option value="" disabled selected>Select Role</option>
                                 <option value="Category 1">Category 1</option>
                                 <option value="Category 2">Category 2</option>
                                 <option value="Category 3">Category 3</option>
                             </select>
 
-                            <select name="gender" id="gender_edit"
-                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                            <select name="gender" id="gender_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
                                 <option value="" disabled selected>Select Gender</option>
                                 <option value="Boys">Boys</option>
                                 <option value="Girls">Girls</option>
@@ -1024,8 +953,7 @@
                         </div>
 
                         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <input type="date" name="event_date" id="event_date_edit"
-                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                            <input type="date" name="event_date" id="event_date_edit" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 placeholder="Event Date" />
 
 
@@ -1033,9 +961,7 @@
 
 
                         <div class="text-center">
-                            <button type="button"
-                                class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4"
-                                onclick="updateEvent()">Update Event</button>
+                            <button type="button" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4" onclick="updateEvent()">Update Event</button>
                         </div>
 
                     </div>
@@ -1088,7 +1014,9 @@
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify({ token: token })
+                    body: JSON.stringify({
+                        token: token
+                    })
                 });
 
                 if (response.ok) {
@@ -1141,7 +1069,6 @@
 
         // Decode token and fetch sports data on page load
         document.addEventListener('DOMContentLoaded', decodeToken);
-
     </script>
 
 
@@ -1172,36 +1099,35 @@
         from {
             opacity: 0;
         }
-
         to {
             opacity: 1;
         }
     }
-
+    
     .event-date {
         font-family: 'Roboto', sans-serif;
         font-weight: 700;
     }
-
+    
     .event-title {
         font-family: 'Roboto', sans-serif;
         font-weight: 700;
     }
-
+    
     .event-description {
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
     }
-
+    
     .event-details {
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
     }
-
+    
     .spor:hover {
         color: rgb(112, 112, 219);
     }
-
+    
     .loc:hover {
         color: rgb(112, 112, 219);
     }
@@ -1297,7 +1223,7 @@
         return text;
     }
 
-    document.addEventListener('DOMContentLoaded', async function () {
+    document.addEventListener('DOMContentLoaded', async function() {
         try {
             const response = await fetch('http://localhost:3000/api/displayachievementspending', {
                 method: 'GET',
@@ -1426,6 +1352,4 @@
         `;
         tableBody.appendChild(row);
     });
-
-
 </script>

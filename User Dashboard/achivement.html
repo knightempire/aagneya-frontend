@@ -34,7 +34,7 @@
                 <li><a href="./community/secretary.html"><i class='bx bx-notepad'></i>Secretary</a></li>
                 <li><a href="./community/pulicrelation.html"><i class='bx bx-broadcast'></i>Public Relation</a></li>
             </ul>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
+            <li><a href="./editprofile.html"><i class='bx bx-cog'></i>Settings</a></li>`
         </ul>
 
         <ul class="side-menu">
@@ -102,7 +102,7 @@
                         </div>
                         <div class="w-full md:w-1/2">
                             <input type="text" name="date" id="appointmentDate" class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            placeholder="Date of Birth" required />
+                                placeholder="Date of Birth" required />
                             <div id="appointmentDate_error" class="text-red-500 text-sm mt-1"></div>
                         </div>
                     </div>
@@ -134,21 +134,21 @@
                         <div id="event_description_error" class="text-red-500 text-sm mt-1"></div>
                     </div>
                     <div class="text-center">
-                        <button onclick="addEvent()"  class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add Achievement</button>
+                        <button onclick="addEvent()" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add Achievement</button>
                     </div>
                 </div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
             <script>
-           function showFields() {
-    const dynamicFields = document.getElementById('dynamicFields');
-    dynamicFields.innerHTML = ''; // Clear previous fields
-    const participationType = document.getElementById('participation').value;
+                function showFields() {
+                    const dynamicFields = document.getElementById('dynamicFields');
+                    dynamicFields.innerHTML = ''; // Clear previous fields
+                    const participationType = document.getElementById('participation').value;
 
-    if (participationType === '1') {
-        // Team selected
-        dynamicFields.innerHTML = `
+                    if (participationType === '1') {
+                        // Team selected
+                        dynamicFields.innerHTML = `
             <div class="my-4 md:my-6">
                 <label for="teamSize" class="block font-semibold text-gray-700">Number of Persons in Team</label>
                 <input type="number" id="teamSize" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" oninput="generateTeamFields()" required>
@@ -156,9 +156,9 @@
             </div>
             <div id="teamMembers"></div>
         `;
-    } else if (participationType === '0') {
-        // Individual selected
-        dynamicFields.innerHTML = `
+                    } else if (participationType === '0') {
+                        // Individual selected
+                        dynamicFields.innerHTML = `
             <div class="flex flex-col md:flex-row gap-4">
                 <div class="w-full md:w-1/2">
                                     <label for="individual" class="block font-semibold text-gray-700"> Name</label>
@@ -181,15 +181,15 @@
     </div>
 </div>
         `;
-    }
-}
+                    }
+                }
 
-function generateTeamFields() {
-    const teamSize = document.getElementById('teamSize').value;
-    const teamMembers = document.getElementById('teamMembers');
-    teamMembers.innerHTML = ''; // Clear previous fields
+                function generateTeamFields() {
+                    const teamSize = document.getElementById('teamSize').value;
+                    const teamMembers = document.getElementById('teamMembers');
+                    teamMembers.innerHTML = ''; // Clear previous fields
 
-    teamMembers.innerHTML += `
+                    teamMembers.innerHTML += `
         <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
             <div class="w-full md:w-1/2">
                 <label for="captainName" class="block font-semibold text-gray-700">Captain Name</label>
@@ -204,9 +204,9 @@ function generateTeamFields() {
         </div>
     `;
 
-    for (let i = 2; i <= teamSize; i += 2) {
-        const nextIndex = i + 1;
-        teamMembers.innerHTML += `
+                    for (let i = 2; i <= teamSize; i += 2) {
+                        const nextIndex = i + 1;
+                        teamMembers.innerHTML += `
             <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                 <div class="w-full md:w-1/2">
                                     <label for="captainRollNumber" class="block font-semibold text-gray-700">Participant ${i} Roll Number</label>
@@ -415,9 +415,8 @@ document.addEventListener('DOMContentLoaded', function() {
         altFormat: "F j, Y"
     });
 });
-
             </script>
-            
+
 
 
 

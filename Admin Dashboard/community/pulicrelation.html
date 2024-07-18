@@ -16,6 +16,7 @@
             display: none;
             width: 40px;
         }
+        
         .dropdown-menu.show {
             display: block;
         }
@@ -94,6 +95,7 @@
         }
     }
 </script>
+
 <body>
 
     <!-- Sidebar -->
@@ -116,7 +118,7 @@
                 <li><a href="./secretary.html"><i class='bx bx-notepad'></i>Secretary</a></li>
                 <li><a href="./pulicrelation.html"><i class='bx bx-broadcast'></i>Public Relation</a></li>
             </ul>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>`
+            <li><a href="../editProfile.html"><i class='bx bx-cog'></i>Settings</a></li>
         </ul>
 
         <ul class="side-menu">
@@ -213,9 +215,11 @@
             <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
                 <style>
                     /* Add custom animations and styles here */
+                    
                     .fade-in {
                         animation: fadeIn 1s ease-in-out;
                     }
+                    
                     @keyframes fadeIn {
                         from {
                             opacity: 0;
@@ -224,16 +228,16 @@
                             opacity: 1;
                         }
                     }
-            
+                    
                     .dropdown-menu {
                         display: none;
                     }
-            
+                    
                     .dropdown-menu.show {
                         display: block;
                         animation: slideDown 0.5s ease-in-out;
                     }
-            
+                    
                     @keyframes slideDown {
                         from {
                             opacity: 0;
@@ -244,24 +248,24 @@
                             transform: translateY(0);
                         }
                     }
-            
+                    
                     .toggle-btn.active {
                         color: white;
                     }
-            
+                    
                     .card {
                         transition: transform 0.3s, box-shadow 0.3s;
                     }
-            
+                    
                     .card:hover {
                         transform: translateY(-10px);
                         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                     }
                 </style>
-        
+
                 <section class="container px-4 mx-auto">
                     <div class="sm:flex sm:items-center sm:justify-between"></div>
-            
+
                     <!-- Buttons for toggling sections -->
                     <table class="w-full">
                         <tr>
@@ -283,14 +287,16 @@
                             <td class="w-1/2 text-right relative">
                                 <div class="relative inline-block text-left">
                                     <div>
-                                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true" onclick="toggleDropdown()">
+                                        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true"
+                                            onclick="toggleDropdown()">
                                             Select Year
                                             <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                             </svg>
                                         </button>
                                     </div>
-                                    <div class="dropdown-menu absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                    <div class="dropdown-menu absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button"
+                                        tabindex="-1">
                                         <div class="py-1" role="none">
                                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-0">01</a>
                                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="menu-item-1">02</a>
@@ -304,19 +310,19 @@
                             </td>
                         </tr>
                     </table>
-                    
+
                     <script>
-                    function toggleDropdown() {
-                        document.querySelector('.dropdown-menu').classList.toggle('hidden');
-                    }
+                        function toggleDropdown() {
+                            document.querySelector('.dropdown-menu').classList.toggle('hidden');
+                        }
                     </script>
-                    
-            
+
+
                     <!-- Sections to toggle visibility -->
                     <div id="viewAllSection" class="flex flex-col mt-6">
 
                         <!-- info to backend -->
-            
+
                         <!-- flex justify-between items-center pt-4  - after vote
                         text-center   - init -->
                         <!-- id name of div votechange -->
@@ -324,12 +330,12 @@
                             <i class="heart fas fa-heart text-purple-700"></i>
                             <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
                         </div> -->
-            
+
                         <!-- id votewinner -->
                         <!-- <div class="position-badge" id="votewinner">
                             <i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i>
                         </div> -->
-            
+
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
                             <!-- Card 1 -->
                             <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
@@ -400,12 +406,12 @@
                         <p>Monitored section content goes here.</p>
                         <h1>hello</h1>
                     </div>
-            
+
                     <div id="unmonitoredSection" class="flex flex-col mt-6 hidden fade-in">
                         <p>Unmonitored section content goes here.</p>
                     </div>
                 </section>
-            
+
                 <script>
                     const viewAllSectionBtn = document.getElementById('viewAllSectionBtn');
                     const monitoredSectionBtn = document.getElementById('monitoredSectionBtn');
@@ -414,11 +420,11 @@
                     const monitoredSection = document.getElementById('monitoredSection');
                     const unmonitoredSection = document.getElementById('unmonitoredSection');
                     const dropdownMenu = document.querySelector('.dropdown-menu');
-            
+
                     function toggleDropdown() {
                         dropdownMenu.classList.toggle('show');
                     }
-            
+
                     viewAllSectionBtn.addEventListener('click', () => {
                         viewAllSection.classList.remove('hidden');
                         monitoredSection.classList.add('hidden');
@@ -427,7 +433,7 @@
                         monitoredSectionBtn.classList.remove('active');
                         unmonitoredSectionBtn.classList.remove('active');
                     });
-            
+
                     monitoredSectionBtn.addEventListener('click', () => {
                         viewAllSection.classList.add('hidden');
                         monitoredSection.classList.remove('hidden');
@@ -436,7 +442,7 @@
                         monitoredSectionBtn.classList.add('active');
                         unmonitoredSectionBtn.classList.remove('active');
                     });
-            
+
                     unmonitoredSectionBtn.addEventListener('click', () => {
                         viewAllSection.classList.add('hidden');
                         monitoredSection.classList.add('hidden');
@@ -446,7 +452,7 @@
                         unmonitoredSectionBtn.classList.add('active');
                     });
                 </script>
-            
+
 
 
 
