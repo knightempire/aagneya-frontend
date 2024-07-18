@@ -48,9 +48,7 @@
 
         <ul class="side-menu">
             <li>
-                <a href="#" class="logout">
-                    <i class='bx bx-log-out-circle'></i> Logout
-                </a>
+                <a href="#" class="logout" onclick="logout()"><i class='bx bx-log-out-circle'></i> Logout </a>
             </li>
         </ul>
     </div>
@@ -120,3 +118,13 @@
 </body>
 
 </html>
+
+<script>
+    function logout() {
+        // Remove token from local storage
+        localStorage.removeItem('token');
+
+        // Redirect to index.html
+        window.location.href = '../login/login.html';
+    }
+</script>
