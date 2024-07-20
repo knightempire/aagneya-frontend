@@ -7,7 +7,67 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/style.css">
     <title>Aagneya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .vote-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .vote-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        .card {
+            position: relative;
+        }
+        
+        .position-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <!-- <style>
+        .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style> -->
+    <style>
+        .heart:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
+
 
 <body>
 
@@ -79,11 +139,7 @@
                         <li><a href="#" class="active">Shop</a></li>
                     </ul>
                 </div>
-                <a href="#" class="report" id="reg_show" style="display: none;">
-                    <i class='bx bxs-add-to-queue'></i>
-                    <span id="changes">Add</span>
-                    <i class='bx bxs-x-circle' style="display: none;"></i>
-                </a>
+
             </div>
             <br>
             <!-- code from here -->
@@ -148,99 +204,156 @@
                 </div>
             </div>
 
-            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative" id="formcontent">
 
-                <br>
-
-
-
-                <form id="registersubmit" onsubmit="submitForm(event)">
-                    <!-- Prevents default form submission -->
-                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Election Registration</div>
-                    <div class="p-4 md:p-8">
-                        <div class="flex flex-col md:flex-row gap-4">
-                            <input type="text" name="roll_no" id="roll_no_dis" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                placeholder="Roll_no " readonly>
-
-                            <select name="category" id="roles" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                required>
-                                <option value="" disabled selected>Select Role</option>
-                                <!-- Options will be dynamically added here -->
-                            </select>
+            <div class="flex justify-center items-center" id="msgok" style="display:none ;">
+                <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
+                    <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                        <div class="flex gap-2">
+                            <div class="text-[#2b9875] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white">Activated successfully :)</p>
+                                <p class="text-gray-500" id="Msg">User activated</p>
+                            </div>
                         </div>
-
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                            <input type="text" name="year" id="year_dis" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                placeholder="year" readonly>
-
-                        </div>
-
-                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-
-                        </div>
-
-                        <div class="text-center">
-                            <button type="submit" class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4"> Register</button>
-                        </div>
+                        <button class="text-gray-600 text-gray-600 hover:bg-white/5 p-1 rounded-md transition-colors ease-linear">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
 
+
+            <div class="flex justify-center items-center flex-col gap-2  text-[10px] " id="msgfail" style="display: none;">
+                <div class="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                    <div class="flex gap-2">
+                        <div class="text-[#d65563] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white">Please try again</p>
+                            <p class="text-gray-500" id="Msgerr">This is the description part</p>
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:bg-white/10 p-1 rounded-md transition-colors ease-linear">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
 
             <br>
 
 
             <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900" id="seprate">
+
                 <section class="container px-4 mx-auto">
-                    <div class="sm:flex sm:items-center sm:justify-between">
-                    </div>
+                    <div class="sm:flex sm:items-center sm:justify-between"></div>
 
                     <!-- Buttons for toggling sections -->
-                    <div class="mt-6 md:flex md:items-center md:justify-between">
+
+                    <div class="mt-6 md:flex md:items-center md:justify-start">
                         <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
-                            <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 ">
-                                View all
-                            </button>
+                            <button id="viewAllSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300 active">
+                                            Boys
+                                        </button>
                             <button id="monitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                Monitored
-                            </button>
-                            <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                Unmonitored
-                            </button>
+                                            Girls
+                                        </button>
+                            <button id="unmonitoredSectionBtn" class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100" style="display: none;">
+                                            Unmonitored
+                                        </button>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- Sections to toggle visibility -->
+                    <div id="viewAllSection" class="flex flex-col mt-6">
+
+                        <!-- info to backend -->
+
+                        <!-- flex justify-between items-center pt-4  - after vote
+                        text-center   - init -->
+                        <!-- id name of div votechange -->
+                        <!-- vote div -     <div class="flex items-center space-x-2">
+                            <i class="heart fas fa-heart text-purple-700"></i>
+                            <span class="text-sm sm:text-base dark:text-gray-600">80 votes</span>
+                        </div> -->
+
+                        <!-- id votewinner -->
+                        <!-- <div class="position-badge" id="votewinner">
+                            <i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i>
+                        </div> -->
+
+                        <div class="flex justify-end p-2">
+
+                            <select name="year" id="year-select" class="year_election mt-4 md:mt-1 block w-full md:w-1/3 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>select Year</option>
+                            </select>
+
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center" id="showelectioncardboy">
+
+
                         </div>
 
 
                     </div>
 
-                    <!-- Sections to toggle visibility -->
-                    <div id="viewAllSection" class="flex flex-col mt-6">
+
+                    <div id="monitoredSection" class="flex flex-col mt-6 hidden fade-in">
 
 
+                        <div class="flex justify-end p-2">
 
+                            <select name="year" class="year_election mt-4 md:mt-1 block w-full md:w-1/3 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                required>
+                                <option value="" disabled selected>select Year</option>
+                            </select>
+
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center" id="showelectioncardgirl">
+
+                        </div>
 
                     </div>
 
-
-                    <div id="monitoredSection" class="flex flex-col mt-6 hidden">
-                        <p>Monitored section content goes here.</p>
-
-
-
-                    </div>
-
-
-
-                    <div id="unmonitoredSection" class="flex flex-col mt-6 hidden">
-
-
-
-
+                    <div id="unmonitoredSection" class="flex flex-col mt-6 hidden fade-in">
                         <p>Unmonitored section content goes here.</p>
                     </div>
-
-
                 </section>
+
+
 
 
 
@@ -253,6 +366,7 @@
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <script src="../js/index.js"></script>
@@ -276,11 +390,13 @@
 
 <script src="//unpkg.com/alpinejs" defer></script>
 
-
 <script>
     let roll_no;
     let name;
     let token;
+    let vote;
+    let years;
+
 
     async function decodeToken() {
         try {
@@ -320,11 +436,7 @@
                         const nameElement = document.getElementById('name');
                         nameElement.textContent = name;
 
-                        const roleElement = document.getElementById('roll_no_dis');
-                        roleElement.value = roll_no;
-
-                        getelectionshow();
-                        getrole();
+                        getelection();
 
 
                     } else {
@@ -347,9 +459,11 @@
         }
     }
 
-    async function getelectionshow() {
+
+    // Function to fetch and populate the <select> elements
+    async function getelection() {
         try {
-            const response = await fetch('http://localhost:3000/api/electionshow', {
+            const response = await fetch('http://localhost:3000/api/electionyear', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -358,168 +472,164 @@
             });
 
             if (!response.ok) {
-                throw new Error('Failed to fetch election show data');
+                throw new Error('Failed to fetch election data');
             }
 
-            const data = await response.json();
-            console.log('Election shows data:', data);
+            const responseData = await response.json();
+            const data = responseData.data; // Assuming 'data' is the array of election years
 
-            // Check if the array length is greater than 0
-            if (data.length > 0) {
-                // Assuming 'year' is a property in the fetched data
-                const year = data[0].year; // Adjust according to your API response structure
+            console.log('election data:', data);
 
-                // Update the value of year_dis input element
-                document.getElementById('year_dis').value = year;
 
-                // Show the anchor tag with id 'reg_show'
-                document.getElementById('reg_show').style.display = 'inline-block';
-            } else {
-                // Optionally, handle case when array is empty (not specified in your example)
-                console.log('No election shows available.');
+            // Select all elements with class "year_election"
+            const yearSelects = document.querySelectorAll('.year_election');
+
+            // Determine the default year to display
+            let defaultYear = null;
+
+            // Find the first year with is_register === 1 or is_vote === 1
+            const validYears = data.filter(election => election.is_register === 2 || election.is_vote === 2);
+
+            if (validYears.length > 0) {
+                defaultYear = validYears[0].year;
+                console.log('Default year:', defaultYear);
+                electionppl(defaultYear)
+
+
             }
 
-        } catch (error) {
-            console.error('Error fetching election shows:', error);
-            throw error;
-        }
-    }
+            // else {
+            //     // If no years match, display the maximum year
+            //     defaultYear = Math.max(...data.map(election => election.year));
+            //     console.log('Default year max:', defaultYear); // Log the default year to console
+            //     electionppl(defaultYear)
+
+            // }
 
 
-    async function getrole() {
-        try {
-            const response = await fetch('http://localhost:3000/api/displayroles', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            });
 
-            if (!response.ok) {
-                throw new Error('Failed to fetch roles');
-            }
+            // Populate each <select> element with the fetched data
+            yearSelects.forEach(select => {
+                // Clear existing options except the default placeholder
+                select.innerHTML = '<option value="" disabled selected>select Year</option>';
 
-            const data = await response.json();
-            console.log('Roles data:', data.roles);
-
-            const populateRoles = (selectElement) => {
-                // Clear existing options
-                selectElement.innerHTML = '<option value="" disabled selected>Select Role</option>';
-
-                // Filter roles based on role_id
-                const filteredRoles = data.roles.filter(role => ![0, 5, 6].includes(role.role_id));
-
-                // Add options based on filtered data
-                filteredRoles.forEach(role => {
+                // Populate with fetched data
+                data.forEach(election => {
                     const option = document.createElement('option');
-                    option.value = role.role_id; // Assign the role_id as the option value
-                    option.textContent = role.role_name; // Assign the role_name as the option text
-                    selectElement.appendChild(option);
+                    option.textContent = election.year;
+                    option.value = election.year;
+                    select.appendChild(option);
                 });
-            };
 
+                // Set the selected option based on the determined defaultYear
+                select.value = defaultYear;
 
+                // Add change event listener to synchronize selection
+                select.addEventListener('change', function() {
+                    // Update all other <select> elements
 
-            // Select elements to populate
-            const rolesSelect = document.getElementById('roles');
-
-
-            // Populate roles in both select elements
-            populateRoles(rolesSelect);
-
+                    yearSelects.forEach(otherSelect => {
+                        if (otherSelect !== select) {
+                            otherSelect.value = select.value;
+                            console.log("changed yr: ", otherSelect.value)
+                            electionppl(otherSelect.value)
+                        }
+                    });
+                });
+            });
 
         } catch (error) {
-            console.error('Error fetching roles:', error);
+            console.error('Error fetching election data:', error);
+            // Handle error gracefully
             throw error;
         }
     }
 
 
-    // Function to handle form submission
-    async function submitForm(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Get values from the form
-        const roll_no = document.getElementById('roll_no_dis').value;
-        const spl_role = document.getElementById('roles').value;
-        const year = document.getElementById('year_dis').value;
+    // Logic for vote
+    async function electionppl(year) {
 
 
-        // Display data in console
-        console.log('Roll Number:', roll_no);
-        console.log('Special Role:', spl_role);
-        console.log('year:', year);
-
-        const data = {
-            roll_no: roll_no,
-            year: year,
-            role_id: spl_role
-        };
-
-        // Additional logic or API calls can be added here
         try {
-            const response = await fetch('http://localhost:3000/api/electionregister', {
+            const response = await fetch('http://localhost:3000/api/winnerelectionresult', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+                    year: year
+                })
             });
 
-            if (response.ok) {
-                const responseData = await response.json();
-                console.log('Success:', responseData);
-
-                // Assuming you have an element with id 'msgok' and 'Msg' to show the message
-                const successMsg = document.getElementById('msgok');
-                const message = responseData.message; // Extract message from response
-                console.log(message);
-                document.getElementById('Msg').textContent = message; // Update message content dynamically
-
-                successMsg.style.display = 'flex';
-                setTimeout(function() {
-                    successMsg.style.display = 'none';
-                }, 3000); // Hide after 3 seconds
-            } else {
-                // Show the failure message
-                const failMsg = document.getElementById('msgfail');
-                let responseData = {};
-                try {
-                    responseData = await response.json(); // Try to parse response JSON
-                } catch (error) {
-                    console.error('Error parsing JSON:', error);
-                }
-
-                const error = responseData.error || 'Failed to get error message'; // Extract error message or provide a default
-                console.log(error);
-                document.getElementById('Msgerr').textContent = error; // Update error message content dynamically
-
-                if (failMsg) {
-                    failMsg.style.display = 'flex';
-                    setTimeout(() => {
-                        failMsg.style.display = 'none';
-                    }, 3000); // Hide after 3 seconds
-                }
-                throw new Error('Network response was not ok');
+            if (!response.ok) {
+                throw new Error('Failed to fetch election data');
             }
+
+            const data = await response.json();
+            console.log('winner data:', data);
+
+            // Separate boys and girls
+            const boys = [];
+            const girls = [];
+
+            data.winners.forEach(winner => {
+                if (typeof winner.gender === 'string') {
+                    if (winner.gender === 'Boys') {
+                        boys.push(winner);
+                    } else if (winner.gender === 'Girls') {
+                        girls.push(winner);
+                    }
+                } else if (Array.isArray(winner.gender)) {
+                    winner.gender.forEach(g => {
+                        if (g.gender === 'Boys') {
+                            boys.push({
+                                name: winner.name,
+                                reg_roll_no: winner.reg_roll_no,
+                                role_name: winner.role_name,
+                                vote_count: g.vote_count,
+                                vote_percentage: g.vote_percentage
+                            });
+                        } else if (g.gender === 'Girls') {
+                            girls.push({
+                                name: winner.name,
+                                reg_roll_no: winner.reg_roll_no,
+                                role_name: winner.role_name,
+                                vote_count: g.vote_count,
+                                vote_percentage: g.vote_percentage
+                            });
+                        }
+                    });
+                }
+            });
+
+            console.log('Boys:', boys);
+            console.log('Girls:', girls);
+
+            const boysContainer = document.getElementById('showelectioncardboy');
+            const girlsContainer = document.getElementById('showelectioncardgirl');
+            boysContainer.innerHTML = '';
+            girlsContainer.innerHTML = '';
+
+
+
+            // Example: Accessing individual properties
+            boys.forEach(boy => {
+
+            });
+
+            girls.forEach(girl => {
+
+            });
+
         } catch (error) {
-            console.error('Error updating user details:', error);
+            console.error('Error fetching election data:', error);
+            throw error;
         }
 
 
-
-
-
-
-        successMsg.style.display = 'flex';
-        setTimeout(function() {
-            successMsg.style.display = 'none';
-        }, 3000); // Hide after 3 seconds
-
-
     }
+
 
 
 
@@ -527,6 +637,45 @@
         decodeToken();
     };
 </script>
+
+
+<script>
+    document.getElementById('dropdownButton').addEventListener('click', function() {
+        var dropdownContent = document.getElementById('dropdownContent');
+        dropdownContent.classList.toggle('show');
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('#dropdownButton')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+    document.getElementById('dropdownButton1').addEventListener('click', function() {
+        var dropdownContent = document.getElementById('dropdownContent1');
+        dropdownContent.classList.toggle('show');
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('#dropdownButton1')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content1");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
 
 <script>
     function logout() {
