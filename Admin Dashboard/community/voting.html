@@ -360,6 +360,7 @@
     let name;
     let token;
     let yr;
+    let vote;
 
     async function decodeToken() {
         try {
@@ -563,6 +564,7 @@
                         toggleNumber = result.data.is_register === 1;
                         toggle2Number = result.data.is_vote === 1;
 
+                        vote = result.data.is_vote
                         const registerState = toggleNumber ? 1 : 0;
                         const voteState = toggle2Number ? 1 : 0;
 
@@ -869,12 +871,16 @@
             const data = await response.json();
             console.log('Response data:', data);
 
-            // Determine the message based on the 'missing' array length
+            console.log(vote)
+                // Determine the message based on the 'missing' array length
             let message;
             if (data.missing && data.missing.length > 0) {
                 message = `${data.missing.length} catagories are not registered. Are you sure you want to proceed?`;
+            } else if (vote == 2) {
+                message = 'The results are already out';
             } else {
-                message = 'Do you want to publish the result?';
+
+                message = 'Do you want to publish the result';
             }
 
             // Display the modal once data is fetched successfully
@@ -897,6 +903,36 @@
     async function respublish() {
         document.getElementById('alertModal').classList.add('hidden');
         console.log("published yr", yr)
+
+        try {
+            // Call the API to update the vote status
+            const response = await fetch('http://localhost:3000/api/voteresult', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    year: yr
+                })
+            });
+
+            // Ensure the response is successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // Parse the JSON response
+            const data = await response.json();
+            console.log('Response data:', data);
+
+
+
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+
+
     }
 
     window.onload = function() {
