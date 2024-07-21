@@ -54,8 +54,8 @@
             </div>
             <!-- Gender Filter -->
             <div class="btn-group" role="group" aria-label="Gender" data-filter="gender">
-                <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="male">Male</button>
-                <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="female">Female</button>
+                <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="boys">Boys</button>
+                <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="girls">Girls</button>
             </div>
             <!-- Team Filter -->
 
@@ -63,7 +63,7 @@
         <!-- Filterable Images / Cards Section -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center" id="filterable-cards">
             <!-- First Card -->
-            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="male" data-sport="football" data-position="captain">
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="boys" data-sport="football" data-position="captain">
                 <img class="object-cover object-center w-full h-56" src="https://upload.wikimedia.org/wikipedia/commons/4/43/1500x1500-abstract-sd2003.jpg" alt="avatar" style="height: fit-content">
                 <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
                     <div class="flex items-center">
@@ -81,7 +81,7 @@
             </div>
 
             <!-- Second Card -->
-            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="individual" data-gender="female" data-sport="chess" data-position="vice-captain">
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="individual" data-gender="girls" data-sport="chess" data-position="vice-captain">
                 <img class="object-cover object-center w-full h-56" src="D:\photos\chess.jpg" alt="avatar">
                 <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
                     <div class="flex items-center">
@@ -99,7 +99,7 @@
             </div>
 
             <!-- Third Card -->
-            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="male" data-sport="hockey" data-position="captain">
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="boys" data-sport="hockey" data-position="captain">
                 <img class="object-cover object-center w-full h-56" src="D:\photos\hockey.jpg" alt="avatar">
                 <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
                     <div class="flex items-center">
@@ -117,7 +117,7 @@
             </div>
 
             <!-- Fourth Card -->
-            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="individual" data-gender="female" data-sport="volleyball" data-position="captain">
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="individual" data-gender="girls" data-sport="volleyball" data-position="captain">
                 <img class="object-cover object-center w-full h-56" src="D:\photos\volleyball.jpg" alt="avatar">
                 <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
                     <div class="flex items-center">
@@ -135,7 +135,7 @@
             </div>
 
             <!-- Fifth Card -->
-            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="male" data-sport="cricket" data-position="vice-captain">
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="boys" data-sport="cricket" data-position="vice-captain">
                 <img class="object-cover object-center w-full h-56" src="D:\photos\cricket.jpg" alt="avatar">
                 <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
                     <div class="flex items-center">
@@ -183,7 +183,6 @@
                 item.classList.toggle('bg-gray-200', selectedItems.includes(item.getAttribute('data-value')));
             });
             filterCards('sport', selectedItems);
-            selectedItemsContainer.scrollLeft = selectedItemsContainer.scrollWidth; // Scroll to the end
         }
 
         dropdownInput.addEventListener('click', function() {
