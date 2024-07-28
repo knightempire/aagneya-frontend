@@ -1,4 +1,4 @@
-# Aagneya Sports Club Web Application
+ # Aagneya Sports Club Web Application
 
 Welcome to the Aagneya Sports Club web application project! This application is being developed by a team of students to provide a platform for staff and community members to interact, manage sports events, registrations, and achievements.
 
