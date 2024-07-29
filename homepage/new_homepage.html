@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <meta property="og:image" content="https://merakiui.com/images/thumbnail.webp" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:type" content="image/webp" />
+
+    <meta property="og:url" content="https://merakiui.com/components/9f051718-b5ef-47a8-ac24-2ed39f49e6ef/preview" />
+    <meta property="og:title" content="Tailwind CSS Avatar Navbars Component" />
+    <meta property="og:description" content="Ready to use Avatar Navbars Component, copy-paste HTML components code, and build your awesome website, dashboard, landing page, and more." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@meraki_ui" />
+    <meta name="twitter:title" content="Tailwind CSS Avatar Navbars Component" />
+    <meta name="twitter:description" content="Ready to use Avatar Navbars Component, copy-paste HTML components code, and build your awesome website, dashboard, landing page, and more." />
+    <meta name="twitter:image" content="https://merakiui.com/images/thumbnail.webp" />
+
+    <title>members</title>
+
+    <meta name="description" content="Ready to use Avatar Navbars Component, copy-paste HTML components code, and build your awesome website, dashboard, landing page, and more.">
+
+
+    <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        [x-cloak] {
+            display: none
+        }
+ 
+
+    </style>
+  <script>
+    tailwind.config = {
+        darkMode: 'class',
+    }
+</script>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body x-data="{ open: true, darkMode: false }" :class="darkMode ? 'dark' : ''">
+    
+    <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900">
+        <nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
+            <div class="container px-6 py-4 mx-auto">
+                <div class="lg:flex lg:items-center lg:justify-between">
+                    <div class="flex items-center justify-between">
+                        <a href="#">
+                            <img class="w-auto h-6 sm:h-7" src="../img/logo.jpg" alt="">
+                        </a>
+                    
+                        <!-- Mobile menu button -->
+                        <div class="flex mobile-menu-button">
+                            <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                                <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                                </svg>
+                    
+                                <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    
+
+                    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                    <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
+                        <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achivements</a>
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</a>
+                        </div>
+
+                        <!-- <div class="flex items-center mt-4 lg:mt-0">
+                             <button class="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                            <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
+                        <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+                        </div>
+
+                        <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
+                    </button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="container mx-auto py-10">
+            <!-- Filter Buttons Section -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8" id="filter-buttons">
+                <!-- Sports Filter -->
+                <div class="relative inline-block w-full sm:w-64">
+                    <!-- <select class="selectpicker block w-full p-2 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring" multiple aria-label="Default select example" data-live-search="true" title="Select sports">
+                        <option value="football">Football</option>
+                        <option value="cricket">Cricket</option>
+                        <option value="volleyball">Volleyball</option>
+                        <option value="hockey">Hockey</option>
+                        <option value="chess">Chess</option>
+                    </select>
+                     -->
+    
+                    <div id="selectedItemsContainer" class="w-full bg-white border border-gray-300 rounded-lg shadow-sm p-2 flex gap-2 overflow-x-auto">
+                        <input id="dropdownInput" type="text" class="flex-1 outline-none placeholder-gray-500" placeholder="Select items" readonly>
+                    </div>
+                    <div id="dropdownMenu" class="absolute w-full bg-white border border-gray-300 rounded-lg shadow-lg mt-1 hidden z-10">
+                        <input id="searchInput" type="text" class="w-full p-3 border-b border-gray-200 outline-none focus:border-blue-500" placeholder="Search...">
+                        <ul id="itemsList" class="max-h-48 overflow-auto">
+                            <li class="dropdown-item cursor-pointer" data-value="football">Football</li>
+                            <li class="dropdown-item cursor-pointer" data-value="cricket">Cricket</li>
+                            <li class="dropdown-item cursor-pointer" data-value="volleyball">Volleyball</li>
+                            <li class="dropdown-item cursor-pointer" data-value="hockey">Hockey</li>
+                            <li class="dropdown-item cursor-pointer" data-value="chess">Chess</li>
+                        </ul>
+                    </div>
+    
+    
+    
+                </div>
+                <!-- Position Filter -->
+                <div class="btn-group" role="group" aria-label="Position" data-filter="position">
+                    <button class="filter-button btn btn-outline-primary" data-filter="position" data-value="captain">Captain</button>
+                    <button class="filter-button btn btn-outline-primary" data-filter="position" data-value="vice-captain">Vice Captain</button>
+                </div>
+                <!-- Gender Filter -->
+                <div class="btn-group" role="group" aria-label="Gender" data-filter="gender">
+                    <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="boys">Boys</button>
+                    <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="girls">Girls</button>
+                </div>
+                <!-- Team Filter -->
+    
+            </div>
+            <!-- Filterable Images / Cards Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center" id="filterable-cards">
+                <!-- First Card -->
+                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="boys" data-sport="football" data-position="captain">
+                    <img class="object-cover object-center w-full h-56" src="https://upload.wikimedia.org/wikipedia/commons/4/43/1500x1500-abstract-sd2003.jpg" alt="avatar" style="height: fit-content">
+                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-crown text-yellow-500"></i>
+                            <h1 class="mx-3 text-lg font-semibold text-white">Captain</h1>
+                        </div>
+                        <div class="flex items-center mt-2 text-gray-700">
+                            <h1 class="px-2 text-sm text-white"><strong>Football</strong></h1>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4">
+                        <h1 class="text-xl font-semibold text-gray-800">Patterson Johnson</h1>
+                        <p class="py-2 text-gray-700">CB.EN.U4CSE21331</p>
+                    </div>
+                </div>
+    
+                <!-- Second Card -->
+                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="individual" data-gender="girls" data-sport="chess" data-position="vice-captain">
+                    <img class="object-cover object-center w-full h-56" src="D:\photos\chess.jpg" alt="avatar">
+                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-crown text-yellow-500"></i>
+                            <h1 class="mx-3 text-lg font-semibold text-white">Vice Captain</h1>
+                        </div>
+                        <div class="flex items-center mt-2 text-gray-700">
+                            <h1 class="px-2 text-sm text-white"><strong>Chess</strong></h1>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4">
+                        <h1 class="text-xl font-semibold text-gray-800">Alexa Monroe</h1>
+                        <p class="py-2 text-gray-700">CB.EN.U4ECE21345</p>
+                    </div>
+                </div>
+    
+                <!-- Third Card -->
+                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="boys" data-sport="hockey" data-position="captain">
+                    <img class="object-cover object-center w-full h-56" src="D:\photos\hockey.jpg" alt="avatar">
+                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-crown text-yellow-500"></i>
+                            <h1 class="mx-3 text-lg font-semibold text-white">Captain</h1>
+                        </div>
+                        <div class="flex items-center mt-2 text-gray-700">
+                            <h1 class="px-2 text-sm text-white"><strong>Hockey</strong></h1>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4">
+                        <h1 class="text-xl font-semibold text-gray-800">Marcus Aurelius</h1>
+                        <p class="py-2 text-gray-700">CB.EN.U4EEE21329</p>
+                    </div>
+                </div>
+    
+                <!-- Fourth Card -->
+                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="individual" data-gender="girls" data-sport="volleyball" data-position="captain">
+                    <img class="object-cover object-center w-full h-56" src="D:\photos\volleyball.jpg" alt="avatar">
+                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-crown text-yellow-500"></i>
+                            <h1 class="mx-3 text-lg font-semibold text-white">Captain</h1>
+                        </div>
+                        <div class="flex items-center mt-2 text-gray-700">
+                            <h1 class="px-2 text-sm text-white"><strong>Volleyball</strong></h1>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4">
+                        <h1 class="text-xl font-semibold text-gray-800">Sophia Black</h1>
+                        <p class="py-2 text-gray-700">CB.EN.U4IT21350</p>
+                    </div>
+                </div>
+    
+                <!-- Fifth Card -->
+                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-team="group" data-gender="boys" data-sport="cricket" data-position="vice-captain">
+                    <img class="object-cover object-center w-full h-56" src="D:\photos\cricket.jpg" alt="avatar">
+                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-crown text-yellow-500"></i>
+                            <h1 class="mx-3 text-lg font-semibold text-white">Vice Captain</h1>
+                        </div>
+                        <div class="flex items-center mt-2 text-gray-700">
+                            <h1 class="px-2 text-sm text-white"><strong>Cricket</strong></h1>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4">
+                        <h1 class="text-xl font-semibold text-gray-800">Liam Barnes</h1>
+                        <p class="py-2 text-gray-700">CB.EN.U4ME21312</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    </div>
+
+    <footer class="footer bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between items-start">
+                <div class="w-full md:w-1/3 text-center mb-6 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Aagneya</h2>
+                    <div class="flex items-center justify-center space-x-4 mt-2">
+                        <a href="#" class="hover:text-gray-400 transition duration-300">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-gray-400 transition duration-300">
+                            <i class="far fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                    <p class="mt-4">Connect with us on social media</p>
+                </div>
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Quick Links</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <ul class="space-y-2 text-center md:text-right">
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Home</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Event</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Achievement</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="space-y-2 text-center md:text-left">
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Blog</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Team</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 text-center md:text-right">
+                    <p class="mt-4 md:mt-0">&copy; 2024 Aagneya. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('menu', () => ({
+            isOpen: false
+        }));
+    });
+
+    function handleResize() {
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+            mobileMenuButton.style.display = 'none';
+        } else {
+            mobileMenuButton.style.display = 'flex';
+        }
+    }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('DOMContentLoaded', handleResize);
+</script>
+</html>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownInput = document.getElementById('dropdownInput');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const selectedItemsContainer = document.getElementById('selectedItemsContainer');
+        const searchInput = document.getElementById('searchInput');
+        const itemsList = document.getElementById('itemsList');
+        const items = itemsList.querySelectorAll('li');
+        let selectedItems = [];
+        let searchTimeout;
+
+        function updateSelectedItems() {
+            selectedItemsContainer.innerHTML = selectedItems.map(item =>
+                `<div class="selected-item">${item}<span data-value="${item}">&times;</span></div>`
+            ).join('');
+            selectedItemsContainer.appendChild(dropdownInput);
+            dropdownInput.value = '';
+            items.forEach(item => {
+                item.classList.toggle('bg-gray-200', selectedItems.includes(item.getAttribute('data-value')));
+            });
+            filterCards('sport', selectedItems);
+        }
+
+        dropdownInput.addEventListener('click', function() {
+            dropdownMenu.classList.toggle('hidden');
+            if (!dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.add('dropdown-enter');
+                setTimeout(() => {
+                    dropdownMenu.classList.remove('dropdown-enter');
+                    dropdownMenu.classList.add('dropdown-enter-active');
+                }, 1);
+            } else {
+                dropdownMenu.classList.add('dropdown-leave');
+                setTimeout(() => {
+                    dropdownMenu.classList.remove('dropdown-leave');
+                    dropdownMenu.classList.add('dropdown-leave-active');
+                }, 1);
+                setTimeout(() => {
+                    dropdownMenu.classList.remove('dropdown-leave-active');
+                }, 200);
+            }
+        });
+
+        items.forEach(item => {
+            item.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+                if (selectedItems.includes(value)) {
+                    selectedItems = selectedItems.filter(i => i !== value);
+                } else if (selectedItems.length < 5) {
+                    selectedItems.push(value);
+                }
+                updateSelectedItems();
+            });
+        });
+
+        selectedItemsContainer.addEventListener('click', function(event) {
+            if (event.target.tagName === 'SPAN') {
+                const value = event.target.getAttribute('data-value');
+                selectedItems = selectedItems.filter(i => i !== value);
+                updateSelectedItems();
+            }
+        });
+
+        function filterItems(query) {
+            items.forEach(item => {
+                const value = item.getAttribute('data-value').toLowerCase();
+                item.style.display = value.includes(query) ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            const query = searchInput.value.toLowerCase();
+            searchTimeout = setTimeout(() => filterItems(query), 300); // Debouncing delay
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!selectedItemsContainer.contains(event.target) && !dropdownMenu.contains(event.target) && !dropdownInput.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+
+        // Filter cards based on selected items
+        function filterCards(filterType, filterValues) {
+            const cards = document.querySelectorAll('.card');
+            if (filterValues.length === 0) {
+                // If no filter values, show all cards
+                cards.forEach(card => {
+                    card.classList.add('show');
+                    card.classList.remove('hide');
+                });
+            } else {
+                cards.forEach(card => {
+                    const cardValue = card.getAttribute(`data-${filterType}`);
+                    card.classList.toggle('show', filterValues.includes(cardValue));
+                    card.classList.toggle('hide', !filterValues.includes(cardValue));
+                });
+            }
+        }
+    });
+</script>
+<script>
+    // script.js
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Filter functionality
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const selectpicker = document.querySelector(".selectpicker");
+        const cards = document.querySelectorAll(".card");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const filterType = this.getAttribute("data-filter");
+                const filterValue = this.getAttribute("data-value");
+
+                // Check if the button is already active
+                if (this.classList.contains("active")) {
+                    this.classList.remove("active");
+                    showAllCards();
+                } else {
+                    // Update buttons' active state
+                    filterButtons.forEach(btn => {
+                        if (btn.getAttribute("data-filter") === filterType) {
+                            btn.classList.remove("active");
+                        }
+                    });
+                    this.classList.add("active");
+
+                    filterCards(filterType, filterValue);
+                }
+            });
+        });
+
+        selectpicker.addEventListener("change", function() {
+            const selectedSports = Array.from(this.selectedOptions).map(option => option.value);
+            filterCards("sport", selectedSports);
+        });
+
+        function filterCards(filterType, filterValue) {
+            cards.forEach(card => {
+                const cardValue = card.getAttribute(`data-${filterType}`);
+                if (Array.isArray(filterValue)) {
+                    card.classList.toggle("show", filterValue.includes(cardValue));
+                } else {
+                    card.classList.toggle("show", cardValue === filterValue);
+                }
+                card.classList.toggle("hide", !card.classList.contains("show"));
+            });
+        }
+
+        function showAllCards() {
+            cards.forEach(card => {
+                card.classList.add("show");
+                card.classList.remove("hide");
+            });
+        }
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('menu', () => ({
+            isOpen: false
+        }));
+    });
+</script>
+
+<style>
+    
+    /* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+/* Filter Buttons */
+.filter-button {
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border: 1px solid #007bff;
+    border-radius: 0.375rem;
+    background-color: #ffffff;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.filter-button.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Dropdown Menu */
+#selectedItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 0.5rem;
+}
+
+#dropdownInput {
+    border: none;
+    flex-grow: 1;
+    outline: none;
+}
+
+#dropdownMenu {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0.25rem;
+}
+
+#searchInput {
+    padding: 0.75rem;
+    border-bottom: 1px solid #ced4da;
+}
+
+#itemsList {
+    max-height: 12rem;
+    overflow-y: auto;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover, .dropdown-item.bg-gray-200 {
+    background-color: #f1f1f1;
+}
+
+.selected-item {
+    display: flex;
+    align-items: center;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.selected-item span {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+/* Cards */
+.card {
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card.show {
+    display: block;
+}
+
+.card.hide {
+    display: none;
+}
+
+/* Animations */
+.dropdown-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.dropdown-leave {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-leave-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+/* No Space Between Buttons */
+.btn-group {
+    display: flex;
+}
+
+.btn-group .filter-button {
+    margin-right: -1px;
+    border-radius: 0;
+}
+
+.btn-group .filter-button:first-child {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}
+
+.btn-group .filter-button:last-child {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+</style>
+
+
+
+<style>
+    /* Dropdown Animation */
+    
+    .dropdown-enter {
+        opacity: 0;
+        transform: scaleY(0.9);
+    }
+    
+    .dropdown-enter-active {
+        opacity: 1;
+        transform: scaleY(1);
+        transition: opacity 200ms, transform 200ms;
+    }
+    
+    .dropdown-leave {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    
+    .dropdown-leave-active {
+        opacity: 0;
+        transform: scaleY(0.9);
+        transition: opacity 200ms, transform 200ms;
+    }
+    /* Selected Item Styling */
+    
+    .selected-item {
+        background-color: #85bef7;
+        border-radius: 0.375rem;
+        padding: 0.25rem 0.5rem;
+        margin-right: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s ease;
+    }
+    
+    .selected-item:hover {
+        background-color: #a9c8ef;
+    }
+    
+    .selected-item span {
+        cursor: pointer;
+        font-weight: bold;
+        color: #4a5568;
+    }
+    
+    .selected-item span:hover {
+        color: #2d3748;
+    }
+    /* Dropdown Item Styling */
+    
+    .dropdown-item {
+        padding: 0.5rem;
+        border-radius: 0.375rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+        background-color: #b7d1ec;
+        color: #2d3748;
+    }
+    
+    #selectedItemsContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+        /* For Firefox */
+        -ms-overflow-style: none;
+        /* For Internet Explorer and Edge */
+    }
+    
+    #selectedItemsContainer::-webkit-scrollbar {
+        display: none;
+        /* For Chrome, Safari, and Opera */
+    }
+    
+    #selectedItemsContainer .selected-item {
+        display: inline-block;
+        background-color: #73a6e9;
+        /* bg-gray-200 */
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        margin-right: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    #selectedItemsContainer .selected-item span {
+        margin-left: 0.5rem;
+        cursor: pointer;
+    }
+    
+    #dropdownInput {
+        flex-shrink: 0;
+        width: auto;
+        padding: 0.25rem;
+        border: none;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+    }
+</style>
+
+
+<style>
+    /* style.css */
+    /* Custom styles for the cards */
+    
+    .card {
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .card:hover {
+        transform: scale(1.05);
+    }
+    /* Hide elements initially and show based on filter */
+    
+    .hide {
+        display: none;
+    }
+    
+    .show {
+        display: block;
+    }
+    /* Additional responsive styles */
+    
+    @media (max-width: 768px) {
+        #filterable-cards {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+        #filterable-cards {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+    
+    @media (min-width: 1025px) {
+        #filterable-cards {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+</style>
