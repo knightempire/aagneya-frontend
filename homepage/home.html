@@ -1,277 +1,154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sports Event Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <title>Aagneya das</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
 
     <style>
         [x-cloak] {
-            display: none;
+            display: none
         }
     </style>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
-            darkMode: "class",
-        };
+            darkMode: 'class',
+        }
     </script>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body>
+<body x-data="{ open: true, darkMode: false }" :class="darkMode ? 'dark' : ''">
+    <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900">
+        <nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
+            <div class="container px-6 py-4 mx-auto">
+                <div class="lg:flex lg:items-center lg:justify-between">
+                    <div class="flex items-center justify-between">
+                        <a href="#">
+                            <img class="w-auto h-6 sm:h-7" src="../img/logo.jpg" alt="">
+                        </a>
 
-    <div class="flex flex-col min-h-dvh">
-        <header class="px-6 lg:px-8 h-16 flex items-center bg-gray-900 text-white">
-            <div class="flex items-center gap-4">
-                <a class="flex items-center justify-center" href="#">
-                    <img src="../img/Intranet-Logo_1.jpg" alt="Image 1" class="h-6 w-100" />
-                    <span class="sr-only">Sports Website</span>
-                </a>
-                <a class="flex items-center justify-center p-6" href="#">
-                    <img src="../img/logo.jpg" alt="Image 2" class="h-10 w-15" />
-                    <span class="sr-only">Sports Website</span>
-                </a>
+                        <!-- Mobile menu button -->
+                        <div class="flex lg:hidden">
+                            <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                        </svg>
+                
+                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                    <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
+                        <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achivements</a>
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</a>
+                        </div>
+
+                        <!-- <div class="flex items-center mt-4 lg:mt-0">
+                             <button class="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                            <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
+                        <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+                        </div>
+
+                        <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
+                    </button>
+                        </div> -->
+                    </div>
+                </div>
             </div>
-            <nav class="ml-auto flex gap-4 sm:gap-6">
-                <a href="#" class="text-m font-medium hover:underline underline-offset-4">About</a>
-                <a class="text-m font-medium hover:underline underline-offset-4" href="#">Events</a>
-                <a class="text-m font-medium hover:underline underline-offset-4" href="#">Login</a>
-            </nav>
-        </header>
-
-
-        <main class="w-full max-w-7xl mx-auto py-2 px-2 md:px-2">
-          <h2 class="text-3xl font-bold tracking-tighter text-center mt-8">Aagneya</h2>
-            <section class="w-full py-12 md:py-24 lg:py-32">
-                <div class="container px-4 md:px-6">
-                    <div class="mx-auto max-w-5xl">
-                        <div aria-roledescription="carousel" class="relative aspect-[3/1] rounded-xl overflow-hidden"
-                            role="region">
-                            <div class="overflow-hidden">
-                                <div class="flex -ml-4" id="carousel"
-                                    style="transform: translate3d(0px, 0px, 0px)">
-                                    <!-- Slides will be inserted here -->
-                                </div>
-                            </div>
-                        </div>
-                        <div id="achievement-description"
-                            class="text-center mt-4 text-lg font-medium text-gray-700"></div>
-                        <div class="flex justify-center mt-4">
-                            <a href="#"
-                                class="inline-flex h-10 items-center justify-center rounded-md bg-black px-8 text-sm font-medium text-white shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50">
-                                View Achievements
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-                <div class="container px-4 md:px-6">
-                    <div class="mx-auto max-w-5xl">
-                        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">Upcoming Events</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6" id="events">
-                            <!-- Events will be inserted here -->
-                        </div>
-                        <div class="flex justify-center mt-6">
-                            <a href="#"
-                                class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300">
-                                View All Events
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="w-full py-12 md:py-24 lg:py-32">
-                <div class="container px-4 md:px-6">
-                    <div class="mx-auto max-w-5xl">
-                        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">From the Blog</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6" id="blogs">
-                            <!-- Blogs will be inserted here -->
-                        </div>
-                        <div class="flex justify-center mt-6">
-                            <a href="#"
-                                class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300">
-                                View All Blog Posts
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer
-            class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-gray-900 text-white">
-            <p class="text-xs text-white-500 dark:text-white-400">© 2024 Sports Website. All rights reserved.</p>
-        </footer>
+        </nav>
     </div>
 
-    <template id="achievement-template">
-        <a aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" href="#">
-            <img src="" width="1200" height="400" alt="" class="aspect-[3/1] object-cover" />
-        </a>
-    </template>
+    <div class="content">
+        <!-- code from here -->
 
-    <template id="event-template">
-        <a class="rounded-lg border bg-white text-card-foreground shadow-sm" href="#">
-            <div class="p-4">
-                <div class="flex flex-col gap-2">
-                    <div class="text-lg font-bold">Event Title</div>
-                    <div class="text-gray-500 dark:text-gray-400">Event Date</div>
-                    <div class="text-gray-500 dark:text-gray-400">Event Location</div>
+    </div>
+    <footer class="footer bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between items-start">
+                <div class="w-full md:w-1/3 text-center mb-6 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Aagneya</h2>
+                    <div class="flex items-center justify-center space-x-4 mt-2">
+                        <a href="#" class="hover:text-gray-400 transition duration-300">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-gray-400 transition duration-300">
+                            <i class="far fa-envelope text-2xl"></i>
+                        </a>
+                    </div>
+                    <p class="mt-4">Connect with us on social media</p>
+                </div>
+                <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Quick Links</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <ul class="space-y-2 text-center md:text-right">
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Home</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Event</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Achievement</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="space-y-2 text-center md:text-left">
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Blog</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Team</a></li>
+                                <li><a href="#" class="hover:text-gray-400 transition duration-300">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 text-center md:text-right">
+                    <p class="mt-6 md:mt-0">&copy; 2024 Aagneya. All rights reserved.</p>
+                    <p class="mt-3 text-sm">Rise and Strive, Conquer and Thrive</p>
+                    <p class="mt-4 mb-6 text-xs">
+                        <a href="#" class="hover:text-gray-400 transition duration-300 mr-2">Privacy Policy</a> |
+                        <a href="#" class="hover:text-gray-400 transition duration-300 ml-2">Terms of Service</a>
+                    </p>
                 </div>
             </div>
-        </a>
-    </template>
+        </div>
+    </footer>
 
-    <template id="blog-template">
-        <a class="rounded-lg border bg-card text-card-foreground shadow-sm" href="#">
-            <div class="p-0">
-                <img src="" width="400" height="225" alt="" class="aspect-video object-cover" />
-            </div>
-            <div class="flex items-center p-4">
-                <div class="flex flex-col gap-2">
-                    <div class="text-lg font-bold">Blog Title</div>
-                    <div class="text-gray-500 dark:text-gray-400">Blog Date</div>
-                    <div class="text-gray-500 dark:text-gray-400">Blog Description</div>
-                </div>
-            </div>
-        </a>
-    </template>
-
-    <script>
- const data = {
-    achievements: [
-        {
-            src: "../img/achievement.jpg",
-            alt: "Achievement 1",
-            title: "Outstanding Team Performance",
-            description:
-                "Our team displayed exceptional skill and teamwork, earning the top spot in the regional championship. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.",
-            link: "#",
-        },
-        {
-            src: "../img/achievement.jpg",
-            alt: "Achievement 2",
-            title: "Excellence in Sportsmanship",
-            description:
-                "Awarded for demonstrating the highest level of sportsmanship and integrity throughout the season. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
-            link: "#",
-        },
-        {
-            src: "../img/achievement.jpg",
-            alt: "Achievement 3",
-            title: "Record-Breaking Performance",
-            description:
-                "Breaking the school record in the 100m sprint with an incredible time of 10.5 seconds. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec tellus sed augue semper porta. Mauris massa.",
-            link: "#",
-        },
-    ],
-    events: [
-        {
-            title: "Inter-University Soccer Tournament",
-            date: "June 15, 2023",
-            location: "Acme Sports Complex",
-            link: "#",
-        },
-        {
-            title: "Advanced Basketball Clinic",
-            date: "July 1, 2023",
-            location: "Sportsplex Arena",
-            link: "#",
-        },
-        {
-            title: "Annual Track and Field Meet",
-            date: "August 10, 2023",
-            location: "Acme Sports Stadium",
-            link: "#",
-        },
-    ],
-    blogs: [
-        {
-            src: "../img/blog.jpg",
-            alt: "Esports Blog",
-            title: "The Rise of Esports in Sports",
-            date: "June 1, 2023",
-            description:
-                "Exploring the growing popularity of esports and its impact on traditional sports. Esports has become a major force in the sports industry, attracting millions of viewers worldwide. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            link: "#",
-        },
-        {
-            src: "../img/blog.jpg",
-            alt: "Nutrition Blog",
-            title: "The Science Behind Sports Nutrition",
-            date: "May 15, 2023",
-            description:
-                "Discover the key nutrients athletes need to perform at their best. Proper nutrition is crucial for athletes to maintain peak performance and recover quickly. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            link: "#",
-        },
-        {
-            src: "../img/blog.jpg",
-            alt: "Mental Game Blog",
-            title: "The Mental Game: Strategies for Peak Performance",
-            date: "April 30, 2023",
-            description:
-                "Explore the psychological aspects of sports and how to train your mind for success. Mental strength is as important as physical strength in achieving sports excellence. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            link: "#",
-        },
-    ],
-};
-
-        // Populate achievements carousel
-        const carousel = document.getElementById("carousel");
-        const description = document.getElementById("achievement-description");
-        const achievementTemplate = document.getElementById("achievement-template").content;
-        data.achievements.forEach((achievement, index) => {
-            const slide = document.importNode(achievementTemplate, true);
-            slide.querySelector("a").href = achievement.link;
-            slide.querySelector("img").src = achievement.src;
-            slide.querySelector("img").alt = achievement.alt;
-            carousel.appendChild(slide);
-
-            if (index === 0) {
-                description.textContent = achievement.description;
-            }
-        });
-
-        // Carousel functionality
-        let currentIndex = 0;
-        const slides = document.querySelectorAll("#carousel > a");
-        const totalSlides = slides.length;
-
-        setInterval(() => {
-            slides[currentIndex].style.display = "none";
-            currentIndex = (currentIndex + 1) % totalSlides;
-            slides[currentIndex].style.display = "block";
-            description.textContent = data.achievements[currentIndex].description;
-        }, 5000);
-
-        // Populate events
-        const eventsContainer = document.getElementById("events");
-        const eventTemplate = document.getElementById("event-template").content;
-        data.events.forEach((event) => {
-            const eventCard = document.importNode(eventTemplate, true);
-            eventCard.querySelector("a").href = event.link;
-            eventCard.querySelector(".text-lg.font-bold").textContent = event.title;
-            eventCard.querySelector(".text-gray-500.dark\\:text-gray-400").textContent = event.date;
-            eventCard.querySelector(".text-gray-500.dark\\:text-gray-400").nextElementSibling.textContent = event.location;
-            eventsContainer.appendChild(eventCard);
-        });
-
-        // Populate blogs
-        const blogsContainer = document.getElementById("blogs");
-        const blogTemplate = document.getElementById("blog-template").content;
-        data.blogs.forEach((blog) => {
-            const blogCard = document.importNode(blogTemplate, true);
-            blogCard.querySelector("a").href = blog.link;
-            blogCard.querySelector("img").src = blog.src;
-            blogCard.querySelector("img").alt = blog.alt;
-            blogCard.querySelector(".text-lg.font-bold").textContent = blog.title;
-            blogCard.querySelector(".text-gray-500.dark\\:text-gray-400").textContent = blog.date;
-            blogCard.querySelector(".text-gray-500.dark\\:text-gray-400").nextElementSibling.textContent = blog.description;
-            blogsContainer.appendChild(blogCard);
-        });
-    </script>
 </body>
 
 </html>
+<style>
+    main {
+        flex: 1;
+    }
+    
+    .footer {
+        /* position: sticky; */
+        bottom: 0;
+        width: 100%;
+    }
+</style>
