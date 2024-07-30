@@ -591,7 +591,6 @@
                 console.log('ur vote data:', datas);
                 years = year;
 
-                // Checking conditions based on data received
                 const boysVoted = datas.some(candidate => candidate.role_id === role && candidate.gender === 'Boys');
                 const girlsVoted = datas.some(candidate => candidate.role_id === role && candidate.gender === 'Girls');
 
@@ -605,17 +604,14 @@
                     girlsVote = 3; // Set vote to 3 if voting for girls is over
                 }
 
-                // Ensure boysVote and girlsVote are consistent
                 if (boysVote === 0 || girlsVote === 0) {
-                    boysVote = girlsVote = 0; // Set both to 2 if either is 0 or 2
+                    boysVote = girlsVote = 0; // Set both to 0 if either is 0
                 }
-                // Ensure boysVote and girlsVote are consistent
-                if (boysVote === 2 || girlsVote === 2) {
-                    boysVote = girlsVote = 2; // Set both to 2 if either is 0 or 2
 
+                if (boysVote === 2 || girlsVote === 2) {
+                    boysVote = girlsVote = 2; // Set both to 2 if either is 2
 
                     try {
-                        // Call the API to update the vote status
                         const response = await fetch('http://localhost:3000/api/viewvoteresult', {
                             method: 'POST',
                             headers: {
@@ -627,23 +623,17 @@
                             })
                         });
 
-                        // Ensure the response is successful
                         if (!response.ok) {
                             throw new Error(`HTTP error! Status: ${response.status}`);
                         }
 
-                        // Parse the JSON response
                         const data = await response.json();
                         console.log('Response data:', data);
 
-                        // Filter the results array to find the object where role_id matches the desired role
                         const filteredResults = data.results.filter(result => result.role_id === role);
 
-                        // Assuming `role` is the role_id you are interested in (e.g., 3 for Secretary)
                         if (filteredResults.length > 0) {
-                            const roleData = filteredResults[0]; // Assuming there's only one result per role_id
-
-                            // Check the structure of gender array and assign results accordingly
+                            const roleData = filteredResults[0];
                             roleData.gender.forEach(genderObj => {
                                 if (genderObj.hasOwnProperty('Boys')) {
                                     maleResults = genderObj.Boys;
@@ -655,8 +645,6 @@
                             console.log('Male results:', maleResults);
                             console.log('Female results:', femaleResults);
 
-                            // Now you can work with maleResults and femaleResults as needed
-                            // For example, accessing total_votes, vote_results, etc.
                         } else {
                             console.log(`No results found for role_id ${role}`);
                         }
@@ -664,7 +652,6 @@
                     } catch (error) {
                         console.error('Error:', error.message);
                     }
-
 
                 }
 
@@ -676,26 +663,22 @@
             console.log('Final vote status for boys:', boysVote);
             console.log('Final vote status for girls:', girlsVote);
 
-            // Function to create candidate card HTML using template literals
-            function createCandidateCardHTML(candidate, vote, results) {
+            function createCandidateCardHTML(candidate, vote, results, isTopVoter) {
                 let voterBtnHTML = '';
 
                 if (vote === 0) {
-                    // Vote is 0, hide the voting button
                     voterBtnHTML = `<div id="voterbtn" style="display:none">
-                         <div class="text-center pt-4">
-                             <button id="btnstatus" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105" onclick="voteForCandidate('${candidate.candidate_id}')">Vote</button>
-                        </div>
-                             </div>`;
+                     <div class="text-center pt-4">
+                         <button id="btnstatus" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105" onclick="voteForCandidate('${candidate.candidate_id}')">Vote</button>
+                    </div>
+                         </div>`;
                 } else if (vote === 1) {
-                    // Vote is 1, display the voting button
                     voterBtnHTML = `<div id="voterbtn">
-                            <div class="text-center pt-4">
-                                  <button id="btnstatus" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105" onclick="voteForCandidate('${candidate.candidate_id}')">Vote</button>
-                              </div>
-                           </div>`;
+                        <div class="text-center pt-4">
+                              <button id="btnstatus" class="rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 transition-all transform hover:scale-105" onclick="voteForCandidate('${candidate.candidate_id}')">Vote</button>
+                          </div>
+                       </div>`;
                 } else if (vote === 2) {
-                    // Vote is 2, change the content of voterbtn to show vote count
                     let voteCount = 0;
                     results.vote_results.forEach(result => {
                         if (result.candidate_id === candidate.candidate_id) {
@@ -704,61 +687,75 @@
                     });
 
                     voterBtnHTML = `<div id="voterbtn">
-                       <div class="text-center flex justify-between items-center pt-4" id="votechange">
-                             <div class="flex items-center space-x-2 pt-4">
-                                 <i class="heart fas fa-heart text-purple-700"></i>
-                                  <span class="text-sm sm:text-base dark:text-gray-600" id="no_of_vote">${voteCount} votes</span>
-                            </div>
-                            <button class="rounded-lg bg-purple-300 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 disabled:opacity-50 cursor-not-allowed transition-all transform hover:scale-105 disabled:text-red-600">Vote</button>
-                     </div>
-                </div>`;
+                   <div class="text-center flex justify-between items-center pt-4" id="votechange">
+                         <div class="flex items-center space-x-2 pt-4">
+                             <i class="heart fas fa-heart text-purple-700"></i>
+                              <span class="text-sm sm:text-base dark:text-gray-600" id="no_of_vote">${voteCount} votes</span>
+                        </div>
+                        <button class="rounded-lg bg-purple-300 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 disabled:opacity-50 cursor-not-allowed transition-all transform hover:scale-105 disabled:text-red-600">Vote</button>
+                 </div>
+            </div>`;
                 } else if (vote === 3) {
-                    // Vote is 3, change the content of voterbtn
                     voterBtnHTML = `<div id="voterbtn">
-                        <div class="text-center pt-4">
-                            <button class="rounded-lg bg-purple-300 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 disabled:opacity-50 cursor-not-allowed transition-all transform hover:scale-105 disabled:text-red-600">Vote</button>
-                       </div>
-                     </div>`;
+                    <div class="text-center pt-4">
+                        <button class="rounded-lg bg-purple-300 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4 disabled:opacity-50 cursor-not-allowed transition-all transform hover:scale-105 disabled:text-red-600">Vote</button>
+                   </div>
+                 </div>`;
                 }
 
                 return `
-            <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-                     <img src="http://localhost:3000/${candidate.profile.photo_path}" style="height: fit-content;" alt="" class="mx-auto aspect-square">
-            <div class="space-y-4 text-center divide-y dark:divide-gray-300">
-          <div class="my-2 space-y-1">
-                    <h2 class="text-xl font-semibold sm:text-2xl">${candidate.profile.name}</h2>
-                  <p class="px-5 text-xs sm:text-base dark:text-gray-600">${candidate.profile.roll_no}</p>
-         </div>
-              ${voterBtnHTML}
-         </div>
-        </div>`;
+        <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                 ${isTopVoter ? '<div class="position-badge" id="votewinner"><i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i></div>' : ''}
+                 <img src="http://localhost:3000/${candidate.profile.photo_path}" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+        <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+      <div class="my-2 space-y-1">
+                <h2 class="text-xl font-semibold sm:text-2xl">${candidate.profile.name}</h2>
+              <p class="px-5 text-xs sm:text-base dark:text-gray-600">${candidate.profile.roll_no}</p>
+     </div>
+          ${voterBtnHTML}
+     </div>
+    </div>`;
             }
 
+            function findTopVoter(results) {
+                let topVoteCount = 0;
+                results.vote_results.forEach(result => {
+                    if (result.vote_count > topVoteCount) {
+                        topVoteCount = result.vote_count;
+                    }
+                });
+                return topVoteCount;
+            }
 
-            // Clear existing content
+            const topMaleVotes = findTopVoter(maleResults || {
+                vote_results: []
+            });
+            const topFemaleVotes = findTopVoter(femaleResults || {
+                vote_results: []
+            });
+
             const boysContainer = document.getElementById('showelectioncardboy');
             const girlsContainer = document.getElementById('showelectioncardgirl');
             boysContainer.innerHTML = '';
             girlsContainer.innerHTML = '';
 
-
-            // Populate boys and girls cards using forEach loop and innerHTML
             if (data.boys && data.boys.length > 0) {
                 data.boys.forEach(boy => {
-                    if (boy.role_id === role) { // Assuming role_id 3 is for boys
-                        boysContainer.innerHTML += createCandidateCardHTML(boy, boysVote, maleResults);
+                    if (boy.role_id === role) {
+                        const isTopVoter = maleResults && maleResults.vote_results.some(result => result.vote_count === topMaleVotes && result.candidate_id === boy.candidate_id);
+                        boysContainer.innerHTML += createCandidateCardHTML(boy, boysVote, maleResults, isTopVoter);
                     }
                 });
             }
 
             if (data.girls && data.girls.length > 0) {
                 data.girls.forEach(girl => {
-                    if (girl.role_id === role) { // Assuming role_id 3 is for girls
-                        girlsContainer.innerHTML += createCandidateCardHTML(girl, girlsVote, femaleResults);
+                    if (girl.role_id === role) {
+                        const isTopVoter = femaleResults && femaleResults.vote_results.some(result => result.vote_count === topFemaleVotes && result.candidate_id === girl.candidate_id);
+                        girlsContainer.innerHTML += createCandidateCardHTML(girl, girlsVote, femaleResults, isTopVoter);
                     }
                 });
             }
-
 
         } catch (error) {
             console.error('Error fetching election data:', error);
