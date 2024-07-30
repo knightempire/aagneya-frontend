@@ -546,10 +546,7 @@
     }
 
 
-    // Logic for vote
     async function electionppl(year) {
-
-
         try {
             const response = await fetch('http://localhost:3000/api/winnerelectionresult', {
                 method: 'POST',
@@ -584,17 +581,17 @@
                     winner.gender.forEach(g => {
                         if (g.gender === 'Boys') {
                             boys.push({
-                                name: winner.name,
-                                reg_roll_no: winner.reg_roll_no,
-                                role_name: winner.role_name,
+                                name: g.name,
+                                reg_roll_no: g.reg_roll_no,
+                                role_name: g.role_name,
                                 vote_count: g.vote_count,
                                 vote_percentage: g.vote_percentage
                             });
                         } else if (g.gender === 'Girls') {
                             girls.push({
-                                name: winner.name,
-                                reg_roll_no: winner.reg_roll_no,
-                                role_name: winner.role_name,
+                                name: g.name,
+                                reg_roll_no: g.reg_roll_no,
+                                role_name: g.role_name,
                                 vote_count: g.vote_count,
                                 vote_percentage: g.vote_percentage
                             });
@@ -611,26 +608,67 @@
             boysContainer.innerHTML = '';
             girlsContainer.innerHTML = '';
 
+            // Role to icon and title mapping
+            const roleMappings = {
+                'President': {
+                    icon: 'fas fa-crown',
+                    title: 'President'
+                },
+                'Vice President': {
+                    icon: 'fas fa-star',
+                    title: 'Vice President'
+                },
+                'Secretary': {
+                    icon: 'bx bx-notepad',
+                    title: 'Secretary'
+                },
+                'Public Relation': {
+                    icon: 'bx bx-broadcast',
+                    title: 'Public Relation'
+                }
+            };
 
+            // Function to generate card HTML
+            const generateCardHTML = (winner) => {
+                const role = roleMappings[winner.role_name] || {
+                    icon: 'fas fa-question',
+                    title: 'Unknown Role'
+                };
+                return `
+                <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
+                    <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                        <div class="flex items-center">
+                            <i class="${role.icon} text-yellow-500"></i>
+                            <h1 class="px-12 text-lg font-semibold text-white">${role.title}</h1>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="space-y-4 text-center divide-y dark:divide-gray-300">
+                        <div class="my-2 space-y-1">
+                            <h2 class="text-xl font-semibold sm:text-2xl">${winner.name || 'Name not available'}</h2>
+                            <p class="px-5 text-xs sm:text-base dark:text-gray-600">${winner.reg_roll_no || 'Roll number not available'}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            };
 
-            // Example: Accessing individual properties
+            // Insert boys cards into the boys container
             boys.forEach(boy => {
-
+                boysContainer.innerHTML += generateCardHTML(boy);
             });
 
+            // Insert girls cards into the girls container
             girls.forEach(girl => {
-
+                girlsContainer.innerHTML += generateCardHTML(girl);
             });
 
         } catch (error) {
             console.error('Error fetching election data:', error);
             throw error;
         }
-
-
     }
-
-
 
 
     window.onload = function() {
