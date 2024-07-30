@@ -555,7 +555,7 @@
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    year: year
+                    year
                 })
             });
 
@@ -585,7 +585,8 @@
                                 reg_roll_no: g.reg_roll_no,
                                 role_name: g.role_name,
                                 vote_count: g.vote_count,
-                                vote_percentage: g.vote_percentage
+                                vote_percentage: g.vote_percentage,
+                                photo_path: g.photo_path
                             });
                         } else if (g.gender === 'Girls') {
                             girls.push({
@@ -593,7 +594,8 @@
                                 reg_roll_no: g.reg_roll_no,
                                 role_name: g.role_name,
                                 vote_count: g.vote_count,
-                                vote_percentage: g.vote_percentage
+                                vote_percentage: g.vote_percentage,
+                                photo_path: g.photo_path
                             });
                         }
                     });
@@ -634,9 +636,10 @@
                     icon: 'fas fa-question',
                     title: 'Unknown Role'
                 };
+                const photoUrl = winner.photo_path ? `http://localhost:3000/${winner.photo_path}` : 'https://via.placeholder.com/150';
                 return `
                 <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
-                    <img src="https://captionsunleashed.com/wp-content/uploads/2023/10/21a77eb0-0e41-42a1-8e8a-4ae4013235b9.jpg" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                    <img src="${photoUrl}" style="height: fit-content;" alt="" class="mx-auto aspect-square">
                     <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
                         <div class="flex items-center">
                             <i class="${role.icon} text-yellow-500"></i>
@@ -669,7 +672,6 @@
             throw error;
         }
     }
-
 
     window.onload = function() {
         decodeToken();
