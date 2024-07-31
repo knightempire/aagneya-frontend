@@ -280,11 +280,7 @@
                                             </div>
 
                                         </div>
-                                        <div id="dropdownContent" class="dropdown-content">
-                                            <a href="#">Option 1</a>
-                                            <a href="#">Option 2</a>
-                                            <a href="#">Option 3</a>
-                                        </div>
+
                                     </div>
                                 </div>
 
@@ -480,17 +476,38 @@
                                                     <i class="bi bi-search text-gray-400"></i>
                                                 </div>
                                             </div>
-                                            <button id="dropdownButton" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                            <button id="dropdownButton1" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                                 Menu <i class="bi bi-chevron-down ml-2"></i>
                                             </button>
                                         </div>
-                                        <div id="dropdownContent" class="dropdown-content" id="year_election">
+                                        <div id="dropdownContent" class="dropdown-content">
                                             <a href="#">Option 1</a>
                                             <a href="#">Option 2</a>
                                             <a href="#">Option 3</a>
                                         </div>
                                     </div>
                                 </div>
+
+                                <script>
+                                    document.getElementById('dropdownButton1').addEventListener('click', function() {
+                                        var dropdownContent = document.getElementById('dropdownContent');
+                                        dropdownContent.classList.toggle('show');
+                                    });
+
+                                    // Close the dropdown if the user clicks outside of it
+                                    window.onclick = function(event) {
+                                        if (!event.target.matches('#dropdownButton1')) {
+                                            var dropdowns = document.getElementsByClassName("dropdown-content");
+                                            for (var i = 0; i < dropdowns.length; i++) {
+                                                var openDropdown = dropdowns[i];
+                                                if (openDropdown.classList.contains('show')) {
+                                                    openDropdown.classList.remove('show');
+                                                }
+                                            }
+                                        }
+                                    }
+                                </script>
+
 
                                 <tbody class="bg-white divide-y divide-gray-200" id="displayallusers">
 
@@ -1020,7 +1037,7 @@
             }
 
             const data = await response.json();
-            console.log('Users data:', data);
+            console.log('Users data1:', data);
 
             const displayUsers = document.getElementById('displayusers');
             displayUsers.innerHTML = ''; // Clear existing rows if any
@@ -1031,60 +1048,63 @@
             // Get search input value
             const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
 
-            // Filter by name if search input is not empty
-            const filteredByName = searchInput ?
-                filteredData.filter(user => user.name.toLowerCase().includes(searchInput)) :
+            // Filter by name or roll_no if search input is not empty
+            const filteredBySearch = searchInput ?
+                filteredData.filter(user =>
+                    user.name.toLowerCase().includes(searchInput) ||
+                    user.roll_no.toLowerCase().includes(searchInput)
+                ) :
                 filteredData;
 
             // Loop through filtered data
-            filteredByName.forEach(user => {
+            filteredBySearch.forEach(user => {
                 const row = document.createElement('tr');
 
                 // Adjust your row creation code here
                 const imgSrc = user.photo_path ? `http://localhost:3000/${user.photo_path}` : 'http://localhost:3000/img/default-user-image.jpg'; // Replace with your default image path
 
                 row.innerHTML = `
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 h-10 w-10">
-                            <img class="h-10 w-10 rounded-full" src="${imgSrc}" alt="User Image">
-                        </div>
-                        <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900" id="name">
-                                ${user.name}
-                            </div>
-                            <div class="text-sm text-gray-500" id="roll_no">
-                                ${user.roll_no}
-                            </div>
-                        </div>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10">
+                        <img class="h-10 w-10 rounded-full" src="${imgSrc}" alt="User Image">
                     </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
-                        ${user.sport_name}
-                    </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <div class="ml-4">
-                        <div class="text-sm font-medium text-gray-900" id="role_name">
-                            ${user.role_name}
+                        <div class="text-sm font-medium text-gray-900" id="name">
+                            ${user.name}
                         </div>
-                        <div class="text-sm text-gray-500" id="spl_role_name">
-                            ${user.spl_role_name}
+                        <div class="text-sm text-gray-500" id="roll_no">
+                            ${user.roll_no}
                         </div>
                     </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
-                    ${user.year}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
-                    ${user.phone || ''}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm('${user.roll_no}')">Edit</a>
-                    <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate('${user.roll_no}')">Delete</a>
-                </td>
-            `;
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
+                    ${user.sport_name}
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900" id="role_name">
+                        ${user.role_name}
+                    </div>
+                    <div class="text-sm text-gray-500" id="spl_role_name">
+                        ${user.spl_role_name}
+                    </div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
+                ${user.year}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
+                ${user.phone || ''}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm('${user.roll_no}')">Edit</a>
+                <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate('${user.roll_no}')">Delete</a>
+            </td>
+        `;
 
                 displayUsers.appendChild(row);
             });
@@ -1126,10 +1146,11 @@
             const displayUsers = document.getElementById('displayallusers');
             displayUsers.innerHTML = ''; // Clear existing rows if any
 
-            // Function to filter users by name
+            // Function to filter users by name or roll_no
             function filterUsers(searchText) {
                 const filteredUsers = filteredData.filter(user =>
-                    user.name.toLowerCase().includes(searchText.toLowerCase())
+                    user.name.toLowerCase().includes(searchText.toLowerCase()) ||
+                    user.roll_no.toLowerCase().includes(searchText.toLowerCase())
                 );
 
                 // Clear existing rows
@@ -1139,46 +1160,46 @@
                 filteredUsers.forEach(user => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
-                                <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
-                            </div>
-                            <div class="ml-4">
-                                <div class="text-sm font-medium text-gray-900" id="name">
-                                    ${user.name}
-                                </div>
-                                <div class="text-sm text-gray-500" id="roll_no">
-                                    ${user.roll_no}
-                                </div>
-                            </div>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 h-10 w-10">
+                            <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
                         </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
-                            ${user.sport_name}
-                        </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900" id="role_name">
-                                ${user.role_name}
+                            <div class="text-sm font-medium text-gray-900" id="name">
+                                ${user.name}
                             </div>
-                            <div class="text-sm text-gray-500" id="spl_role_name">
-                                ${user.spl_role_name}
+                            <div class="text-sm text-gray-500" id="roll_no">
+                                ${user.roll_no}
                             </div>
                         </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
-                        ${user.year}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
-                        ${user.phone || ''}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                        <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="activate('${user.roll_no}')">Activate</a>
-                    </td>
-                `;
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
+                        ${user.sport_name}
+                    </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900" id="role_name">
+                            ${user.role_name}
+                        </div>
+                        <div class="text-sm text-gray-500" id="spl_role_name">
+                            ${user.spl_role_name}
+                        </div>
+                    </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
+                    ${user.year}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
+                    ${user.phone || ''}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="activate('${user.roll_no}')">Activate</a>
+                </td>
+            `;
                     displayUsers.appendChild(row);
                 });
             }
@@ -1492,42 +1513,7 @@
 </script>
 
 
-<script>
-    document.getElementById('dropdownButton').addEventListener('click', function() {
-        var dropdownContent = document.getElementById('dropdownContent');
-        dropdownContent.classList.toggle('show');
-    });
 
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('#dropdownButton')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-    document.getElementById('dropdownButton1').addEventListener('click', function() {
-        var dropdownContent = document.getElementById('dropdownContent1');
-        dropdownContent.classList.toggle('show');
-    });
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('#dropdownButton1')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content1");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
 
 <style>
     .dropdown-content {
