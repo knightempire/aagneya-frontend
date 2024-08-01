@@ -119,36 +119,32 @@
 
         <div class="container mx-auto py-10">
             <!-- Filter Buttons Section -->
-            <div class="flex flex-wrap justify-center gap-4 mb-8" id="filter-buttons">
-                <!-- Sports Filter -->
-                <div class="flex justify-center w-full">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full">
+                <div class="flex-1 flex justify-center sm:justify-start sm:ml-64 mb-4 sm:mb-0">
                     <div class="relative inline-block text-center">
                         <span class="text-2xl md:text-3xl font-bold">Achievements</span>
                         <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-400 to-green-600 rounded-full"></span>
                     </div>
                 </div>
-                
-                <div class="flex justify-end w-full mt-4">
-                    <div class="relative inline-block w-full sm:w-64">
-                        <div id="selectedItemsContainer" class="w-full bg-white border border-gray-300 rounded-lg shadow-sm p-2 flex gap-2 overflow-x-auto">
-                            <input id="dropdownInput" type="text" class="flex-1 outline-none placeholder-gray-500" placeholder="Select items" readonly>
-                        </div>
-                        <div id="dropdownMenu" class="absolute w-full bg-white border border-gray-300 rounded-lg shadow-lg mt-1 hidden z-10">
-                            <input id="searchInput" type="text" class="w-full p-3 border-b border-gray-200 outline-none focus:border-blue-500" placeholder="Search...">
-                            <ul id="itemsList" class="max-h-48 overflow-auto">
-                                <li class="dropdown-item cursor-pointer" data-value="football">Football</li>
-                                <li class="dropdown-item cursor-pointer" data-value="cricket">Cricket</li>
-                                <li class="dropdown-item cursor-pointer" data-value="volleyball">Volleyball</li>
-                                <li class="dropdown-item cursor-pointer" data-value="hockey">Hockey</li>
-                                <li class="dropdown-item cursor-pointer" data-value="chess">Chess</li>
-                            </ul>
-                        </div>
+                <div class="relative inline-block w-full sm:w-64">
+                    <div id="selectedItemsContainer" class="w-full bg-white border border-gray-300 rounded-lg shadow-sm p-2 flex gap-2 overflow-x-auto">
+                        <input id="dropdownInput" type="text" class="flex-1 outline-none placeholder-gray-500" placeholder="Select items" readonly>
+                    </div>
+                    <div id="dropdownMenu" class="absolute w-full bg-white border border-gray-300 rounded-lg shadow-lg mt-1 hidden z-10">
+                        <input id="searchInput" type="text" class="w-full p-3 border-b border-gray-200 outline-none focus:border-blue-500" placeholder="Search...">
+                        <ul id="itemsList" class="max-h-48 overflow-auto">
+                            <li class="dropdown-item cursor-pointer" data-value="football">Football</li>
+                            <li class="dropdown-item cursor-pointer" data-value="cricket">Cricket</li>
+                            <li class="dropdown-item cursor-pointer" data-value="volleyball">Volleyball</li>
+                            <li class="dropdown-item cursor-pointer" data-value="hockey">Hockey</li>
+                            <li class="dropdown-item cursor-pointer" data-value="chess">Chess</li>
+                        </ul>
                     </div>
                 </div>
-                
-               
-    
             </div>
+            
+            
+            
             <!-- Filterable Images / Cards Section -->
             <div class="flex flex-wrap justify-center mt-8" id="achievecard">
                 <!-- Card 1 -->
