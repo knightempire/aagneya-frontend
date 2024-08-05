@@ -5,36 +5,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-    <title>Aagneya das</title>
+    <title>Aagneya Das</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
+        .readmore {
+            display: none;
+        }
+        
+        .readmore.open {
+            display: block;
+        }
+        
+        .container-glow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        
+        .container-glow:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .event_head {
+            text-align: center;
+            position: relative;
+            margin-top: 20px;
+        }
+        
+        .event_head h2 {
+            font-size: 32px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .event_head h2::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            transition: width 0.5s ease;
+            margin: 0 auto;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        .event_head h2:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes underline {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .event_head h2.animate::after {
+            width: 100%;
+            animation: underline 1s ease-out;
+        }
+        
+        #time {
+            color: violet;
+        }
+        
+        #date {
+            color: rgb(116, 115, 113);
+            font-weight: bold;
+        }
+        
         [x-cloak] {
             display: none
         }
+        /* Ensure the dropdown button is always at the right corner */
+        
+        #dropdownContainer {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        #dropdown {
+            min-width: 100%;
+            max-width: 100%;
+        }
+        
+        @media (max-width: 640px) {
+            #dropdownContainer {
+                display: flex;
+                justify-content: center;
+            }
+            #dropdown {
+                width: 90vw;
+                right: auto;
+            }
+        }
+        /* Center the achievements text */
+        
+        .achievements-container {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .achievements-container .relative {
+            display: inline-block;
+            text-align: center;
+        }
     </style>
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         tailwind.config = {
             darkMode: 'class',
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownButton = document.getElementById('dropdownDefaultButton');
+            const dropdown = document.getElementById('dropdown');
 
+            dropdownButton.addEventListener('click', function() {
+                dropdown.classList.toggle('hidden');
+            });
+
+            window.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target) && !dropdownButton.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body x-data="{ open: true, darkMode: false }" :class="darkMode ? 'dark' : ''">
+
     <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900">
         <nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
             <div class="container px-6 py-4 mx-auto">
@@ -47,14 +166,14 @@
                         <!-- Mobile menu button -->
                         <div class="flex lg:hidden">
                             <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-                        </svg>
-                
-                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                                <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                                </svg>
+
+                                <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
 
@@ -63,87 +182,221 @@
                         <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
                             <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
                             <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achivements</a>
+                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achievements</a>
                             <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</a>
                         </div>
 
-                        <!-- <div class="flex items-center mt-4 lg:mt-0">
-                             <button class="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-
-                            <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                        <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
-                        </div>
-
-                        <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
-                    </button>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </nav>
-    </div>
-
-    <div class="content">
-        <!-- code from here -->
-
-    </div>
-    <footer class="footer bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-between items-start">
-                <div class="w-full md:w-1/3 text-center mb-6 md:mb-0">
-                    <h2 class="text-3xl font-bold mb-4">Aagneya</h2>
-                    <div class="flex items-center justify-center space-x-4 mt-2">
-                        <a href="#" class="hover:text-gray-400 transition duration-300">
-                            <i class="fab fa-instagram text-2xl"></i>
-                        </a>
-                        <a href="#" class="hover:text-gray-400 transition duration-300">
-                            <i class="far fa-envelope text-2xl"></i>
-                        </a>
-                    </div>
-                    <p class="mt-4">Connect with us on social media</p>
+        <div class="flex flex-col w-full" style="padding-top: 30px;">
+            <div class="achievements-container flex-1">
+                <div class="relative inline-block text-center">
+                    <span class="text-2xl md:text-3xl font-bold">Event</span>
+                    <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-400 to-green-600 rounded-full"></span>
                 </div>
-                <div class="w-full md:w-1/3 mb-6 md:mb-0">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Quick Links</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <ul class="space-y-2 text-center md:text-right">
-                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Home</a></li>
-                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Event</a></li>
-                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Achievement</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="space-y-2 text-center md:text-left">
-                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Blog</a></li>
-                                <li><a href="#" class="hover:text-gray-400 transition duration-300">Team</a></li>
-                                <li><a href="#" class="hover:text-gray-400 transition duration-300">About Us</a></li>
-                            </ul>
-                        </div>
+            </div>
+            <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
+                <div class="relative inline-block w-full sm:w-64">
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-full justify-between sm:w-auto"
+                        type="button">Dropdown button<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg></button>
+                    <div id="dropdown" class="absolute right-0 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-full sm:w-64 dark:bg-gray-700">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="w-full md:w-1/3 text-center md:text-right">
-                    <p class="mt-4 md:mt-0">&copy; 2024 Aagneya. All rights reserved.</p>
                 </div>
             </div>
         </div>
-    </footer>
 
+
+        <div class="showcards" id="displayevents">
+            <div class="bg-gray-100 dark:bg-gray-900" style="padding-top: 40px;" id="showcards">
+                <!-- Card Container -->
+                <div id="card-container" class="max-w-5xl mx-auto">
+                    <!-- Card 1 -->
+                    <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                        <div class="flex items-center justify-between">
+                            <div class="date-time-container">
+                                <h3 id="date">Mar 10, 2019</h3>
+                                <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
+                            </div>
+                            <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer " tabindex="0" role="button" id="occurs">Upcoming</a>
+                        </div>
+                        <div class="mt-2">
+                            <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                            <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full table-auto">
+                                        <tbody>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                </td>
+                                                <td class="px-4 py-3">
+                                                    <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                            <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                        </div>
+                        <div class="readMoreContent mt-4 readmore">
+                            <p class="desc" id="description">Description for the first card.</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional cards can be added here -->
+
+                    <!-- card-2 -->
+                    <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                        <div class="flex items-center justify-between">
+                            <div class="date-time-container">
+                                <h3 id="date">Mar 10, 2019</h3>
+                                <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
+                            </div>
+                            <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-purple-600 rounded cursor-pointer " tabindex="0" role="button" id="occurs">Upcoming</a>
+                        </div>
+                        <div class="mt-2">
+                            <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                            <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full table-auto">
+                                        <tbody>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                </td>
+                                                <td class="px-4 py-3">
+                                                    <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                            <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                        </div>
+                        <div class="readMoreContent mt-4 readmore">
+                            <p class="desc" id="description">Description for the first card.</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card-3 -->
+                    <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+                        <div class="flex items-center justify-between">
+                            <div class="date-time-container">
+                                <h3 id="date">Mar 10, 2019</h3>
+                                <h4><i class="bi bi-clock icon"></i> <span id="time"> 12:00pm </span></h4>
+                            </div>
+                            <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-red-600 rounded cursor-pointer " tabindex="0" role="button" id="occurs">Completed</a>
+                        </div>
+                        <div class="mt-2">
+                            <a href="#" class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline" tabindex="0" role="link" id="event_name">Accessibility tools for designers and developers</a>
+                            <div class="mt-2 text-gray-600 dark:text-gray-300">
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full table-auto">
+                                        <tbody>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-book icon"></i> <span id="category">BTech / MTech</span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-gender-ambiguous icon"></i> <span id="gender">Male / Female </span> </div>
+                                                </td>
+                                                <td class="px-4 py-3">
+                                                    <div class="td-content"> Entry fee <i class="bi bi-currency-rupee"></i> <span id="entry_fee"> 10 </span> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-people icon"></i> <span id="is_team"> Group / Individual </span> </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-geo-alt icon"></i>AB3 </div>
+                                                </td>
+                                                <td class="px-4 py-2">
+                                                    <div class="td-content"> <i class="bi bi-award icon"></i><span id="prize"> 3</span> </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <a href="#" class="toggleReadMore text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read more</a>
+                            <div class="flex items-center"> <span class="chess-link font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"> Chess </span> </div>
+                        </div>
+                        <div class="readMoreContent mt-4 readmore">
+                            <p class="desc" id="description">Description for the first card.</p>
+                            <div class="flex items-center justify-between mt-4">
+                                <a href="" id="form" target="_blank" class="font-bold text-violet-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link">Form link</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
-<style>
-    main {
-        flex: 1;
-    }
-    
-    .footer {
-        /* position: sticky; */
-        bottom: 0;
-        width: 100%;
-    }
-</style>
