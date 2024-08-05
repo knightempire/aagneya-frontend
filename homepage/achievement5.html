@@ -38,14 +38,74 @@
         [x-cloak] {
             display: none
         }
- 
+ /* Tailwind CSS classes or custom CSS */
 
+        /* Ensure the dropdown button is always at the right corner */
+        #dropdownContainer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #dropdown {
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            #dropdownContainer {
+                display: flex;
+                justify-content: center;
+            }
+
+            #dropdown {
+                width: 90vw;
+                right: auto;
+            }
+        }
+
+        /* Center the achievements text */
+        .achievements-container {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .achievements-container .relative {
+            display: inline-block;
+            text-align: center;
+        }
     </style>
   <script>
     tailwind.config = {
         darkMode: 'class',
     }
 </script>
+
+<style>
+    #dropdownDefaultButton {
+        cursor: pointer;
+    }
+
+    #dropdown {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    @media (max-width: 640px) {
+        #dropdownContainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        #dropdown {
+            width: 100vw; /* Full width on smaller screens */
+            left: 0;      /* Align to the left edge */
+            right: 0;     /* Align to the right edge */
+            margin: 0 auto; /* Center horizontally */
+        }
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -63,6 +123,7 @@
         });
     });
 </script>
+
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -136,36 +197,34 @@
 
         <div class="container mx-auto py-10">
             <!-- Filter Buttons Section -->
-            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full">
-                <div class="flex-1 flex justify-center sm:justify-start sm:ml-64 mb-4 sm:mb-0">
+            <div class="flex flex-col w-full" style="padding-top: 30px;">
+                <div class="achievements-container flex-1">
                     <div class="relative inline-block text-center">
                         <span class="text-2xl md:text-3xl font-bold">Achievements</span>
                         <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-400 to-green-600 rounded-full"></span>
                     </div>
                 </div>
-                <div class="relative inline-block w-full sm:w-64">
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-purple-700 hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button 
-                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                    </button>
-            
-                    <!-- Dropdown menu -->
-                    <div id="dropdown" class="absolute right-0 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-                            </li>
-                        </ul>
+                <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
+                    <div class="relative inline-block w-full sm:w-64">
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-full justify-between sm:w-auto" type="button">Dropdown button<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg></button>
+                        <div id="dropdown" class="absolute right-0 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-full sm:w-64 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
