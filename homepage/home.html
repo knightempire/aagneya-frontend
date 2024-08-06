@@ -11,46 +11,50 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"> <!-- Custom Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <!-- Custom Font -->
 
     <style>
         [x-cloak] {
             display: none;
         }
-    
+        
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-    
+        
         .content {
             flex: 1 0 auto;
         }
-    
+        
         footer {
             flex-shrink: 0;
-            position: absolute; /* Change to absolute to stick to the bottom */
+            position: absolute;
+            /* Change to absolute to stick to the bottom */
             bottom: 0;
             width: 100%;
         }
-    
+        
         .heading {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1a202c; /* Tailwind's gray-800 */
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-    
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            /* Tailwind's gray-800 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
         .event-card {
-            border-bottom: 1px solid #e2e8f0; /* Tailwind's gray-200 */
+            border-bottom: 1px solid #e2e8f0;
+            /* Tailwind's gray-200 */
             padding-bottom: 1.5rem;
             margin-bottom: 1.5rem;
         }
     </style>
-    
+
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -100,10 +104,11 @@
             </div>
         </nav>
 
-        <main class="content container mx-auto px-6 py-10">
+
+        <!-- <main class="content container mx-auto px-6 py-10">
             <h1 class="heading">Exciting Events</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
+
                 <div x-data="{ showDetail: false }" class="bg-white shadow-lg rounded-lg overflow-hidden event-card">
                     <div class="px-6 py-4">
                         <h3 class="text-xl font-semibold text-gray-800">Event 1</h3>
@@ -114,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 2 -->
+
                 <div x-data="{ showDetail: false }" class="bg-white shadow-lg rounded-lg overflow-hidden event-card">
                     <div class="px-6 py-4">
                         <h3 class="text-xl font-semibold text-gray-800">Event 2</h3>
@@ -125,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 3 -->
+
                 <div x-data="{ showDetail: false }" class="bg-white shadow-lg rounded-lg overflow-hidden event-card">
                     <div class="px-6 py-4">
                         <h3 class="text-xl font-semibold text-gray-800">Event 3</h3>
@@ -138,8 +143,8 @@
                 </div>
             </div>
             <hr class="my-8 border-t border-gray-300">
-        </main>
-        
+        </main> -->
+
 
         <footer class="footer bg-gray-800 text-white py-8">
             <div class="container mx-auto px-4">
@@ -186,7 +191,8 @@
                 </div>
             </div>
         </footer>
-        
+
     </div>
 </body>
+
 </html>
