@@ -159,13 +159,14 @@
                     <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
                     <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
                         <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achivements</a>
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</a>
+                            <a href="./home.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                            <a href="./event.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
+                            <a href="./achievement.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achievements</a>
+                            <a href="../login/login.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</a>
                         </div>
+                    </div>
 
-                        <!-- <div class="flex items-center mt-4 lg:mt-0">
+                    <!-- <div class="flex items-center mt-4 lg:mt-0">
                              <button class="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -180,156 +181,156 @@
                         <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
                     </button>
                         </div> -->
-                    </div>
                 </div>
             </div>
-        </nav>
+    </div>
+    </nav>
 
 
 
 
-        <div class="container mx-auto py-10">
-            <!-- Filter Buttons Section -->
-            <div class="flex flex-col w-full" style="padding-top: 30px;">
-                <div class="achievements-container flex-1">
-                    <div class="relative inline-block text-center">
-                        <span class="text-2xl md:text-3xl font-bold">Achievements</span>
-                        <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-400 to-green-600 rounded-full"></span>
-                    </div>
+    <div class="container mx-auto py-10">
+        <!-- Filter Buttons Section -->
+        <div class="flex flex-col w-full" style="padding-top: 30px;">
+            <div class="achievements-container flex-1">
+                <div class="relative inline-block text-center">
+                    <span class="text-2xl md:text-3xl font-bold">Achievements</span>
+                    <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-400 to-green-600 rounded-full"></span>
                 </div>
-                <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
-                    <div class="relative inline-block w-full sm:w-64">
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-full justify-between sm:w-auto"
-                            type="button">Dropdown button<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            </div>
+            <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
+                <div class="relative inline-block w-full sm:w-64">
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-full justify-between sm:w-auto"
+                        type="button">Dropdown button<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg></button>
-                        <div id="dropdown" class="absolute right-0 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-full sm:w-64 dark:bg-gray-700">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div id="dropdown" class="absolute right-0 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-full sm:w-64 dark:bg-gray-700">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-
-
-
-            <!-- Filterable Images / Cards Section -->
-            <div class="flex flex-wrap justify-center mt-8" id="achievecard">
-                <!-- Card 1 -->
-                <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5 mr-10 mb-10 card">
-                    <div class="w-full h-64 rounded-t overflow-hidden">
-                        <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Nature Image" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col md:flex-row">
-                        <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
-                            <div class="md:text-2xl">Jan</div>
-                            <div class="md:text-4xl">13</div>
-                            <div class="md:text-lg">7 pm</div>
-                        </div>
-                        <div class="p-2 font-normal text-gray-800 md:w-3/4">
-                            <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
-                            <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
-                            <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
-                                <div class="place w-1/2 flex items-center loc">
-                                    <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
-                                </div>
-                                <div class="game w-1/2 flex justify-end items-center spor">
-                                    <i class=""></i> Football
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5  mb-10 card">
-                    <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)"></div>
-                    <div class="flex flex-col md:flex-row">
-                        <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
-                            <div class="md:text-2xl">Jan</div>
-                            <div class="md:text-4xl">13</div>
-                            <div class="md:text-lg">7 pm</div>
-                        </div>
-                        <div class="p-2 font-normal text-gray-800 md:w-3/4">
-                            <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
-                            <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
-                            <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
-                                <div class="place w-1/2 flex items-center loc">
-                                    <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
-                                </div>
-                                <div class="game w-1/2 flex justify-end items-center spor">
-                                    <i class=""></i> Cricket
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5 mr-10 mb-8 card">
-                    <div class="w-full h-64 rounded-t overflow-hidden">
-                        <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Nature Image" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col md:flex-row">
-                        <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
-                            <div class="md:text-2xl">Jan</div>
-                            <div class="md:text-4xl">13</div>
-                            <div class="md:text-lg">7 pm</div>
-                        </div>
-                        <div class="p-2 font-normal text-gray-800 md:w-3/4">
-                            <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
-                            <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
-                            <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
-                                <div class="place w-1/2 flex items-center loc">
-                                    <i class="place fa fa-map-marker-alt mr-2"></i> Coimbatore
-                                </div>
-                                <div class=" game w-1/2 flex justify-end items-center spor">
-                                    <i class=""></i> Chess
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5  mb-8 card">
-                    <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)"></div>
-                    <div class="flex flex-col md:flex-row">
-                        <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
-                            <div class="md:text-2xl">Jan</div>
-                            <div class="md:text-4xl">13</div>
-                            <div class="md:text-lg">7 pm</div>
-                        </div>
-                        <div class="p-2 font-normal text-gray-800 md:w-3/4">
-                            <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
-                            <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
-                            <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
-                                <div class="place w-1/2 flex items-center loc">
-                                    <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
-                                </div>
-                                <div class="game w-1/2 flex justify-end items-center spor">
-                                    <i class=""></i> Hockey
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+
+
+
+        <!-- Filterable Images / Cards Section -->
+        <div class="flex flex-wrap justify-center mt-8" id="achievecard">
+            <!-- Card 1 -->
+            <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5 mr-10 mb-10 card">
+                <div class="w-full h-64 rounded-t overflow-hidden">
+                    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Nature Image" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
+                        <div class="md:text-2xl">Jan</div>
+                        <div class="md:text-4xl">13</div>
+                        <div class="md:text-lg">7 pm</div>
+                    </div>
+                    <div class="p-2 font-normal text-gray-800 md:w-3/4">
+                        <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
+                        <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
+                        <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
+                            <div class="place w-1/2 flex items-center loc">
+                                <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
+                            </div>
+                            <div class="game w-1/2 flex justify-end items-center spor">
+                                <i class=""></i> Football
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5  mb-10 card">
+                <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)"></div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
+                        <div class="md:text-2xl">Jan</div>
+                        <div class="md:text-4xl">13</div>
+                        <div class="md:text-lg">7 pm</div>
+                    </div>
+                    <div class="p-2 font-normal text-gray-800 md:w-3/4">
+                        <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
+                        <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
+                        <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
+                            <div class="place w-1/2 flex items-center loc">
+                                <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
+                            </div>
+                            <div class="game w-1/2 flex justify-end items-center spor">
+                                <i class=""></i> Cricket
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5 mr-10 mb-8 card">
+                <div class="w-full h-64 rounded-t overflow-hidden">
+                    <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Nature Image" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
+                        <div class="md:text-2xl">Jan</div>
+                        <div class="md:text-4xl">13</div>
+                        <div class="md:text-lg">7 pm</div>
+                    </div>
+                    <div class="p-2 font-normal text-gray-800 md:w-3/4">
+                        <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
+                        <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
+                        <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
+                            <div class="place w-1/2 flex items-center loc">
+                                <i class="place fa fa-map-marker-alt mr-2"></i> Coimbatore
+                            </div>
+                            <div class=" game w-1/2 flex justify-end items-center spor">
+                                <i class=""></i> Chess
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white rounded shadow-lg sm:w-4/5 md:w-2/5 lg:w-2/5  mb-8 card">
+                <div class="w-full h-64 bg-top bg-cover rounded-t" style="background-image: url(https://www.si.com/.image/t_share/MTY4MTkyMjczODM4OTc0ODQ5/cfp-trophy-deitschjpg.jpg)"></div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="flex flex-row justify-around p-2 font-bold leading-none text-gray-800 uppercase bg-gray-400 rounded md:flex-col md:items-center md:justify-center md:w-1/4 event-date">
+                        <div class="md:text-2xl">Jan</div>
+                        <div class="md:text-4xl">13</div>
+                        <div class="md:text-lg">7 pm</div>
+                    </div>
+                    <div class="p-2 font-normal text-gray-800 md:w-3/4">
+                        <h1 class="mb-2 text-xl font-bold leading-none tracking-tight text-gray-800 event-title">2020 National Championship</h1>
+                        <p class="text-xs leading-tight event-description">The College Football Playoff (CFP) determines the national champion of the top division of college football. The format fits within the academic calendar and preserves the sport’s unique and compelling regular season.</p>
+                        <div class="flex flex-row items-center mt-2 text-gray-700 event-details">
+                            <div class="place w-1/2 flex items-center loc">
+                                <i class="fa fa-map-marker-alt mr-2"></i> Coimbatore
+                            </div>
+                            <div class="game w-1/2 flex justify-end items-center spor">
+                                <i class=""></i> Hockey
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </div>
 
 
