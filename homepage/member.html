@@ -72,13 +72,14 @@
                     <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
                     <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
                         <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achivements</a>
-                            <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</a>
+                            <a href="./home.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                            <a href="./event.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a>
+                            <a href="./achievement.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Achievements</a>
+                            <a href="../login/login.html" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Login</a>
                         </div>
+                    </div>
 
-                        <!-- <div class="flex items-center mt-4 lg:mt-0">
+                    <!-- <div class="flex items-center mt-4 lg:mt-0">
                              <button class="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -93,19 +94,19 @@
                         <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
                     </button>
                         </div> -->
-                    </div>
                 </div>
             </div>
-        </nav>
+    </div>
+    </nav>
 
 
 
-        <div class="container mx-auto py-10">
-            <!-- Filter Buttons Section -->
-            <div class="flex flex-wrap justify-center gap-4 mb-8" id="filter-buttons">
-                <!-- Sports Filter -->
-                <div class="relative inline-block w-full sm:w-64">
-                    <!-- <select class="selectpicker block w-full p-2 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring" multiple aria-label="Default select example" data-live-search="true" title="Select sports">
+    <div class="container mx-auto py-10">
+        <!-- Filter Buttons Section -->
+        <div class="flex flex-wrap justify-center gap-4 mb-8" id="filter-buttons">
+            <!-- Sports Filter -->
+            <div class="relative inline-block w-full sm:w-64">
+                <!-- <select class="selectpicker block w-full p-2 bg-white border border-gray-300 rounded shadow focus:outline-none focus:ring" multiple aria-label="Default select example" data-live-search="true" title="Select sports">
                         <option value="football">Football</option>
                         <option value="cricket">Cricket</option>
                         <option value="volleyball">Volleyball</option>
@@ -114,129 +115,129 @@
                     </select>
                      -->
 
-                    <div id="selectedItemsContainer" class="w-full bg-white border border-gray-300 rounded-lg shadow-sm p-2 flex gap-2 overflow-x-auto">
-                        <input id="dropdownInput" type="text" class="flex-1 outline-none placeholder-gray-500" placeholder="Select items" readonly>
-                    </div>
-                    <div id="dropdownMenu" class="absolute w-full bg-white border border-gray-300 rounded-lg shadow-lg mt-1 hidden z-10">
-                        <input id="searchInput" type="text" class="w-full p-3 border-b border-gray-200 outline-none focus:border-blue-500" placeholder="Search...">
-                        <ul id="itemsList" class="max-h-48 overflow-auto">
-                            <li class="dropdown-item cursor-pointer" data-value="football">Football</li>
-                            <li class="dropdown-item cursor-pointer" data-value="cricket">Cricket</li>
-                            <li class="dropdown-item cursor-pointer" data-value="volleyball">Volleyball</li>
-                            <li class="dropdown-item cursor-pointer" data-value="hockey">Hockey</li>
-                            <li class="dropdown-item cursor-pointer" data-value="chess">Chess</li>
-                        </ul>
-                    </div>
+                <div id="selectedItemsContainer" class="w-full bg-white border border-gray-300 rounded-lg shadow-sm p-2 flex gap-2 overflow-x-auto">
+                    <input id="dropdownInput" type="text" class="flex-1 outline-none placeholder-gray-500" placeholder="Select items" readonly>
+                </div>
+                <div id="dropdownMenu" class="absolute w-full bg-white border border-gray-300 rounded-lg shadow-lg mt-1 hidden z-10">
+                    <input id="searchInput" type="text" class="w-full p-3 border-b border-gray-200 outline-none focus:border-blue-500" placeholder="Search...">
+                    <ul id="itemsList" class="max-h-48 overflow-auto">
+                        <li class="dropdown-item cursor-pointer" data-value="football">Football</li>
+                        <li class="dropdown-item cursor-pointer" data-value="cricket">Cricket</li>
+                        <li class="dropdown-item cursor-pointer" data-value="volleyball">Volleyball</li>
+                        <li class="dropdown-item cursor-pointer" data-value="hockey">Hockey</li>
+                        <li class="dropdown-item cursor-pointer" data-value="chess">Chess</li>
+                    </ul>
+                </div>
 
 
-
-                </div>
-                <!-- Position Filter -->
-                <div class="btn-group" role="group" aria-label="Position" data-filter="position">
-                    <button class="filter-button btn btn-outline-primary" data-filter="position" data-value="captain">Captain</button>
-                    <button class="filter-button btn btn-outline-primary" data-filter="position" data-value="vice-captain">Vice Captain</button>
-                </div>
-                <!-- Gender Filter -->
-                <div class="btn-group" role="group" aria-label="Gender" data-filter="gender">
-                    <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="boys">Boys</button>
-                    <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="girls">Girls</button>
-                </div>
-                <!-- Team Filter -->
 
             </div>
-            <!-- Filterable Images / Cards Section -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center" id="filterable-cards">
-                <!-- First Card -->
-                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-gender="boys" data-sport="football" data-position="captain">
-                    <img class="object-cover object-center w-full h-56" src="https://upload.wikimedia.org/wikipedia/commons/4/43/1500x1500-abstract-sd2003.jpg" alt="avatar" style="height: fit-content">
-                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-crown text-yellow-500"></i>
-                            <h1 class="mx-3 text-lg font-semibold text-white">Captain</h1>
-                        </div>
-                        <div class="flex items-center mt-2 text-gray-700">
-                            <h1 class="px-2 text-sm text-white"><strong>Football</strong></h1>
-                        </div>
+            <!-- Position Filter -->
+            <div class="btn-group" role="group" aria-label="Position" data-filter="position">
+                <button class="filter-button btn btn-outline-primary" data-filter="position" data-value="captain">Captain</button>
+                <button class="filter-button btn btn-outline-primary" data-filter="position" data-value="vice-captain">Vice Captain</button>
+            </div>
+            <!-- Gender Filter -->
+            <div class="btn-group" role="group" aria-label="Gender" data-filter="gender">
+                <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="boys">Boys</button>
+                <button class="filter-button btn btn-outline-primary" data-filter="gender" data-value="girls">Girls</button>
+            </div>
+            <!-- Team Filter -->
+
+        </div>
+        <!-- Filterable Images / Cards Section -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center" id="filterable-cards">
+            <!-- First Card -->
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-gender="boys" data-sport="football" data-position="captain">
+                <img class="object-cover object-center w-full h-56" src="https://upload.wikimedia.org/wikipedia/commons/4/43/1500x1500-abstract-sd2003.jpg" alt="avatar" style="height: fit-content">
+                <div class="flex items-center justify-between px-6 py-3 bg-gray-900">
+                    <div class="flex items-center">
+                        <i class="fas fa-crown text-yellow-500"></i>
+                        <h1 class="mx-3 text-lg font-semibold text-white">Captain</h1>
                     </div>
-                    <div class="px-6 py-4">
-                        <h1 class="text-xl font-semibold text-gray-800">Patterson Johnson</h1>
-                        <p class="py-2 text-gray-700">CB.EN.U4CSE21331</p>
+                    <div class="flex items-center mt-2 text-gray-700">
+                        <h1 class="px-2 text-sm text-white"><strong>Football</strong></h1>
                     </div>
                 </div>
+                <div class="px-6 py-4">
+                    <h1 class="text-xl font-semibold text-gray-800">Patterson Johnson</h1>
+                    <p class="py-2 text-gray-700">CB.EN.U4CSE21331</p>
+                </div>
+            </div>
 
-                <!-- Second Card -->
-                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-gender="girls " data-sport="chess " data-position="vice-captain ">
-                    <img class="object-cover object-center w-full h-56 " src="D:\photos\chess.jpg " alt="avatar ">
-                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
-                        <div class="flex items-center ">
-                            <i class="fas fa-crown text-yellow-500 "></i>
-                            <h1 class="mx-3 text-lg font-semibold text-white ">Vice Captain</h1>
-                        </div>
-                        <div class="flex items-center mt-2 text-gray-700 ">
-                            <h1 class="px-2 text-sm text-white "><strong>Chess</strong></h1>
-                        </div>
+            <!-- Second Card -->
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show" data-gender="girls " data-sport="chess " data-position="vice-captain ">
+                <img class="object-cover object-center w-full h-56 " src="D:\photos\chess.jpg " alt="avatar ">
+                <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
+                    <div class="flex items-center ">
+                        <i class="fas fa-crown text-yellow-500 "></i>
+                        <h1 class="mx-3 text-lg font-semibold text-white ">Vice Captain</h1>
                     </div>
-                    <div class="px-6 py-4 ">
-                        <h1 class="text-xl font-semibold text-gray-800 ">Alexa Monroe</h1>
-                        <p class="py-2 text-gray-700 ">CB.EN.U4ECE21345</p>
+                    <div class="flex items-center mt-2 text-gray-700 ">
+                        <h1 class="px-2 text-sm text-white "><strong>Chess</strong></h1>
                     </div>
                 </div>
+                <div class="px-6 py-4 ">
+                    <h1 class="text-xl font-semibold text-gray-800 ">Alexa Monroe</h1>
+                    <p class="py-2 text-gray-700 ">CB.EN.U4ECE21345</p>
+                </div>
+            </div>
 
-                <!-- Third Card -->
-                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show " data-gender="boys " data-sport="hockey " data-position="captain ">
-                    <img class="object-cover object-center w-full h-56 " src="D:\photos\hockey.jpg " alt="avatar ">
-                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
-                        <div class="flex items-center ">
-                            <i class="fas fa-crown text-yellow-500 "></i>
-                            <h1 class="mx-3 text-lg font-semibold text-white ">Captain</h1>
-                        </div>
-                        <div class="flex items-center mt-2 text-gray-700 ">
-                            <h1 class="px-2 text-sm text-white "><strong>Hockey</strong></h1>
-                        </div>
+            <!-- Third Card -->
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show " data-gender="boys " data-sport="hockey " data-position="captain ">
+                <img class="object-cover object-center w-full h-56 " src="D:\photos\hockey.jpg " alt="avatar ">
+                <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
+                    <div class="flex items-center ">
+                        <i class="fas fa-crown text-yellow-500 "></i>
+                        <h1 class="mx-3 text-lg font-semibold text-white ">Captain</h1>
                     </div>
-                    <div class="px-6 py-4 ">
-                        <h1 class="text-xl font-semibold text-gray-800 ">Marcus Aurelius</h1>
-                        <p class="py-2 text-gray-700 ">CB.EN.U4EEE21329</p>
+                    <div class="flex items-center mt-2 text-gray-700 ">
+                        <h1 class="px-2 text-sm text-white "><strong>Hockey</strong></h1>
                     </div>
                 </div>
+                <div class="px-6 py-4 ">
+                    <h1 class="text-xl font-semibold text-gray-800 ">Marcus Aurelius</h1>
+                    <p class="py-2 text-gray-700 ">CB.EN.U4EEE21329</p>
+                </div>
+            </div>
 
-                <!-- Fourth Card -->
-                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show " data-gender="girls " data-sport="volleyball " data-position="captain ">
-                    <img class="object-cover object-center w-full h-56 " src="D:\photos\volleyball.jpg " alt="avatar ">
-                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
-                        <div class="flex items-center ">
-                            <i class="fas fa-crown text-yellow-500 "></i>
-                            <h1 class="mx-3 text-lg font-semibold text-white ">Captain</h1>
-                        </div>
-                        <div class="flex items-center mt-2 text-gray-700 ">
-                            <h1 class="px-2 text-sm text-white "><strong>Volleyball</strong></h1>
-                        </div>
+            <!-- Fourth Card -->
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show " data-gender="girls " data-sport="volleyball " data-position="captain ">
+                <img class="object-cover object-center w-full h-56 " src="D:\photos\volleyball.jpg " alt="avatar ">
+                <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
+                    <div class="flex items-center ">
+                        <i class="fas fa-crown text-yellow-500 "></i>
+                        <h1 class="mx-3 text-lg font-semibold text-white ">Captain</h1>
                     </div>
-                    <div class="px-6 py-4 ">
-                        <h1 class="text-xl font-semibold text-gray-800 ">Sophia Black</h1>
-                        <p class="py-2 text-gray-700 ">CB.EN.U4IT21350</p>
+                    <div class="flex items-center mt-2 text-gray-700 ">
+                        <h1 class="px-2 text-sm text-white "><strong>Volleyball</strong></h1>
                     </div>
                 </div>
+                <div class="px-6 py-4 ">
+                    <h1 class="text-xl font-semibold text-gray-800 ">Sophia Black</h1>
+                    <p class="py-2 text-gray-700 ">CB.EN.U4IT21350</p>
+                </div>
+            </div>
 
-                <!-- Fifth Card -->
-                <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show " data-gender="boys " data-sport="cricket " data-position="vice-captain ">
-                    <img class="object-cover object-center w-full h-56 " src="D:\photos\cricket.jpg " alt="avatar ">
-                    <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
-                        <div class="flex items-center ">
-                            <i class="fas fa-crown text-yellow-500 "></i>
-                            <h1 class="mx-3 text-lg font-semibold text-white ">Vice Captain</h1>
-                        </div>
-                        <div class="flex items-center mt-2 text-gray-700 ">
-                            <h1 class="px-2 text-sm text-white "><strong>Cricket</strong></h1>
-                        </div>
+            <!-- Fifth Card -->
+            <div class="card w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg show " data-gender="boys " data-sport="cricket " data-position="vice-captain ">
+                <img class="object-cover object-center w-full h-56 " src="D:\photos\cricket.jpg " alt="avatar ">
+                <div class="flex items-center justify-between px-6 py-3 bg-gray-900 ">
+                    <div class="flex items-center ">
+                        <i class="fas fa-crown text-yellow-500 "></i>
+                        <h1 class="mx-3 text-lg font-semibold text-white ">Vice Captain</h1>
                     </div>
-                    <div class="px-6 py-4 ">
-                        <h1 class="text-xl font-semibold text-gray-800 ">Liam Barnes</h1>
-                        <p class="py-2 text-gray-700 ">CB.EN.U4ME21312</p>
+                    <div class="flex items-center mt-2 text-gray-700 ">
+                        <h1 class="px-2 text-sm text-white "><strong>Cricket</strong></h1>
                     </div>
+                </div>
+                <div class="px-6 py-4 ">
+                    <h1 class="text-xl font-semibold text-gray-800 ">Liam Barnes</h1>
+                    <p class="py-2 text-gray-700 ">CB.EN.U4ME21312</p>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
