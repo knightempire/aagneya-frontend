@@ -788,7 +788,7 @@
 
         try {
             // Send a POST request to add event
-            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/adminaddevent', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/adminaddevent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -856,7 +856,7 @@
                 return;
             }
 
-            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/decodeToken', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/decodeToken', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -911,7 +911,7 @@
         const selectElement = document.getElementById('sport_name_input');
 
         try {
-            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displaysports', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/displaysports', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -956,7 +956,7 @@
     async function displaycreateevent() {
         try {
             // Assuming `token` is defined somewhere earlier in your code
-            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/showingevents', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/showingevents', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1043,7 +1043,7 @@
     async function displaycreateeventhist() {
         try {
             // Assuming `token` is defined somewhere earlier in your code
-            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/showingeventhist', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/showingeventhist', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1147,7 +1147,7 @@
 
         try {
                 // Send a POST request to deactivate user
-                const response = await fetch('hhttps://aagneya-backend.onrender.com/api/eventapproval', {
+                const response = await fetch('https://aagneya-backend.onrender.com/api/eventapproval', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1207,7 +1207,7 @@ async function deactivate(eventId) {
         deactivateBtn.addEventListener('click', async function() {
             try {
                 // Send a POST request to deactivate event
-                const response = await fetch('hhttps://aagneya-backend.onrender.com/api/unapproval', {
+                const response = await fetch('https://aagneya-backend.onrender.com/api/unapproval', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1258,7 +1258,7 @@ async function deactivate(eventId) {
 
 async function showevent() {
     try {
-        const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displayevent', {
+        const response = await fetch('https://aagneya-backend.onrender.com/api/displayevent', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -1404,7 +1404,7 @@ async function showEditForm(event_id) {
     }
 
     try {
-        const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displayeventfilter', {
+        const response = await fetch('https://aagneya-backend.onrender.com/api/displayeventfilter', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1483,7 +1483,7 @@ function closeForm() {
 
      
     try {
-        const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displayeventfilternnotapproved', {
+        const response = await fetch('https://aagneya-backend.onrender.com/api/displayeventfilternnotapproved', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1565,7 +1565,7 @@ function closeForm() {
     }
 
     try {
-        const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displayeventfilterall', {
+        const response = await fetch('https://aagneya-backend.onrender.com/api/displayeventfilterall', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1644,7 +1644,7 @@ function closeForm() {
         const approval_date = currentDate.toISOString().split('T')[0];
         try {
             // Send a POST request to deactivate user
-            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/unapproval', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/unapproval', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1704,7 +1704,7 @@ function closeForm() {
         console.log(sports)
         try {
             // Send a POST request to update event
-            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/updateevent', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/updateevent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
