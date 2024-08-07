@@ -390,7 +390,7 @@
                 return;
             }
 
-            const response = await fetch('http://localhost:3000/api/decodeToken', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/decodeToken', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -437,7 +437,7 @@
     async function disprofile() {
 
         try {
-            const response = await fetch('http://localhost:3000/api/displaymem', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displaymem', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -461,7 +461,7 @@
                 // Assuming profile.date is the date of birth in ISO format (e.g., "1990-01-01")
                 document.getElementById('editDOB').value = profile.date ? profile.date.slice(0, 10) : 'Unknown';
 
-                const profileImagePath = profile.photo_path ? `http://localhost:3000/${profile.photo_path}` : 'https://example.com/default-profile-image.jpg';
+                const profileImagePath = profile.photo_path ? `hhttps://aagneya-backend.onrender.com/${profile.photo_path}` : 'https://example.com/default-profile-image.jpg';
                 document.getElementById('profileCardImage').src = profileImagePath;
 
             } else {

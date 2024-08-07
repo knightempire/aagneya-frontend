@@ -685,7 +685,7 @@
         };
         console.log(data)
         try {
-            const response = await fetch('http://localhost:3000/api/updateuser', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/updateuser', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -732,7 +732,7 @@
         console.log("Resetting password for Roll No:", roll_no);
 
         try {
-            const response = await fetch('http://localhost:3000/api/hardresetpassword', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/hardresetpassword', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -788,7 +788,7 @@
                 return;
             }
 
-            const response = await fetch('http://localhost:3000/api/decodeToken', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/decodeToken', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -837,7 +837,7 @@
 
     async function getrole() {
         try {
-            const response = await fetch('http://localhost:3000/api/displayroles', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displayroles', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -882,7 +882,7 @@
 
     async function displaysports() {
         try {
-            const response = await fetch('http://localhost:3000/api/displaysports', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displaysports', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -948,7 +948,7 @@
             };
 
             // Send the data to the backend API
-            const response = await fetch('http://localhost:3000/api/register', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1024,7 +1024,7 @@
 
     async function displaycurrentmem() {
         try {
-            const response = await fetch('http://localhost:3000/api/displaymem', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displaymem', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1061,7 +1061,7 @@
                 const row = document.createElement('tr');
 
                 // Adjust your row creation code here
-                const imgSrc = user.photo_path ? `http://localhost:3000/${user.photo_path}` : 'http://localhost:3000/img/default-user-image.jpg'; // Replace with your default image path
+                const imgSrc = user.photo_path ? `hhttps://aagneya-backend.onrender.com/${user.photo_path}` : 'hhttps://aagneya-backend.onrender.com/img/default-user-image.jpg'; // Replace with your default image path
 
                 row.innerHTML = `
             <td class="px-6 py-4 whitespace-nowrap">
@@ -1122,7 +1122,7 @@
     async function displaycurrentmembers() {
         try {
             // Fetch data from API endpoint
-            const response = await fetch('http://localhost:3000/api/displaymem', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displaymem', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1223,7 +1223,7 @@
         try {
             // Implement activation logic here
             // Example fetch request to activate user
-            const response = await fetch(`http://localhost:3000/api/activate/${roll_no}`, {
+            const response = await fetch(`hhttps://aagneya-backend.onrender.com/api/activate/${roll_no}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1267,7 +1267,7 @@
             }
 
             // Call the API to fetch data
-            const response = await fetch('http://localhost:3000/api/displaymem', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/displaymem', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1353,7 +1353,7 @@
         deactivateBtn.addEventListener('click', async function() {
             try {
                 // Send a POST request to deactivate user
-                const response = await fetch('http://localhost:3000/api/deactivateuser', {
+                const response = await fetch('hhttps://aagneya-backend.onrender.com/api/deactivateuser', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1408,7 +1408,7 @@
     async function activate(roll_no) {
         try {
             // Send a POST request to activate user
-            const response = await fetch('http://localhost:3000/api/activateuser', {
+            const response = await fetch('hhttps://aagneya-backend.onrender.com/api/activateuser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

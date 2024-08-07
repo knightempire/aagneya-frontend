@@ -111,45 +111,44 @@
             const answer = document.getElementById('answer').value;
             console.log("Selected Card:", selectedCard);
             console.log("Answer:", answer);
-             
-//             try {
 
-//             const response = await fetch('http://localhost:3000/api/verifysecurity', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 roll_no,
-//                 qa_id:selectedCard,
-//                 qa_answer:answer
-//             })
-//             });
-//             const data = await response.json();
+            //             try {
 
-//             console.log(data);
-//             console.log(data.message);
+            //             const response = await fetch('hhttps://aagneya-backend.onrender.com/api/verifysecurity', {
+            //             method: 'POST',
+            //             headers: {
+            //                 'Content-Type': 'application/json'
+            //             },
+            //             body: JSON.stringify({
+            //                 roll_no,
+            //                 qa_id:selectedCard,
+            //                 qa_answer:answer
+            //             })
+            //             });
+            //             const data = await response.json();
+
+            //             console.log(data);
+            //             console.log(data.message);
 
 
-//             } catch (error) {
-//             console.error('Error in login:', error.message);
-// }
-            
+            //             } catch (error) {
+            //             console.error('Error in login:', error.message);
+            // }
+
         }
-        
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    // Get the roll_no from URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const roll = urlParams.get('roll_no');
-    const roll_no=atob(roll);
-    console.log(roll_no);
-    
-    // Check if roll_no is not provided, then redirect to forgot.html
-    if (!roll_no) {
-        window.location.href = './forgot.html';
-}
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the roll_no from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const roll = urlParams.get('roll_no');
+            const roll_no = atob(roll);
+            console.log(roll_no);
+
+            // Check if roll_no is not provided, then redirect to forgot.html
+            if (!roll_no) {
+                window.location.href = './forgot.html';
+            }
         })
     </script>
 </body>
