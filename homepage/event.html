@@ -200,7 +200,7 @@
             </div>
             <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
                 <div class="relative inline-block w-full sm:w-64">
-                    <select name="sport" id="sport_name_input" class="mt-4 md:mt-1 block w-full md:w-2/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                    <select name="sport" id="sport_name_input" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-full justify-between"
                         required>
                         <option value="" disabled selected>Select Sport</option>
                         <!-- Options will be dynamically added here -->
@@ -454,7 +454,6 @@
             console.log('Event display:', responseData);
 
             const events = responseData.event; // Use local variable to store events
-
             // Filter events based on the selected sport
             const filteredEvents = selectedSport && selectedSport !== 'None' ?
                 events.filter(event => event.sport_name === selectedSport) :
@@ -582,7 +581,7 @@
             console.log('Sports array:', sports);
 
             // Clear existing options
-            selectElement.innerHTML = '<option value="None">None</option>';
+            selectElement.innerHTML = '<option value="None">Select sports</option>';
 
             // Check if 'sports' is an array
             if (!Array.isArray(sports)) {
@@ -624,3 +623,28 @@
         displaysports(); // Load sports dropdown
     }
 </script>
+
+<style>
+option {
+    background-color: #e5e7eb; /* bg-gray-200 */
+    color: #333333;
+    font-size: 0.875rem; /* equivalent to text-sm */
+    font-weight: 400;
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    display: block; /* block */
+    white-space: nowrap; /* whitespace-no-wrap */
+    border-bottom-left-radius: 0.5rem; /* rounded-b */
+    border-bottom-right-radius: 0.5rem; /* rounded-b */
+    transition: background-color 0.2s ease-in-out;
+}
+
+option:hover {
+    background-color: #9ca3af; /* hover:bg-gray-400 */
+}
+
+option:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #1976d2;
+}
+
+</style>
