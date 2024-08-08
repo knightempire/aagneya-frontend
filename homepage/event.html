@@ -200,7 +200,7 @@
             </div>
             <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
                 <div class="relative inline-block w-full sm:w-64">
-                    <select name="sport" id="sport_name_input" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                    <select name="sport" id="sport_name_input" class="mt-4 md:mt-1 block w-full md:w-2/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                         required>
                         <option value="" disabled selected>Select Sport</option>
                         <!-- Options will be dynamically added here -->
@@ -437,13 +437,12 @@
 
 
 <script>
-    async function showevent() {
+    async function showevent(selectedSport = '') {
         try {
             const response = await fetch('https://aagneya-backend.onrender.com/api/displayevent', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-
                 }
             });
 
@@ -454,19 +453,26 @@
             const responseData = await response.json();
             console.log('Event display:', responseData);
 
+            const events = responseData.event; // Use local variable to store events
+
+            // Filter events based on the selected sport
+            const filteredEvents = selectedSport && selectedSport !== 'None' ?
+                events.filter(event => event.sport_name === selectedSport) :
+                events;
+
             const showcards = document.getElementById('showcards'); // Get the showcards container
 
-            // Clear existing cards if needed
+            // Clear existing cards
             showcards.innerHTML = '';
 
-            // Check if responseData.event is an array
-            if (!Array.isArray(responseData.event)) {
+            // Check if filteredEvents is an array
+            if (!Array.isArray(filteredEvents)) {
                 throw new Error('Event data is not an array');
             }
 
             const currentDate = new Date();
-            // Loop through events and create card elements dynamically
-            responseData.event.forEach(event => {
+            // Loop through filtered events and create card elements dynamically
+            filteredEvents.forEach(event => {
                 const eventDate = new Date(event.event_date);
                 const formattedEventDate = eventDate.toISOString().split('T')[0]; // Format to YYYY-MM-DD
 
@@ -544,8 +550,8 @@
                 showcards.appendChild(cardContainer); // Append the card to the showcards container
             });
 
-            // Now that cards are added, set up event listeners for "Read more"
-            setupReadMoreListeners();
+            // Set up event listeners for "Read more" if needed
+            // setupReadMoreListeners();
 
         } catch (error) {
             console.error('Error fetching events:', error.message);
@@ -560,7 +566,6 @@
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-
                 }
             });
 
@@ -569,12 +574,15 @@
             }
 
             const responseData = await response.json();
-            console.log('Sports data:', responseData);
+            console.log('Sports data received from API:', responseData);
 
             const sports = responseData.sports; // Assuming 'sports' is the array you want to iterate over
 
+            // Log the sports array to the console
+            console.log('Sports array:', sports);
+
             // Clear existing options
-            selectElement.innerHTML = '<option value="" disabled selected>Select Sport</option>';
+            selectElement.innerHTML = '<option value="None">None</option>';
 
             // Check if 'sports' is an array
             if (!Array.isArray(sports)) {
@@ -583,13 +591,26 @@
 
             // Add options from fetched 'sports' array
             sports.forEach(option => {
-
                 if (option.sport_id !== 0) {
                     const optionElement = document.createElement('option');
-                    optionElement.value = option.sport_id; // Adjust based on your API response structure
-                    optionElement.textContent = option.sport_name; // Adjust based on your API response structure
+                    optionElement.value = option.sport_name; // Use sport_name as the value
+                    optionElement.textContent = option.sport_name; // Use sport_name as the text
                     selectElement.appendChild(optionElement);
                 }
+            });
+
+            // Log the updated options in the select element
+            const updatedOptions = Array.from(selectElement.options).map(opt => ({
+                value: opt.value,
+                text: opt.textContent
+            }));
+            console.log('Updated select options:', updatedOptions);
+
+            // Add an event listener to filter events based on the selected sport
+            selectElement.addEventListener('change', function(event) {
+                const selectedSport = event.target.value;
+                console.log('Selected sport name:', selectedSport);
+                showevent(selectedSport); // Call showevent with selected sport name
             });
 
         } catch (error) {
@@ -598,11 +619,8 @@
         }
     }
 
-
-
     window.onload = function() {
-        showevent();
-        displaysports();
-
+        showevent(); // Load all events initially
+        displaysports(); // Load sports dropdown
     }
 </script>
