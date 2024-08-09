@@ -751,6 +751,8 @@
         } catch (error) {
             console.error('Error updating user details:', error);
 
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -799,6 +801,8 @@
         } catch (error) {
             console.error('Error updating user details:', error);
 
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
 
 
@@ -868,6 +872,8 @@
             console.error('Error in decodeToken:', error.message);
             window.location.href = '../login/login.html';
 
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -915,6 +921,8 @@
         } catch (error) {
             console.error('Error fetching roles:', error);
             throw error;
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -962,6 +970,8 @@
         } catch (error) {
             console.error('Error fetching sports:', error);
             throw error;
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1011,6 +1021,8 @@
                     document.getElementById('errormsg').textContent = errorResponseData.error;
                 } catch (error) {
                     console.error('Error parsing error response:', error);
+                } finally {
+                    spinner.style.display = 'none'; // Hide the spinner
                 }
 
                 // Log the error response
@@ -1062,6 +1074,8 @@
             setTimeout(() => {
                 errorContainer.style.display = 'none';
             }, 5000); // 5000 milliseconds = 5 seconds
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1158,6 +1172,8 @@
         } catch (error) {
             console.error('Error fetching members:', error);
             throw error;
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1263,6 +1279,8 @@
         } catch (error) {
             console.error('Error fetching members:', error);
             throw error;
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1294,6 +1312,8 @@
         } catch (error) {
             console.error('Error activating user:', error);
             throw error;
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1373,6 +1393,8 @@
         } catch (error) {
             console.error('Error fetching data:', error);
             // Handle errors as needed
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1446,6 +1468,8 @@
             } catch (error) {
                 console.error('Error deactivating user:', error);
                 // Handle error appropriately (e.g., show error message)
+            } finally {
+                spinner.style.display = 'none'; // Hide the spinner
             }
         });
     }
@@ -1498,6 +1522,8 @@
         } catch (error) {
             console.error('Error activating user:', error);
             // Handle error appropriately (e.g., show error message)
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
