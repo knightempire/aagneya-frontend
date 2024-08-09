@@ -2,6 +2,11 @@
 
 Welcome to the Aagneya Sports Club web application project! This application is being developed by a team of students to provide a platform for staff and community members to interact, manage sports events, registrations, and achievements.
 
+## Visit Our Site
+
+Check out our live site at [this link](https://knightempire.github.io/aagneya-frontend/homepage/home.html) to explore the application and see its features in action.
+
+
 ## Technologies and Tools
 
 - **HTML**: Used for structuring the web pages.
@@ -25,4 +30,10 @@ To get started with the project, follow these steps:
 
 ```bash
 git clone https://github.com/knightempire/aagneya-frontend.git
+
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
