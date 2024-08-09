@@ -30,7 +30,7 @@ To get started with the project, follow these steps:
 
 ```bash
 git clone https://github.com/knightempire/aagneya-frontend.git
-
+```
 
 
 ## License
