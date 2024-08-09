@@ -92,27 +92,6 @@
             display: none
         }
         /* Ensure the dropdown button is always at the right corner */
-        
-        #dropdownContainer {
-            display: flex;
-            justify-content: flex-end;
-        }
-        
-        #dropdown {
-            min-width: 100%;
-            max-width: 100%;
-        }
-        
-        @media (max-width: 640px) {
-            #dropdownContainer {
-                display: flex;
-                justify-content: center;
-            }
-            #dropdown {
-                width: 90vw;
-                right: auto;
-            }
-        }
         /* Center the achievements text */
         
         .achievements-container {
@@ -200,8 +179,9 @@
             </div>
             <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
                 <div class="relative inline-block w-full sm:w-64">
-                    <select name="sport" id="sport_name_input" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center w-full justify-between" required>
-                        <option value="" disabled selected>Select Sport</option>
+                    <select name="sport" id="sport_name_input" class="mt-4 md:mt-1 block w-full md:w-3/4 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                        required>
+                        <option value="" disabled selected>None</option>
                         <!-- Options will be dynamically added here -->
                     </select>
 
@@ -620,7 +600,7 @@
             console.log('Sports array:', sports);
 
             // Clear existing options
-            selectElement.innerHTML = '<option value="None">Select sports</option>';
+            selectElement.innerHTML = '<option value="None">None</option>';
 
             // Check if 'sports' is an array
             if (!Array.isArray(sports)) {
