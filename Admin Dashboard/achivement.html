@@ -10,7 +10,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
     <title>Aagneya</title>
 </head>
 
@@ -1572,64 +1586,23 @@
                     console.error('Error in decodeToken:', error.message);
                     window.location.href = '../login/login.html';
                 }
-            }
-<<<<<<< HEAD
-        }
-        
-        // Decode token and fetch sports data on page load
-        document.addEventListener('DOMContentLoaded', decodeToken);
-    </script> -->
-=======
-
-            async function fetchSportsData() {
-                try {
-                    const response = await fetch('https://aagneya-backend.onrender.com/api/displaysports', {
-                        method: 'GET',
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch sports data');
-                    }
-
-                    const data = await response.json();
-                    console.log('Sports data:', data);
-                    const sportsSelect = document.getElementById('sports');
-
-                    // Clear previous options except the default one
-                    sportsSelect.innerHTML = '<option value="" disabled selected>Please Select Sports</option>';
-
-                    data.sports.forEach(sport => {
-                        const option = document.createElement('option');
-                        option.value = sport.sport_id; // Set sport_id as the option value
-                        option.textContent = sport.sport_name;
-                        sportsSelect.appendChild(option);
-                    });
-
-
-                    const sportsSelect1 = document.getElementById('edit_sports');
-
-                    // Clear previous options except the default one
-                    sportsSelect1.innerHTML = '<option value="" disabled selected>Please Select Sports</option>';
-
-                    data.sports.forEach(sport => {
-                        const option = document.createElement('option');
-                        option.value = sport.sport_id; // Set sport_id as the option value
-                        option.textContent = sport.sport_name;
-                        sportsSelect1.appendChild(option);
-                    });
-                } catch (error) {
-                    console.error('Error fetching sports data:', error);
-                    document.getElementById('sports_error').textContent = 'Error fetching sports data. Please try again later.';
-                }
+            } <<
+            <<
+            << < HEAD
             }
 
             // Decode token and fetch sports data on page load
             document.addEventListener('DOMContentLoaded', decodeToken);
+        </script> --> ======= async function fetchSportsData() { try { const response = await fetch('https://aagneya-backend.onrender.com/api/displaysports', { method: 'GET', headers: { 'Authorization': `Bearer ${token}` } }); if (!response.ok) { throw
+        new Error('Failed to fetch sports data'); } const data = await response.json(); console.log('Sports data:', data); const sportsSelect = document.getElementById('sports'); // Clear previous options except the default one sportsSelect.innerHTML
+        = '
+        <option value="" disabled selected>Please Select Sports</option>'; data.sports.forEach(sport => { const option = document.createElement('option'); option.value = sport.sport_id; // Set sport_id as the option value option.textContent = sport.sport_name; sportsSelect.appendChild(option);
+        }); const sportsSelect1 = document.getElementById('edit_sports'); // Clear previous options except the default one sportsSelect1.innerHTML = '
+        <option value="" disabled selected>Please Select Sports</option>'; data.sports.forEach(sport => { const option = document.createElement('option'); option.value = sport.sport_id; // Set sport_id as the option value option.textContent = sport.sport_name; sportsSelect1.appendChild(option);
+        }); } catch (error) { console.error('Error fetching sports data:', error); document.getElementById('sports_error').textContent = 'Error fetching sports data. Please try again later.'; } } // Decode token and fetch sports data on page load document.addEventListener('DOMContentLoaded',
+        decodeToken);
         </script>
->>>>>>> bfb4bababebc7857701ccc73050604a5b7fc14cd
+        >>>>>>> bfb4bababebc7857701ccc73050604a5b7fc14cd
 
 
 
@@ -1638,21 +1611,7 @@
 
 </html>
 
-<style>
-    [x-cloak] {
-        display: none
-    }
-</style>
 
-<script src="https://cdn.tailwindcss.com"></script>
-
-<script>
-    tailwind.config = {
-        darkMode: 'class',
-    }
-</script>
-
-<script src="//unpkg.com/alpinejs" defer></script>
 
 <style>
     @keyframes fadeIn {

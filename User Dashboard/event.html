@@ -11,13 +11,23 @@
     <title>Aagneya</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
+    <style>
+        [x-cloak] {
+            display: none
+        }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-    tailwind.config = {
-        darkMode: 'class',
-    }
-</script>
+
 
 <body>
     <!-- Sidebar -->
@@ -726,18 +736,7 @@
     </body>
 
 </html>
-<style>
-    [x-cloak] {
-        display: none
-    }
-</style>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-    tailwind.config = {
-        darkMode: 'class',
-    }
-</script>
-<script src="//unpkg.com/alpinejs" defer></script>
+
 <script>
     async function showEditFormallmember(event_id) {
         // Hide the element with id="displayallmembers"
@@ -1379,6 +1378,8 @@
                 </td>
             `;
                 displayUsersTable.appendChild(row);
+
+
             });
 
 
@@ -1603,10 +1604,10 @@
     }
 
 
-    // window.onload = function() {
-    //     decodeToken();
+    window.onload = function() {
+        decodeToken();
 
-    // };
+    };
 </script>
 
 
