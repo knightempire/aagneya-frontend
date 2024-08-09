@@ -441,7 +441,7 @@
                 name = data.name;
 
                 if (data.is_active === 1) {
-                    if (data.role_id > 0) {
+                    if (data.role_id == 0) {
                         console.log("Hello admin");
 
                         const nameElement = document.getElementById('name');
@@ -449,7 +449,7 @@
                         disprofile();
 
                     } else {
-                        window.location.href = '../Admin Dashboard/dashboard.html';
+                        window.location.href = '../User Dashboard/dashboard.html';
                     }
                 } else {
                     console.error('User is not active');
