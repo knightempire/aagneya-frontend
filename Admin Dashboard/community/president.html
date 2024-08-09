@@ -366,6 +366,36 @@
     </div>
 
 
+    <div id="loading-spinner" class="hidden">
+        <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+        </svg>
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <style>
+        #loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            /* Semi-transparent background */
+            z-index: 9999;
+            /* Make sure it's on top */
+            position: fixed;
+            /* Fixed position to cover the screen */
+            inset: 0;
+            /* Cover the entire viewport */
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -399,6 +429,9 @@
     const role = 1;
 
     async function decodeToken() {
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
+
         try {
             token = localStorage.getItem('token');
             console.log('Token from localStorage:', token);
@@ -409,7 +442,7 @@
                 return;
             }
 
-            const response = await fetch('http://localhost:3000/api/decodeToken', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/decodeToken', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -454,6 +487,8 @@
             console.error('Error in decodeToken:', error.message);
             // window.location.href = '../../../login/login.html';
 
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -461,8 +496,12 @@
 
     // Function to fetch and populate the <select> elements
     async function getelection() {
+
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
+
         try {
-            const response = await fetch('http://localhost:3000/api/electionyear', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/electionyear', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -539,6 +578,8 @@
             console.error('Error fetching election data:', error);
             // Handle error gracefully
             throw error;
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -546,9 +587,11 @@
     // Logic for vote
     async function electionppl(year) {
         let maleResults, femaleResults; // Declare here to ensure availability throughout the function
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
 
         try {
-            const response = await fetch('http://localhost:3000/api/electionroleppl', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/electionroleppl', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -568,9 +611,11 @@
 
             let boysVote = data.votestatus;
             let girlsVote = data.votestatus;
+            const spinner = document.getElementById('loading-spinner');
+            spinner.style.display = 'flex'; // Show the spinner
 
             try {
-                const response = await fetch('http://localhost:3000/api/votecheck', {
+                const response = await fetch('https://aagneya-backend.onrender.com/api/votecheck', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -609,9 +654,11 @@
 
                 if (boysVote === 2 || girlsVote === 2) {
                     boysVote = girlsVote = 2; // Set both to 2 if either is 2
+                    const spinner = document.getElementById('loading-spinner');
+                    spinner.style.display = 'flex'; // Show the spinner
 
                     try {
-                        const response = await fetch('http://localhost:3000/api/viewvoteresult', {
+                        const response = await fetch('https://aagneya-backend.onrender.com/api/viewvoteresult', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -650,6 +697,8 @@
 
                     } catch (error) {
                         console.error('Error:', error.message);
+                    } finally {
+                        spinner.style.display = 'none'; // Hide the spinner
                     }
 
                 }
@@ -657,6 +706,8 @@
             } catch (error) {
                 console.error('Error fetching vote data:', error);
                 throw error;
+            } finally {
+                spinner.style.display = 'none'; // Hide the spinner
             }
 
             console.log('Final vote status for boys:', boysVote);
@@ -689,7 +740,7 @@
                 return `
         <div class="card flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-7 m-4 bg-white dark:bg-gray-50">
                  ${isTopVoter ? '<div class="position-badge" id="votewinner"><i class="bi bi-trophy-fill" style="color: gold; font-size: x-large;"></i></div>' : ''}
-                 <img src="http://localhost:3000/${candidate.profile.photo_path}" style="height: fit-content;" alt="" class="mx-auto aspect-square">
+                 <img src="https://aagneya-backend.onrender.com/${candidate.profile.photo_path}" style="height: fit-content;" alt="" class="mx-auto aspect-square">
         <div class="space-y-4 text-center divide-y dark:divide-gray-300">
       <div class="my-2 space-y-1">
                 <h2 class="text-xl font-semibold sm:text-2xl">${candidate.profile.name}</h2>
@@ -743,6 +794,8 @@
         } catch (error) {
             console.error('Error fetching election data:', error);
             throw error;
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -751,8 +804,11 @@
     async function voteForCandidate(candidateid) {
         console.log(`Vote button clicked for candidate: ${candidateid}`);
         // Here you can add further logic for voting functionality
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
+
         try {
-            const response = await fetch('http://localhost:3000/api/vote', {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/vote', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -788,10 +844,15 @@
                 // Show the failure message
                 const failMsg = document.getElementById('msgfail');
                 let responseData = {};
+                const spinner = document.getElementById('loading-spinner');
+                spinner.style.display = 'flex'; // Show the spinner
+
                 try {
                     responseData = await response.json(); // Try to parse response JSON
                 } catch (error) {
                     console.error('Error parsing JSON:', error);
+                } finally {
+                    spinner.style.display = 'none'; // Hide the spinner
                 }
 
                 const error = responseData.error || 'Failed to get error message'; // Extract error message or provide a default
@@ -808,6 +869,8 @@
             }
         } catch (error) {
             console.error('Error updating user details:', error);
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
