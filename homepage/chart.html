@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Events Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        #sportsChart {
+            margin-top: 20px;
+            height: 500px;
+        }
+        #totalEvents {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3498db;
+        }
+    </style> 
+</head>
+<body>
+    <div class="container">
+        <h1>Sports Events Dashboard</h1>
+        <div class="controls">
+            <select id="yearSelector">
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+            <div id="totalEvents"></div>
+        </div>
+        <div id="sportsChart"></div>
+    </div>
+    <script>
+        const sportsData = [
+            { sport: 'Athletics', counts: [2, 3, 1, 0, 1, 4, 2, 0, 3, 2, 0, 2, 0, 3, 2, 0, 1, 4, 0, 3, 2, 0, 2, 1] },
+            { sport: 'Chess', counts: [1, 0, 2, 1, 3, 0, 1, 2, 0, 1, 2, 0, 0, 2, 0, 3, 1, 0, 2, 0, 3, 1, 0, 2] },
+            { sport: 'Badminton', counts: [2, 3, 1, 2, 0, 1, 3, 2, 0, 3, 2, 0, 2, 1, 3, 1, 1, 0, 2, 1, 3, 2, 0, 1] },
+            { sport: 'Table Tennis', counts: [1, 0, 2, 3, 1, 0, 2, 3, 1, 2, 3, 1, 2, 1, 0, 3, 2, 3, 1, 2, 0, 3, 1, 2] },
+            { sport: 'Football', counts: [3,2,1,0,3,1,2,3,0,2,1,3,1,2,3,0,2,1,3,0,2,1,3,0] },
+            { sport: 'Cricket', counts: [0,1,3,2,1,0,2,3,1,0,3,2,1,0,2,3,1,0,3,2,1,0,2,3] },
+            { sport: 'Volleyball', counts: [2,0,1,3,0,2,1,3,0,2,1,3,0,2,1,3,0,2,1,3,0,2,1,3] },
+            { sport: 'Basketball', counts: [1,3,0,2,1,0,3,2,1,0,2,3,0,1,3,0,2,1,0,3,2,1,0,3] },
+            { sport: 'Swimming', counts: [3,1,2,0,3,1,2,0,3,1,2,0,3,1,2,0,3,1,2,0,3,1,2,0] },
+            { sport: 'Frisbee', counts: [1,2,0,0,3,1,3,2,1,1,1,0,0,0,1,2,1,0,0,0,3,1,1,1] },
+        ];
+
+        function updateChart(year) {
+            const yearIndex = year === "2023" ? 0 : 12;
+            const data = sportsData.map(sport => ({
+                sport: sport.sport,
+                count: sport.counts.slice(yearIndex, yearIndex + 12).reduce((a, b) => a + b, 0)
+            }));
+
+            const sortedData = data.sort((a, b) => b.count - a.count);
+
+            const trace = {
+                x: sortedData.map(item => item.sport),
+                y: sortedData.map(item => item.count),
+                type: 'bar',
+                marker: {
+                    color: sortedData.map((_, index) => `hsl(${index * 36}, 70%, 50%)`),
+                    line: {
+                        color: 'rgb(8,48,107)',
+                        width: 1.5
+                    }
+                }
+            };
+
+            const layout = {
+                title: `Sports Events Distribution in ${year}`,
+                font: { family: 'Segoe UI', size: 14 },
+                xaxis: { 
+                    title: 'Sports',
+                    tickangle: -45,
+                    automargin: true
+                },
+                yaxis: { 
+                    title: 'Number of Events',
+                    automargin: true
+                    },
+                autosize: true,
+                margin: { l: 50, r: 50, b: 100, t: 80, pad: 4 },
+                bargap: 0.15,
+                bargroupgap: 0.1,
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                hovermode: 'closest'
+            };
+
+            const config = {
+                responsive: true,
+                displayModeBar: false
+            };
+
+            Plotly.react('sportsChart', [trace], layout, config);
+
+            const totalEvents = sortedData.reduce((sum, item) => sum + item.count, 0);
+            document.getElementById('totalEvents').textContent = `Total Events: ${totalEvents}`;
+        }
+
+        document.getElementById('yearSelector').addEventListener('change', (e) => {
+            updateChart(e.target.value);
+        });
+
+        // Initial chart render
+        updateChart("2023");
+    </script>
+</body>
+</html>
