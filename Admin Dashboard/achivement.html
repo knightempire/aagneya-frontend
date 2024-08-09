@@ -1588,7 +1588,8 @@
                 }
             } <<
             <<
-            << < HEAD
+            <<
+            < HEAD
             }
 
             // Decode token and fetch sports data on page load
@@ -1599,7 +1600,7 @@
         <option value="" disabled selected>Please Select Sports</option>'; data.sports.forEach(sport => { const option = document.createElement('option'); option.value = sport.sport_id; // Set sport_id as the option value option.textContent = sport.sport_name; sportsSelect.appendChild(option);
         }); const sportsSelect1 = document.getElementById('edit_sports'); // Clear previous options except the default one sportsSelect1.innerHTML = '
         <option value="" disabled selected>Please Select Sports</option>'; data.sports.forEach(sport => { const option = document.createElement('option'); option.value = sport.sport_id; // Set sport_id as the option value option.textContent = sport.sport_name; sportsSelect1.appendChild(option);
-        }); } catch (error) { console.error('Error fetching sports data:', error); document.getElementById('sports_error').textContent = 'Error fetching sports data. Please try again later.'; } } // Decode token and fetch sports data on page load document.addEventListener('DOMContentLoaded',
+        }); } catch (error) { console.error('Error fetc hing sports data:', error); document.getElementById('sports_error').textContent = 'Error fetching sports data. Please try again later.'; } } // Decode token and fetch sports data on page load document.addEventListener('DOMContentLoaded',
         decodeToken);
         </script>
         >>>>>>> bfb4bababebc7857701ccc73050604a5b7fc14cd
