@@ -674,6 +674,35 @@
     </div>
     <script src="./js/event.js"></script>
     <script src="./js/index.js"></script>
+    <div id="loading-spinner" class="hidden">
+        <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+        </svg>
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <style>
+        #loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            /* Semi-transparent background */
+            z-index: 9999;
+            /* Make sure it's on top */
+            position: fixed;
+            /* Fixed position to cover the screen */
+            inset: 0;
+            /* Cover the entire viewport */
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+
+
     </body>
 
 </html>
@@ -795,6 +824,8 @@
         } catch (error) {
             console.error('Error adding event:', error);
             // Handle error appropriately (e.g., show error message to user)
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 </script>
@@ -818,6 +849,8 @@
 
 
     async function decodeToken() {
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
         try {
             token = localStorage.getItem('token');
             console.log('Token from localStorage:', token);
@@ -877,12 +910,15 @@
         } catch (error) {
             console.error('Error in decodeToken:', error.message);
             // window.location.href = '../login/login.html';
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
     async function displaysports() {
         const selectElement = document.getElementById('sport_name_input');
-
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
         try {
             const response = await fetch('https://aagneya-backend.onrender.com/api/displaysports', {
                 method: 'GET',
@@ -923,12 +959,16 @@
         } catch (error) {
             console.error('Error fetching sports:', error);
             // Handle error gracefully (e.g., show a message to the user)
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
+
     }
 
     async function displaysportsz() {
         const selectElement = document.getElementById('sport_name_inputz');
-
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
         try {
             const response = await fetch('https://aagneya-backend.onrender.com/api/displaysports', {
                 method: 'GET',
@@ -984,11 +1024,15 @@
         } catch (error) {
             console.error('Error fetching sports:', error);
             // Handle error gracefully (e.g., show a message to the user)
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
 
     async function displaycreateevent() {
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
         try {
             // Assuming `token` is defined somewhere earlier in your code
             const response = await fetch('https://aagneya-backend.onrender.com/api/showingevents', {
@@ -1072,10 +1116,14 @@
         } catch (error) {
             console.error('Error fetching and displaying user data:', error);
             throw error; // Re-throw the error to propagate it further if needed
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
     async function displaycreateeventhist() {
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
         try {
             // Assuming `token` is defined somewhere earlier in your code
             const response = await fetch('https://aagneya-backend.onrender.com/api/showingeventhist', {
@@ -1165,6 +1213,8 @@
         } catch (error) {
             console.error('Error fetching and displaying event data:', error);
             throw error; // Re-throw the error to propagate it further if needed
+        }finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1179,7 +1229,8 @@
     
     // Print the formatted date and event id to the console
     console.log(`Clicked Activate for event with id: ${eventId}, Date: ${approval_date }`);
-
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex'; // Show the spinner
         try {
                 // Send a POST request to deactivate user
                 const response = await fetch('https://aagneya-backend.onrender.com/api/eventapproval', {
@@ -1219,12 +1270,16 @@
             } catch (error) {
                 console.error('Error deactivating user:', error);
                 // Handle error appropriately (e.g., show error message)
-            }
+            }finally {
+            spinner.style.display = 'none'; // Hide the spinner
+        }
 
 }
 
 
 async function deactivate(eventId) {
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex'; // Show the spinner
     try {
         // Get current date
         const currentDate = new Date();
@@ -1240,6 +1295,8 @@ async function deactivate(eventId) {
 
         var deactivateBtn = document.getElementById('deactivateBtn');
         deactivateBtn.addEventListener('click', async function() {
+            const spinner = document.getElementById('loading-spinner');
+            spinner.style.display = 'flex'; // Show the spinner
             try {
                 // Send a POST request to deactivate event
                 const response = await fetch('https://aagneya-backend.onrender.com/api/unapproval', {
@@ -1281,17 +1338,23 @@ async function deactivate(eventId) {
             } catch (error) {
                 console.error('Error deactivating event:', error);
                 // Handle error appropriately (e.g., show error message)
-            }
+            }finally {
+            spinner.style.display = 'none'; // Hide the spinner
+        }
         });
 
     } catch (error) {
         console.error('Error preparing deactivation:', error);
         // Handle error appropriately (e.g., show error message)
-    }
+    }finally {
+            spinner.style.display = 'none'; // Hide the spinner
+        }
 }
 
 
 async function showevent(selectedSport = '') {
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex'; // Show the spinner
         try {
             const response = await fetch('https://aagneya-backend.onrender.com/api/displayevent', {
                 method: 'GET',
@@ -1409,6 +1472,8 @@ async function showevent(selectedSport = '') {
 
         } catch (error) {
             console.error('Error fetching events:', error.message);
+        }finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1442,7 +1507,8 @@ async function showEditForm(event_id) {
     if (editForm) {
         editForm.style.display = 'block';
     }
-
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex'; // Show the spinner
     try {
         const response = await fetch('https://aagneya-backend.onrender.com/api/displayeventfilter', {
             method: 'POST',
@@ -1480,7 +1546,9 @@ async function showEditForm(event_id) {
     } catch (error) {
         console.error('Error fetching or populating event data:', error);
         // Handle error appropriately (e.g., show error message)
-    }
+    }finally {
+            spinner.style.display = 'none'; // Hide the spinner
+        }
 }
 
 
@@ -1521,7 +1589,8 @@ function closeForm() {
             editForm.style.display = 'block';
         }
 
-     
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
     try {
         const response = await fetch('https://aagneya-backend.onrender.com/api/displayeventfilternnotapproved', {
             method: 'POST',
@@ -1575,7 +1644,9 @@ function closeForm() {
     } catch (error) {
         console.error('Error fetching or populating event data:', error);
         // Handle error appropriately (e.g., show error message)
-    }
+    }finally {
+            spinner.style.display = 'none'; // Hide the spinner
+        }
     }
 
     function closeFormallmember() {
@@ -1603,7 +1674,8 @@ function closeForm() {
     if (editForm) {
         editForm.style.display = 'block';
     }
-
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex'; // Show the spinner
     try {
         const response = await fetch('https://aagneya-backend.onrender.com/api/displayeventfilterall', {
             method: 'POST',
@@ -1655,7 +1727,9 @@ function closeForm() {
     } catch (error) {
         console.error('Error fetching or populating event data:', error);
         // Handle error appropriately (e.g., show error message)
-    }
+    }finally {
+            spinner.style.display = 'none'; // Hide the spinner
+        }
 }
 
 
@@ -1682,6 +1756,8 @@ function closeForm() {
 
         // Format the date to YYYY-MM-DD
         const approval_date = currentDate.toISOString().split('T')[0];
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
         try {
             // Send a POST request to deactivate user
             const response = await fetch('https://aagneya-backend.onrender.com/api/unapproval', {
@@ -1724,6 +1800,8 @@ function closeForm() {
         } catch (error) {
             console.error('Error deactivating user:', error);
             // Handle error appropriately (e.g., show error message)
+        }finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
@@ -1742,6 +1820,9 @@ function closeForm() {
         var formLink = document.getElementById('spec_form_link_edit').value;
         var eventDescription = document.getElementById('spec_event_description_edit').value;
         console.log(sports)
+
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
         try {
             // Send a POST request to update event
             const response = await fetch('https://aagneya-backend.onrender.com/api/updateevent', {
@@ -1793,6 +1874,8 @@ function closeForm() {
         } catch (error) {
             console.error('Error editing event:', error);
             // Handle error appropriately (e.g., show error message)
+        }finally {
+            spinner.style.display = 'none'; // Hide the spinner
         }
     }
 
