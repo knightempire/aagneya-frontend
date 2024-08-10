@@ -1783,9 +1783,10 @@
                 </span>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember(${achievement.achievement_id})">Edit</a>
-                <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
-            </td>
+    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember(${achievement.achievement_id})">Edit</a>
+    <a href="#" class="ml-2 text-green-600 hover:text-green-900" onclick="activateAchievement(${achievement.achievement_id})">Activate</a>
+</td>
+
         `;
             tableBody.appendChild(row);
         });
@@ -1926,6 +1927,31 @@
         .catch(error => console.error('Error:', error));
     }
 }
+function activateAchievement(achievementId) {
+    if (confirm('Are you sure you want to activate this achievement?')) {
+        fetch('http://localhost:3000/api/adminactivateachievement', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ achievement_id: achievementId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Achievement activated successfully!');
+                window.location.reload(); // Reload the page after successful activation
+            } else {
+                alert('Error activating achievement: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while activating the achievement.');
+        });
+    }
+}
+
 
 
 </script>
