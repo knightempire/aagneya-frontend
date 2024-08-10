@@ -597,9 +597,9 @@
 
 
                         <!-- component -->
-                         <!-- display achivemnts -->
+                        <!-- display achivemnts -->
 
-                         <div id="achievements-container" class="flex flex-col items-center">
+                        <div id="achievements-container" class="flex flex-col items-center">
                             <div class="flex flex-col space-y-4 items-center">
                                 <div class="bg-white rounded shadow-lg sm:w-3/4 md:w-1/2 lg:w-3/5"
                                     style="margin: 20px;">
@@ -687,81 +687,95 @@
 
                         <!-- edit achi//removed the code for the form -->
                         <div>
-                            <div  id="allmember" style="display: none;">
-                                <button class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center" onclick="closeFormallmember()">
+                            <div id="allmember" style="display: none;">
+                                <button
+                                    class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center"
+                                    onclick="closeFormallmember()">
                                     <span class="mr-1">Close</span>
                                     <i class='bx bxs-x-circle'></i>
                                 </button>
                                 <div>
-    <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
-        id="formcontent_another">
-        <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Add Another Achievement Details</div>
-        <div class="p-4 md:p-8">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="w-full md:w-1/2">
-                    <input type="text" name="another_event_name" id="another_event_name_edit"
-                        class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                        placeholder="Another Achievement Name" required />
-                    <div id="another_event_name_error" class="text-red-500 text-sm mt-1"></div>
-                </div>
-                <div class="w-full md:w-1/2">
-                    <input type="text" name="another_date" id="another_achievement_date"
-                        class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                        placeholder="Date of Birth" required />
-                    <div id="another_achievement_date_error" class="text-red-500 text-sm mt-1"></div>
-                </div>
-            </div>
-            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                    <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
+                                        id="formcontent_another">
+                                        <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit
+                                            Achievement Details</div>
+                                        <div class="p-4 md:p-8">
+                                            <div class="flex flex-col md:flex-row gap-4">
+                                                <input type="hidden" id="achievement_id_edit" />
+                                                <div class="w-full md:w-1/2">
+                                                    <input type="text" name="another_event_name"
+                                                        id="another_event_name_edit"
+                                                        class="mt-4 md:mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                                        placeholder="Another Achievement Name" required />
+                                                    <div id="another_event_name_error"
+                                                        class="text-red-500 text-sm mt-1"></div>
+                                                </div>
+                                                <div class="w-full md:w-1/2">
+                                                    <input type="text" name="another_date" id="another_achievement_date"
+                                                        class="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                                        placeholder="Date of Birth" required />
+                                                    <div id="another_achievement_date_error"
+                                                        class="text-red-500 text-sm mt-1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
 
-                <div class="w-full md:w-1/2">
-                    <label for="another_sports" class="block font-semibold text-gray-700">Select Sports</label>
-                    <select name="another_sports" id="another_sports"
-                        class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                        required>
-                        <option value="" disabled selected>Please Select Sports</option>
-                    </select>
-                    <div id="another_sports_error" class="text-red-500 text-sm mt-1"></div>
-                </div>
+                                                <div class="w-full md:w-1/2">
+                                                    <label for="another_sports"
+                                                        class="block font-semibold text-gray-700">Select Sports</label>
+                                                    <select name="another_sports" id="another_sports"
+                                                        class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                                        required>
+                                                        <option value="" disabled selected>Please Select Sports</option>
+                                                    </select>
+                                                    <div id="another_sports_error" class="text-red-500 text-sm mt-1">
+                                                    </div>
+                                                </div>
 
-                <div class="w-full md:w-1/2">
-                    <label for="another_participation" class="block font-semibold text-gray-700">Select
-                        Participation Type</label>
-                    <select id="another_participation" name="another_participation"
-                        class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                        onchange="anotherShowFields1()" required>
-                        <option value="">Select Participation Type</option>
-                        <option value="0">Individual</option>
-                        <option value="1">Team</option>
-                    </select>
-                    <div id="another_participation_error" class="text-red-500 text-sm mt-1"></div>
-                </div>
-            </div>
-            <div id="another_dynamicFields"></div>
-            <div class="mb-4 md:mb-10">
-                <textarea name="another_event_description" id="another_event_description_edit" cols="30" rows="5"
-                    class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                    placeholder="Another Achievement Description" required></textarea>
-                <div id="another_event_description_error" class="text-red-500 text-sm mt-1"></div>
-            </div>
-            <div class="text-center">
-                <button onclick="sendAnotherAchievementData()"
-                    class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add
-                    Another Achievement</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-    function anotherShowFields1() {
+                                                <div class="w-full md:w-1/2">
+                                                    <label for="another_participation"
+                                                        class="block font-semibold text-gray-700">Select
+                                                        Participation Type</label>
+                                                    <select id="another_participation" name="another_participation"
+                                                        class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                                        onchange="anotherShowFields1()" required>
+                                                        <option value="">Select Participation Type</option>
+                                                        <option value="0">Individual</option>
+                                                        <option value="1">Team</option>
+                                                    </select>
+                                                    <div id="another_participation_error"
+                                                        class="text-red-500 text-sm mt-1"></div>
+                                                </div>
+                                            </div>
+                                            <div id="another_dynamicFields"></div>
+                                            <div class="mb-4 md:mb-10">
+                                                <textarea name="another_event_description"
+                                                    id="another_event_description_edit" cols="30" rows="5"
+                                                    class="resize-none mt-4 w-full rounded-md border border-gray-300 p-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                                    placeholder="Another Achievement Description" required></textarea>
+                                                <div id="another_event_description_error"
+                                                    class="text-red-500 text-sm mt-1"></div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button onclick="sendAnotherAchievementData()"
+                                                    class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4">Add
+                                                    Another Achievement</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                            <script>
+                                function anotherShowFields1() {
 
-        const dynamicFields = document.getElementById('another_dynamicFields');
-        dynamicFields.innerHTML = ''; // Clear previous fields
-        const participationType = document.getElementById('another_participation').value;
+                                    const dynamicFields = document.getElementById('another_dynamicFields');
+                                    dynamicFields.innerHTML = ''; // Clear previous fields
+                                    const participationType = document.getElementById('another_participation').value;
 
-        if (participationType === '1') {
-            // Team selected
-            dynamicFields.innerHTML = `
+                                    if (participationType === '1') {
+                                        // Team selected
+                                        dynamicFields.innerHTML = `
                 <div class="my-4 md:my-6">
                     <label for="another_teamSize" class="block font-semibold text-gray-700">Number of Persons in Team</label>
                     <input type="number" id="another_teamSize" class="mt-2 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm" oninput="generateAnotherTeamFields1()" required>
@@ -769,9 +783,9 @@
                 </div>
                 <div id="another_teamMembers"></div>
             `;
-        } else if (participationType === '0') {
-            // Individual selected
-            dynamicFields.innerHTML = `
+                                    } else if (participationType === '0') {
+                                        // Individual selected
+                                        dynamicFields.innerHTML = `
                 <div class="flex flex-col md:flex-row gap-4">
                     <div class="w-full md:w-1/2">
                         <label for="another_individual" class="block font-semibold text-gray-700"> Name</label>
@@ -797,15 +811,15 @@
                     </div>
                 </div>
             `;
-        }
-    }
+                                    }
+                                }
 
-    function generateAnotherTeamFields1() {
-        const teamSize = document.getElementById('another_teamSize').value;
-        const teamMembers = document.getElementById('another_teamMembers');
-        teamMembers.innerHTML = ''; // Clear previous fields
+                                function generateAnotherTeamFields1() {
+                                    const teamSize = document.getElementById('another_teamSize').value;
+                                    const teamMembers = document.getElementById('another_teamMembers');
+                                    teamMembers.innerHTML = ''; // Clear previous fields
 
-        teamMembers.innerHTML += `
+                                    teamMembers.innerHTML += `
             <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                 <div class="w-full md:w-1/2">
                     <label for="another_captainName" class="block font-semibold text-gray-700">Captain Name</label>
@@ -820,9 +834,9 @@
             </div>
         `;
 
-        for (let i = 2; i <= teamSize; i += 2) {
-            const nextIndex = i + 1;
-            teamMembers.innerHTML += `
+                                    for (let i = 2; i <= teamSize; i += 2) {
+                                        const nextIndex = i + 1;
+                                        teamMembers.innerHTML += `
                 <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
                     <div class="w-full md:w-1/2">
                         <label for="another_captainRollNumber" class="block font-semibold text-gray-700">Participant ${i} Roll Number</label>
@@ -838,10 +852,10 @@
                     ` : ''}
                 </div>
             `;
-        }
+                                    }
 
-        // Add the file upload field for team photo
-        teamMembers.innerHTML += `
+                                    // Add the file upload field for team photo
+                                    teamMembers.innerHTML += `
             <div class="my-4 md:my-10 flex flex-col md:flex-row gap-4">
                 <div class="w-full md:w-1/2">
                     <label for="another_uploadPhoto" class="block font-semibold text-gray-700">Upload Photo</label>
@@ -855,219 +869,223 @@
                 </div>
             </div>
         `;
-    }
+                                }
 
-    function validateAnotherpdf() {
-        const fileInput = document.getElementById('another_uploadcertificate');
-        const pdfErrorDiv = document.getElementById('another_uploadcertificateError');
-        const pdfFilePath = fileInput.value;
-        const allowedExtensions = /(\.pdf)$/i;
+                                function validateAnotherpdf() {
+                                    const fileInput = document.getElementById('another_uploadcertificate');
+                                    const pdfErrorDiv = document.getElementById('another_uploadcertificateError');
+                                    const pdfFilePath = fileInput.value;
+                                    const allowedExtensions = /(\.pdf)$/i;
 
-        if (!allowedExtensions.exec(pdfFilePath)) {
-            pdfErrorDiv.innerText = 'Invalid file type. Only PDF files are allowed.';
-            fileInput.value = '';
-            return false;
-        } else {
-            pdfErrorDiv.innerText = '';
-        }
+                                    if (!allowedExtensions.exec(pdfFilePath)) {
+                                        pdfErrorDiv.innerText = 'Invalid file type. Only PDF files are allowed.';
+                                        fileInput.value = '';
+                                        return false;
+                                    } else {
+                                        pdfErrorDiv.innerText = '';
+                                    }
 
-        if (!fileInput.files[0]) {
-            pdfErrorDiv.textContent = 'Please upload a PDF.';
-            return false;
-        }
+                                    if (!fileInput.files[0]) {
+                                        pdfErrorDiv.textContent = 'Please upload a PDF.';
+                                        return false;
+                                    }
 
-        return true;
-    }
+                                    return true;
+                                }
 
-    function validateAnotherImage() {
-        const fileInput = document.getElementById('another_uploadPhoto');
-        const imageErrorDiv = document.getElementById('another_uploadPhotoError');
-        const file = fileInput.files[0];
-        const img = new Image();
-        const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+                                function validateAnotherImage() {
+                                    const fileInput = document.getElementById('another_uploadPhoto');
+                                    const imageErrorDiv = document.getElementById('another_uploadPhotoError');
+                                    const file = fileInput.files[0];
+                                    const img = new Image();
+                                    const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
 
-        // Clear any previous error messages
-        imageErrorDiv.textContent = '';
+                                    // Clear any previous error messages
+                                    imageErrorDiv.textContent = '';
 
-        if (!file) {
-            imageErrorDiv.textContent = 'Please upload a photo.';
-            return false;
-        }
+                                    if (!file) {
+                                        imageErrorDiv.textContent = 'Please upload a photo.';
+                                        return false;
+                                    }
 
-        const imageFilePath = fileInput.value;
+                                    const imageFilePath = fileInput.value;
 
-        // Check file extension
-        if (!allowedExtensions.exec(imageFilePath)) {
-            imageErrorDiv.textContent = 'Please upload a file with .jpeg/.jpg/.png extension only.';
-            fileInput.value = ''; // Clear the input
-            return false;
-        }
+                                    // Check file extension
+                                    if (!allowedExtensions.exec(imageFilePath)) {
+                                        imageErrorDiv.textContent = 'Please upload a file with .jpeg/.jpg/.png extension only.';
+                                        fileInput.value = ''; // Clear the input
+                                        return false;
+                                    }
 
-        const reader = new FileReader();
+                                    const reader = new FileReader();
 
-        reader.onload = function (e) {
-            img.src = e.target.result;
-            img.onload = function () {
-                const width = img.width;
-                const height = img.height;
+                                    reader.onload = function (e) {
+                                        img.src = e.target.result;
+                                        img.onload = function () {
+                                            const width = img.width;
+                                            const height = img.height;
 
-                if (width / height !== 2 && height / width !== 2) {
-                    imageErrorDiv.textContent = 'Image dimensions must be in a 2:1 ratio.';
-                    fileInput.value = ''; // Clear the input
-                    return false;
-                }
-                imageErrorDiv.textContent = ''; // Clear any existing error message
-                return true;
-            };
-        };
+                                            if (width / height !== 2 && height / width !== 2) {
+                                                imageErrorDiv.textContent = 'Image dimensions must be in a 2:1 ratio.';
+                                                fileInput.value = ''; // Clear the input
+                                                return false;
+                                            }
+                                            imageErrorDiv.textContent = ''; // Clear any existing error message
+                                            return true;
+                                        };
+                                    };
 
-        reader.readAsDataURL(file);
-        return true;
-    }
+                                    reader.readAsDataURL(file);
+                                    return true;
+                                }
 
-    function validateAnotherForm() {
-        // Clear all previous error messages
-        document.querySelectorAll('.text-red-500').forEach(el => el.textContent = '');
+                                function validateAnotherForm() {
+                                    // Clear all previous error messages
+                                    document.querySelectorAll('.text-red-500').forEach(el => el.textContent = '');
 
-        let isValid = true;
+                                    let isValid = true;
 
-        const achievement_name = document.getElementById('another_event_name_edit').value;
-        if (!achievement_name) {
-            document.getElementById('another_event_name_error').textContent = 'Please enter the achievement name.';
-            isValid = false;
-        }
+                                    const achievement_name = document.getElementById('another_event_name_edit').value;
+                                    if (!achievement_name) {
+                                        document.getElementById('another_event_name_error').textContent = 'Please enter the achievement name.';
+                                        isValid = false;
+                                    }
 
-        const achievement_date = document.getElementById('another_achievement_date').value;
-        if (!achievement_date) {
-            document.getElementById('another_achievement_date_error').textContent = 'Please enter the achievement date.';
-            isValid = false;
-        }
+                                    const achievement_date = document.getElementById('another_achievement_date').value;
+                                    if (!achievement_date) {
+                                        document.getElementById('another_achievement_date_error').textContent = 'Please enter the achievement date.';
+                                        isValid = false;
+                                    }
 
-        const sports = document.getElementById('another_sports').value;
-        if (!sports) {
-            document.getElementById('another_sports_error').textContent = 'Please select a sport.';
-            isValid = false;
-        }
+                                    const sports = document.getElementById('another_sports').value;
+                                    if (!sports) {
+                                        document.getElementById('another_sports_error').textContent = 'Please select a sport.';
+                                        isValid = false;
+                                    }
 
-        const participation = document.getElementById('another_participation').value;
-        if (!participation) {
-            document.getElementById('another_participation_error').textContent = 'Please select a participation type.';
-            isValid = false;
-        }
+                                    const participation = document.getElementById('another_participation').value;
+                                    if (!participation) {
+                                        document.getElementById('another_participation_error').textContent = 'Please select a participation type.';
+                                        isValid = false;
+                                    }
 
-        const eventDescription = document.getElementById('another_event_description_edit').value;
-        if (!eventDescription) {
-            document.getElementById('another_event_description_error').textContent = 'Please enter the achievement description.';
-            isValid = false;
-        }
+                                    const eventDescription = document.getElementById('another_event_description_edit').value;
+                                    if (!eventDescription) {
+                                        document.getElementById('another_event_description_error').textContent = 'Please enter the achievement description.';
+                                        isValid = false;
+                                    }
 
-        if (participation == 0) {
-            const indivRollNumb = document.getElementById('another_indiv_roll_numb').value;
-            if (!indivRollNumb) {
-                document.getElementById('another_indiv_roll_numb_error').textContent = 'Please enter your roll number.';
-                isValid = false;
-            }
+                                    if (participation == 0) {
+                                        const indivRollNumb = document.getElementById('another_indiv_roll_numb').value;
+                                        if (!indivRollNumb) {
+                                            document.getElementById('another_indiv_roll_numb_error').textContent = 'Please enter your roll number.';
+                                            isValid = false;
+                                        }
 
-            if (!validateAnotherImage()) {
-                isValid = false;
-            }
+                                        if (!validateAnotherImage()) {
+                                            isValid = false;
+                                        }
 
-            if (!validateAnotherpdf()) {
-                isValid = false;
-            }
-        } else if (participation == 1) {
-            const teamSize = document.getElementById('another_teamSize').value;
-            if (!teamSize || teamSize <= 0) {
-                document.getElementById('another_teamSize_error').textContent = 'Please enter a valid number of persons in the team.';
-                isValid = false;
-            }
+                                        if (!validateAnotherpdf()) {
+                                            isValid = false;
+                                        }
+                                    } else if (participation == 1) {
+                                        const teamSize = document.getElementById('another_teamSize').value;
+                                        if (!teamSize || teamSize <= 0) {
+                                            document.getElementById('another_teamSize_error').textContent = 'Please enter a valid number of persons in the team.';
+                                            isValid = false;
+                                        }
 
-            const captainName = document.getElementById('another_captainName').value;
-            if (!captainName) {
-                document.getElementById('another_captainName_error').textContent = 'Please enter the captain\'s name.';
-                isValid = false;
-            }
+                                        const captainName = document.getElementById('another_captainName').value;
+                                        if (!captainName) {
+                                            document.getElementById('another_captainName_error').textContent = 'Please enter the captain\'s name.';
+                                            isValid = false;
+                                        }
 
-            const captainRollNumber = document.getElementById('another_captainRollNumber').value;
-            if (!captainRollNumber) {
-                document.getElementById('another_captainRollNumber_error').textContent = 'Please enter the captain\'s roll number.';
-                isValid = false;
-            }
+                                        const captainRollNumber = document.getElementById('another_captainRollNumber').value;
+                                        if (!captainRollNumber) {
+                                            document.getElementById('another_captainRollNumber_error').textContent = 'Please enter the captain\'s roll number.';
+                                            isValid = false;
+                                        }
 
-            for (let i = 2; i <= teamSize; i++) {
-                const rollNumber = document.getElementById(`another_indiv_roll_numb${i}`).value;
-                if (!rollNumber) {
-                    document.getElementById(`another_indiv_roll_numb${i}_error`).textContent = `Please enter member ${i}'s roll number.`;
-                    isValid = false;
-                }
-            }
+                                        for (let i = 2; i <= teamSize; i++) {
+                                            const rollNumber = document.getElementById(`another_indiv_roll_numb${i}`).value;
+                                            if (!rollNumber) {
+                                                document.getElementById(`another_indiv_roll_numb${i}_error`).textContent = `Please enter member ${i}'s roll number.`;
+                                                isValid = false;
+                                            }
+                                        }
 
-            if (!validateAnotherImage()) {
-                isValid = false;
-            }
-            if (!validateAnotherpdf()) {
-                isValid = false;
-            }
-        }
+                                        if (!validateAnotherImage()) {
+                                            isValid = false;
+                                        }
+                                        if (!validateAnotherpdf()) {
+                                            isValid = false;
+                                        }
+                                    }
 
-        return isValid;
-    }
+                                    return isValid;
+                                }
 
-    function addAnotherEvent() {
+                                function addAnotherEvent() {
+                                    if (validateAnotherForm()) {
+                                        const id = document.getElementById('achievement_id_edit').value;
+                                        const achievement_name = document.getElementById('another_event_name_edit').value;
+                                        const achievement_date = document.getElementById('another_achievement_date').value;
+                                        const sports = document.getElementById('another_sports').value;
+                                        const participation = document.getElementById('another_participation').value;
+                                        const eventDescription = document.getElementById('another_event_description_edit').value;
+                                        let participationData = '';
+
+                                        if (participation == 0) {
+                                            const indivName = document.getElementById('another_indiv_name').value;
+                                            const indivRollNumb = document.getElementById('another_indiv_roll_numb').value;
+                                            console.log(`Individual Name: ${indivName}`);
+                                            participationData += `${indivRollNumb}`;
+                                            const fileInput = document.getElementById('another_uploadPhoto');
+                                            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file selected';
+                                            console.log(`Uploaded photo : ${fileName}`);
+                                            const pdfInput = document.getElementById('another_uploadcertificate');
+                                            const pdfName = pdfInput.files[0] ? pdfInput.files[0].name : 'No file selected';
+                                            console.log(`Uploaded PDF : ${pdfName}`);
+
+                                        } else if (participation == 1) { // Team
+                                            const teamSize = document.getElementById('another_teamSize').value;
+                                            const captainName = document.getElementById('another_captainName').value;
+                                            const captainRollNumber = document.getElementById('another_captainRollNumber').value;
+                                            participationData += `${captainRollNumber}`;
+                                            const captain = `${captainName}`;
+                                            console.log(`Captain Name: ${captainName}`);
+                                            for (let i = 2; i <= teamSize; i++) {
+                                                const rollNumber = document.getElementById(`another_indiv_roll_numb${i}`).value;
+                                                // console.log(`Member ${i - 1} Roll Number: ${rollNumber}`);
+                                                participationData += ` , ${rollNumber}`;
+                                            }
+                                            const fileInput = document.getElementById('another_uploadPhoto');
+                                            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file selected';
+                                            console.log(`Uploaded photo : ${fileName}`);
+
+                                            const pdfInput = document.getElementById('another_uploadcertificate');
+                                            const pdfName = pdfInput.files[0] ? pdfInput.files[0].name : 'No file selected';
+                                            console.log(`Uploaded PDF : ${pdfName}`);
+                                        }
+                                        console.log(`Achievement ID: ${id}`);
+
+                                        console.log(`Achievement Name: ${achievement_name}`);
+                                        console.log(`Achievement Date: ${achievement_date}`);
+                                        console.log(`Sports: ${sports}`);
+                                        console.log(`Participation roll number: ${participationData}`);
+                                        console.log(`Achievement Description: ${eventDescription}`);
+
+                                    }
+                                }
+
+                                async function sendAnotherAchievementData() {
+    try {
+        console.log("sendAnotherAchievementData function called"); // Debugging line
+
         if (validateAnotherForm()) {
-            const achievement_name = document.getElementById('another_event_name_edit').value;
-            const achievement_date = document.getElementById('another_achievement_date').value;
-            const sports = document.getElementById('another_sports').value;
-            const participation = document.getElementById('another_participation').value;
-            const eventDescription = document.getElementById('another_event_description_edit').value;
-            let participationData = '';
-
-            if (participation == 0) {
-                const indivName = document.getElementById('another_indiv_name').value;
-                const indivRollNumb = document.getElementById('another_indiv_roll_numb').value;
-                console.log(`Individual Name: ${indivName}`);
-                participationData += `${indivRollNumb}`;
-                const fileInput = document.getElementById('another_uploadPhoto');
-                const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file selected';
-                console.log(`Uploaded photo : ${fileName}`);
-                const pdfInput = document.getElementById('another_uploadcertificate');
-                const pdfName = pdfInput.files[0] ? pdfInput.files[0].name : 'No file selected';
-                console.log(`Uploaded PDF : ${pdfName}`);
-
-            } else if (participation == 1) { // Team
-                const teamSize = document.getElementById('another_teamSize').value;
-                const captainName = document.getElementById('another_captainName').value;
-                const captainRollNumber = document.getElementById('another_captainRollNumber').value;
-                participationData += `${captainRollNumber}`;
-                const captain = `${captainName}`;
-                console.log(`Captain Name: ${captainName}`);
-                for (let i = 2; i <= teamSize; i++) {
-                    const rollNumber = document.getElementById(`another_indiv_roll_numb${i}`).value;
-                    // console.log(`Member ${i - 1} Roll Number: ${rollNumber}`);
-                    participationData += ` , ${rollNumber}`;
-                }
-                const fileInput = document.getElementById('another_uploadPhoto');
-                const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file selected';
-                console.log(`Uploaded photo : ${fileName}`);
-
-                const pdfInput = document.getElementById('another_uploadcertificate');
-                const pdfName = pdfInput.files[0] ? pdfInput.files[0].name : 'No file selected';
-                console.log(`Uploaded PDF : ${pdfName}`);
-            }
-
-            console.log(`Achievement Name: ${achievement_name}`);
-            console.log(`Achievement Date: ${achievement_date}`);
-            console.log(`Sports: ${sports}`);
-            console.log(`Participation roll number: ${participationData}`);
-            console.log(`Achievement Description: ${eventDescription}`);
-
-        }
-    }
-
-    async function sendAnotherAchievementData() {
-        addAnotherEvent();
-
-        if (validateAnotherForm()) {
+            const id = document.getElementById('achievement_id_edit').value;
             const achievement_name = document.getElementById('another_event_name_edit').value;
             const achievement_date = document.getElementById('another_achievement_date').value;
             const sport_id = document.getElementById('another_sports').value;
@@ -1091,6 +1109,7 @@
             }
 
             const formData = new FormData();
+            formData.append('id', id);
             formData.append('achievement_name', achievement_name);
             formData.append('achievement_date', achievement_date);
             formData.append('description', description);
@@ -1106,297 +1125,315 @@
             if (photoFile) formData.append('image', photoFile);
             if (certificateFile) formData.append('pdf', certificateFile);
 
-            try {
-                const response = await fetch('http://localhost:3000/api/adminaddanotherachievement', {
-                    method: 'POST', // Ensure this is POST
-                    body: formData
-                });
+            // Logging formData entries
+            for (var pair of formData.entries()) {
+                console.log(pair[0]+ ': ' + pair[1]); 
+            }
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+            const response = await fetch('http://localhost:3000/api/updateachievement', {
+                method: 'POST',
+                body: formData
+            });
 
-                const data = await response.json();
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`HTTP error! status: ${response.status}, response: ${errorText}`);
+            }
 
-                if (data.success) {
-                    alert('Another achievement added successfully!');
-                    // Optionally, reset the form or redirect
-                } else {
-                    alert('Error adding another achievement: ' + (data.error || 'Unknown error'));
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred while adding another achievement: ' + error.message);
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Achievement updated successfully');
+                closeFormallmember(); // Close the form on success
+            } else {
+                alert('Error editing achievement: ' + (data.error || 'Unknown error'));
             }
         }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while editing the achievement: ' + error.message);
     }
+}
 
-    document.addEventListener('DOMContentLoaded', function () {
-        flatpickr("#another_achievement_date", {
-            dateFormat: "Y-m-d",
-            altInput: true,
-            altFormat: "F j, Y"
-        });
-    });
-</script>
+                                // Function to close the form
+                                function closeFormallmember() {
+                                    var displayEvents = document.getElementById('displayallmembers');
+                                    if (displayEvents) {
+                                        displayEvents.style.display = 'block';
+                                    }
+
+                                    var editForm = document.getElementById('allmember');
+                                    if (editForm) {
+                                        editForm.style.display = 'none';
+                                    }
+                                }
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    flatpickr("#another_achievement_date", {
+                                        dateFormat: "Y-m-d",
+                                        altInput: true,
+                                        altFormat: "F j, Y"
+                                    });
+                                });
+                            </script>
 
 
 
 
 
-                        <div id="unmonitoredSection" class="flex flex-col mt-6 hidden">
+                            <div id="unmonitoredSection" class="flex flex-col mt-6 hidden">
 
 
 
-                            <div class="displayevents" id="displayevents">
-                                <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
-                                    <thead class="bg-blue-100">
-                                        <tr>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Name
-                                            </th>
-                                            <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <div class="displayevents" id="displayevents">
+                                    <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+                                        <thead class="bg-blue-100">
+                                            <tr>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Name
+                                                </th>
+                                                <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Title
                                     </th> -->
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Sports
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Role
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Year
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Phone
-                                            </th>
-                                            <th scope="col"
-                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Actions
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Sports
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Role
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Year
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Phone
+                                                </th>
+                                                <th scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    Actions
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
 
 
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
 
+                                                        <div class="ml-4">
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                2020 National Championship
+                                                            </div>
+                                                            <div class="text-sm text-gray-500">
+                                                                Amrita
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span
+                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                        Chess
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            2020 National Championship
+                                                            Abinesh T
                                                         </div>
                                                         <div class="text-sm text-gray-500">
-                                                            Amrita
+                                                            CB.EN.U4CSE21302
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    03/07/2024
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    <span
+                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                        Team
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900"
+                                                        id="editbutton" onclick="showEditForm()">Edit</a>
+                                                    <a href="#" class="ml-2 text-red-600 hover:text-red-900"
+                                                        id="deactivate" onclick="deactivate()">Delete</a>
+                                                </td>
+                                            </tr>
 
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <span
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    Chess
-                                                </span>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        Abinesh T
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <div class="flex items-center">
+
+                                                        <div class="ml-4">
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                2020 National Championship
+                                                            </div>
+                                                            <div class="text-sm text-gray-500">
+                                                                Amrita
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="text-sm text-gray-500">
-                                                        CB.EN.U4CSE21302
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                03/07/2024
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <span
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                    Team
-                                                </span>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                                                    id="editbutton" onclick="showEditForm()">Edit</a>
-                                                <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate"
-                                                    onclick="deactivate()">Delete</a>
-                                            </td>
-                                        </tr>
+                                                </td>
 
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
-
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <span
+                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                        Chess
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            2020 National Championship
+                                                            Abinesh T
                                                         </div>
                                                         <div class="text-sm text-gray-500">
-                                                            Amrita
+                                                            CB.EN.U4CSE21302
                                                         </div>
                                                     </div>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    03/07/2024
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    <span
+                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                        Team
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
+                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900"
+                                                        id="editbutton" onclick="showEditForm()">Edit</a>
+                                                    <a href="#" class="ml-2 text-red-600 hover:text-red-900"
+                                                        id="deactivate" onclick="deactivate()">Delete</a>
+                                                </td>
+                                            </tr>
+
+
+
+                                            <!-- More rows... -->
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <div id="deactivateModal"
+                                    class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
+                                    <div
+                                        class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
+                                        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                            <div class="sm:flex sm:items-start">
+                                                <div
+                                                    class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                                    <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5"
+                                                        viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
+                                                        <path
+                                                            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                                                            stroke-linejoin="round" stroke-linecap="round"></path>
+                                                    </svg>
                                                 </div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <span
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    Chess
-                                                </span>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        Abinesh T
+                                                <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                                    <h3 id="modal-title"
+                                                        class="text-base font-semibold leading-6 text-gray-900">
+                                                        Deactivate account
+                                                    </h3>
+                                                    <div class="mt-2">
+                                                        <p class="text-sm text-gray-500">
+                                                            Are you sure you want to deactivate the account?
+                                                        </p>
                                                     </div>
-                                                    <div class="text-sm text-gray-500">
-                                                        CB.EN.U4CSE21302
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                03/07/2024
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <span
-                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                                                    Team
-                                                </span>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                                                    id="editbutton" onclick="showEditForm()">Edit</a>
-                                                <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate"
-                                                    onclick="deactivate()">Delete</a>
-                                            </td>
-                                        </tr>
-
-
-
-                                        <!-- More rows... -->
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-
-                            <div id="deactivateModal"
-                                class="modal fixed inset-0 z-10 flex items-center justify-center overflow-y-auto hidden">
-                                <div
-                                    class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 sm:my-8 sm:w-full sm:max-w-lg rounded-lg shadow-xl">
-                                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                                        <div class="sm:flex sm:items-start">
-                                            <div
-                                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                                                <svg aria-hidden="true" stroke="currentColor" stroke-width="1.5"
-                                                    viewBox="0 0 24 24" fill="none" class="h-6 w-6 text-red-600">
-                                                    <path
-                                                        d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                                                        stroke-linejoin="round" stroke-linecap="round"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                                <h3 id="modal-title"
-                                                    class="text-base font-semibold leading-6 text-gray-900">
-                                                    Deactivate account
-                                                </h3>
-                                                <div class="mt-2">
-                                                    <p class="text-sm text-gray-500">
-                                                        Are you sure you want to deactivate the account?
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                            <button id="deactivateBtn"
+                                                class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                                                type="button">
+                                                Deactivate
+                                            </button>
+                                            <button id="deactivateCancel" onclick="closedeactivate()"
+                                                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                                type="button">
+                                                Cancel
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                        <button id="deactivateBtn"
-                                            class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                            type="button">
-                                            Deactivate
-                                        </button>
-                                        <button id="deactivateCancel" onclick="closedeactivate()"
-                                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                                            type="button">
-                                            Cancel
-                                        </button>
+                                </div>
+
+
+                                <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
+                                    id="editvent" style="display: none;">
+                                    <button
+                                        class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center"
+                                        onclick="closeForm()">
+                                        <span class="mr-1">Close</span>
+                                        <i class='bx bxs-x-circle'></i>
+                                    </button>
+                                    <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit user
+                                        Details
                                     </div>
+                                    <div class="p-4 md:p-8">
+                                        <div class="flex flex-col md:flex-row gap-4">
+                                            <input type="text" name="roll_no" id="roll__edit"
+                                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                                placeholder="Roll_no *" />
+
+                                            <select name="category" id="category_edit"
+                                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                                <option value="" disabled selected>Select Role</option>
+                                                <option value="Category 1">Category 1</option>
+                                                <option value="Category 2">Category 2</option>
+                                                <option value="Category 3">Category 3</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                            <select name="category" id="category_edit"
+                                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                                <option value="" disabled selected>Select Role</option>
+                                                <option value="Category 1">Category 1</option>
+                                                <option value="Category 2">Category 2</option>
+                                                <option value="Category 3">Category 3</option>
+                                            </select>
+
+                                            <select name="gender" id="gender_edit"
+                                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
+                                                <option value="" disabled selected>Select Gender</option>
+                                                <option value="Boys">Boys</option>
+                                                <option value="Girls">Girls</option>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
+                                            <input type="date" name="event_date" id="event_date_edit"
+                                                class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
+                                                placeholder="Event Date" />
+
+
+                                        </div>
+
+
+                                        <div class="text-center">
+                                            <button type="button"
+                                                class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4"
+                                                onclick="updateEvent()">Update Event</button>
+                                        </div>
+
+                                    </div>
+
+
+
                                 </div>
                             </div>
-
-
-                            <div class="mx-4 md:mx-14 mt-10 border-2 border-black bg-white bg-opacity-90 rounded-lg relative"
-                                id="editvent" style="display: none;">
-                                <button
-                                    class="absolute top-2 right-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full flex items-center"
-                                    onclick="closeForm()">
-                                    <span class="mr-1">Close</span>
-                                    <i class='bx bxs-x-circle'></i>
-                                </button>
-                                <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Edit user Details
-                                </div>
-                                <div class="p-4 md:p-8">
-                                    <div class="flex flex-col md:flex-row gap-4">
-                                        <input type="text" name="roll_no" id="roll__edit"
-                                            class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                            placeholder="Roll_no *" />
-
-                                        <select name="category" id="category_edit"
-                                            class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                                            <option value="" disabled selected>Select Role</option>
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 3</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                        <select name="category" id="category_edit"
-                                            class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                                            <option value="" disabled selected>Select Role</option>
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 3</option>
-                                        </select>
-
-                                        <select name="gender" id="gender_edit"
-                                            class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
-                                            <option value="" disabled selected>Select Gender</option>
-                                            <option value="Boys">Boys</option>
-                                            <option value="Girls">Girls</option>
-
-                                        </select>
-                                    </div>
-
-                                    <div class="my-4 md:my-6 flex flex-col md:flex-row gap-4">
-                                        <input type="date" name="event_date" id="event_date_edit"
-                                            class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                                            placeholder="Event Date" />
-
-
-                                    </div>
-
-
-                                    <div class="text-center">
-                                        <button type="button"
-                                            class="cursor-pointer rounded-lg bg-purple-700 px-6 py-2 sm:py-3 text-sm font-semibold text-white mr-4"
-                                            onclick="updateEvent()">Update Event</button>
-                                    </div>
-
-                                </div>
-
-
-
-                            </div>
-                        </div>
 
 
                 </section>
@@ -1490,7 +1527,7 @@
                 });
 
 
-                const sportsSelect1 = document.getElementById('edit_sports');
+                const sportsSelect1 = document.getElementById('another_sports');
 
                 // Clear previous options except the default one
                 sportsSelect1.innerHTML = '<option value="" disabled selected>Please Select Sports</option>';
@@ -1627,19 +1664,24 @@
 
 
 <script>
-    function showEditFormallmember() {
-        // Hide the element with id="displayevents"
+    function showEditFormallmember(id) {
+        // Hide the element with id="displayallmembers"
         var displayEvents = document.getElementById('displayallmembers');
         if (displayEvents) {
             displayEvents.style.display = 'none';
         }
 
-        // Show the form with id="editvent"
+        // Show the form with id="allmember"
         var editForm = document.getElementById('allmember');
         if (editForm) {
             editForm.style.display = 'block';
         }
+
+        // Set the achievement ID in the hidden input field
+        document.getElementById('achievement_id_edit').value = id;
+        console.log('Edit ID:', id);
     }
+
 
     function closeFormallmember() {
         // Show the element with id="displayevents"
@@ -1680,7 +1722,7 @@
             }
 
             const data = await response.json();
-            console.log('Achievements:', data.achievements);
+            console.log('Achievements pending:', data.achievements);
             displayAchievements(data.achievements); // Display achievements in the table
         } catch (error) {
             console.error('Error fetching achievements:', error);
@@ -1693,11 +1735,6 @@
         tableBody.innerHTML = ''; // Clear existing rows
 
         achievements.forEach(achievement => {
-            // // Check if the achievement should be displayed based on is_display field
-            // if (achievement.is_display !== 0) {
-            //     return; // Skip this achievement if not marked for display
-            // }
-
             // Determine the team or individual label based on is_team value
             const category = achievement.is_team ? 'Team' : 'Individual';
 
@@ -1707,58 +1744,9 @@
             // Convert roll number to uppercase
             const rollNumber = JSON.parse(achievement.roll_no)[0].toUpperCase();
 
+
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                        <div class="ml-4">
-                            <div class="text-sm font-medium text-gray-900">
-                                ${achievement.achievement_name}
-                            </div>
-                            <div class="text-sm text-gray-500">
-                                ${truncatedDescription}
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        ${achievement.sport_name.toLowerCase()} <!-- Display sport in lowercase -->
-                    </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <div class="ml-4">
-                        <div class="text-sm font-medium text-gray-900">
-                            ${achievement.name}
-                        </div>
-                        <div class="text-sm text-gray-500">
-                            ${rollNumber} <!-- Display roll number in uppercase -->
-                        </div>
-                    </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    ${new Date(achievement.achievement_date).toLocaleDateString()}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                        ${category}
-                    </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember()">Edit</a>
-                    <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
-                </td>
-            `;
-            tableBody.appendChild(row);
-        });
-    }
-
-    const tableBody = document.getElementById('displayusers');
-    tableBody.innerHTML = ''; // Clear existing rows
-
-    achievements.forEach(achievement => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
             <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
                     <div class="ml-4">
@@ -1766,35 +1754,46 @@
                             ${achievement.achievement_name}
                         </div>
                         <div class="text-sm text-gray-500">
-                            ${achievement.name} <!-- Assuming 'name' is the team head or related field -->
+                            ${truncatedDescription}
                         </div>
                     </div>
                 </div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    ${achievement.sports} <!-- Replace with actual sports field from achievements -->
+                    ${achievement.sport_name.toLowerCase()} <!-- Display sport in lowercase -->
                 </span>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                ${achievement.team_head} <!-- Replace with actual team head field from achievements -->
+                <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">
+                        ${achievement.name}
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        ${rollNumber} <!-- Display roll number in uppercase -->
+                    </div>
+                </div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                ${new Date(achievement.achievement_date).toLocaleDateString()} <!-- Format date as needed -->
+                ${new Date(achievement.achievement_date).toLocaleDateString()}
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
-                    Team <!-- Assuming category is 'Team' -->
+                    ${category}
                 </span>
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton"
-                    onclick="showEditFormallmember()">Edit</a>
+                <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditFormallmember(${achievement.achievement_id})">Edit</a>
                 <a href="#" class="ml-2 text-green-600 hover:text-green-900">Activate</a>
             </td>
         `;
-        tableBody.appendChild(row);
-    });
+            tableBody.appendChild(row);
+        });
+
+
+    }
+</script>
+
 </script>
 
 
@@ -1812,7 +1811,7 @@
                     const achievementDate = new Date(achievement.achievement_date);
                     const month = achievementDate.toLocaleString('default', { month: 'short' });
                     const day = achievementDate.getDate();
-                 
+
 
                     // Construct the full URL for the photo
                     const photoURL = `http://localhost:3000/${achievement.photo_path.replace(/\\/g, '/')}`;
@@ -1869,22 +1868,30 @@
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     .achievement-item:hover {
         transform: translateY(-5px);
     }
+
     .image-container {
-        border-bottom: 2px solid #ccc; /* Simple border below the image */
+        border-bottom: 2px solid #ccc;
+        /* Simple border below the image */
     }
+
     .achievement-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
         max-height: 300px;
     }
+
     .achievement-item .text-lg {
-        font-size: 1.125rem; /* Enlarge the description text */
+        font-size: 1.125rem;
+        /* Enlarge the description text */
     }
+
     .achievement-item .text-sm {
-        font-size: 0.875rem; /* Smaller text for location */
+        font-size: 0.875rem;
+        /* Smaller text for location */
     }
 </style>
