@@ -1081,79 +1081,79 @@
                                 }
 
                                 async function sendAnotherAchievementData() {
-    try {
-        console.log("sendAnotherAchievementData function called"); // Debugging line
+                                    try {
+                                        console.log("sendAnotherAchievementData function called"); // Debugging line
 
-        if (validateAnotherForm()) {
-            const id = document.getElementById('achievement_id_edit').value;
-            const achievement_name = document.getElementById('another_event_name_edit').value;
-            const achievement_date = document.getElementById('another_achievement_date').value;
-            const sport_id = document.getElementById('another_sports').value;
-            const is_team = document.getElementById('another_participation').value;
-            const description = document.getElementById('another_event_description_edit').value;
+                                        if (validateAnotherForm()) {
+                                            const id = document.getElementById('achievement_id_edit').value;
+                                            const achievement_name = document.getElementById('another_event_name_edit').value;
+                                            const achievement_date = document.getElementById('another_achievement_date').value;
+                                            const sport_id = document.getElementById('another_sports').value;
+                                            const is_team = document.getElementById('another_participation').value;
+                                            const description = document.getElementById('another_event_description_edit').value;
 
-            let name = '';
-            let roll_numbers = [];
+                                            let name = '';
+                                            let roll_numbers = [];
 
-            if (is_team === '0') { // Individual
-                name = document.getElementById('another_indiv_name').value;
-                roll_numbers.push(document.getElementById('another_indiv_roll_numb').value);
-            } else { // Team
-                const teamSize = parseInt(document.getElementById('another_teamSize').value);
-                name = document.getElementById('another_captainName').value;
-                roll_numbers.push(document.getElementById('another_captainRollNumber').value);
+                                            if (is_team === '0') { // Individual
+                                                name = document.getElementById('another_indiv_name').value;
+                                                roll_numbers.push(document.getElementById('another_indiv_roll_numb').value);
+                                            } else { // Team
+                                                const teamSize = parseInt(document.getElementById('another_teamSize').value);
+                                                name = document.getElementById('another_captainName').value;
+                                                roll_numbers.push(document.getElementById('another_captainRollNumber').value);
 
-                for (let i = 2; i <= teamSize; i++) {
-                    roll_numbers.push(document.getElementById(`another_indiv_roll_numb${i}`).value);
-                }
-            }
+                                                for (let i = 2; i <= teamSize; i++) {
+                                                    roll_numbers.push(document.getElementById(`another_indiv_roll_numb${i}`).value);
+                                                }
+                                            }
 
-            const formData = new FormData();
-            formData.append('id', id);
-            formData.append('achievement_name', achievement_name);
-            formData.append('achievement_date', achievement_date);
-            formData.append('description', description);
-            formData.append('name', name);
-            formData.append('roll_no', JSON.stringify(roll_numbers));
-            formData.append('is_team', is_team);
-            formData.append('sport_id', sport_id);
+                                            const formData = new FormData();
+                                            formData.append('id', id);
+                                            formData.append('achievement_name', achievement_name);
+                                            formData.append('achievement_date', achievement_date);
+                                            formData.append('description', description);
+                                            formData.append('name', name);
+                                            formData.append('roll_no', JSON.stringify(roll_numbers));
+                                            formData.append('is_team', is_team);
+                                            formData.append('sport_id', sport_id);
 
-            // Append files
-            const photoFile = document.getElementById('another_uploadPhoto').files[0];
-            const certificateFile = document.getElementById('another_uploadcertificate').files[0];
+                                            // Append files
+                                            const photoFile = document.getElementById('another_uploadPhoto').files[0];
+                                            const certificateFile = document.getElementById('another_uploadcertificate').files[0];
 
-            if (photoFile) formData.append('image', photoFile);
-            if (certificateFile) formData.append('pdf', certificateFile);
+                                            if (photoFile) formData.append('image', photoFile);
+                                            if (certificateFile) formData.append('pdf', certificateFile);
 
-            // Logging formData entries
-            for (var pair of formData.entries()) {
-                console.log(pair[0]+ ': ' + pair[1]); 
-            }
+                                            // Logging formData entries
+                                            for (var pair of formData.entries()) {
+                                                console.log(pair[0] + ': ' + pair[1]);
+                                            }
 
-            const response = await fetch('http://localhost:3000/api/updateachievement', {
-                method: 'POST',
-                body: formData
-            });
+                                            const response = await fetch('http://localhost:3000/api/updateachievement', {
+                                                method: 'POST',
+                                                body: formData
+                                            });
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`HTTP error! status: ${response.status}, response: ${errorText}`);
-            }
+                                            if (!response.ok) {
+                                                const errorText = await response.text();
+                                                throw new Error(`HTTP error! status: ${response.status}, response: ${errorText}`);
+                                            }
 
-            const data = await response.json();
+                                            const data = await response.json();
 
-            if (data.success) {
-                alert('Achievement updated successfully');
-                closeFormallmember(); // Close the form on success
-            } else {
-                alert('Error editing achievement: ' + (data.error || 'Unknown error'));
-            }
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while editing the achievement: ' + error.message);
-    }
-}
+                                            if (data.success) {
+                                                alert('Achievement updated successfully');
+                                                closeFormallmember(); // Close the form on success
+                                            } else {
+                                                alert('Error editing achievement: ' + (data.error || 'Unknown error'));
+                                            }
+                                        }
+                                    } catch (error) {
+                                        console.error('Error:', error);
+                                        alert('An error occurred while editing the achievement: ' + error.message);
+                                    }
+                                }
 
                                 // Function to close the form
                                 function closeFormallmember() {
@@ -1818,33 +1818,40 @@
 
 
                     const achievementHTML = `
-                        <div class="achievement-item w-full max-w-3xl bg-white rounded-lg shadow-md overflow-hidden mb-6">
-                            <div class="image-container w-full h-64 bg-gray-400">
-                                <img src="${photoURL}" alt="Achievement Photo" class="achievement-image">
-                            </div>
-                            <div class="p-4 flex flex-col justify-between">
-                                <div class="flex items-center justify-between mb-4">
-                                    <div class="text-center flex-shrink-0 bg-gray-400 text-white p-3 rounded-lg">
-                                        <div class="text-lg md:text-3xl">${month}</div>
-                                        <div class="text-xl md:text-6xl">${day}</div>
-                                        
-                                    </div>
-                                    <div class="ml-4 flex-grow">
-                                        <h2 class="text-2xl font-bold text-gray-800">${achievement.achievement_name}</h2>
-                                        <p class="text-lg text-gray-700 mt-2">${achievement.description}</p>
-                                        <div class="flex items-center justify-between mt-4">
-                                            <div class="text-gray-500 text-sm">
-                                                <i class="fa fa-map-marker-alt mr-2"></i> ${achievement.location || 'Location not specified'}
-                                            </div>
-                                            <div class="text-gray-500 flex items-center">
-                                                </i> ${achievement.sport_name}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="achievement-item w-full max-w-3xl bg-white rounded-lg shadow-md overflow-hidden mb-6">
+        <div class="image-container w-full h-64 bg-gray-400">
+            <img src="${photoURL}" alt="Achievement Photo" class="achievement-image w-full h-full object-cover">
+        </div>
+        <div class="p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+                <div class="text-center flex-shrink-0 bg-gray-400 text-white p-3 rounded-lg">
+                    <div class="text-lg md:text-3xl">${month}</div>
+                    <div class="text-xl md:text-6xl">${day}</div>
+                </div>
+                <div class="ml-4 flex-grow">
+                    <h2 class="text-2xl font-bold text-gray-800">${achievement.achievement_name}</h2>
+                    <p class="text-lg text-gray-700 mt-2">${achievement.description}</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <div class="text-gray-500 text-sm">
+                            <i class="fa fa-map-marker-alt mr-2"></i> ${achievement.location || 'Location not specified'}
                         </div>
-                    `;
+                        <div class="text-gray-500 flex items-center">
+                            ${achievement.sport_name}
+                        </div>
+                    </div>
+                    <!-- Deactivate Button -->
+                    <div class="mt-4 text-right">
+                        <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+                                onclick="deactivateAchievement(${achievement.achievement_id})">
+                            Deactivate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
 
                     achievementsContainer.innerHTML += achievementHTML;
                 });
@@ -1895,3 +1902,30 @@
         /* Smaller text for location */
     }
 </style>
+<script>
+    function deactivateAchievement(achievementId) {
+    if (confirm('Are you sure you want to deactivate this achievement?')) {
+        fetch('http://localhost:3000/api/admindeactivateachievement', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ achievement_id: achievementId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Achievement deactivated successfully!');
+                window.location.reload();
+        
+                document.getElementById(`achievement-${achievementId}`).remove();
+            } else {
+                alert('Error deactivating achievement: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+
+</script>
