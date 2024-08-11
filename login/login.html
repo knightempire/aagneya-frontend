@@ -19,11 +19,46 @@
             position: absolute;
             right: 10px;
             top: 50%;
-            /* Center vertically */
             transform: translateY(-50%);
-            /* Adjust for exact centering */
             cursor: pointer;
             color: gray;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -20px); }
+            10% { opacity: 1; transform: translate(-50%, 0); }
+            90% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
+
+        #message-container {
+            animation: fadeInOut 2.5s ease-in-out;
+        }
+
+        .error-bg { 
+            background-color: #EF4444; 
+        }
+
+        .success-bg { 
+            background-color: #10B981; 
+        }
+
+        #message-content {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        #loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 9999;
+            position: fixed;
+            inset: 0;
+        }
+        
+        .hidden {
+            display: none;
         }
     </style>
 
@@ -39,6 +74,12 @@
 </head>
 
 <body x-data="{ open: true, darkMode: false }" :class="darkMode ? 'dark:bg-gray-900' : 'bg-white'" class="flex justify-center items-center h-screen">
+    <div id="message-container" class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 hidden">
+        <div id="message-content" class="rounded-lg shadow-lg px-6 py-4 text-white text-center max-w-md w-full">
+            <span id="message-text" class="inline-block align-middle"></span>
+        </div>
+    </div>
+
     <div class="container px-6 py-24 mx-auto lg:py-32">
         <section>
             <div class="lg:flex">
@@ -99,27 +140,6 @@
         <span class="sr-only">Loading...</span>
     </div>
 
-    <style>
-        #loading-spinner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.7);
-            /* Semi-transparent background */
-            z-index: 9999;
-            /* Make sure it's on top */
-            position: fixed;
-            /* Fixed position to cover the screen */
-            inset: 0;
-            /* Cover the entire viewport */
-        }
-        
-        .hidden {
-            display: none;
-        }
-    </style>
-
-
     <script>
         function togglePassword() {
             const passwordInput = document.getElementById('password');
@@ -134,8 +154,7 @@
                 eyeIcon.classList.add('fa-eye');
             }
         }
-    </script>
-    <script>
+
         async function login(event) {
             event.preventDefault();
 
@@ -146,7 +165,6 @@
             const password = document.getElementById('password').value;
 
             try {
-
                 const response = await fetch('https://aagneya-backend.onrender.com/api/login', {
                     method: 'POST',
                     headers: {
@@ -158,49 +176,61 @@
                     })
                 });
 
-
                 if (response.ok) {
-
                     const data = await response.json();
                     console.log('Login successful:', data);
 
-
                     const token = data.token;
                     localStorage.setItem('token', token);
-                    console.log(data.profile)
 
-                    if (data.role_id == 0) {
-                        // if (data.profile == 0) {
-                        //     window.location.href = '../Admin Dashboard/dashboard.html';
-                        // } else {
-                        //     // window.location.href = './addprofile.html';
-                        // }
-                        window.location.href = '../Admin Dashboard/dashboard.html';
-                    } else if (data.role_id > 0) {
+                    // showMessage('Login successful!', 'success');
 
-                        if (data.profile == 1) {
-                            window.location.href = '../User Dashboard/dashboard.html';
-                        } else {
-                            window.location.href = './addprofile.html';
+                    // Delay redirect to allow user to see the success message
+                    setTimeout(() => {
+                        if (data.role_id == 0) {
+                            window.location.href = '../Admin Dashboard/dashboard.html';
+                        } else if (data.role_id > 0) {
+                            if (data.profile == 1) {
+                                window.location.href = '../User Dashboard/dashboard.html';
+                            } else {
+                                window.location.href = './addprofile.html';
+                            }
                         }
-
-                        // window.location.href = '../User Dashboard/dashboard.html';
-                    }
+                    }, 2500);
+                } else if (response.status === 404) {
+                    showMessage('User not found', 'error');
                 } else {
-                    console.error('Login failed:', response.statusText);
+                    showMessage('Invalid username or password', 'error');
                 }
             } catch (error) {
                 console.error('Error in login:', error.message);
+                showMessage('An error occurred. Please try again.', 'error');
             } finally {
                 spinner.style.display = 'none'; // Hide the spinner
             }
         }
 
+        function showMessage(message, type) {
+            const messageContainer = document.getElementById('message-container');
+            const messageContent = document.getElementById('message-content');
+            const messageText = document.getElementById('message-text');
+            
+            messageText.textContent = message;
+            messageContent.className = type === 'error' 
+                ? 'error-bg rounded-lg shadow-lg px-6 py-4 text-white text-center max-w-md w-full' 
+                : 'success-bg rounded-lg shadow-lg px-6 py-4 text-white text-center max-w-md w-full';
+            messageContainer.classList.remove('hidden');
+            
+            setTimeout(() => {
+                messageContainer.classList.add('hidden');
+            }, 2500);
+        }
 
+        window.onload = function() {
+            decodeToken();
+        };
 
-        // Function to decode token and fetch user data
         async function decodeToken() {
-
             const spinner = document.getElementById('loading-spinner');
             spinner.style.display = 'flex'; // Show the spinner
 
@@ -217,7 +247,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}` // Include Authorization header with Bearer token
+                        'Authorization': `Bearer ${token}`
                     },
                     body: JSON.stringify({
                         token: token
@@ -227,7 +257,6 @@
                 if (response.ok) {
                     const data = await response.json();
                     console.log('Decoded token data:', data);
-                    // Use 'data' to display user information or perform other actions
                     if (data.is_active == 1) {
                         console.log(data.profile)
                         if (data.role_id == 0) {
@@ -243,25 +272,16 @@
                                 window.location.href = './addprofile.html';
                             }
                         }
-
-
                     } else {
                         console.error('Failed to decode token:', response.statusText);
-                        // Handle the case where the request fails (e.g., server error or token invalid)
                     }
                 }
             } catch (error) {
                 console.error('Error in decodeToken:', error.message);
-                // Handle any unexpected errors
             } finally {
                 spinner.style.display = 'none'; // Hide the spinner
             }
         }
-
-
-        window.onload = function() {
-            decodeToken();
-        };
     </script>
 </body>
 
