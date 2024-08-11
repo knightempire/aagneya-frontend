@@ -581,11 +581,11 @@
                             </button>
                             <button id="monitoredSectionBtn"
                                 class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                Pending
+                               History
                             </button>
                             <button id="unmonitoredSectionBtn"
-                                class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                                History
+                                class="toggle-btn px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100" style="display: none;">
+                               Pending 
                             </button>
                         </div>
 
@@ -1468,7 +1468,7 @@
 
                 if (!token) {
                     console.error('Token not found in local storage');
-                    window.location.href = '../login/login.html';
+                    // window.location.href = '../login/login.html';
                     return;
                 }
 
@@ -1491,11 +1491,11 @@
                     fetchSportsData();
                 } else {
                     console.error('Failed to decode token:', response.statusText);
-                    window.location.href = '../login/login.html';
+                    // window.location.href = '../login/login.html';
                 }
             } catch (error) {
                 console.error('Error in decodeToken:', error.message);
-                window.location.href = '../login/login.html';
+                // window.location.href = '../login/login.html';
             }
         }
 
