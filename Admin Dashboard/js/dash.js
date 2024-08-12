@@ -17,7 +17,7 @@ const calendar = document.querySelector(".calendar"),
     addEventTo = document.querySelector(".event-time-to"),
     addEventCategory = document.querySelector(".event-category"),
     addEventSubmit = document.querySelector(".add-event-btn");
-
+ 
 let today = new Date();
 let activeDay;
 let month = today.getMonth();
@@ -273,39 +273,39 @@ function getActiveDay(date) {
     eventDate.innerHTML = date + " " + months[month] + " " + year;
 }
 
-function updateEvents(date) {
-    let events = "";
-    eventsArr.forEach((event) => {
-        if (
-            date === event.day &&
-            month + 1 === event.month &&
-            year === event.year
-        ) {
-            event.events.forEach((event) => {
-                events += `<div class="event-container">
-  <div class="event">
-    <div class="title">
-      <i class="fas fa-circle"></i>
-      <h3 class="event-title">${event.title}</h3><br>
-      <h2 class="event-category">${event.category}</h2>
-    </div>
-    <div class="event-time">
-      <span class="event-time">${event.time}</span>
-    </div>
-  </div>
-</div>
-`;
-            });
-        }
-    });
-    if (events === "") {
-        events = `<div class="no-event">
-            <h3>No Events</h3>
-        </div>`;
-    }
-    eventsContainer.innerHTML = events;
-    saveEvents();
-}
+// function updateEvents(date) {
+//     let events = "";
+//     eventsArr.forEach((event) => {
+//         if (
+//             date === event.day &&
+//             month + 1 === event.month &&
+//             year === event.year
+//         ) {
+//             event.events.forEach((event) => {
+//                 events += `<div class="event-container">
+//                             <div class="event">
+//                                     <div class="title">
+//                                     <i class="fas fa-circle"></i>
+//                                     <h3 class="event-title">${event.title}</h3><br>
+//                                     <h2 class="event-category">${event.category}</h2>
+//                                     </div>
+//                                     <div class="event-time">
+//                                     <span class="event-time">${event.time}</span>
+//                                     </div>
+//                          </div>
+//                         </div>
+// `;
+//             });
+//         }
+//     });
+//     if (events === "") {
+//         events = `<div class="no-event">
+//             <h3>No Events</h3>
+//         </div>`;
+//     }
+//     eventsContainer.innerHTML = events;
+//     saveEvents();
+// }
 
 addEventBtn.addEventListener("click", () => {
     addEventWrapper.classList.toggle("active");
@@ -345,94 +345,94 @@ addEventTo.addEventListener("input", (e) => {
     }
 });
 
-addEventSubmit.addEventListener("click", () => {
-    const eventTitle = addEventTitle.value;
-    const eventTimeFrom = addEventFrom.value;
-    const eventTimeTo = addEventTo.value;
-    const eventCategory = addEventCategory.value;
+// addEventSubmit.addEventListener("click", () => {
+//     const eventTitle = addEventTitle.value;
+//     const eventTimeFrom = addEventFrom.value;
+//     const eventTimeTo = addEventTo.value;
+//     const eventCategory = addEventCategory.value;
 
-    if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "" || eventCategory === "") {
-        alert("Please fill all the fields");
-        return;
-    }
+//     if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "" || eventCategory === "") {
+//         alert("Please fill all the fields");
+//         return;
+//     }
 
-    const timeFromArr = eventTimeFrom.split(":");
-    const timeToArr = eventTimeTo.split(":");
-    if (
-        timeFromArr.length !== 2 ||
-        timeToArr.length !== 2 ||
-        timeFromArr[0] > 23 ||
-        timeFromArr[1] > 59 ||
-        timeToArr[0] > 23 ||
-        timeToArr[1] > 59
-    ) {
-        alert("Invalid Time Format");
-        return;
-    }
+//     const timeFromArr = eventTimeFrom.split(":");
+//     const timeToArr = eventTimeTo.split(":");
+//     if (
+//         timeFromArr.length !== 2 ||
+//         timeToArr.length !== 2 ||
+//         timeFromArr[0] > 23 ||
+//         timeFromArr[1] > 59 ||
+//         timeToArr[0] > 23 ||
+//         timeToArr[1] > 59
+//     ) {
+//         alert("Invalid Time Format");
+//         return;
+//     }
 
-    const timeFrom = convertTime(eventTimeFrom);
-    const timeTo = convertTime(eventTimeTo);
+//     const timeFrom = convertTime(eventTimeFrom);
+//     const timeTo = convertTime(eventTimeTo);
 
-    let eventExist = false;
-    eventsArr.forEach((event) => {
-        if (
-            event.day === activeDay &&
-            event.month === month + 1 &&
-            event.year === year
-        ) {
-            event.events.forEach((event) => {
-                if (event.title === eventTitle) {
-                    eventExist = true;
-                }
-            });
-        }
-    });
-    if (eventExist) {
-        alert("Event already added");
-        return;
-    }
-    const newEvent = {
-        title: eventTitle,
-        time: timeFrom + " - " + timeTo,
-        category: eventCategory
-    };
-    console.log(newEvent);
-    console.log(activeDay);
-    let eventAdded = false;
-    if (eventsArr.length > 0) {
-        eventsArr.forEach((item) => {
-            if (
-                item.day === activeDay &&
-                item.month === month + 1 &&
-                item.year === year
-            ) {
-                item.events.push(newEvent);
-                eventAdded = true;
-            }
-        });
-    }
+//     let eventExist = false;
+//     eventsArr.forEach((event) => {
+//         if (
+//             event.day === activeDay &&
+//             event.month === month + 1 &&
+//             event.year === year
+//         ) {
+//             event.events.forEach((event) => {
+//                 if (event.title === eventTitle) {
+//                     eventExist = true;
+//                 }
+//             });
+//         }
+//     });
+//     if (eventExist) {
+//         alert("Event already added");
+//         return;
+//     }
+//     const newEvent = {
+//         title: eventTitle,
+//         time: timeFrom + " - " + timeTo,
+//         category: eventCategory
+//     };
+//     console.log(newEvent);
+//     console.log(activeDay);
+//     let eventAdded = false;
+//     if (eventsArr.length > 0) {
+//         eventsArr.forEach((item) => {
+//             if (
+//                 item.day === activeDay &&
+//                 item.month === month + 1 &&
+//                 item.year === year
+//             ) {
+//                 item.events.push(newEvent);
+//                 eventAdded = true;
+//             }
+//         });
+//     }
 
-    if (!eventAdded) {
-        eventsArr.push({
-            day: activeDay,
-            month: month + 1,
-            year: year,
-            events: [newEvent],
-        });
-    }
+//     if (!eventAdded) {
+//         eventsArr.push({
+//             day: activeDay,
+//             month: month + 1,
+//             year: year,
+//             events: [newEvent],
+//         });
+//     }
 
-    console.log(eventsArr);
-    addEventWrapper.classList.remove("active");
-    addEventTitle.value = "";
-    addEventFrom.value = "";
-    addEventTo.value = "";
-    addEventCategory.value = "";
-    updateEvents(activeDay);
-    const activeDayEl = document.querySelector(".day.active");
-    if (!activeDayEl.classList.contains("event")) {
-        activeDayEl.classList.add("event");
-    }
-});
+//     console.log(eventsArr);
+//     addEventWrapper.classList.remove("active");
+//     addEventTitle.value = "";
+//     addEventFrom.value = "";
+//     addEventTo.value = "";
+//     addEventCategory.value = "";
+//     updateEvents(activeDay);
+//     const activeDayEl = document.querySelector(".day.active");
+//     if (!activeDayEl.classList.contains("event")) {
+//         activeDayEl.classList.add("event");
+//     }
+// });
 
 eventsContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("event")) {
@@ -463,23 +463,156 @@ eventsContainer.addEventListener("click", (e) => {
     }
 });
 
-function saveEvents() {
-    localStorage.setItem("events", JSON.stringify(eventsArr));
-}
 
 function getEvents() {
     if (localStorage.getItem("events") === null) {
         return;
     }
-    eventsArr.push(...JSON.parse(localStorage.getItem("events")));
 }
 
 function convertTime(time) {
     let timeArr = time.split(":");
     let timeHour = timeArr[0];
-    let timeMin = timeArr[1];
-    let timeFormat = timeHour >= 12 ? "PM" : "AM";
-    timeHour = timeHour % 12 || 12;
-    time = timeHour + ":" + timeMin + " " + timeFormat;
-    return time;
+    let timeMinutes = timeArr[1];
+    let timeFormat = timeHour >= 12 ? 'PM' : 'AM';
+    timeHour = timeHour % 12 || 12; // Convert hour to 12-hour format and handle midnight (00:00)
+    return timeHour + ":" + timeMinutes + " " + timeFormat;
+}
+
+async function fetchEvents() {
+    try {
+        const response = await fetch('https://aagneya-backend.onrender.com/api/displayevent');
+        const data = await response.json();
+
+        if (data.success) {
+            return data.event; // Return the fetched event data
+        } else {
+            console.error('Failed to fetch events');
+            return [];
+        }
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        return [];
+    }
+}
+
+async function updateEvents(date, month, year) {
+    console.log("Updating events for:", date, month, year);
+
+    // Ensure month is a number between 1 and 12
+    month = Number(month);
+    if (isNaN(month) || month < 1 || month > 12) {
+        console.error("Invalid month:", month);
+        month = new Date().getMonth() + 1; // Default to current month
+    }
+
+    // Ensure year is a number
+    year = Number(year);
+    if (isNaN(year)) {
+        console.error("Invalid year:", year);
+        year = new Date().getFullYear(); // Default to current year
+    }
+
+    console.log("Adjusted date:", date, month, year);
+
+    const events = await fetchEvents(); // Fetch events directly
+
+    let eventDay = events.filter(event => {
+        const eventDate = new Date(event.event_date);
+        return (
+            eventDate.getDate() === date &&
+            eventDate.getMonth() + 1 === month &&
+            eventDate.getFullYear() === year
+        );
+    });
+
+    let eventsHtml = "";
+
+    if (eventDay.length > 0) {
+        eventsHtml = eventDay.map(event => `
+            <div class="event-container">
+                <div class="event">
+                    <div class="title-container">
+                        <div class="event-name">
+                            <i class="fas fa-circle"></i>
+                            <h3 class="event-title">${event.event_name}</h3>
+                        </div>
+                        <div class="event-category">
+                            <h3 class="category-title">${event.category}</h3>
+                        </div>
+                    </div>
+                    <div class="time-container">
+                        <div class="event-time">
+                            <span class="time-title">${event.event_time}</span>
+                        </div>
+                        <div class="event-sport">
+                            ${event.sport_name ? `<h4 class="sport-title">${event.sport_name}</h4>` : ''}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+            .event-container {
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-container, .time-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.event-name, .event-time {
+    flex: 1;
+}
+
+.event-category, .event-sport {
+    flex: 1;
+    text-align: right;
+}
+
+.event-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.category-title, .sport-title, .time-title {
+    font-size: 16px;
+    color: rgb(168, 168, 169);
+}
+
+.fas.fa-circle {
+    color: #ff4500;
+    margin-right: 8px;
+}
+
+.event-sport {
+    font-size: 14px;
+    font-style: italic;
+    color: #888;
+}
+</style>
+        `).join('');
+    }
+     else {
+        eventsHtml = `
+            <div class="no-event">
+                <h3>No Events</h3>
+            </div>
+        `;
+    }
+
+    if (eventsContainer) {
+        eventsContainer.innerHTML = eventsHtml;
+    } else {
+        console.error("eventsContainer not found");
+    }
 }
