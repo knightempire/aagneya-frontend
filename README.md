@@ -40,6 +40,13 @@ Check out our live site at [this link](https://knightempire.github.io/aagneya-fr
 
 - **Intracampus Points System:** Track and display intracampus points earned by members based on their participation and achievements in sports events. This system is designed to encourage active participation and recognize member contributions.
 
+## Our Team
+
+The Aagneya Sports Club web application is a collaborative effort by a team of dedicated students. Here's a glimpse of the amazing people behind the development:
+
+![Our Team](https://i.imgur.com/cun6ota.png)
+
+
 
 ## Getting Started
 
