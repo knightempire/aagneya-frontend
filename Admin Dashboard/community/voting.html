@@ -174,9 +174,9 @@
                             <select name="year" id="year_election" class="mt-4 md:mt-1 block w-full md:w-1/2 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
                                 required>
                                 <option value="" disabled selected>select Year</option>
-                                <option value="2023">2023</option>
+                                <!-- <option value="2023">2023</option>
                                 <option value="2024">2024</option>
-                                <option value="2025">2025</option>
+                                <option value="2025">2025</option> -->
                             </select>
                         </div>
                         <br><br>
@@ -465,7 +465,7 @@
                         // Example of updating UI with user's name
                         const nameElement = document.getElementById('name');
                         nameElement.textContent = name;
-                        getelection();
+                        getelections();
 
                     } else {
                         window.location.href = '../../User Dashboard';
@@ -489,7 +489,7 @@
         }
     }
 
-    async function getelection() {
+    async function getelections() {
         const spinner = document.getElementById('loading-spinner');
         spinner.style.display = 'flex'; // Show the spinner
         try {
