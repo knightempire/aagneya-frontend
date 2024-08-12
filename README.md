@@ -15,12 +15,31 @@ Check out our live site at [this link](https://knightempire.github.io/aagneya-fr
 - **Bootstrap**: A front-end framework used for designing responsive and mobile-first websites.
 - **Tailwind CSS**: A utility-first CSS framework used for rapidly building custom designs.
 
-## Features
 
-- **User Authentication:** Users can register and log in to access the features of the application.
-- **Sports Events:** Create, view, and manage sports events hosted by the club.
-- **Registration:** Allow users to register for sports events.
-- **Achievements:** Track and showcase achievements of the club and its members.
+Got it! Here's the updated section detailing the features of the Aagneya Sports Club web application, incorporating the new details about registration, achievements, and community members:
+
+Features
+User Authentication: Users can register and log in to access the features of the application.
+
+Sports Events: Create, view, and manage sports events hosted by the club. All students can register for these events.
+
+Registration: Allow all students to register for sports events. This feature supports student participation and engagement.
+
+Achievements: Track and showcase achievements of the club and its members. All students can contribute to and view achievements.
+
+Dashboard for Admins and Community Members:
+
+Admin Dashboard:
+Manage users, events, and achievements.
+View detailed analytics and reports.
+Community Member Dashboard:
+Community Members: Includes all sports captains, vice captains (both male and female), club president, secretary, vice president, public relations officers, and admin staff.
+Access personal event registrations.
+View personal achievements and overall club achievements.
+Manage account settings.
+Intracampus Points System: Track and display intracampus points earned by members based on their participation and achievements in sports events. This system is designed to encourage active participation and recognize member contributions.
+
+
 
 ## Getting Started
 
