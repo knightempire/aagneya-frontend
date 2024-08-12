@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Events Dashboard</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .container {
+        .containerss {
             max-width: 1200px;
             margin: 0 auto;
             background: #ffffff;
@@ -21,18 +15,21 @@
             border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
         h1 {
             color: #2c3e50;
             text-align: center;
             margin-bottom: 20px;
             font-size: 24px;
         }
+        
         .controls {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
         }
+        
         select {
             padding: 10px;
             font-size: 16px;
@@ -44,22 +41,26 @@
             width: 100%;
             max-width: 300px;
         }
+        
         #sportsChart {
             width: 100%;
             height: 400px;
         }
+        
         #totalEvents {
             font-size: 18px;
             font-weight: bold;
             color: #3498db;
             margin-top: 10px;
         }
+        
         #errorMessage {
             color: red;
             font-weight: bold;
             margin-top: 10px;
             text-align: center;
         }
+        
         @media (min-width: 768px) {
             .controls {
                 flex-direction: row;
@@ -78,8 +79,9 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
+    <div class="containerss">
         <h1>Sports Events Dashboard</h1>
         <div class="controls">
             <div id="totalEvents"></div>
@@ -127,7 +129,10 @@
                 console.error('Unexpected data format:', events);
             }
 
-            return { sportsCountByYear, years: Array.from(years).sort() };
+            return {
+                sportsCountByYear,
+                years: Array.from(years).sort()
+            };
         }
 
         function updateYearSelector(years) {
@@ -145,14 +150,14 @@
             let sportsNames = [];
             let counts = [];
 
-            const yearData = selectedYear === "Overall" 
-                ? Object.keys(sportsCountByYear).reduce((acc, year) => {
+            const yearData = selectedYear === "Overall" ?
+                Object.keys(sportsCountByYear).reduce((acc, year) => {
                     Object.entries(sportsCountByYear[year]).forEach(([sportName, count]) => {
                         acc[sportName] = (acc[sportName] || 0) + count;
                     });
                     return acc;
-                }, {})
-                : sportsCountByYear[selectedYear] || {};
+                }, {}) :
+                sportsCountByYear[selectedYear] || {};
 
             sportsNames = Object.keys(yearData);
             counts = Object.values(yearData);
@@ -162,7 +167,7 @@
                 y: counts,
                 type: 'bar',
                 marker: {
-                    color: '#8a2be2'  // Violet color for the bars
+                    color: '#8a2be2' // Violet color for the bars
                 }
             };
 
@@ -204,7 +209,10 @@
         async function initDashboard() {
             const events = await fetchData();
             if (events) {
-                const { sportsCountByYear, years } = processEventData(events);
+                const {
+                    sportsCountByYear,
+                    years
+                } = processEventData(events);
 
                 updateYearSelector(years);
 
@@ -221,4 +229,5 @@
         initDashboard();
     </script>
 </body>
+
 </html>
