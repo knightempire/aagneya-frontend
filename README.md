@@ -61,5 +61,5 @@ git clone https://github.com/knightempire/aagneya-frontend.git
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the APACHE License - see the [LICENSE](LICENSE) file for details.
 
