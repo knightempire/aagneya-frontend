@@ -673,3 +673,47 @@
  .day.today.active {
      color: white;
  }
+
+ .day.today.active {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d3a1ff; /* The background color similar to the one in your image */
+    color: white; /* Text color */
+    font-size: 24px; /* Adjust font size as needed */
+    padding: 10px; /* Adjust padding to control the size of the box */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+  }
+  
+  .day.today.active::after {
+    content: '';
+    position: absolute;
+    width: 40%; /* Adjust width as needed */
+    height: 2px;
+    background-color: white; /* Underline color */
+    bottom: 10%; /* Adjust this value to position the underline closer or further */
+    left: 30%; /* Center the underline */
+  }
+  .day.active {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d3a1ff; /* The background color similar to the one in your image */
+    color: white; /* Text color */
+    font-size: 24px; /* Adjust font size as needed */
+    padding: 10px; /* Adjust padding to control the size of the box */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+  }
+  
+  .day.active::after {
+    content: '';
+    position: absolute;
+    width: 40%; /* Adjust width as needed */
+    height: 2px;
+    background-color: white; /* Underline color */
+    bottom: 10%; /* Adjust this value to position the underline closer or further */
+    left: 30%; /* Center the underline */
+  }
+  
