@@ -12,122 +12,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <style>
-        .readmore {
-            display: none;
-        }
-        
-        .readmore.open {
-            display: block;
-        }
-        
-        .container-glow {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        
-        .container-glow:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        
-        .event_head {
-            text-align: center;
-            position: relative;
-            margin-top: 20px;
-        }
-        
-        .event_head h2 {
-            font-size: 32px;
-            background: linear-gradient(90deg, #ff8a00, #e52e71);
-            -webkit-background-clip: text;
-            color: transparent;
-            margin: 0;
-            display: inline-block;
-            padding-bottom: 10px;
-            position: relative;
-        }
-        
-        .event_head h2::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff8a00, #e52e71);
-            transition: width 0.5s ease;
-            margin: 0 auto;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-        
-        .event_head h2:hover::after {
-            width: 100%;
-        }
-        
-        @keyframes underline {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-        
-        .event_head h2.animate::after {
-            width: 100%;
-            animation: underline 1s ease-out;
-        }
-        
-        #time {
-            color: violet;
-        }
-        
-        #date {
-            color: rgb(116, 115, 113);
-            font-weight: bold;
-        }
-        
-        [x-cloak] {
-            display: none
-        }
-        /* Ensure the dropdown button is always at the right corner */
-        /* Center the achievements text */
-        
-        .achievements-container {
-            display: flex;
-            justify-content: center;
-            flex: 1;
-            text-align: center;
-        }
-        
-        .achievements-container .relative {
-            display: inline-block;
-            text-align: center;
-        }
-    </style>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
         }
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdownButton = document.getElementById('dropdownDefaultButton');
-            const dropdown = document.getElementById('dropdown');
 
-            dropdownButton.addEventListener('click', function() {
-                dropdown.classList.toggle('hidden');
-            });
-
-            window.addEventListener('click', function(e) {
-                if (!dropdown.contains(e.target) && !dropdownButton.contains(e.target)) {
-                    dropdown.classList.add('hidden');
-                }
-            });
-        });
-    </script>
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
@@ -420,25 +312,6 @@
         <span class="sr-only">Loading...</span>
     </div>
 
-    <style>
-        #loading-spinner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.7);
-            /* Semi-transparent background */
-            z-index: 9999;
-            /* Make sure it's on top */
-            position: fixed;
-            /* Fixed position to cover the screen */
-            inset: 0;
-            /* Cover the entire viewport */
-        }
-        
-        .hidden {
-            display: none;
-        }
-    </style>
 
 
 </body>
@@ -448,6 +321,25 @@
 
 
 
+<style>
+    #loading-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.7);
+        /* Semi-transparent background */
+        z-index: 9999;
+        /* Make sure it's on top */
+        position: fixed;
+        /* Fixed position to cover the screen */
+        inset: 0;
+        /* Cover the entire viewport */
+    }
+    
+    .hidden {
+        display: none;
+    }
+</style>
 <script>
     async function showevent(selectedSport = '') {
         const spinner = document.getElementById('loading-spinner');
@@ -700,3 +592,113 @@
         box-shadow: 0 0 0 2px #1976d2;
     }
 </style>
+<style>
+    .readmore {
+        display: none;
+    }
+    
+    .readmore.open {
+        display: block;
+    }
+    
+    .container-glow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+    .container-glow:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .event_head {
+        text-align: center;
+        position: relative;
+        margin-top: 20px;
+    }
+    
+    .event_head h2 {
+        font-size: 32px;
+        background: linear-gradient(90deg, #ff8a00, #e52e71);
+        -webkit-background-clip: text;
+        color: transparent;
+        margin: 0;
+        display: inline-block;
+        padding-bottom: 10px;
+        position: relative;
+    }
+    
+    .event_head h2::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff8a00, #e52e71);
+        transition: width 0.5s ease;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .event_head h2:hover::after {
+        width: 100%;
+    }
+    
+    @keyframes underline {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+    
+    .event_head h2.animate::after {
+        width: 100%;
+        animation: underline 1s ease-out;
+    }
+    
+    #time {
+        color: violet;
+    }
+    
+    #date {
+        color: rgb(116, 115, 113);
+        font-weight: bold;
+    }
+    
+    [x-cloak] {
+        display: none
+    }
+    /* Ensure the dropdown button is always at the right corner */
+    /* Center the achievements text */
+    
+    .achievements-container {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        text-align: center;
+    }
+    
+    .achievements-container .relative {
+        display: inline-block;
+        text-align: center;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownButton = document.getElementById('dropdownDefaultButton');
+        const dropdown = document.getElementById('dropdown');
+
+        dropdownButton.addEventListener('click', function() {
+            dropdown.classList.toggle('hidden');
+        });
+
+        window.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target) && !dropdownButton.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    });
+</script>
