@@ -716,4 +716,24 @@
     bottom: 10%; /* Adjust this value to position the underline closer or further */
     left: 30%; /* Center the underline */
   }
-  
+  .underline-event {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d3a1ff; /* Background color */
+    color: white; /* Text color */
+    font-size: 24px; /* Font size */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.underline-event::after {
+    content: '';
+    position: absolute;
+    width: 40%; /* Underline width */
+    height: 2px;
+    background-color: white; /* Underline color */
+    bottom: 10%; /* Position of the underline */
+    left: 30%; /* Center the underline */
+}

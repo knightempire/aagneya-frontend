@@ -300,132 +300,46 @@
                                     return null;
                                 }
                             }
-
+                        
                             function processEventData(events) {
-                                const sportsCountByYear = {};
-                                const years = new Set();
-
+                                const eventDates = new Set();
+                        
                                 if (Array.isArray(events)) {
                                     events.forEach(event => {
-                                        const year = new Date(event.event_date).getFullYear();
-                                        const sportName = event.sport_name;
-
-                                        years.add(year);
-
-                                        if (!sportsCountByYear[year]) {
-                                            sportsCountByYear[year] = {};
-                                        }
-
-                                        if (!sportsCountByYear[year][sportName]) {
-                                            sportsCountByYear[year][sportName] = 0;
-                                        }
-
-                                        sportsCountByYear[year][sportName]++;
+                                        const eventDate = event.event_date.split('T')[0];
+                                        eventDates.add(eventDate);
                                     });
                                 } else {
                                     document.getElementById('errorMessage').textContent = 'Unexpected data format received from API';
                                     console.error('Unexpected data format:', events);
                                 }
-
-                                return {
-                                    sportsCountByYear,
-                                    years: Array.from(years).sort()
-                                };
+                        
+                                return Array.from(eventDates);
                             }
-
-                            function updateYearSelector(years) {
-                                const yearSelector = document.getElementById('yearSelector');
-                                yearSelector.innerHTML = '<option value="Overall">Overall</option>';
-                                years.forEach(year => {
-                                    const option = document.createElement('option');
-                                    option.value = year;
-                                    option.textContent = year;
-                                    yearSelector.appendChild(option);
+                        
+                            function addCalendarClickEvent(eventDates) {
+                                const calendarDays = document.querySelectorAll('.day');
+                                calendarDays.forEach(day => {
+                                    day.addEventListener('click', () => {
+                                        const selectedDate = day.getAttribute('data-event-date');
+                                        if (eventDates.includes(selectedDate)) {
+                                            day.classList.toggle('underline-event');
+                                        }
+                                    });
                                 });
                             }
-
-                            function updateChart(sportsCountByYear, selectedYear) {
-                                let sportsNames = [];
-                                let counts = [];
-
-                                const yearData = selectedYear === "Overall" ?
-                                    Object.keys(sportsCountByYear).reduce((acc, year) => {
-                                        Object.entries(sportsCountByYear[year]).forEach(([sportName, count]) => {
-                                            acc[sportName] = (acc[sportName] || 0) + count;
-                                        });
-                                        return acc;
-                                    }, {}) :
-                                    sportsCountByYear[selectedYear] || {};
-
-                                sportsNames = Object.keys(yearData);
-                                counts = Object.values(yearData);
-
-                                const trace = {
-                                    x: sportsNames,
-                                    y: counts,
-                                    type: 'bar',
-                                    marker: {
-                                        color: '#8a2be2' // Violet color for the bars
-                                    }
-                                };
-
-                                const layout = {
-                                    title: {
-                                        text: `Count of Sports Events ${selectedYear === "Overall" ? "(Overall)" : "in " + selectedYear}`,
-                                        font: {
-                                            size: 20
-                                        }
-                                    },
-                                    xaxis: {
-                                        title: 'Sports Name',
-                                        tickangle: -45,
-                                        automargin: true
-                                    },
-                                    yaxis: {
-                                        title: 'Number of Events',
-                                    },
-                                    margin: {
-                                        l: 50,
-                                        r: 20,
-                                        b: 100,
-                                        t: 100,
-                                        pad: 4
-                                    },
-                                    autosize: true
-                                };
-
-                                const config = {
-                                    responsive: true,
-                                    displayModeBar: false
-                                };
-
-                                Plotly.newPlot('sportsChart', [trace], layout, config);
-
-                                document.getElementById('totalEvents').textContent = `Total Events: ${counts.reduce((a, b) => a + b, 0)}`;
-                            }
-
+                        
                             async function initDashboard() {
                                 const events = await fetchData();
                                 if (events) {
-                                    const {
-                                        sportsCountByYear,
-                                        years
-                                    } = processEventData(events);
-
-                                    updateYearSelector(years);
-
-                                    const yearSelector = document.getElementById('yearSelector');
-                                    yearSelector.addEventListener('change', () => {
-                                        const selectedYear = yearSelector.value;
-                                        updateChart(sportsCountByYear, selectedYear);
-                                    });
-
-                                    updateChart(sportsCountByYear, yearSelector.value);
+                                    const eventDates = processEventData(events);
+                                    addCalendarClickEvent(eventDates);
                                 }
                             }
-
+                        
                             initDashboard();
                         </script>
+                        
                         <!-- <table>
                             <thead>
                                 <tr>
@@ -763,4 +677,6 @@
         decodeToken();
         displaySports();
     };
+
+    
 </script>

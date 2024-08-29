@@ -101,60 +101,54 @@
                         <h2 class="heading">Upcoming Events</h2>
                     </div>
                 </div>
-                <div class="row ">
-                    <div class="col-lg-3 col-sm-6 p-0 ">
-                        <div class="soccer-item set-bg " style="background-image: url(./images/soccer/soccer-1.jpg); ">
-                            <div class="si-tag ">Soccer</div>
-                            <div class="si-text ">
-                                <h5><a href="# ">Counting Your Chicken Before They Hatch</a></h5>
-                                <ul>
-                                    <li><i class="fa fa-calendar "></i> May 19, 2019</li>
-                                    <li> <i class="fas fa-arrow-right"></i> View</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 p-0 ">
-                        <div class="soccer-item set-bg " style="background-image: url(./images/match-bg.jpg); ">
-                            <div class="si-tag ">Soccer</div>
-                            <div class="si-text ">
-                                <h5><a href="# ">Hypnotherapy For Motivation Getting The Drive Back</a></h5>
-                                <ul>
-                                    <li><i class="fa fa-calendar "></i> May 19, 2019</li>
-                                    <li> <i class="fas fa-arrow-right"></i> View</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 p-0 ">
-                        <div class="soccer-item set-bg " style="background-image: url(./images/match-bg.jpg); ">
-                            <div class="si-tag ">Soccer</div>
-                            <div class="si-text ">
-                                <h5><a href="# ">Astronomy Binoculars A Great Alternative</a></h5>
-                                <ul>
-                                    <li><i class="fa fa-calendar "></i> May 19, 2019</li>
-                                    <li> <i class="fas fa-arrow-right"></i> View</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 p-0 ">
-                        <div class="soccer-item set-bg " style="background-image: url(./images/match-bg.jpg); ">
-                            <div class="si-tag ">Soccer</div>
-                            <div class="si-text ">
-                                <h5><a href="# ">Decorate For Less With Art Posters</a></h5>
-                                <ul>
-                                    <li><i class="fa fa-calendar "></i> May 19, 2019</li>
-                                    <li> <i class="fas fa-arrow-right"></i> View</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id="events">
+                    <!-- Dynamic event content will be inserted here -->
                 </div>
-
             </div>
         </div>
+<script>
 
+function displayEvents() {
+            fetch('https://aagneya-backend.onrender.com/api/displayevent')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Extract the first three events
+                        const events = data.event.slice(0, 4); // Adjust the number if needed
+                        
+                        // Generate the HTML for each event
+                        const eventHtml = events.map(event => {
+                            const sportTag = event.sport_name.toLowerCase().replace(/\s+/g, '-'); // Convert sport name to a suitable format
+                            const imagePath = `./images/sports/${sportTag}.jpg`;
+                            
+                            console.log(`Image Path: ${imagePath}`); // Debugging line
+                            
+                            return `
+                                <div class="col-lg-3 col-sm-6 p-0">
+                                    <div class="soccer-item set-bg" style="background-image: url(${imagePath});">
+                                        <div class="si-tag sports">${event.sport_name}</div>
+                                        <div class="si-text">
+                                            <h5><a href="#">${event.event_name}</a></h5>
+                                            <ul>
+                                                <li><i class="fa fa-calendar"></i> ${new Date(event.event_date).toLocaleDateString()}</li>
+                                                <li><i class="fas fa-arrow-right"></i> View</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                        
+                        // Insert the generated HTML into the page
+                        document.getElementById('events').innerHTML = eventHtml;
+                    }
+                })
+                .catch(error => console.error('Error fetching events:', error));
+        }
+
+        // Call the function to load events immediately
+        displayEvents();
+</script>
 <style>
     .t1 {
         max-width: 120px;margin: 0 auto;
@@ -429,7 +423,7 @@
                 <div class="row ">
                     <div class="col-lg-3 col-sm-6 p-0 ">
                         <div class="soccer-item set-bg " data-setbg="img/soccer/soccer-1.jpg ">
-                            <div class="si-tag ">Soccer</div>
+                            <div class="si-tag sports ">Soccer</div>
                             <div class="si-text ">
                                 <h5><a href="# ">Counting Your Chicken Before They Hatch</a></h5>
                                 <ul>
@@ -441,7 +435,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 p-0 ">
                         <div class="soccer-item set-bg " data-setbg="img/soccer/soccer-2.jpg ">
-                            <div class="si-tag ">Soccer</div>
+                            <div class="si-tag sports ">Soccer</div>
                             <div class="si-text ">
                                 <h5><a href="# ">Hypnotherapy For Motivation Getting The Drive Back</a></h5>
                                 <ul>
@@ -453,7 +447,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 p-0 ">
                         <div class="soccer-item set-bg " data-setbg="img/soccer/soccer-3.jpg ">
-                            <div class="si-tag ">Soccer</div>
+                            <div class="si-tag sports ">Soccer</div>
                             <div class="si-text ">
                                 <h5><a href="# ">Astronomy Binoculars A Great Alternative</a></h5>
                                 <ul>
@@ -465,7 +459,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 p-0 ">
                         <div class="soccer-item set-bg " data-setbg="img/soccer/soccer-4.jpg ">
-                            <div class="si-tag ">Soccer</div>
+                            <div class="si-tag sports ">Soccer</div>
                             <div class="si-text ">
                                 <h5><a href="# ">Decorate For Less With Art Posters</a></h5>
                                 <ul>
