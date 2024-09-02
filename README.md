@@ -2,7 +2,7 @@
 
 Welcome to the Aagneya Sports Club web application project! This application is being developed by a team of students to provide a platform for staff and community members to interact, manage sports events, registrations, and achievements.
 
-## Visit Our Site
+## Visit Our Site 
 
 Check out our live site at [this link](https://knightempire.github.io/aagneya-frontend/homepage/home.html) to explore the application and see its features in action.
 
