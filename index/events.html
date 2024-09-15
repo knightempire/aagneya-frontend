@@ -90,36 +90,34 @@
             </div>
         </div> -->
 
-
+        <br><br>
         <div class="site-section">
-            <div class="flex flex-col w-full" style="padding-top: 30px;">
-                <div class="achievements-container flex-1">
-                    <div class="relative inline-block text-center">
-                        <span class="text-2xl md:text-3xl font-bold">Event</span>
-                        <span class="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-400 to-green-600 rounded-full"></span>
+            <div class="container ">
+                <div class="row align-items-center">
+                    <div class="col-6 title-section">
+                        <h2 class="heading">IntraMurals Point's Table</h2>
                     </div>
-                </div>
-                <div id="dropdownContainer" class="flex justify-end mb-4 mt-5">
-                    <div class="relative inline-block w-full sm:w-64">
-                        <select name="sport" id="sport_name_input" class="mt-4 md:mt-1 block w-full md:w-3/4 rounded-md border border-gray-300 bg-white px-3 py-2 sm:py-4 placeholder-gray-400 shadow-sm placeholder-semibold text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-                            required>
-                            <option value="" disabled selected>None</option>
+
+                    <div class="col-6 title-section d-flex justify-content-end">
+                        <div class="relative inline-block w-full sm:w-64">
+                            <select name="sport" id="sport_name_input" class="form-select form-control" required>
+                            <option value="" disabled selected>Select a Sport</option>
                             <!-- Options will be dynamically added here -->
                         </select>
-
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
 
 
-            <div class="showcards" id="displayevents">
-                <div class="" style="padding-top: 40px;" id="showcards">
-                    <!-- Card Container -->
-                    <div id="card-container" class="max-w-5xl mx-auto">
-                        <!-- Card 1 -->
-                        <!-- <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
+
+                <div class="showcards" id="displayevents">
+                    <div class="" style="padding-top: 40px;" id="showcards">
+                        <!-- Card Container -->
+                        <div id="card-container" class="max-w-5xl mx-auto">
+                            <!-- Card 1 -->
+                            <!-- <div class="card px-8 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 container-glow">
                             <div class="flex items-center justify-between">
                                 <div class="date-time-container">
                                     <h3 id="date">Mar 10, 2019</h3>
@@ -172,14 +170,14 @@
                                 </div>
                             </div>
                         </div> -->
-                        <!-- Additional cards can be added here -->
+                            <!-- Additional cards can be added here -->
 
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div id="loading-spinner" class="hidden">
             <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>

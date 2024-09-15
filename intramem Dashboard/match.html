@@ -94,7 +94,7 @@
             <!-- code from here -->
 
 
-            <div class="flex justify-center items-center" id="msgok" style="display: none;">
+            <!-- <div class="flex justify-center items-center" id="msgok" style="display: none;">
                 <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
                     <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
                         <div class="flex gap-2">
@@ -115,7 +115,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -247,103 +247,9 @@
 
 
                         <div class="displayevents" id="displayevents">
-                            <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
-                                <thead class="bg-blue-100">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Name
-                                        </th>
-                                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Title
-                                    </th> -->
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Sports
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Role
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Year
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Phone
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Actions
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <div class="flex justify-end p-4">
-                                    <div class="relative inline-block text-left dropdown">
-                                        <div class="flex space-x-2">
-                                            <div class="relative">
-                                                <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                                    <i class="bi bi-search text-gray-400"></i>
-                                                </div>
-                                            </div>
-                                            <button id="dropdownButton" class="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                Menu <i class="bi bi-chevron-down ml-2"></i>
-                                            </button>
-                                        </div>
-                                        <div id="dropdownContent" class="dropdown-content">
-                                            <a href="#">Option 1</a>
-                                            <a href="#">Option 2</a>
-                                            <a href="#">Option 3</a>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <tbody class="bg-white divide-y divide-gray-200" id="displayusers">
+                            <!-- work from here points table -->
 
-
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="../img/blog.jpg" alt="" id="img">
-                                                </div>
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900" id="name">
-                                                        Abinesh
-                                                    </div>
-                                                    <div class="text-sm text-gray-500" id="roll_no">
-                                                        cb.en.u4cse21302
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" id="sport">
-                                            Chess
-                                        </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900" id="role_name">
-                                                    CAPTAIN
-                                                </div>
-                                                <div class="text-sm text-gray-500" id="spl_role_name">
-                                                    President
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="year">
-                                            2024
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" id="Phone">
-                                            9499964935
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap  text-sm font-medium">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900" id="editbutton" onclick="showEditForm()">Edit</a>
-                                            <a href="#" class="ml-2 text-red-600 hover:text-red-900" id="deactivate" onclick="deactivate()">Delete</a>
-                                        </td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
 
                         </div>
 
@@ -740,109 +646,3 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
-
-
-<script>
-    async function updateEvent() {
-        // Get values from the form
-        const roll_no = document.getElementById('roll_no1').value;
-        const sport = document.getElementById('sports1').value;
-        const role = document.getElementById('roles1').value;
-        const gender = document.getElementById('gender_edit').value;
-        const event_date = document.getElementById('event_date_edit').value;
-
-        // Prepare data to send to the API
-        const data = {
-            roll_no: roll_no,
-            sport_id: sport,
-            role_id: role,
-            gender: gender,
-            year: event_date // Assuming event_date corresponds to the year in your API
-        };
-        console.log(data)
-        try {
-            const response = await fetch('http://localhost:3000/api/updateuser', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const responseData = await response.json();
-            console.log('Success:', responseData);
-            const successMsg = document.getElementById('msgok');
-            const message = responseData.message; // Extract message from response
-            console.log(message)
-            document.getElementById('Msg').textContent = message; // Update message content dynamically
-
-
-
-            successMsg.style.display = 'flex';
-            setTimeout(function() {
-                successMsg.style.display = 'none';
-            }, 3000); // Hide after 3 seconds
-
-            closeForm()
-
-
-        } catch (error) {
-            console.error('Error updating user details:', error);
-
-        }
-    }
-
-    async function resetpass() {
-        // Get roll number value
-        const roll_no = document.getElementById('roll_no1').value;
-        // Log roll number to console
-        const data = {
-            roll_no: roll_no,
-        };
-
-        console.log("Resetting password for Roll No:", roll_no);
-
-        try {
-            const response = await fetch('http://localhost:3000/api/hardresetpassword', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const responseData = await response.json();
-            console.log('Success:', responseData);
-            const successMsg = document.getElementById('msgok');
-            const message = responseData.message; // Extract message from response
-            console.log(message)
-            document.getElementById('Msg').textContent = message; // Update message content dynamically
-
-
-
-
-            successMsg.style.display = 'flex';
-            setTimeout(function() {
-                successMsg.style.display = 'none';
-            }, 3000); // Hide after 3 seconds
-
-            closeForm()
-
-        } catch (error) {
-            console.error('Error updating user details:', error);
-
-        }
-
-
-    }
-</script>
