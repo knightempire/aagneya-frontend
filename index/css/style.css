@@ -6,6 +6,7 @@ body {
     font-weight: 300;
      background-image: url(https://th.bing.com/th/id/OIP.8ouBfdaLApX1AHX54FZllQHaE8?w=1470&h=980&rs=1&pid=ImgDetMain);
     font-size: 16px;
+    background-size: cover;background-repeat: no-repeat;background-attachment: fixed;background-position: center; 
 }
 
 ::-moz-selection {
