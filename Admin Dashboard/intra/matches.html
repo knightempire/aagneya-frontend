@@ -227,117 +227,8 @@
                         </div>
                     </div>
                 </form>
-            
-                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        // Initialize Flatpickr
-                        flatpickr("#last_date_edit", {
-                            enableTime: true,
-                            dateFormat: "Y-m-d H:i",
-                            altInput: true,
-                            altFormat: "F j, Y h:i K",
-                            monthSelectorType: "static" // Show full month names
-                        });
-                
-                        // Fetch sports data and populate the dropdown
-                        fetch('https://aagneya-backend.onrender.com/api/displaysports')
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.success) {
-                                    const sportsList = document.getElementById('sports_list');
-                                    data.sports.forEach(sport => {
-                                        const option = document.createElement('option');
-                                        option.value = sport.sport_id;
-                                        option.textContent = sport.sport_name;
-                                        sportsList.appendChild(option);
-                                    });
-                                } else {
-                                    console.error('Failed to fetch sports data');
-                                }
-                            })
-                            .catch(error => console.error('Error fetching sports data:', error));
-                    });
-                
-                    function handleSubmit(event) {
-                        event.preventDefault(); // Prevent the form from submitting the traditional way
-                
-                        // Collect form data
-                        const formData = new FormData(document.getElementById('competition-form'));
-                        const data = Object.fromEntries(formData.entries());
-                
-                        // Get the sports ID from the form (as a string)
-                        const selectedSportId = data['sports_list'];
-                
-                        // Get the date and time value
-                        const dateTimeString = data['last_date_edit'];
-                
-                        // Print houses separately
-                        console.log("House 1:", data['house1']);
-                        console.log("House 2:", data['house2']);
-                        console.log("House 3:", data['house3']);
-                        console.log("House 4:", data['house4']);
-                        console.log("gender :", data['gender_category']);
-                        // Print date and time
-                        console.log("Date and Time:", dateTimeString);
-                
-                        // Extract and print only the year
-                        const date = new Date(dateTimeString);
-                        const year = date.getFullYear();
-                        console.log("Year:", year);
-                
-                        // Print the selected sport ID
-                        // console.log("Selected Sport ID: ", selectedSportId);
-                
-                        // Fetch sports data to find the selected sport name from the ID
-                        fetch('https://aagneya-backend.onrender.com/api/displaysports')
-                            .then(response => response.json())
-                            .then(apiData => {
-                                if (apiData.success) {
-                                    // Find the sport name based on the selected ID (convert both to same type if necessary)
-                                    const selectedSport = apiData.sports.find(sport => String(sport.sport_id) === String(selectedSportId));
-                                    if (selectedSport) {
-                                        console.log(`Sport Name: ${selectedSport.sport_name}`);
-                                    } else {
-                                        console.log('Sport not found');
-                                    }
-                                } else {
-                                    console.error('Failed to fetch sports data');
-                                }
-                            })
-                            .catch(error => console.error('Error fetching sports data:', error));
-                
-                        // You can also send this data to your server or process it as needed
-                    }
-                </script>
-                
-                
-                
-                <script>
-                    const houseOptions = ['Amritamayi', 'Anandmayi', 'Chinmayi', 'Jyotirmayi'];
-                
-                    function updateHouseOptions(step) {
-                        let selectedHouses = [];
-                        // Get the values of selected houses so far
-                        for (let i = 1; i <= step; i++) {
-                            let house = document.getElementById('house' + i).value;
-                            if (house) selectedHouses.push(house);
-                        }
-                
-                        // Update remaining house options dynamically for subsequent dropdowns
-                        for (let i = step + 1; i <= 4; i++) {
-                            let nextHouse = document.getElementById('house' + i);
-                            nextHouse.innerHTML = '<option value="" disabled selected>Select House ' + i + '</option>';
-                            let remainingHouses = houseOptions.filter(h => !selectedHouses.includes(h));
-                            remainingHouses.forEach(house => {
-                                nextHouse.innerHTML += `<option value="${house}">${house}</option>`;
-                            });
-                            if (remainingHouses.length === 1) {
-                                nextHouse.value = remainingHouses[0]; // Automatically fill the last house
-                            }
-                        }
-                    }
-                </script>
+
+
                 
             </div>
 
@@ -773,3 +664,123 @@
 </script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+            
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- Include this in your HTML file -->
+<!-- Include Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Include Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- JavaScript Code -->
+    <script>
+            // Function to fetch and populate sports data
+            function populateSportsList() {
+            fetch('https://aagneya-backend.onrender.com/api/displaysports')
+            .then(response => response.json())
+            .then(data => {
+            if (data.success) {
+                const sportsList = document.getElementById('sports_list');
+                sportsList.innerHTML = ''; // Clear existing options
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Select Sport';
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                sportsList.appendChild(defaultOption);
+                data.sports.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.sport_id;
+                    option.textContent = sport.sport_name;
+                    sportsList.appendChild(option);
+                });
+            } else {
+                console.error('Failed to fetch sports data');
+            }
+            })
+            .catch(error => console.error('Error fetching sports data:', error));
+            }
+
+            // Function to handle form submission
+            function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            const formData = new FormData(document.getElementById('competition-form'));
+            const data = Object.fromEntries(formData.entries());
+
+            const selectedSportId = data['sports_list'];
+            const dateTimeString = data['last_date_edit'];
+
+            // Print houses and gender
+            for (let i = 1; i <= 4; i++) {
+            console.log(`House ${i}:`, data[`house${i}`]);
+            }
+            console.log("Gender:", data['gender_category']);
+            console.log("Date and Time:", dateTimeString);
+
+            // Extract and print only the year
+            const date = new Date(dateTimeString);
+            const year = date.getFullYear();
+            console.log("Year:", year);
+
+            // Fetch sports data to find the selected sport name from the ID
+            fetch('https://aagneya-backend.onrender.com/api/displaysports')
+            .then(response => response.json())
+            .then(apiData => {
+            if (apiData.success) {
+                const selectedSport = apiData.sports.find(sport => String(sport.sport_id) === String(selectedSportId));
+                if (selectedSport) {
+                    console.log(`Sport Name: ${selectedSport.sport_name}`);
+                } else {
+                    console.log('Sport not found');
+                }
+            } else {
+                console.error('Failed to fetch sports data');
+            }
+            })
+            .catch(error => console.error('Error fetching sports data:', error));
+            }
+
+            // Initialize Flatpickr
+            function initializeFlatpickr() {
+            flatpickr("#last_date_edit", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            altInput: true,
+            altFormat: "F j, Y h:i K",
+            monthSelectorType: "static"
+            });
+            }
+
+            // Update house options dynamically
+            function updateHouseOptions(step) {
+            const houseOptions = ['Amritamayi', 'Anandmayi', 'Chinmayi', 'Jyotirmayi'];
+            let selectedHouses = [];
+
+            for (let i = 1; i <= step; i++) {
+            let house = document.getElementById('house' + i).value;
+            if (house) selectedHouses.push(house);
+            }
+
+            for (let i = step + 1; i <= 4; i++) {
+            let nextHouse = document.getElementById('house' + i);
+            nextHouse.innerHTML = '<option value="" disabled selected>Select House ' + i + '</option>';
+            let remainingHouses = houseOptions.filter(h => !selectedHouses.includes(h));
+            remainingHouses.forEach(house => {
+            nextHouse.innerHTML += `<option value="${house}">${house}</option>`;
+            });
+            if (remainingHouses.length === 1) {
+            nextHouse.value = remainingHouses[0]; // Automatically fill the last house
+            }
+            }
+            }
+
+            // Event listeners
+            document.addEventListener('DOMContentLoaded', function() {
+            populateSportsList();
+            initializeFlatpickr();
+            });
+
+            document.getElementById('competition-form').addEventListener('submit', handleSubmit);
+    </script>
