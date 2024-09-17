@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Bootstrap icons CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
 
@@ -94,7 +95,7 @@
             <!-- code from here -->
 
 
-            <!-- <div class="flex justify-center items-center" id="msgok" style="display: none;">
+            <div class="flex justify-center items-center" id="msgok" style="display: none;">
                 <div class="flex flex-col gap-2 w-60 sm:w-72 text-[10px] sm:text-xs z-50">
                     <div class="success-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
                         <div class="flex gap-2">
@@ -115,7 +116,44 @@
                         </button>
                     </div>
                 </div>
-            </div> -->
+            </div>
+
+
+            <div class="flex justify-center items-center flex-col gap-2  text-[10px] " id="msgfail" style="display: none;">
+                <div class="error-alert cursor-default flex items-center justify-between w-full h-12 sm:h-14 rounded-lg bg-[#232531] px-[10px]">
+                    <div class="flex gap-2">
+                        <div class="text-[#d65563] bg-white/5 backdrop-blur-xl p-1 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white">Please try again</p>
+                            <p class="text-gray-500" id="FailMsg">This is the description part</p>
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:bg-white/10 p-1 rounded-md transition-colors ease-linear">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-6 h-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18 18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
 
 
@@ -170,9 +208,9 @@
                 </div>
 
 
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-                <form id="competition-form" onsubmit="handleSubmit(event); return false;">
+
+                <form id="competition-form" onsubmit="handleSubmit(event);">
                     <div class="mt-6 md:mt-10 text-center font-bold text-lg md:text-xl">Intra Competition</div>
                     <div class="p-4 md:p-8">
                         <center>
@@ -233,6 +271,7 @@
                         </div>
                     </div>
                 </form>
+
 
 
 
@@ -648,6 +687,33 @@
 
     </div>
 
+    <div id="loading-spinner" class="hidden">
+        <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+        </svg>
+        <span class="sr-only">Loading...</span>
+    </div>
+
+    <style>
+        #loading-spinner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            /* Semi-transparent background */
+            z-index: 9999;
+            /* Make sure it's on top */
+            position: fixed;
+            /* Fixed position to cover the screen */
+            inset: 0;
+            /* Cover the entire viewport */
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
 
 
     <script src="../js/index.js"></script>
@@ -681,8 +747,73 @@
 
 <!-- JavaScript Code -->
 <script>
-    // Function to fetch sports data with headers and handle both population and form submission
-    async function fetchAndHandleSportsData(callback) {
+    let roll_no;
+    let name;
+    let token;
+
+    async function decodeToken() {
+        const spinner = document.getElementById('loading-spinner');
+        spinner.style.display = 'flex'; // Show the spinner
+        try {
+            token = localStorage.getItem('token');
+            console.log('Token from localStorage:', token);
+
+            if (!token) {
+                console.error('Token not found in local storage');
+                window.location.href = '../../login/login.html';
+                return;
+            }
+
+            const response = await fetch('https://aagneya-backend.onrender.com/api/decodeToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Decoded token data:', data);
+
+                roll_no = data.roll_no;
+                name = data.name;
+
+                if (data.is_active === 1) {
+                    if (data.role_id === 0) {
+                        console.log("Hello admin");
+
+                        // Assuming you have an element with id 'name' to display user name
+                        const nameElement = document.getElementById('name');
+                        if (nameElement) {
+                            nameElement.textContent = name;
+                        }
+                    } else {
+                        // window.location.href = '../User Dashboard/dashboard.html';
+                    }
+                } else {
+                    console.error('User is not active');
+                    window.location.href = '../../login/login.html';
+                }
+
+                fetchAndPopulateSportsList(); // Populate sports list on page load
+
+            } else {
+                console.error('Failed to decode token:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error in decodeToken:', error.message);
+            window.location.href = '../../login/login.html';
+        } finally {
+            spinner.style.display = 'none'; // Hide the spinner
+        }
+    }
+
+    // Function to fetch sports data and populate sports list
+    async function fetchAndPopulateSportsList() {
         try {
             const response = await fetch('https://aagneya-backend.onrender.com/api/displaysports', {
                 method: 'GET',
@@ -693,10 +824,27 @@
             const data = await response.json();
             if (data.success) {
                 const sports = data.sports;
-                if (callback) {
-                    callback(sports);
-                }
-                return sports;
+                const sportsList = document.getElementById('sports_list');
+                sportsList.innerHTML = ''; // Clear existing options
+
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Select Sport';
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                sportsList.appendChild(defaultOption);
+
+                // Filter out sports with sport_id = 0
+                const filteredSports = sports.filter(sport => sport.sport_id !== 0);
+
+                filteredSports.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.sport_id;
+                    option.textContent = sport.sport_name;
+                    sportsList.appendChild(option);
+                });
+
+                return sports; // Return sports for further use
             } else {
                 console.error('Failed to fetch sports data');
                 return [];
@@ -707,39 +855,64 @@
         }
     }
 
-    // Function to populate sports list
-    function populateSportsList(sports) {
-        const sportsList = document.getElementById('sports_list');
-        sportsList.innerHTML = ''; // Clear existing options
+    // Function to send form data to /api/intramatches
+    async function sendMatchData(data) {
+        try {
+            const response = await fetch('https://aagneya-backend.onrender.com/api/intramatches', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
 
-        const defaultOption = document.createElement('option');
-        defaultOption.value = '';
-        defaultOption.textContent = 'Select Sport';
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        sportsList.appendChild(defaultOption);
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log('Event added successfully:', responseData.message);
 
-        // Filter out sports with sport_id = 0
-        const filteredSports = sports.filter(sport => sport.sport_id !== 0);
+                const successMsg = document.getElementById('msgok');
+                if (successMsg) {
+                    const message = responseData.message || 'Match added successfully'; // Default message
+                    document.getElementById('Msg').textContent = message;
+                    successMsg.style.display = 'flex';
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 3000); // Hide after 3 seconds
+                }
 
-        filteredSports.forEach(sport => {
-            const option = document.createElement('option');
-            option.value = sport.sport_id;
-            option.textContent = sport.sport_name;
-            sportsList.appendChild(option);
-        });
+                return true;
+            } else {
+                const errorData = await response.json();
+                const errorMessage = errorData.error || 'An unexpected error occurred.'; // Handle undefined message
+
+                console.error('Error message from API:', errorMessage);
+
+                const failMsg = document.getElementById('msgfail');
+                if (failMsg) {
+                    document.getElementById('FailMsg').textContent = errorMessage;
+                    failMsg.style.display = 'flex';
+                    setTimeout(() => {
+                        failMsg.style.display = 'none';
+                    }, 3000); // Hide after 3 seconds
+                }
+
+                return false;
+            }
+        } catch (error) {
+            console.error('Error sending data to the server:', error);
+
+            const failMsg = document.getElementById('msgfail');
+            if (failMsg) {
+                failMsg.style.display = 'flex';
+                setTimeout(() => {
+                    failMsg.style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+            }
+
+            return false;
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     // Function to handle form submission
@@ -765,12 +938,32 @@
         console.log("Year:", year);
 
         // Fetch sports data to find the selected sport name
-        const sports = await fetchAndHandleSportsData();
+        const sports = await fetchAndPopulateSportsList();
         const selectedSport = sports.find(sport => String(sport.sport_id) === String(selectedSportId));
         if (selectedSport) {
             console.log(`Sport Name: ${selectedSport.sport_name}`);
+            console.log(`Sport id: ${selectedSport.sport_id}`);
         } else {
             console.log('Sport not found');
+        }
+
+        // Prepare data to send to the server
+        const matchData = {
+            sport_id: selectedSportId,
+            house1: data['house1'],
+            house2: data['house2'],
+            house3: data['house3'],
+            house4: data['house4'],
+            date_time: dateTimeString,
+            year: year,
+            gender: data['gender_category']
+        };
+
+        // Send data to the server and handle the result
+        const isSuccess = await sendMatchData(matchData);
+        if (isSuccess) {
+            // Reset the form if data was successfully sent
+            event.target.reset();
         }
     }
 
@@ -810,8 +1003,7 @@
 
     // Event listeners
     window.onload = function() {
-        fetchAndHandleSportsData(populateSportsList); // Populate sports list on page load
+        decodeToken();
         initializeFlatpickr();
-        document.getElementById('competition-form').addEventListener('submit', handleSubmit);
     };
 </script>
