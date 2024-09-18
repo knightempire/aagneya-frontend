@@ -82,7 +82,7 @@
                     <div class="col-lg-5 ml-auto">
                         <h1 class="text-white">World Cup Event</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, molestias repudiandae pariatur.</p>
-                        <div id="date-countdown"></div>
+                        <div id="date-count"></div>
                         <p>
                             <a href="#" class="btn btn-primary py-3 px-4 mr-3">Book Ticket</a>
                             <a href="#" class="more light">Learn More</a>
@@ -168,9 +168,9 @@ function displayEvents() {
                         <h2 class="heading" style="color: rgb(241, 235, 235);">IntraMurals</h2>
                     </div>
                 </div>
-                <div class="row " >
+                <div class="row">
                     <div class="col-lg-6">
-                        <div class="widget-next-match" style=" background-image: url(https://th.bing.com/th/id/R.b29fffc9ba1ee871ac1dbb57867af4da?rik=Cg1NuUd%2fTbYwxA&pid=ImgRaw&r=0);">
+                        <div class="widget-next-match boys-match" style="background-image: url(https://th.bing.com/th/id/R.b29fffc9ba1ee871ac1dbb57867af4da?rik=Cg1NuUd%2fTbYwxA&pid=ImgRaw&r=0);">
                             <div class="widget-title">
                                 <h3>Next Match</h3>
                             </div>
@@ -178,52 +178,48 @@ function displayEvents() {
                                 <div class="widget-vs">
                                     <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
                                         <div class="team-1 text-center">
-                                            <!-- <img src="images/logo_1.png" alt="Image"> -->
-                                            <h3 class="t1">Football League</h3>
+                                            <h3 class="t1"></h3>
                                         </div>
                                         <div>
                                             <span class="vs"><span>VS</span></span>
                                         </div>
                                         <div class="team-2 text-center">
-                                            <!-- <img src="images/logo_2.png" alt="Image"> -->
-                                            <h3 class="t2">Soccer</h3>
+                                            <h3 class="t2"></h3>
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                             <div class="widget-body mb-3">
                                 <div class="widget-vs">
                                     <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
                                         <div class="team-1 text-center">
-                                            <!-- <img src="images/logo_1.png" alt="Image"> -->
-                                            <h3 class="t1">Football League</h3>
+                                            <h3 class="t3"></h3>
                                         </div>
                                         <div>
                                             <span class="vs"><span>VS</span></span>
                                         </div>
                                         <div class="team-2 text-center">
-                                            <!-- <img src="images/logo_2.png" alt="Image"> -->
-                                            <h3 class="t2">Soccer</h3>
+                                            <h3 class="t4"></h3>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                
                             <div class="text-center widget-vs-contents mb-4">
-                                <h4>World Cup League</h4>
+                                <h4 class="sport-name"></h4>
                                 <p class="mb-5">
-                                    <span class="d-block">December 20th, 2020</span>
-                                    <span class="d-block">9:30 AM GMT+0</span>
-                                    <strong class="text-primary">New Euro Arena</strong>
+                                    <span class="match-date"></span>
+                                    <span class="match-time"></span><br>
+                                    <strong class="text-primary match-gender"></strong>
                                 </p>
-
-                                <div id="date-countdown2" class="pb-1"></div>
+                
+                                <div id="date-count1" class="pb-1" style="font-size: x-large;"></div>
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="col-lg-6">
-                        <div class="widget-next-match" style=" background-image: url(https://th.bing.com/th/id/R.b29fffc9ba1ee871ac1dbb57867af4da?rik=Cg1NuUd%2fTbYwxA&pid=ImgRaw&r=0);">
+                        <div class="widget-next-match girls-match" style="background-image: url(https://th.bing.com/th/id/R.b29fffc9ba1ee871ac1dbb57867af4da?rik=Cg1NuUd%2fTbYwxA&pid=ImgRaw&r=0);">
                             <div class="widget-title">
                                 <h3>Next Match</h3>
                             </div>
@@ -231,15 +227,13 @@ function displayEvents() {
                                 <div class="widget-vs">
                                     <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
                                         <div class="team-1 text-center">
-                                            <!-- <img src="images/logo_1.png" alt="Image"> -->
-                                            <h3 class="t1">Football League</h3>
+                                            <h3 class="t1"></h3>
                                         </div>
                                         <div>
                                             <span class="vs"><span>VS</span></span>
                                         </div>
                                         <div class="team-2 text-center">
-                                            <!-- <img src="images/logo_2.png" alt="Image"> -->
-                                            <h3 class="t2">Soccer</h3>
+                                            <h3 class="t2"></h3>
                                         </div>
                                     </div>
                                 </div>
@@ -248,35 +242,181 @@ function displayEvents() {
                                 <div class="widget-vs">
                                     <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
                                         <div class="team-1 text-center">
-                                            <!-- <img src="images/logo_1.png" alt="Image"> -->
-                                            <h3 class="t1">Football League</h3>
+                                            <h3 class="t3"></h3>
                                         </div>
                                         <div>
                                             <span class="vs"><span>VS</span></span>
                                         </div>
                                         <div class="team-2 text-center">
-                                            <!-- <img src="images/logo_2.png" alt="Image"> -->
-                                            <h3 class="t2">Soccer</h3>
+                                            <h3 class="t4"></h3>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                
                             <div class="text-center widget-vs-contents mb-4">
-                                <h4>World Cup League</h4>
+                                <h4 class="sport-name"></h4>
                                 <p class="mb-5">
-                                    <span class="d-block">December 20th, 2020</span>
-                                    <span class="d-block">9:30 AM GMT+0</span>
-                                    <strong class="text-primary">New Euro Arena</strong>
+                                    <span class="match-date"></span>
+                                    <span class="match-time"></span><br>
+                                    <strong class="text-primary match-gender"></strong>
                                 </p>
-
-                                <div id="date-countdown2" class="pb-1"></div>
+                
+                                <div id="date-count2" class="pb-1" style="font-size: x-large;" ></div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+                
                 <br><br><br>
+
+<style>
+#date-count1, #date-count2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between time units */
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: lighter;
+}
+
+.date-count-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+}
+
+.date-count-section span {
+    font-size: 2rem; /* Bigger font for numbers */
+    font-weight: bold;
+}
+
+.date-count-section small {
+    font-size: 1rem; /* Smaller label font */
+    margin-top: 5px;
+    color: #b3b3b3; /* Light gray for labels */
+}
+
+#date-count1, #date-count2 {
+    margin-top: 20px;
+}
+
+.widget-next-match {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.widget-title h3 {
+    color: white;
+    font-weight: bold;
+}@media (max-width: 768px) {
+    #date-count1, #date-count2 {
+        font-size: 1rem;
+        padding: 5px;
+    }
+}
+
+
+</style>
+                <script>
+                    async function fetchMatches() {
+    try {
+        const response = await fetch('https://aagneya-backend.onrender.com/api/displayallintramatches');
+        const data = await response.json();
+
+        if (data.success) {
+            const matches = data.matches;
+            
+            const boysMatch = matches.find(match => match.gender === 'Boys');
+            const girlsMatch = matches.find(match => match.gender === 'Girls');
+
+            if (boysMatch) {
+                populateMatchData('.boys-match', boysMatch, 'date-count1');
+            }
+
+            if (girlsMatch) {
+                populateMatchData('.girls-match', girlsMatch, 'date-count2');
+            }
+        }
+    } catch (error) {
+        console.error('Error fetching matches:', error);
+    }
+}
+function populateMatchData(selector, matchData, countdownId) {
+    const matchElement = document.querySelector(selector);
+
+    // Update house names
+    console.log('Populating match data for', selector, matchData); // Debugging
+    
+    matchElement.querySelector('.t1').innerText = matchData.house1 || '';
+    matchElement.querySelector('.t2').innerText = matchData.house2 || '';
+    matchElement.querySelector('.t3').innerText = matchData.house3 || '';
+    matchElement.querySelector('.t4').innerText = matchData.house4 || '';
+    
+    matchElement.querySelector('.sport-name').innerText = matchData.sport_name || '';
+    const matchDateTime = new Date(matchData.date_time);
+    matchElement.querySelector('.match-date').innerText = matchDateTime.toLocaleDateString();
+    matchElement.querySelector('.match-time').innerText = matchDateTime.toLocaleTimeString();
+    matchElement.querySelector('.match-gender').innerText = matchData.gender || '';
+
+    // Start countdown
+    startCountdown(matchDateTime, countdownId);
+}
+
+
+function startCountdown(matchDateTime, countdownId) {
+    const countdownElement = document.getElementById(countdownId);
+    
+    function updateCountdown() {
+        const now = new Date();
+        const timeDifference = matchDateTime - now;
+        
+        if (timeDifference <= 0) {
+            countdownElement.innerText = 'Match started';
+            clearInterval(countdownInterval);
+            return;
+        }
+
+        const weeks = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 7));
+        const days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `
+            <div class="date-count-section">
+                <span>${weeks}</span>
+                <small>weeks</small>
+            </div>
+            <div class="date-count-section">
+                <span>${days}</span>
+                <small>days</small>
+            </div>
+            <div class="date-count-section">
+                <span>${hours}</span>
+                <small>hr</small>
+            </div>
+            <div class="date-count-section">
+                <span>${minutes}</span>
+                <small>min</small>
+            </div>
+            <div class="date-count-section">
+                <span>${seconds}</span>
+                <small>sec</small>
+            </div>
+        `;
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+}
+fetchMatches();
+
+                </script>
                 <!-- Points -->
                 <div class="row ">
 
