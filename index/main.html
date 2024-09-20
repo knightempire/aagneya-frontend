@@ -93,7 +93,7 @@
         </div>
 
 
-        <div class="latest-news"style="background-image:url(https://t3.ftcdn.net/jpg/02/98/77/98/360_F_298779829_ibEOUDbVsakvtZVH1vG0Mk0bt1FAoCNM.jpg);background-size: cover;background-repeat: no-repeat;background-attachment: fixed;background-position: center; ">
+        <div class="latest-news">
             <div class="container">
                 <div class="row">
                     <div class="col-12 title-section">
@@ -106,24 +106,23 @@
             </div>
 
         </div>
-<script>
+        <script>
+            function displayEvents() {
+                fetch('https://aagneya-backend.onrender.com/api/displayevent')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Extract the first three events
+                            const events = data.event.slice(0, 4); // Adjust the number if needed
 
-function displayEvents() {
-            fetch('https://aagneya-backend.onrender.com/api/displayevent')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Extract the first three events
-                        const events = data.event.slice(0, 4); // Adjust the number if needed
-                        
-                        // Generate the HTML for each event
-                        const eventHtml = events.map(event => {
-                            const sportTag = event.sport_name.toLowerCase().replace(/\s+/g, '-'); // Convert sport name to a suitable format
-                            const imagePath = `./images/sports/${sportTag}.jpg`;
-                            
-                            console.log(`Image Path: ${imagePath}`); // Debugging line
-                            
-                            return `
+                            // Generate the HTML for each event
+                            const eventHtml = events.map(event => {
+                                const sportTag = event.sport_name.toLowerCase().replace(/\s+/g, '-'); // Convert sport name to a suitable format
+                                const imagePath = `./images/sports/${sportTag}.jpg`;
+
+                                console.log(`Image Path: ${imagePath}`); // Debugging line
+
+                                return `
                                 <div class="col-lg-3 col-sm-6 p-0">
                                     <div class="soccer-item set-bg" style="background-image: url(${imagePath});">
                                         <div class="si-tag sports">${event.sport_name}</div>
@@ -137,32 +136,38 @@ function displayEvents() {
                                     </div>
                                 </div>
                             `;
-                        }).join('');
-                        
-                        // Insert the generated HTML into the page
-                        document.getElementById('events').innerHTML = eventHtml;
-                    }
-                })
-                .catch(error => console.error('Error fetching events:', error));
-        }
+                            }).join('');
 
-        // Call the function to load events immediately
-        displayEvents();
-</script>
-<style>
-    .t1 {
-        max-width: 120px;margin: 0 auto;
-    }
-    .t2{
-        max-width: 120px;margin: 0 auto;
-    }
-    .vs{
-        position: absolute; left: 48%; z-index: 1;
-    }
-</style>
+                            // Insert the generated HTML into the page
+                            document.getElementById('events').innerHTML = eventHtml;
+                        }
+                    })
+                    .catch(error => console.error('Error fetching events:', error));
+            }
+
+            // Call the function to load events immediately
+            displayEvents();
+        </script>
+        <style>
+            .t1 {
+                max-width: 120px;
+                margin: 0 auto;
+            }
+            
+            .t2 {
+                max-width: 120px;
+                margin: 0 auto;
+            }
+            
+            .vs {
+                position: absolute;
+                left: 48%;
+                z-index: 1;
+            }
+        </style>
         <!-- Match Section Begin -->
-        <section class="match-section set-bg" style="background-color: rgb(84, 81, 81);">
-            <div class="container " >
+        <section class="match-section set-bg" style="background-color: #343a40;">
+            <div class="container ">
                 <div class="row">
                     <div class="col-12 title-section">
                         <h2 class="heading" style="color: rgb(241, 235, 235);">IntraMurals</h2>
@@ -204,7 +209,7 @@ function displayEvents() {
                                     </div>
                                 </div>
                             </div>
-                
+
                             <div class="text-center widget-vs-contents mb-4">
                                 <h4 class="sport-name"></h4>
                                 <p class="mb-5">
@@ -212,12 +217,12 @@ function displayEvents() {
                                     <span class="match-time"></span><br>
                                     <strong class="text-primary match-gender"></strong>
                                 </p>
-                
+
                                 <div id="date-count1" class="pb-1" style="font-size: x-large;"></div>
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="col-lg-6">
                         <div class="widget-next-match girls-match" style="background-image: url(https://th.bing.com/th/id/R.b29fffc9ba1ee871ac1dbb57867af4da?rik=Cg1NuUd%2fTbYwxA&pid=ImgRaw&r=0);">
                             <div class="widget-title">
@@ -253,7 +258,7 @@ function displayEvents() {
                                     </div>
                                 </div>
                             </div>
-                
+
                             <div class="text-center widget-vs-contents mb-4">
                                 <h4 class="sport-name"></h4>
                                 <p class="mb-5">
@@ -261,13 +266,13 @@ function displayEvents() {
                                     <span class="match-time"></span><br>
                                     <strong class="text-primary match-gender"></strong>
                                 </p>
-                
-                                <div id="date-count2" class="pb-1" style="font-size: x-large;" ></div>
+
+                                <div id="date-count2" class="pb-1" style="font-size: x-large;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <br><br><br>
 
 
@@ -466,7 +471,7 @@ function displayEvents() {
                 </div>
             </div>
         </section> -->
-       
+
         <!-- .site-section -->
         <div class="site-section" style="background-image:url(https://t3.ftcdn.net/jpg/02/98/77/98/360_F_298779829_ibEOUDbVsakvtZVH1vG0Mk0bt1FAoCNM.jpg);background-size: cover;background-repeat: no-repeat;background-attachment: fixed;background-position: center; ">
             <div class="container">
@@ -486,7 +491,7 @@ function displayEvents() {
                     <div class="item">
                         <div class="video-media">
                             <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Image" class="img-fluid custom-img">
-                            <a href="#" class="d-flex play-button align-items-center"  data-fancybox>
+                            <a href="#" class="d-flex play-button align-items-center" data-fancybox>
                                 <!-- <span class="icon mr-3">
                                     <span class="icon-play"></span>
                                 </span> -->
@@ -500,42 +505,42 @@ function displayEvents() {
                     <div class="item">
                         <div class="video-media">
                             <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Image" class="img-fluid custom-img">
+                            <a href="# class=" d-flex play-button align-items-center " data-fancybox>
+                                <!-- <span class="icon mr-3 ">
+                                    <span class="icon-play "></span>
+                                </span> -->
+                            </a>
+                            <div class="caption " style="background-color: azure; ">
+                                <h4 class="m-0 "style="color: black; ">Dogba set for Juvendu return?</h4>
+                                <h5 class="m-0 "style="color: black; "> sports name</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item ">
+                        <div class="video-media ">
+                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630 " alt="Image " class="img-fluid custom-img ">
                             <a href="# class="d-flex play-button align-items-center" data-fancybox>
                                 <!-- <span class="icon mr-3">
                                     <span class="icon-play"></span>
                                 </span> -->
                             </a>
                             <div class="caption" style="background-color: azure;">
-                                <h4 class="m-0"style="color: black;">Dogba set for Juvendu return?</h4>
-                                <h5 class="m-0"style="color: black;"> sports name</h5>
+                                <h4 class="m-0" style="color: black;">Dogba set for Juvendu return?</h4>
+                                <h5 class="m-0" style="color: black;"> sports name</h5>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="video-media">
                             <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Image" class="img-fluid custom-img">
-                            <a href="# class="d-flex play-button align-items-center" data-fancybox>
-                                <!-- <span class="icon mr-3">
-                                    <span class="icon-play"></span>
+                            <a href="# class=" d-flex play-button align-items-center " data-fancybox>
+                                <!-- <span class="icon mr-3 ">
+                                    <span class="icon-play "></span>
                                 </span> -->
                             </a>
-                            <div class="caption" style="background-color: azure;">
-                                <h4 class="m-0"style="color: black;">Dogba set for Juvendu return?</h4>
-                                <h5 class="m-0"style="color: black;"> sports name</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="video-media">
-                            <img src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="Image" class="img-fluid custom-img">
-                            <a href="# class="d-flex play-button align-items-center" data-fancybox>
-                                <!-- <span class="icon mr-3">
-                                    <span class="icon-play"></span>
-                                </span> -->
-                            </a>
-                            <div class="caption" style="background-color: azure;">
-                                <h4 class="m-0"style="color: black;">Dogba set for Juvendu return?</h4>
-                                <h5 class="m-0"style="color: black;"> sports name</h5>
+                            <div class="caption " style="background-color: azure; ">
+                                <h4 class="m-0 "style="color: black; ">Dogba set for Juvendu return?</h4>
+                                <h5 class="m-0 "style="color: black; "> sports name</h5>
                             </div>
                         </div>
                     </div>
@@ -561,10 +566,10 @@ function displayEvents() {
                 }
         </style>
            
-        <div class="container site-section ">
+        <!-- <div class="container site-section ">
             <div class="row ">
                 <div class="col-6 title-section ">
-                    <h2 class="heading " style="color: black;">Our Blog</h2>
+                    <h2 class="heading " style="color: black; ">Our Blog</h2>
                 </div>
             </div> 
             <div class="row ">
@@ -574,9 +579,9 @@ function displayEvents() {
                             <img src="images/img_1.jpg " alt="Image " class="img-fluid ">
                         </div>
                         <div class="text ">
-                            <span class="meta "style="color: black;">May 20, 2020</span>
-                            <h3 class="mb-4 "style="color: black;"><a href="# "style="color: black;">Romolu to stay at Real Nadrid?</a></h3>
-                            <p style="color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
+                            <span class="meta "style="color: black; ">May 20, 2020</span>
+                            <h3 class="mb-4 "style="color: black; "><a href="# "style="color: black; ">Romolu to stay at Real Nadrid?</a></h3>
+                            <p style="color: black; ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
                             <p><a href="# ">Read more</a></p>
                         </div>
                     </div>
@@ -587,15 +592,15 @@ function displayEvents() {
                             <img src="images/img_3.jpg " alt="Image " class="img-fluid ">
                         </div>
                         <div class="text ">
-                            <span class="meta "style="color: black;">May 20, 2020</span>
-                            <h3 class="mb-4 "style="color: black;"><a href="# "style="color: black;">Romolu to stay at Real Nadrid?</a></h3>
-                            <p style="color: black;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
+                            <span class="meta "style="color: black; ">May 20, 2020</span>
+                            <h3 class="mb-4 "style="color: black; "><a href="# "style="color: black; ">Romolu to stay at Real Nadrid?</a></h3>
+                            <p style="color: black; "> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
                             <p><a href="# ">Read more</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -789,23 +794,23 @@ function displayEvents() {
                     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
             
                     countdownElement.innerHTML = `
-                        <div class="date-count-section">
+                        <div class="date-count-section ">
                             <span>${weeks}</span>
                             <small>weeks</small>
                         </div>
-                        <div class="date-count-section">
+                        <div class="date-count-section ">
                             <span>${days}</span>
                             <small>days</small>
                         </div>
-                        <div class="date-count-section">
+                        <div class="date-count-section ">
                             <span>${hours}</span>
                             <small>hr</small>
                         </div>
-                        <div class="date-count-section">
+                        <div class="date-count-section ">
                             <span>${minutes}</span>
                             <small>min</small>
                         </div>
-                        <div class="date-count-section">
+                        <div class="date-count-section ">
                             <span>${seconds}</span>
                             <small>sec</small>
                         </div>
@@ -838,9 +843,9 @@ function displayEvents() {
     <script src="js/jquery.mb.YTPlayer.min.js "></script>
 
 
-    <script src="js/main.js "></script><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="path/to/your/main.js"></script>
+    <script src="js/main.js "></script><script src="https://code.jquery.com/jquery-3.3.1.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js "></script>
+    <script src="path/to/your/main.js "></script>
 
 </body>
 
