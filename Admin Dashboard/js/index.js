@@ -145,40 +145,40 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const toggleSubmenu = document.querySelectorAll('.toggle-submenu');
 
     toggleSubmenu.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
             const targetId = this.getAttribute('data-target');
             const submenu = document.getElementById(`${targetId}-submenu`);
 
-            // Check if the clicked menu item is 'Community' and has 'active' class
-            if (targetId === 'community' && this.parentNode.classList.contains('active')) {
-                // Toggle submenu display
-                if (submenu.style.display === 'none' || submenu.style.display === '') {
-                    submenu.style.display = 'block';
-                } else {
-                    submenu.style.display = 'none';
-                }
+            // Check if the clicked menu item has the 'active' class and toggle accordingly
+            if (this.parentNode.classList.contains('active')) {
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
             } else {
-                // Hide all other submenus when clicking on other menu items
+                // Hide all other submenus when clicking on different menu items
                 const allSubmenus = document.querySelectorAll('.submenu');
-                allSubmenus.forEach(sub => {
-                    if (sub !== submenu) {
-                        sub.style.display = 'none';
-                    }
-                });
+                allSubmenus.forEach(sub => sub.style.display = 'none');
+
+                // Toggle the current submenu
+                submenu.style.display = 'block';
             }
+
+            // Toggle the 'active' class
+            const allMenuItems = document.querySelectorAll('.toggle-submenu');
+            allMenuItems.forEach(menuItem => menuItem.parentNode.classList.remove('active'));
+            this.parentNode.classList.add('active');
         });
 
-        // Check on page load if 'Community' menu item has 'active' class
+        // On page load, check if the menu item has the 'active' class and display its submenu
         const targetId = item.getAttribute('data-target');
         const submenu = document.getElementById(`${targetId}-submenu`);
-        if (targetId === 'community' && item.parentNode.classList.contains('active')) {
+        if (item.parentNode.classList.contains('active')) {
             submenu.style.display = 'block';
+        } else {
+            submenu.style.display = 'none';
         }
     });
 });

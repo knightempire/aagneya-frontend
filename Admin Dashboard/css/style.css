@@ -625,6 +625,10 @@ body {
     padding: 8px 24px;
 }
 
+#intra-submenu li {
+    display: block;
+    padding: 8px 24px;
+}
 /*notification css*/
 .notif-wrapper {
     position: relative;
