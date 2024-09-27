@@ -5,7 +5,7 @@ Welcome to the Aagneya Sports Club web application project! This application is 
 ## Visit Our Site 
 
 Check out our live site at [this link](https://knightempire.github.io/aagneya-frontend/homepage/home.html) to explore the application and see its features in action.
-
+ 
 
 ## Technologies and Tools
  
