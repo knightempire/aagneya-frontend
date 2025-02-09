@@ -13,7 +13,7 @@ Check out our live site at [this link](https://knightempire.github.io/aagneya-fr
 - **CSS**: Used for styling the web pages.
 - **JavaScript**: Used for adding interactivity and functionality to the web pages.
 - **Bootstrap**: A front-end framework used for designing responsive and mobile-first websites.
-- **Tailwind CSS**: A utility-first CSS framework used for rapidly building custom designs.
+- **Tailwind CSS**: A utility-first CSS framework used for rapidly building custom designs. 
 
 
 
